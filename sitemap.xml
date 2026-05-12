@@ -66,4 +66,10 @@
     <priority>0.6</priority>
     <lastmod>2026-05-12</lastmod>
   </url>
+  <url>
+    <loc>https://therealmacsteel.github.io/legal.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-05-12</lastmod>
+  </url>
 </urlset>
