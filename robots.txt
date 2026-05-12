@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /assets/
+
+Sitemap: https://therealmacsteel.github.io/sitemap.xml
+Sitemap: https://therealmacsteel.github.io/sitemap-local.xml
