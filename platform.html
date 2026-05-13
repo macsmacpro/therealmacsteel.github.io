@@ -177,13 +177,13 @@
       <div class="card agent-card reveal">
         <div class="agent-role">INTELLIGENCE</div>
         <div class="agent-name">Research</div>
-        <div class="agent-desc">Market intelligence, competitor tracking, industry trends, citation retrieval. Routes to Perplexity for citations, DeepSeek for synthesis.</div>
+        <div class="agent-desc">Market intelligence, competitor tracking, industry trends, citation retrieval. Routes tasks to the optimal intelligence layer for each query type.</div>
       </div>
 
       <div class="card agent-card reveal">
         <div class="agent-role">CONTENT</div>
         <div class="agent-name">Worker</div>
-        <div class="agent-desc">Content production, scripts, video captions, social copy, email drafts. Primary ChatGPT bridge user — optimized for creative output.</div>
+        <div class="agent-desc">Content production, scripts, video captions, social copy, email drafts. Optimized for creative output across all content formats.</div>
       </div>
 
       <div class="card agent-card reveal">
@@ -201,7 +201,7 @@
       <div class="card agent-card reveal">
         <div class="agent-role">SOCIAL</div>
         <div class="agent-name">Social</div>
-        <div class="agent-desc">Multi-platform monitoring, posting coordination, engagement tracking, social signal scanning. Grok bridge for trending intelligence.</div>
+        <div class="agent-desc">Multi-platform monitoring, posting coordination, engagement tracking, social signal scanning. Real-time trend awareness across all platforms.</div>
       </div>
 
       <div class="card agent-card reveal">
@@ -249,15 +249,15 @@
       <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.75rem;text-align:center">
         <div style="padding:.5rem 1rem;border:1px solid var(--primary);border-radius:6px;color:var(--primary)">Agent Task</div>
         <div style="color:var(--muted)">→</div>
-        <div style="padding:.5rem 1rem;border:1px solid var(--muted);border-radius:6px;color:var(--text)">n8n Router</div>
+        <div style="padding:.5rem 1rem;border:1px solid var(--muted);border-radius:6px;color:var(--text)">Task Router</div>
         <div style="color:var(--muted)">→</div>
-        <div style="padding:.5rem 1rem;border:1px solid var(--secondary);border-radius:6px;color:var(--secondary)">Bridge Server :18792</div>
+        <div style="padding:.5rem 1rem;border:1px solid var(--secondary);border-radius:6px;color:var(--secondary)">Proprietary Bridge</div>
         <div style="color:var(--muted)">→</div>
-        <div style="padding:.5rem 1rem;border:1px solid var(--muted);border-radius:6px;color:var(--text)">Chrome CDP :18800</div>
+        <div style="padding:.5rem 1rem;border:1px solid var(--muted);border-radius:6px;color:var(--text)">AI Browser Session</div>
         <div style="color:var(--muted)">→</div>
-        <div style="padding:.5rem 1rem;border:1px solid var(--primary);border-radius:6px;color:var(--primary)">AI Browser UI</div>
+        <div style="padding:.5rem 1rem;border:1px solid var(--primary);border-radius:6px;color:var(--primary)">Response Returned</div>
       </div>
-      <p style="text-align:center;margin-top:1rem;color:var(--muted);font-size:.7rem;font-family:Inter,system-ui,sans-serif">Chrome DevTools Protocol sends text to logged-in browser sessions. Response extracted. Returned to agent. No API key. No billing.</p>
+      <p style="text-align:center;margin-top:1rem;color:var(--muted);font-size:.7rem;font-family:Inter,system-ui,sans-serif">Proprietary bridge architecture routes queries to AI browser sessions already logged in. No API key. No billing. <a href="#membership" style="color:var(--primary)">Full implementation in Members Library →</a></p>
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem">
@@ -428,6 +428,45 @@
   </div>
 </section>
 
+<!-- ── Members Library ── -->
+<section class="section" id="membership" style="background:var(--bg2)">
+  <div class="container" style="max-width:800px;margin:0 auto;text-align:center">
+    <div class="hero-badge" style="margin-bottom:1rem">MEMBERS LIBRARY</div>
+    <h2 style="margin-bottom:.75rem">The Full <span style="color:var(--primary)">Implementation Guide</span></h2>
+    <p style="color:var(--muted);margin-bottom:2rem">The public page shows you what. The Members Library shows you exactly how — with real configs, real cron recipes, and the bridge architecture that makes $0 operational cost possible.</p>
+
+    <div style="border:1px solid var(--card-border);border-radius:12px;padding:2rem;margin-bottom:2rem;text-align:left">
+      <div style="color:var(--primary);font-size:.8rem;letter-spacing:.1em;margin-bottom:1rem">LOCKED — MEMBERS ONLY</div>
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.75rem">
+        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
+          <span style="color:var(--primary)">🔒</span> The exact bridge implementation — how we route AI queries for free
+        </li>
+        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
+          <span style="color:var(--primary)">🔒</span> All 22 agent IDENTITY.md configuration files
+        </li>
+        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
+          <span style="color:var(--primary)">🔒</span> The model routing logic — which AI handles which task and why
+        </li>
+        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
+          <span style="color:var(--primary)">🔒</span> 55 production cron recipes with exact schedules
+        </li>
+        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
+          <span style="color:var(--primary)">🔒</span> Lead scoring algorithm and ICP matching criteria
+        </li>
+        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
+          <span style="color:var(--primary)">🔒</span> RE deal analysis methodology and scoring matrices
+        </li>
+        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
+          <span style="color:var(--primary)">🔒</span> Weekly build log — what the system actually built and learned
+        </li>
+      </ul>
+    </div>
+
+    <a href="SUBSTACK_URL_PLACEHOLDER" class="btn btn-primary" style="margin-right:1rem">Join Members Library — $47/mo →</a>
+    <a href="contact.html" class="btn btn-secondary">Done-For-You Build →</a>
+  </div>
+</section>
+
 <!-- ── CTA ── -->
 <section class="section-sm" style="background:var(--bg2);text-align:center">
   <div class="container">
@@ -511,7 +550,7 @@
     "Real estate market intelligence (7 markets)",
     "SEO automation (rank tracking, content generation, backlink scanning)",
     "Self-healing and self-evolving architecture",
-    "Chrome DevTools Protocol bridge server",
+    "Proprietary AI bridge architecture",
     "$0/month operational cost"
   ],
   "url": "https://therealmacsteel.github.io/platform.html"
