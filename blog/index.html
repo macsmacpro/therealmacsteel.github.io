@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Automation Blog | Mac Steel | OpenClaw</title>
-  <meta name="description" content="Tutorials, guides, and deep dives on building free autonomous AI automation systems. Replace Clay, Manus.ai, Zapier, and Apollo with self-hosted AI agents." />
-  <meta name="keywords" content="AI automation blog, autonomous AI agents tutorial, free AI automation guide, Clay alternative, Manus alternative, replace Zapier free, self-hosted AI" />
+  <title>SteelWorks Intelligence Blog — Autonomous AI Build Log | Mac Steel</title>
+  <meta name="description" content="Build logs, how-to guides, and real estate AI intel from Mac Steel. Watch an autonomous business system get built in public." />
+  <meta name="keywords" content="AI automation blog, build in public, autonomous AI agents, SteelWorks Intelligence, free AI automation, self-hosted AI 2026" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Mac Steel" />
   <link rel="canonical" href="https://therealmacsteel.github.io/blog/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="AI Automation Blog | Mac Steel | OpenClaw" />
-  <meta property="og:description" content="Free guides on building autonomous AI systems. Replace $500/mo SaaS with self-hosted agents." />
+  <meta property="og:title" content="SteelWorks Intelligence Blog — Autonomous AI Build Log" />
+  <meta property="og:description" content="Build logs, how-to guides, and real estate AI intel from Mac Steel building autonomous business systems in public." />
   <meta property="og:url" content="https://therealmacsteel.github.io/blog/" />
   <meta property="og:image" content="https://therealmacsteel.github.io/assets/brand/banner.png" />
-  <meta property="og:site_name" content="Mac Steel | Enhance Everything" />
+  <meta property="og:site_name" content="Mac Steel | SteelWorks Intelligence" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@therealmacsteel" />
   <meta name="twitter:creator" content="@therealmacsteel" />
+  <link rel="alternate" type="application/rss+xml" title="SteelWorks Intelligence Blog" href="https://therealmacsteel.github.io/blog/feed.xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -27,18 +28,11 @@
   {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Mac Steel AI Automation Blog",
-    "description": "Tutorials, guides, and deep dives on building free autonomous AI automation systems.",
+    "name": "SteelWorks Intelligence Blog",
+    "description": "Build logs, how-to guides, and real estate AI intel from Mac Steel.",
     "url": "https://therealmacsteel.github.io/blog/",
-    "author": {
-      "@type": "Person",
-      "name": "Mac Steel",
-      "url": "https://therealmacsteel.github.io"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Mac Steel"
-    }
+    "author": {"@type": "Person", "name": "Mac Steel", "url": "https://therealmacsteel.github.io"},
+    "publisher": {"@type": "Person", "name": "Mac Steel"}
   }
   </script>
 </head>
@@ -63,65 +57,78 @@
 
 <div class="page-header">
   <div class="container">
-    <div class="hero-badge" style="margin-bottom:1rem">AI AUTOMATION BLOG</div>
-    <h1>Build <span style="color:var(--primary)">Without Paying</span></h1>
-    <p>Tutorials, guides, and real-world builds for entrepreneurs replacing expensive SaaS with autonomous AI agents.</p>
+    <div class="hero-badge" style="margin-bottom:1rem">AUTONOMOUS AI BUILD LOG</div>
+    <h1>Build <span style="color:var(--primary)">in Public</span></h1>
+    <p>Daily logs, how-to guides, RE intel, and system updates — watching an autonomous business system get built from scratch.</p>
   </div>
 </div>
 
 <section class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem">
 
-      <article class="card reveal" style="display:flex;flex-direction:column">
-        <div style="color:var(--muted);font-size:.75rem;margin-bottom:.75rem">May 12, 2026 · 8 min read</div>
-        <h2 style="font-size:1.2rem;margin-bottom:.75rem;color:var(--primary)">
-          <a href="how-i-built-free-ai-automation-beats-clay.html" style="color:inherit;text-decoration:none">
-            How I Built a Free AI Automation System That Beats Clay.com
-          </a>
-        </h2>
-        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Clay charges $150-800/month for lead enrichment and automation. I replaced it completely with OpenClaw — a self-hosted system that does more, costs nothing, and you actually own.</p>
-        <div style="margin-top:1.25rem;display:flex;gap:.75rem;flex-wrap:wrap">
-          <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px;color:var(--muted)">free AI automation</span>
-          <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px;color:var(--muted)">Clay alternative</span>
-          <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px;color:var(--muted)">lead generation</span>
+    <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem">
+      <button class="btn btn-secondary" data-filter="" style="color:var(--primary);border-color:var(--primary)" style="font-size:.75rem;padding:.4rem .9rem" onclick="filterPosts('')">All</button>
+      <button class="btn btn-secondary" data-filter="BUILD-IN-PUBLIC"  style="font-size:.75rem;padding:.4rem .9rem" onclick="filterPosts('BUILD-IN-PUBLIC')">Build-in-Public</button>
+      <button class="btn btn-secondary" data-filter="HOW-TO"  style="font-size:.75rem;padding:.4rem .9rem" onclick="filterPosts('HOW-TO')">How-To</button>
+      <button class="btn btn-secondary" data-filter="SYSTEM UPDATE"  style="font-size:.75rem;padding:.4rem .9rem" onclick="filterPosts('SYSTEM UPDATE')">System Update</button>
+      <button class="btn btn-secondary" data-filter="RE INTEL"  style="font-size:.75rem;padding:.4rem .9rem" onclick="filterPosts('RE INTEL')">RE Intel</button>
+      <button class="btn btn-secondary" data-filter="COMPARISON"  style="font-size:.75rem;padding:.4rem .9rem" onclick="filterPosts('COMPARISON')">Comparison</button>
+    </div>
+
+    <div id="posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem">
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">May 13, 2026</span>
         </div>
-        <a href="how-i-built-free-ai-automation-beats-clay.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="2026-05-13-day-1-autonomous-business.html" style="color:inherit;text-decoration:none">Day 1: I Turned My Mac Into an Autonomous Business — Here's What Happened</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Day 1 of running SteelWorks Intelligence autonomously: 221 leads added, 5 revenue opportunities surfaced, 22 AI agents running — all while I slept. Real results</p>
+        <a href="2026-05-13-day-1-autonomous-business.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
       </article>
 
-      <article class="card reveal" style="display:flex;flex-direction:column">
-        <div style="color:var(--muted);font-size:.75rem;margin-bottom:.75rem">May 12, 2026 · 9 min read</div>
-        <h2 style="font-size:1.2rem;margin-bottom:.75rem;color:var(--primary)">
-          <a href="openclaw-vs-manus-ai-i-built-my-own.html" style="color:inherit;text-decoration:none">
-            OpenClaw vs Manus.ai: I Built My Own and It's Better
-          </a>
-        </h2>
-        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Manus.ai is impressive. But it's cloud-only, costs money, and you don't own the data. I built OpenClaw — 22 autonomous agents, self-hosted, self-improving, $0/month.</p>
-        <div style="margin-top:1.25rem;display:flex;gap:.75rem;flex-wrap:wrap">
-          <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px;color:var(--muted)">Manus AI alternative</span>
-          <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px;color:var(--muted)">autonomous AI agents</span>
-          <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px;color:var(--muted)">self-hosted AI</span>
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">May 12, 2026</span>
         </div>
-        <a href="openclaw-vs-manus-ai-i-built-my-own.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
-      </article>
-
-      <article class="card reveal" style="display:flex;flex-direction:column">
-        <div style="color:var(--muted);font-size:.75rem;margin-bottom:.75rem">May 12, 2026 · 10 min read</div>
-        <h2 style="font-size:1.2rem;margin-bottom:.75rem;color:var(--primary)">
-          <a href="replace-zapier-make-free-ai-agents-2026.html" style="color:inherit;text-decoration:none">
-            How to Replace Zapier and Make.com With Free AI Agents in 2026
-          </a>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="replace-zapier-make-free-ai-agents-2026.html" style="color:inherit;text-decoration:none">How to Replace Zapier and Make.com With Free AI Agents in 2026</a>
         </h2>
-        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Step-by-step: how I replaced Zapier ($29-69/month) and Make.com ($9-29/month) with autonomous AI agents that are smarter, more flexible, and completely free.</p>
-        <div style="margin-top:1.25rem;display:flex;gap:.75rem;flex-wrap:wrap">
-          <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px;color:var(--muted)">replace Zapier free</span>
-          <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px;color:var(--muted)">Zapier alternative 2026</span>
-          <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px;color:var(--muted)">AI automation agents</span>
-        </div>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Step-by-step guide to replacing Zapier ($29-69/mo) and Make.com ($9-29/mo) with autonomous AI agents. Smarter, more flexible, completely free. Real builds, real</p>
         <a href="replace-zapier-make-free-ai-agents-2026.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
       </article>
 
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">May 12, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="openclaw-vs-manus-ai-i-built-my-own.html" style="color:inherit;text-decoration:none">OpenClaw vs Manus.ai: I Built My Own and It's Better</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Manus.ai costs $50-200/month and runs on their cloud. I built OpenClaw — 22 autonomous AI agents, self-hosted, self-improving, at $0/month. Full comparison with</p>
+        <a href="openclaw-vs-manus-ai-i-built-my-own.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">May 12, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="how-i-built-free-ai-automation-beats-clay.html" style="color:inherit;text-decoration:none">How I Built a Free AI Automation System That Beats Clay.com</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Clay charges $150-800/month. I built OpenClaw — a free self-hosted AI automation system that does everything Clay does plus autonomous agents, content creation,</p>
+        <a href="how-i-built-free-ai-automation-beats-clay.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
     </div>
+
+    <p id="no-posts" style="display:none;color:var(--muted);text-align:center;padding:2rem">No posts in this category yet.</p>
+
   </div>
 </section>
 
@@ -139,12 +146,34 @@
 <footer>
   <div class="container">
     <div class="footer-bottom">
-      <span>© 2026 Mac Steel — Enhance Everything</span>
+      <span>© 2026 Mac Steel — SteelWorks Intelligence</span>
       <span>Built with <a href="../platform.html" style="color:var(--primary)">OpenClaw</a></span>
     </div>
   </div>
 </footer>
 
 <script src="../assets/main.js"></script>
+<script>
+function filterPosts(category) {
+  const cards = document.querySelectorAll('#posts-grid article');
+  const btns = document.querySelectorAll('[data-filter]');
+  let visible = 0;
+  btns.forEach(b => {
+    b.style.color = '';
+    b.style.borderColor = '';
+    if (b.dataset.filter === category) {
+      b.style.color = 'var(--primary)';
+      b.style.borderColor = 'var(--primary)';
+    }
+  });
+  cards.forEach(c => {
+    const match = !category || c.dataset.category === category;
+    c.style.display = match ? '' : 'none';
+    if (match) visible++;
+  });
+  document.getElementById('no-posts').style.display = visible === 0 ? '' : 'none';
+}
+</script>
+
 </body>
 </html>

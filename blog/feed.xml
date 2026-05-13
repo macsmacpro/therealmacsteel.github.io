@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SteelWorks Intelligence Blog</title>
+    <link>https://therealmacsteel.github.io/blog/</link>
+    <description>Build logs, how-to guides, and AI intel from Mac Steel.</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 May 2026 22:52:39 +0000</lastBuildDate>
+    <atom:link href="https://therealmacsteel.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Day 1: I Turned My Mac Into an Autonomous Business — Here's What Happened</title>
+      <link>https://therealmacsteel.github.io/blog/2026-05-13-day-1-autonomous-business.html</link>
+      <description>Day 1 of running SteelWorks Intelligence autonomously: 221 leads added, 5 revenue opportunities surfaced, 22 AI agents running — all while I slept. Real results</description>
+      <pubDate>Wed, 13 May 2026 10:00:00 +0000</pubDate>
+      <guid>https://therealmacsteel.github.io/blog/2026-05-13-day-1-autonomous-business.html</guid>
+    </item>
+    <item>
+      <title>How to Replace Zapier and Make.com With Free AI Agents in 2026</title>
+      <link>https://therealmacsteel.github.io/blog/replace-zapier-make-free-ai-agents-2026.html</link>
+      <description>Step-by-step guide to replacing Zapier ($29-69/mo) and Make.com ($9-29/mo) with autonomous AI agents. Smarter, more flexible, completely free. Real builds, real</description>
+      <pubDate>Tue, 12 May 2026 10:00:00 +0000</pubDate>
+      <guid>https://therealmacsteel.github.io/blog/replace-zapier-make-free-ai-agents-2026.html</guid>
+    </item>
+    <item>
+      <title>OpenClaw vs Manus.ai: I Built My Own and It's Better</title>
+      <link>https://therealmacsteel.github.io/blog/openclaw-vs-manus-ai-i-built-my-own.html</link>
+      <description>Manus.ai costs $50-200/month and runs on their cloud. I built OpenClaw — 22 autonomous AI agents, self-hosted, self-improving, at $0/month. Full comparison with</description>
+      <pubDate>Tue, 12 May 2026 10:00:00 +0000</pubDate>
+      <guid>https://therealmacsteel.github.io/blog/openclaw-vs-manus-ai-i-built-my-own.html</guid>
+    </item>
+    <item>
+      <title>How I Built a Free AI Automation System That Beats Clay.com</title>
+      <link>https://therealmacsteel.github.io/blog/how-i-built-free-ai-automation-beats-clay.html</link>
+      <description>Clay charges $150-800/month. I built OpenClaw — a free self-hosted AI automation system that does everything Clay does plus autonomous agents, content creation,</description>
+      <pubDate>Tue, 12 May 2026 10:00:00 +0000</pubDate>
+      <guid>https://therealmacsteel.github.io/blog/how-i-built-free-ai-automation-beats-clay.html</guid>
+    </item>
+  </channel>
+</rss>
