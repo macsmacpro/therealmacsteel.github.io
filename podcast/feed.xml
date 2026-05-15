@@ -12,5 +12,25 @@
     <itunes:category text="Business"/>
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="https://therealmacsteel.github.io/assets/podcast-cover.jpg"/>
-  </channel>
+  
+  <item>
+    <title>Episode 1 — Week 1 — Autonomous Operations Live</title>
+    <description>SteelWorks Intelligence week 1 report: 0 accomplishments logged, 10 builds shipped. Autonomous business systems update from Acworth, GA.</description>
+    <pubDate>Fri, 15 May 2026 02:37:43 +0000</pubDate>
+    <enclosure url="https://therealmacsteel.github.io/podcast/episode-1.mp3" length="0" type="audio/mpeg"/>
+    <itunes:duration>5:00</itunes:duration>
+    <itunes:episode>1</itunes:episode>
+    <guid isPermaLink="false">https://therealmacsteel.github.io/podcast/episode-1.mp3</guid>
+  </item>
+
+  <item>
+    <title>Episode 1 — Week 1 — Autonomous Operations Live</title>
+    <description>SteelWorks Intelligence week 1 report: 0 accomplishments logged, 10 builds shipped. Autonomous business systems update from Acworth, GA.</description>
+    <pubDate>Fri, 15 May 2026 03:19:28 +0000</pubDate>
+    <enclosure url="https://therealmacsteel.github.io/podcast/episode-1.mp3" length="0" type="audio/mpeg"/>
+    <itunes:duration>2:03</itunes:duration>
+    <itunes:episode>1</itunes:episode>
+    <guid isPermaLink="false">https://therealmacsteel.github.io/podcast/episode-1.mp3</guid>
+  </item>
+</channel>
 </rss>
