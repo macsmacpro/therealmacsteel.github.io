@@ -16,13 +16,25 @@
     <loc>https://therealmacsteel.github.io/platform.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-31</lastmod>
+  </url>
+  <url>
+    <loc>https://therealmacsteel.github.io/free-ai-business-stack.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <lastmod>2026-05-31</lastmod>
+  </url>
+  <url>
+    <loc>https://therealmacsteel.github.io/products/index.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <lastmod>2026-05-31</lastmod>
   </url>
   <url>
     <loc>https://therealmacsteel.github.io/content.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-31</lastmod>
   </url>
   <url>
     <loc>https://therealmacsteel.github.io/contact.html</loc>
