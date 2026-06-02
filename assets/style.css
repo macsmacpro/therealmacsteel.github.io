@@ -114,6 +114,82 @@ a:hover { color: var(--secondary); }
   transform: translateY(-2px);
 }
 
+/* ── Product landing pages ── */
+.product-page {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 7rem 0 5rem;
+}
+.product-hero {
+  min-height: 58vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+}
+.product-hero h1 {
+  max-width: 820px;
+}
+.product-hero p {
+  max-width: 720px;
+  font-size: 1.1rem;
+}
+.eyebrow {
+  color: var(--primary);
+  font-family: 'Orbitron', monospace;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.product-grid article {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+.product-grid ul {
+  margin: 1rem 0 0 1.25rem;
+  color: rgba(255,255,255,0.85);
+}
+.product-grid li + li {
+  margin-top: .5rem;
+}
+.opportunity-cta {
+  width: min(1080px, calc(100% - 32px));
+  margin: 4rem auto;
+  padding: 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+}
+.opportunity-cta h2 {
+  margin: .5rem 0 1rem;
+}
+.opportunity-cta p {
+  max-width: 720px;
+}
+.opportunity-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 720px) {
+  .product-page {
+    padding-top: 5.5rem;
+  }
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── Navigation ── */
 nav {
   position: fixed;
