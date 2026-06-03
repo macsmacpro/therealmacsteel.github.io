@@ -1,8 +1,8 @@
 name: Deploy to Cloudflare Workers
 
 on:
-  push:
-    branches: [main]
+  # Manual only. GitHub Pages deploys this static site automatically from main.
+  # Running Wrangler on every website push fails without a Worker entry point and wastes free CI minutes.
   workflow_dispatch:
 
 jobs:
