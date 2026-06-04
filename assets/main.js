@@ -156,7 +156,7 @@ document.querySelectorAll('.reveal').forEach(el => sReveal.observe(el));
       path: location.pathname,
       title: document.title,
       offer: offerName(),
-      source: 'steelworksintelligence.com',
+      source: 'therealmacsteel.github.io',
       sessionId: sid,
       referrer: document.referrer,
       ...extra
