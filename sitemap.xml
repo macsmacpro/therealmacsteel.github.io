@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://therealmacsteel.github.io/</loc>
@@ -114,4 +114,4 @@
     <priority>0.3</priority>
     <lastmod>2026-05-12</lastmod>
   </url>
-</urlset>
+<url><loc>https://therealmacsteel.github.io/ai-search-visibility.html</loc><changefreq>weekly</changefreq><priority>0.85</priority><lastmod>2026-06-03</lastmod></url><url><loc>https://therealmacsteel.github.io/products/ai-search-readiness.html</loc><changefreq>weekly</changefreq><priority>0.85</priority><lastmod>2026-06-03</lastmod></url></urlset>
