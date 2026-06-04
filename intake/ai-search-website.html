@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Search Website Discovery Form | SteelWorks Intelligence</title>
+  <meta name="description" content="Discovery form for AI search visibility audits, implementation sprints, and AI-search-ready website builds." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://therealmacsteel.github.io/intake/ai-search-website.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI Search Website Discovery Form | SteelWorks Intelligence" />
+  <meta property="og:description" content="Discovery form for AI search visibility audits, implementation sprints, and AI-search-ready website builds." />
+  <meta property="og:url" content="https://therealmacsteel.github.io/intake/ai-search-website.html" />
+  <meta property="og:image" content="https://therealmacsteel.github.io/assets/brand/banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="stylesheet" href="../assets/style.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "AI Search Website Discovery Form",
+  "url": "https://therealmacsteel.github.io/intake/ai-search-website.html"
+}
+</script>
+</head>
+<body>
+<nav id="main-nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">STEELWORKS INTELLIGENCE</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../platform.html">Platform</a></li>
+      <li><a href="../free-ai-business-stack.html">Free Stack</a></li>
+      <li><a href="../ai-search-visibility.html">AI Search</a></li>
+      <li><a href="../products/index.html">Products</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="../intake/ai-search-website.html" class="btn btn-primary" style="padding:.6rem 1.2rem;font-size:.75rem;">Start Intake</a>
+    </div>
+    <div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="hero-badge" style="margin-bottom:1rem">CLIENT DISCOVERY</div>
+    <h1>AI Search Website Discovery Form</h1>
+    <p>Use this form to start an AI search audit, implementation sprint, or AI-generated website build.</p>
+  </div>
+</div>
+<section class="section">
+  <div class="container" style="max-width:860px">
+    <form id="ai-search-intake" class="card" style="display:grid;gap:1rem">
+      <input name="businessName" required placeholder="Business name" />
+      <input name="contactName" required placeholder="Primary contact" />
+      <input name="email" type="email" placeholder="Email" />
+      <input name="phone" placeholder="Phone" />
+      <input name="website" placeholder="Current website, if any" />
+      <input name="city" required placeholder="City and service area" />
+      <textarea name="services" required rows="4" placeholder="Top services or products"></textarea>
+      <textarea name="goals" required rows="4" placeholder="Primary revenue/search goal"></textarea>
+      <textarea name="currentProblem" rows="4" placeholder="Current website or search problem"></textarea>
+      <select name="packageInterest" required>
+        <option value="">Package interest</option>
+        <option>AI Search Visibility Audit</option>
+        <option>AI Search Implementation Sprint</option>
+        <option>AI Search Website Build</option>
+        <option>Monthly AI Visibility Retainer</option>
+      </select>
+      <input type="hidden" name="source" value="ai-search-website-intake" />
+      <button class="btn btn-primary" type="submit" style="justify-content:center">Submit Discovery Form</button>
+      <p id="intake-status" style="color:var(--muted);margin:0">If the form cannot submit, email steelworksintelligence@gmail.com with the same details.</p>
+    </form>
+  </div>
+</section>
+<script>
+document.getElementById('ai-search-intake').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const status = document.getElementById('intake-status');
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  if (!data.email && !data.phone) {
+    status.textContent = 'Add either an email or phone number.';
+    return;
+  }
+  status.textContent = 'Submitting...';
+  try {
+    const r = await fetch('https://swi-chatbot.macsmacpro.workers.dev/intake/ai-search-website', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    const out = await r.json();
+    if (out.ok) {
+      status.textContent = 'Received. SteelWorks will route this into the AI Search Website OS workflow.';
+      e.target.reset();
+    } else {
+      throw new Error(out.error || 'submit_failed');
+    }
+  } catch (err) {
+    const subject = encodeURIComponent('AI Search Website Discovery Form');
+    const body = encodeURIComponent(JSON.stringify(data, null, 2));
+    window.location.href = 'mailto:steelworksintelligence@gmail.com?subject=' + subject + '&body=' + body;
+  }
+});
+</script>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>
