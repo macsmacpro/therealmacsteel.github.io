@@ -6,12 +6,12 @@
   <title>AI Search Website Discovery Form | SteelWorks Intelligence</title>
   <meta name="description" content="Discovery form for AI search visibility audits, implementation sprints, and AI-search-ready website builds." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <link rel="canonical" href="https://therealmacsteel.github.io/intake/ai-search-website.html" />
+  <link rel="canonical" href="https://steelworksintelligence.com/intake/ai-search-website.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="AI Search Website Discovery Form | SteelWorks Intelligence" />
   <meta property="og:description" content="Discovery form for AI search visibility audits, implementation sprints, and AI-search-ready website builds." />
-  <meta property="og:url" content="https://therealmacsteel.github.io/intake/ai-search-website.html" />
-  <meta property="og:image" content="https://therealmacsteel.github.io/assets/brand/banner.png" />
+  <meta property="og:url" content="https://steelworksintelligence.com/intake/ai-search-website.html" />
+  <meta property="og:image" content="https://steelworksintelligence.com/assets/brand/banner.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
   <link rel="stylesheet" href="../assets/style.css" />
@@ -20,7 +20,7 @@
   "@context": "https://schema.org",
   "@type": "ContactPage",
   "name": "AI Search Website Discovery Form",
-  "url": "https://therealmacsteel.github.io/intake/ai-search-website.html"
+  "url": "https://steelworksintelligence.com/intake/ai-search-website.html"
 }
 </script>
 </head>
@@ -32,6 +32,7 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../platform.html">Platform</a></li>
       <li><a href="../free-ai-business-stack.html">Free Stack</a></li>
+      <li><a href="../ai-seo-agency.html">AI SEO Agency</a></li>
       <li><a href="../ai-search-visibility.html">AI Search</a></li>
       <li><a href="../products/index.html">Products</a></li>
       <li><a href="../contact.html">Contact</a></li>
@@ -47,7 +48,7 @@
   <div class="container">
     <div class="hero-badge" style="margin-bottom:1rem">CLIENT DISCOVERY</div>
     <h1>AI Search Website Discovery Form</h1>
-    <p>Use this form to start an AI search audit, implementation sprint, or AI-generated website build.</p>
+    <p>Use this form to start work with SteelWorks AI Search Agency: audit, implementation sprint, AI-generated website build, or monthly visibility retainer.</p>
   </div>
 </div>
 <section class="section">
@@ -70,6 +71,7 @@
         <option>Monthly AI Visibility Retainer</option>
       </select>
       <input type="hidden" name="source" value="ai-search-website-intake" />
+      <input type="hidden" name="serviceLine" value="steelworks-ai-search-agency" />
       <button class="btn btn-primary" type="submit" style="justify-content:center">Submit Discovery Form</button>
       <p id="intake-status" style="color:var(--muted);margin:0">If the form cannot submit, email steelworksintelligence@gmail.com with the same details.</p>
     </form>
@@ -94,11 +96,13 @@ document.getElementById('ai-search-intake').addEventListener('submit', async fun
     const out = await r.json();
     if (out.ok) {
       status.textContent = 'Received. SteelWorks will route this into the AI Search Website OS workflow.';
+      if (window.SWITrack) window.SWITrack('intake_success', { label: 'ai-search-intake-success', href: 'worker:intake/ai-search-website' });
       e.target.reset();
     } else {
       throw new Error(out.error || 'submit_failed');
     }
   } catch (err) {
+    if (window.SWITrack) window.SWITrack('form_fallback', { label: 'ai-search-intake-mailto-fallback', href: 'mailto:steelworksintelligence@gmail.com' });
     const subject = encodeURIComponent('AI Search Website Discovery Form');
     const body = encodeURIComponent(JSON.stringify(data, null, 2));
     window.location.href = 'mailto:steelworksintelligence@gmail.com?subject=' + subject + '&body=' + body;

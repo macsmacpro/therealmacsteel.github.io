@@ -1,4 +1,10 @@
-# Deploy — therealmacsteel.com
+# Deploy — SteelWorks Intelligence
+
+SteelWorks Intelligence is the business brand. `steelworksintelligence.com` is the canonical public domain. `therealmacsteel.github.io` remains the free GitHub Pages backend repo because it is tied to the existing therealmacsteel GitHub account. Treat the backend URL as infrastructure, not the brand.
+
+Public layer: `steelworksintelligence.com`.
+
+Free-first rule: do not buy domains, paid hosting, paid DNS, paid deploy tooling, or paid analytics. Use the already-owned SteelWorks domain with GitHub Pages. All visible copy, metadata, schema, `llms.txt`, and offers must present SteelWorks Intelligence as the operating brand.
 
 ## GitHub Pages Setup (Free, < 10 minutes)
 
@@ -30,16 +36,17 @@ git push -u origin main
 3. Branch: `main` / `/ (root)`
 4. Save
 
-Site goes live at: `https://therealmacsteel.github.io` within 2-5 minutes.
+Backend preview goes live at: `https://therealmacsteel.github.io` within 2-5 minutes.
+Canonical public site goes live at: `https://steelworksintelligence.com` after DNS and GitHub Pages custom-domain verification.
 
 ---
 
-## Custom Domain Setup — therealmacsteel.com
+## Custom Domain Setup — SteelWorks-Owned Domain
 
 ### Step 4 — Add Domain in GitHub
 
 1. Repo → Settings → Pages → Custom domain
-2. Enter: `therealmacsteel.com`
+2. Enter the approved SteelWorks-owned domain, for example `steelworksintelligence.com`
 3. Save (GitHub will create a CNAME file automatically)
 
 ### Step 5 — DNS Records (at your domain registrar)

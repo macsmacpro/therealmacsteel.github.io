@@ -160,6 +160,99 @@ a:hover { color: var(--secondary); }
 .product-grid li + li {
   margin-top: .5rem;
 }
+.conversion-page {
+  padding-bottom: 6rem;
+}
+.conversion-hero {
+  min-height: 68vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  padding-top: 2rem;
+}
+.conversion-hero h1 {
+  max-width: 920px;
+}
+.conversion-hero p {
+  max-width: 760px;
+  font-size: 1.1rem;
+}
+.conversion-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .85rem;
+  margin-top: .75rem;
+}
+.conversion-kpis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1rem;
+}
+.conversion-kpis span,
+.offer-library-meta span {
+  border: 1px solid rgba(0,255,204,0.18);
+  background: rgba(0,255,204,0.06);
+  color: rgba(255,255,255,0.88);
+  border-radius: 999px;
+  padding: .4rem .7rem;
+  font-size: .78rem;
+  font-weight: 600;
+}
+.conversion-section,
+.conversion-close {
+  margin: 4rem 0;
+}
+.conversion-section > p,
+.conversion-close > p {
+  max-width: 820px;
+}
+.offer-tier-grid,
+.offer-library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.offer-tier-card,
+.offer-library-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1.35rem;
+}
+.offer-tier-card ul,
+.offer-library-card ul {
+  margin: 1rem 0 0 1.1rem;
+  color: rgba(255,255,255,0.82);
+}
+.tier-price {
+  color: var(--primary);
+  font-weight: 800;
+  margin: .35rem 0 .75rem;
+}
+.muted {
+  color: var(--muted);
+}
+.offer-library-group {
+  margin-top: 2.5rem;
+}
+.offer-library-card {
+  display: flex;
+  min-height: 260px;
+  flex-direction: column;
+  gap: .85rem;
+}
+.offer-library-card .btn {
+  width: fit-content;
+  margin-top: auto;
+}
+.offer-library-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
 .opportunity-cta {
   width: min(1080px, calc(100% - 32px));
   margin: 4rem auto;
@@ -187,6 +280,14 @@ a:hover { color: var(--secondary); }
   }
   .product-grid {
     grid-template-columns: 1fr;
+  }
+  .conversion-hero {
+    min-height: auto;
+    padding-top: 2rem;
+  }
+  .conversion-actions .btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 

@@ -124,3 +124,89 @@ const sReveal = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => sReveal.observe(el));
+
+// ── Privacy-light conversion tracking ──
+(() => {
+  const endpoint = 'https://swi-chatbot.macsmacpro.workers.dev/track';
+  const sidKey = 'swi_sid';
+  let sid = '';
+  try {
+    sid = localStorage.getItem(sidKey) || '';
+    if (!sid) {
+      sid = Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem(sidKey, sid);
+    }
+  } catch (_) {
+    sid = Math.random().toString(36).slice(2);
+  }
+
+  function cleanText(value) {
+    return String(value || '').replace(/\s+/g, ' ').trim().slice(0, 120);
+  }
+
+  function offerName() {
+    const h1 = document.querySelector('h1');
+    return cleanText(h1 ? h1.textContent : document.title);
+  }
+
+  function track(event, extra = {}) {
+    const payload = {
+      event,
+      page: location.href,
+      path: location.pathname,
+      title: document.title,
+      offer: offerName(),
+      source: 'steelworksintelligence.com',
+      sessionId: sid,
+      referrer: document.referrer,
+      ...extra
+    };
+    const body = JSON.stringify(payload);
+    try {
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(endpoint, new Blob([body], { type: 'application/json' }));
+        return;
+      }
+    } catch (_) {}
+    fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body,
+      keepalive: true
+    }).catch(() => {});
+  }
+
+  track('page_view');
+
+  document.addEventListener('click', e => {
+    const a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+    const label = cleanText(a.textContent);
+    const external = /^https?:\/\//i.test(href) && !href.includes(location.hostname);
+    const isGumroad = /gumroad\.com/i.test(href);
+    const isCta = a.classList.contains('btn-primary') || a.classList.contains('hero-cta') || label.match(/\b(get|start|request|view|buy|access|intake|audit)\b/i);
+    if (isGumroad) {
+      track('gumroad_click', { href, label });
+    } else if (isCta || external) {
+      track('cta_click', { href, label });
+    }
+  }, { capture: true });
+
+  document.addEventListener('focusin', e => {
+    const form = e.target.closest && e.target.closest('form');
+    if (form && !form.dataset.swiStarted) {
+      form.dataset.swiStarted = '1';
+      track('intake_start', { label: form.id || form.getAttribute('name') || 'form' });
+    }
+  });
+
+  document.addEventListener('submit', e => {
+    const form = e.target;
+    if (form && form.tagName === 'FORM') {
+      track('intake_submit', { label: form.id || form.getAttribute('name') || 'form' });
+    }
+  }, { capture: true });
+
+  window.SWITrack = track;
+})();
