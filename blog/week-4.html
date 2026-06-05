@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Week 4: Zero New Posts, Still 326 Leads in the Funnel | SteelWorks Intelligence</title>
+  <title>Week 4: Marketing System Reset | SteelWorks Intelligence</title>
   <meta name="description" content="Build-in-public Week 4 update from Mac Steel / SteelWorks Intelligence." />
   <link rel="stylesheet" href="../assets/style.css" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -24,25 +24,22 @@
       <a href="index.html" style="color:var(--primary);font-size:.85rem">← Blog</a>
     </div>
     <article>
-      <h1 style="margin-bottom:1rem">Week 4: Zero New Posts, Still 326 Leads in the Funnel</h1>
+      <h1 style="margin-bottom:1rem">Week 4: Marketing System Reset</h1>
       <p style="color:var(--muted);font-size:.85rem;margin-bottom:2rem">
         Published by SteelWorks Intelligence · Mac Steel
       </p>
       <div style="line-height:1.8">
-        <p>It’s week 4 of the SteelWorks Intelligence build‑in‑public experiment and the numbers are blunt. No new content went live, the revenue line is still a flat $0.00, yet we’ve kept 326 leads warm and a dozen AI agents humming. Let’s break down what we built, what fell apart, the revenue reality, and where we’re steering next week.</p>
-<h2>What We Built</h2>
-<p><strong>Tiktok & YouTube Presence</strong> We kept the two active platforms alive with scheduled reposts of our earlier demos. The cron job that repurposes raw footage into 15‑second TikTok clips ran without a hitch for the entire week (180 jobs overall). Those clips generated an average view‑through rate of 12%, a modest bump from the 9% baseline we saw in week 3.</p>
-<p><strong>AI Agent Orchestration</strong> Our fleet of 26 agents stayed online 24/7, handling everything from data scrapes to lead qualification. The new “LeadScorer v2” agent, released on day 22, started tagging inbound contacts with a confidence score, which the CRM now surfaces on each lead record. Early feedback shows a 7% improvement in triage speed.</p>
-<p><strong>Pipeline Hygiene</strong> Even though no fresh leads entered the funnel, we invested time cleaning the existing 326 contacts. Duplicate detection scripts ran nightly, and we trimmed down stale entries older than 180 days. The result: a cleaner pipeline that should translate into higher conversion rates once we start feeding it new traffic.</p>
-<h2>What Broke</h2>
-<p><strong>Content Engine Dry‑Spell</strong> Our content calendar hit a snag when the “auto‑blogger” microservice—intended to spin weekly summaries from AI‑generated insights— threw a `TimeoutError` on every attempt. The bug stemmed from an unbounded query against the embeddings store, which blew up the request latency. After a quick rollback, we reverted to manual copy‑pasting, but that meant zero published posts for the week.</p>
-<p><strong>Cron Job Overlap</strong> With 180 active jobs, we ran into a race condition between the “VideoTranscode” and “ThumbnailGenerator” jobs. The latter occasionally tried to read a file that the former was still writing, leading to corrupted thumbnails on three YouTube uploads. The fix is a simple semaphore lock, but it cost us a few hours of debugging and two hours of content downtime.</p>
-<p><strong>Lead Scoring Latency</strong> The new LeadScorer v2, while more accurate, introduced a 3‑second processing delay per record. With 326 leads, that added up to nearly 16 minutes of queue time each run. Not catastrophic, but it nudged our overall system latency past the 200 ms SLA we promised for the internal dashboard.</p>
-<h2>Revenue Update</h2>
-<p>Zero dollars this week, zero in total. That’s the hard truth. Our monetization hooks—premium API access and custom analytics packages—haven’t been exposed to any paying users yet. The focus this week was strictly on infrastructure and data hygiene, so the revenue lag is expected, but it also highlights the need to convert the 326 warm leads into trial sign‑ups before we can claim any upward trajectory.</p>
-<h2>Next Week’s Focus</h2>
-<p>1. <strong>Fix the Auto‑Blogger</strong> – Refactor the embeddings query with pagination and a timeout guard. Aim for at least two published posts (one blog, one TikTok script) by day 3. 2. <strong>Synchronize Cron Jobs</strong> – Implement lock files for any job that writes to shared assets. Add unit tests around file‑access patterns. 3. <strong>Compress LeadScorer Latency</strong> – Profile the scoring function, move heavy model inference to a GPU‑backed worker pool, and bring per‑lead processing under 1 second. 4. <strong>Revenue Pilot</strong> – Launch a limited‑time “Early‑Adopter” offer to the top 20 scored leads. Track conversion funnel metrics closely and iterate on pricing messaging. 5. <strong>Uptime Monitoring</strong> – Day 25 of continuous uptime is solid, but we’ll add a secondary health‑check endpoint to catch silent failures sooner.</p>
-<p>We’re not chasing hype; we’re iterating on real systems, real numbers, and real pipelines. Week 4 proved that even a quiet week can yield data‑driven improvements. Next week we’ll turn those improvements into visible value—both for our users and for the bottom line. Stay tuned.</p>
+        <p>Day 25 of the SteelWorks Intelligence build.</p>
+<h2>What Actually Happened</h2>
+<p>This week exposed a hard truth: the system had collateral and queues, but it did not have enough verified public distribution. The latest audit shows 0 verified public social posts this week, $0.00 revenue this week, and 326 leads in the local pipeline.</p>
+<h2>What Got Fixed</h2>
+<ul><li>Social publishing now separates verified public URLs from submitted-but-unverified attempts.</li><li>The browser bridge now tries to capture real permalinks instead of returning profile URLs.</li><li>The post queue no longer posts future slots unless a deliberate manual `--force` run is used.</li><li>Blog, podcast, Reddit, LinkedIn, and backlink actions are now registered in the external-action guard.</li><li>Backlink drafts are no longer counted as contacted prospects.</li></ul>
+<h2>What Is Still Not Good Enough</h2>
+<p>The marketing team has assets ready, but the public posting lane still needs verified links across X, Instagram, Facebook, YouTube, TikTok, Reddit, blog, podcast, and engagement comments. Audio exists, but no public podcast URL is logged yet.</p>
+<h2>Next Focus</h2>
+<p>The next sprint is execution proof: publish through the guarded queues, capture public URLs, log each result, and route failures back to the right department lead. Revenue work does not scale until public distribution, replies, leads, and conversions are measured.</p>
+<p>Quality gate note: the model draft was rejected for truth_safe_default.</p>
+<p>Follow the build: @therealmacsteel</p>
       </div>
     </article>
     <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)">
