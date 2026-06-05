@@ -32,9 +32,7 @@
       </div>
     </header>
 
-    <section id="kpis" class="kpi-grid" aria-label="Executive metrics"></section>
-
-    <section class="workspace command-row">
+    <section class="command-hero">
       <div class="panel voice-panel">
         <div class="panel-head">
           <div>
@@ -59,14 +57,15 @@
         </div>
       </div>
 
-      <div class="panel command-panel">
+      <div class="panel command-panel primary-command">
         <div class="panel-head">
           <div>
             <p class="eyebrow">Command Router</p>
-            <h2>Call The Company</h2>
+            <h2 id="contextTitle">Call The Company</h2>
           </div>
           <span class="pill muted">Agent-internal first</span>
         </div>
+        <div id="contextSummary" class="context-summary"></div>
         <form id="commandForm" class="command-form">
           <div class="form-row">
             <label>
@@ -82,6 +81,10 @@
               </select>
             </label>
           </div>
+          <label id="agentTargetField" class="agent-target-field">
+            Agent
+            <select id="agentSelect" name="agent"></select>
+          </label>
           <label>
             Command
             <textarea id="commandText" name="text" rows="5" placeholder="Example: Marketing and Sales, evaluate today's AI Search Website OS campaign, identify blockers, and route only executive-grade exceptions to Telegram."></textarea>
@@ -91,6 +94,30 @@
             <span id="commandResult" class="muted"></span>
           </div>
         </form>
+      </div>
+
+      <div class="panel recommendations-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Recommended Commands</p>
+            <h2>Next Actions</h2>
+          </div>
+          <span id="recommendationCount" class="pill">0</span>
+        </div>
+        <div id="recommendedCommands" class="recommendation-list"></div>
+      </div>
+    </section>
+
+    <section class="workspace three">
+      <div class="panel board-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Board Of Directors</p>
+            <h2>Strategic Oversight</h2>
+          </div>
+          <button id="boardCommand" class="icon-button compact" type="button">Route Board Review</button>
+        </div>
+        <div id="boardRoles" class="board-grid"></div>
       </div>
 
       <div class="panel active-panel">
@@ -104,7 +131,19 @@
         <div id="campaignSummary" class="mini-grid"></div>
         <div id="agentActions" class="action-list"></div>
       </div>
+
+      <div class="panel command-trail-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Command Timeline</p>
+            <h2>Conversation Trail</h2>
+          </div>
+        </div>
+        <div id="commandTimeline" class="timeline"></div>
+      </div>
     </section>
+
+    <section id="kpis" class="kpi-grid" aria-label="Executive metrics"></section>
 
     <section class="workspace three">
       <div class="panel">
@@ -113,6 +152,7 @@
             <p class="eyebrow">Departments</p>
             <h2>Operating Company</h2>
           </div>
+          <span id="selectedAgentCount" class="pill muted">0 agents</span>
         </div>
         <div id="departments" class="department-grid"></div>
       </div>
