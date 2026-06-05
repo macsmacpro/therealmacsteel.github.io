@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b10">
+  <title>SteelWorks Command Center</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <aside class="rail" aria-label="Department navigation">
+    <div class="brand">
+      <div class="mark">SW</div>
+      <div>
+        <strong>SteelWorks</strong>
+        <span>Command Center</span>
+      </div>
+    </div>
+    <nav id="departmentNav"></nav>
+  </aside>
+
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">OpenClaw Autonomous Business OS</p>
+        <h1>Mission Control</h1>
+      </div>
+      <div class="status-strip">
+        <span id="refreshState" class="pill">Loading</span>
+        <button id="refreshButton" class="icon-button" type="button" title="Refresh">↻</button>
+      </div>
+    </header>
+
+    <section id="kpis" class="kpi-grid" aria-label="Executive metrics"></section>
+
+    <section class="workspace command-row">
+      <div class="panel voice-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Voice Command</p>
+            <h2 id="voiceState">Standing By</h2>
+          </div>
+          <span id="voiceBackend" class="pill muted">Browser STT</span>
+        </div>
+        <div class="jarvis-stage" aria-label="Voice command interface">
+          <canvas id="voiceWaveform" class="waveform-canvas" width="420" height="120"></canvas>
+          <button id="voiceButton" class="voice-orb" type="button" title="Start voice command" aria-label="Start voice command">
+            <span class="orb-core"></span>
+          </button>
+        </div>
+        <div class="voice-readout">
+          <div class="meta voice-meta">
+            <span id="voiceDeptPulse" class="pulse-chip">Executive</span>
+            <button id="voiceSpeakToggle" class="icon-button compact" type="button" title="Toggle spoken replies">Voice Reply On</button>
+          </div>
+          <p id="voiceTranscript" class="voice-transcript">Press the orb and speak a command.</p>
+          <p id="voiceResult" class="muted"></p>
+        </div>
+      </div>
+
+      <div class="panel command-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Command Router</p>
+            <h2>Call The Company</h2>
+          </div>
+          <span class="pill muted">Agent-internal first</span>
+        </div>
+        <form id="commandForm" class="command-form">
+          <div class="form-row">
+            <label>
+              Department
+              <select id="departmentSelect" name="department"></select>
+            </label>
+            <label>
+              Target
+              <select id="targetSelect" name="target">
+                <option value="department">Department lead</option>
+                <option value="all-leads">All department leads</option>
+                <option value="specific-agent">Specific agent lane</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            Command
+            <textarea id="commandText" name="text" rows="5" placeholder="Example: Marketing and Sales, evaluate today's AI Search Website OS campaign, identify blockers, and route only executive-grade exceptions to Telegram."></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit">Route Command</button>
+            <span id="commandResult" class="muted"></span>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel active-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Daily Revenue Lane</p>
+            <h2 id="campaignTitle">Campaign</h2>
+          </div>
+          <span id="campaignStatus" class="pill">Unknown</span>
+        </div>
+        <div id="campaignSummary" class="mini-grid"></div>
+        <div id="agentActions" class="action-list"></div>
+      </div>
+    </section>
+
+    <section class="workspace three">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Departments</p>
+            <h2>Operating Company</h2>
+          </div>
+        </div>
+        <div id="departments" class="department-grid"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Market / SEO</p>
+            <h2>Opportunity Watch</h2>
+          </div>
+        </div>
+        <div id="marketActions" class="action-list"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Risk / Ops</p>
+            <h2>Execution Health</h2>
+          </div>
+        </div>
+        <div id="opsHealth" class="action-list"></div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Agents</p>
+            <h2>Roster</h2>
+          </div>
+          <span id="agentCount" class="pill muted">0 agents</span>
+        </div>
+        <div id="agents" class="agent-grid"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Recent Commands</p>
+            <h2>Internal Control Trail</h2>
+          </div>
+        </div>
+        <div id="recentCommands" class="action-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
