@@ -156,7 +156,7 @@
     </div>
     <p style="margin-bottom:1.25rem">Schedule that script to run every 30 minutes with a cron job. You get the same functionality for free, plus you can add AI summarization to the notification if you want context, not just the raw alert.</p>
 
-    <h3 style="margin-bottom:.75rem;margin-top:1.5rem">Step 4: Replace Enrichment Zaps (Best ROI)</h3>
+    <h3 style="margin-bottom:.75rem;margin-top:1.5rem">Step 4: Replace Enrichment Zaps (High ROI Candidate)</h3>
     <p style="margin-bottom:1.25rem">This is where you'll feel the biggest savings. Zapier enrichment zaps typically chain together Clearbit, Hunter.io, or similar paid lookups. Each lookup costs tokens. At scale, this is where your Zapier bill explodes.</p>
     <p style="margin-bottom:1.25rem">The AI agent replacement: a Python script that pulls from free sources (LinkedIn public profiles, GitHub, Twitter, company websites) and calls a free AI bridge to synthesize the enrichment. No per-lookup cost. No task count. Just compute time on your local machine.</p>
     <p style="margin-bottom:1.25rem">In OpenClaw, my lead enrichment flow:</p>
@@ -178,7 +178,7 @@
     <h3 style="margin-bottom:.75rem;margin-top:1.5rem">Step 6: Set Up Your Scheduler</h3>
     <p style="margin-bottom:1.25rem">Zapier handles scheduling. When you move to self-hosted agents, you need a local equivalent. Options:</p>
     <ul style="padding-left:1.5rem;line-height:2;margin-bottom:1.25rem">
-      <li><strong>macOS launchd:</strong> Built into Mac. Runs on schedule even after reboots. Best for production.</li>
+      <li><strong>macOS launchd:</strong> Built into Mac. Runs on schedule even after reboots. Good for production.</li>
       <li><strong>crontab:</strong> Unix cron — simple, reliable, works everywhere Linux/Mac runs.</li>
       <li><strong>n8n (self-hosted):</strong> Visual workflow builder, open source. Combines visual interface of Make.com with the ability to call AI agents. Free to self-host.</li>
       <li><strong>Python schedule library:</strong> Good for simple scripts you want to run in a long-running process.</li>
@@ -201,7 +201,7 @@
     <h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">Honest Limitations</h2>
     <p style="margin-bottom:1.25rem">AI agents aren't the right choice for everything. Zapier and Make.com are better when:</p>
     <ul style="padding-left:1.5rem;line-height:2;margin-bottom:1.25rem">
-      <li><strong>You need guaranteed API-to-API reliability:</strong> Zapier has SLAs and retry logic. Your local script fails if your machine crashes.</li>
+    <li><strong>You need vendor-managed API-to-API reliability:</strong> Zapier has SLAs and retry logic. Your local script fails if your machine crashes.</li>
       <li><strong>You're non-technical:</strong> Building agent scripts requires Python basics. Zapier's visual builder requires none.</li>
       <li><strong>You need 200+ native integrations out of the box:</strong> Zapier connects to apps that don't have good APIs. Building custom scrapers for all of them takes time.</li>
       <li><strong>You need team collaboration:</strong> Zapier has team accounts. Self-hosted is solo by default.</li>
