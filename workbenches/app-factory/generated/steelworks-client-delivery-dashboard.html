@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SteelWorks Client Delivery Dashboard | SteelWorks App Factory</title>
+  <meta name="description" content="A free-first SteelWorks app factory build with proof-led claims, CTA, and local verification.">
+  <link rel="canonical" href="https://therealmacsteel.github.io/workbenches/app-factory/generated/steelworks-client-delivery-dashboard.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "applicationCategory": "BusinessApplication", "name": "SteelWorks Client Delivery Dashboard", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <style>
+    :root { color-scheme: dark; --bg:#080b10; --panel:#111821; --line:#263244; --text:#eef5ff; --muted:#9fb0c3; --a:#00e0c7; --b:#ffcc66; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; background:var(--bg); color:var(--text); }
+    main { max-width:1040px; margin:0 auto; padding:36px 20px 60px; }
+    section { border-top:1px solid var(--line); padding:26px 0; }
+    h1 { font-size:42px; line-height:1.05; margin:0 0 14px; }
+    h2 { font-size:22px; margin:0 0 12px; color:var(--b); }
+    p, li { color:var(--muted); line-height:1.6; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; }
+    .card { border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:16px; }
+    .cta, button { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--a); color:#00110f; padding:12px 16px; border:0; border-radius:6px; font-weight:800; text-decoration:none; cursor:pointer; }
+    button.secondary { background:#1d2836; color:var(--text); border:1px solid var(--line); }
+    label { display:block; color:var(--muted); font-weight:700; margin:0 0 10px; }
+    input, select, textarea { width:100%; margin-top:7px; padding:11px 12px; border:1px solid var(--line); border-radius:6px; background:#090f16; color:var(--text); font:inherit; }
+    textarea { min-height:92px; resize:vertical; }
+    table { width:100%; border-collapse:collapse; margin-top:12px; }
+    th, td { text-align:left; border-bottom:1px solid var(--line); padding:10px 8px; color:var(--muted); vertical-align:top; }
+    th { color:var(--text); font-size:13px; text-transform:uppercase; }
+    .toolbar { display:flex; flex-wrap:wrap; gap:10px; align-items:end; margin:14px 0; }
+    .toolbar > * { flex:1 1 180px; }
+    .metric { font-size:30px; font-weight:900; color:var(--a); margin:0; }
+    .status { color:var(--b); font-weight:800; }
+    .error { color:#ff8a8a; }
+    .empty { border:1px dashed var(--line); border-radius:8px; padding:14px; color:var(--muted); }
+    code { color:var(--a); }
+  </style>
+</head>
+<body>
+  <main>
+
+    <header>
+      <p style="color:var(--a);font-weight:800;margin:0 0 10px">SteelWorks Client Console</p>
+      <h1>SteelWorks Client Delivery Dashboard</h1>
+      <p>Small businesses that need organic discovery without paid ads can review delivery status, next actions, expected value, and operator notes without a hosted database.</p>
+      <a class="cta" href="../../../contact.html">Request the free-first audit</a>
+    </header>
+    <section class="grid" aria-label="Dashboard metrics">
+      <div class="card"><h2>Active Work</h2><p class="metric" id="metricActive">0</p><p>Open delivery streams.</p></div>
+      <div class="card"><h2>Projected Value</h2><p class="metric" id="metricValue">$0</p><p>Pipeline value in the local ledger.</p></div>
+      <div class="card"><h2>At Risk</h2><p class="metric" id="metricRisk">0</p><p>Records needing operator review.</p></div>
+    </section>
+    <section class="card">
+      <h2>Delivery Board</h2>
+      <div class="toolbar">
+        <label>Status filter
+          <select id="statusFilter">
+            <option value="all">All statuses</option>
+            <option value="Active">Active</option>
+            <option value="Review">Review</option>
+            <option value="Blocked">Blocked</option>
+          </select>
+        </label>
+        <label>Operator note
+          <textarea id="operatorNote" required placeholder="Record the next decision before handoff."></textarea>
+        </label>
+        <button id="saveNote" type="button">Save Note</button>
+        <button id="resetData" class="secondary" type="button">Reset Local Data</button>
+      </div>
+      <p id="stateMessage" class="status">Loading local dashboard data.</p>
+      <div id="emptyState" class="empty" hidden>No records match this filter.</div>
+      <table aria-describedby="stateMessage">
+        <thead><tr><th>Account</th><th>Status</th><th>Next Action</th><th>Value</th><th>Due</th></tr></thead>
+        <tbody id="projectRows"></tbody>
+      </table>
+    </section>
+    <script>
+      const storageKey = 'steelworks-dashboard-steelworks-client-delivery-dashboard';
+      const initialProjects = [
+        { account: 'Local Services Pipeline', status: 'Active', next: 'Review lead capture quality', value: 4200, due: '2026-06-14' },
+        { account: 'Creator Offer Sprint', status: 'Review', next: 'Approve proof asset before publishing', value: 1800, due: '2026-06-16' },
+        { account: 'Referral Partner Follow-up', status: 'Blocked', next: 'Needs human approval before external send', value: 2600, due: '2026-06-18' }
+      ];
+      function readState() {
+        try {
+          const stored = JSON.parse(localStorage.getItem(storageKey) || 'null');
+          if (stored && Array.isArray(stored.projects)) return stored;
+        } catch (error) {
+          document.getElementById('stateMessage').textContent = 'Invalid local data was ignored.';
+          document.getElementById('stateMessage').className = 'error';
+        }
+        return { projects: initialProjects, note: '' };
+      }
+      function writeState(state) {
+        localStorage.setItem(storageKey, JSON.stringify(state));
+      }
+      let state = readState();
+      document.getElementById('operatorNote').value = state.note || '';
+      function money(value) {
+        return '$' + Number(value || 0).toLocaleString();
+      }
+      function render() {
+        const filter = document.getElementById('statusFilter').value;
+        const projects = state.projects.filter((item) => filter === 'all' || item.status === filter);
+        document.getElementById('metricActive').textContent = state.projects.filter((item) => item.status === 'Active').length;
+        document.getElementById('metricValue').textContent = money(state.projects.reduce((sum, item) => sum + Number(item.value || 0), 0));
+        document.getElementById('metricRisk').textContent = state.projects.filter((item) => item.status === 'Blocked' || item.status === 'Review').length;
+        const body = document.getElementById('projectRows');
+        body.innerHTML = '';
+        projects.forEach((item) => {
+          const row = document.createElement('tr');
+          [item.account, item.status, item.next, money(item.value), item.due].forEach((value) => {
+            const cell = document.createElement('td');
+            cell.textContent = value;
+            row.appendChild(cell);
+          });
+          body.appendChild(row);
+        });
+        document.getElementById('emptyState').hidden = projects.length > 0;
+        document.getElementById('stateMessage').textContent = projects.length ? 'Dashboard ready. Local changes are persisted in this browser.' : 'Empty state active for the selected filter.';
+        document.getElementById('stateMessage').className = 'status';
+      }
+      document.getElementById('statusFilter').addEventListener('change', render);
+      document.getElementById('saveNote').addEventListener('click', () => {
+        const note = document.getElementById('operatorNote').value.trim();
+        if (!note) {
+          document.getElementById('stateMessage').textContent = 'A note is required before saving.';
+          document.getElementById('stateMessage').className = 'error';
+          return;
+        }
+        state.note = note;
+        writeState(state);
+        render();
+      });
+      document.getElementById('resetData').addEventListener('click', () => {
+        localStorage.removeItem(storageKey);
+        state = readState();
+        document.getElementById('operatorNote').value = state.note || '';
+        render();
+      });
+      render();
+    </script>
+    
+  </main>
+</body>
+</html>
