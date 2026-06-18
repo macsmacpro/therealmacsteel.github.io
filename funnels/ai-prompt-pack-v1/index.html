@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7 Prompts From the Live 26-Agent Stack — SteelWorks Intelligence</title>
+  <meta name="description" content="The actual prompts running 83 autonomous crons on a gaming PC — copy, paste, run locally with Ollama or any free model." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/assets/style.css" />
+  <style>
+    .funnel-hero { max-width: 640px; margin: 0 auto; padding: 3rem 1.5rem 2rem; text-align: center; }
+    .funnel-hero h1 { font-size: clamp(1.6rem,4vw,2.4rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+    .funnel-hero .sub { font-size: 1.1rem; color: var(--text-muted,#888); margin-bottom: 2rem; }
+    .funnel-bullets { text-align: left; max-width: 480px; margin: 0 auto 2rem; padding: 1.5rem; background: var(--surface,#111); border-radius: 8px; border: 1px solid var(--border,#222); }
+    .funnel-bullets ul { list-style: none; padding: 0; margin: 0; }
+    .funnel-bullets li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; }
+    .funnel-bullets li::before { content: "✓"; position: absolute; left: 0; color: #00FFCC; font-weight: 700; }
+    .capture-form { max-width: 400px; margin: 0 auto; }
+    .capture-form input[type="email"] { width: 100%; padding: 0.85rem 1rem; font-size: 1rem; border: 1px solid var(--border,#333); border-radius: 6px; background: var(--surface,#111); color: var(--text,#fff); margin-bottom: 0.75rem; box-sizing: border-box; }
+    .capture-form button { width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 700; background: #00FFCC; color: #000; border: none; border-radius: 6px; cursor: pointer; transition: opacity .2s; }
+    .capture-form button:hover { opacity: 0.88; }
+    .form-note { font-size: 0.78rem; color: var(--text-muted,#666); margin-top: 0.5rem; text-align: center; }
+    .upsell-line { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border,#222); font-size: 0.9rem; color: var(--text-muted,#888); }
+    #form-success { display: none; padding: 1rem; background: #00FFCC22; border: 1px solid #00FFCC; border-radius: 6px; text-align: center; color: #00FFCC; }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">STEELWORKS INTELLIGENCE</a>
+  </div>
+</nav>
+
+<main>
+  <div class="funnel-hero">
+    <p class="eyebrow">Free Resource</p>
+    <h1>7 Prompts From the Live 26-Agent Stack</h1>
+    <p class="sub">The actual prompts running 83 autonomous crons on a gaming PC — copy, paste, run locally with Ollama or any free model.</p>
+
+    <div class="funnel-bullets">
+      <ul>
+        <li>Agent Identity Brief — the template that keeps 26 agents on task</li>
+<li>Cron Task Spec — how to design a recurring job that actually runs</li>
+<li>Build-in-Public Content — the exact format for authentic posts</li>
+<li>Lead Scoring — rate prospects with a local model, no API cost</li>
+<li>Self-Heal Diagnostic — the script that keeps 83 crons alive overnight</li>
+<li>Free Model Routing — send tasks to the right free model every time</li>
+<li>Daily Status Report — 5-line brief that covers a 39-agent system</li>
+      </ul>
+    </div>
+
+    <div class="capture-form">
+      <div id="form-success">
+        ✓ Check your inbox — your prompts are on the way.
+      </div>
+      <form id="capture-form" onsubmit="submitCapture(event)">
+        <input type="email" id="capture-email" placeholder="your@email.com"
+               required autocomplete="email" />
+        <button type="submit" id="capture-btn">Get the 7 Free Prompts</button>
+        <p class="form-note">No spam. Unsubscribe any time. The paid pack ($29) is offered in the welcome email — no pressure.</p>
+      </form>
+    </div>
+
+    <div class="upsell-line">
+      Already want the full 25-prompt pack?
+      <a href="https://macsmacpro.gumroad.com/l/ppvasu" target="_blank" rel="noopener" style="color:#00FFCC;">Get it on Gumroad ($29)</a>
+    </div>
+  </div>
+</main>
+
+<script>
+async function submitCapture(e) {
+  e.preventDefault();
+  const email = document.getElementById('capture-email').value.trim();
+  const btn   = document.getElementById('capture-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    const r = await fetch('https://swi-chatbot.macsmacpro.workers.dev/capture', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, source: 'lead_magnet', funnel_id: 'ai-prompt-pack-v1' })
+    });
+    const d = await r.json();
+    if (d.ok) {
+      document.getElementById('capture-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+      // Track conversion
+      fetch('https://swi-chatbot.macsmacpro.workers.dev/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ event: 'intake_submit', funnel: 'ai-prompt-pack-v1', utm_campaign: 'ai-prompt-pack-v1' })
+      }).catch(() => {});
+    } else {
+      btn.textContent = 'Try again';
+      btn.disabled = false;
+    }
+  } catch (err) {
+    btn.textContent = 'Get the 7 Free Prompts';
+    btn.disabled = false;
+  }
+}
+</script>
+
+<footer class="footer" style="text-align:center;padding:2rem;color:#666;font-size:.8rem;">
+  <a href="/" style="color:#666;">SteelWorks Intelligence</a> ·
+  <a href="/legal.html" style="color:#666;">Privacy</a>
+</footer>
+</body>
+</html>
