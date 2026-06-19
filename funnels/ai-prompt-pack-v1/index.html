@@ -34,8 +34,8 @@
 <main>
   <div class="funnel-hero">
     <p class="eyebrow">Free Resource</p>
-    <h1>7 Prompts From the Live 26-Agent Stack</h1>
-    <p class="sub">The actual prompts running 83 autonomous crons on a gaming PC — copy, paste, run locally with Ollama or any free model.</p>
+    <h1 id="funnel-headline">7 Prompts From the Live 26-Agent Stack</h1>
+    <p class="sub" id="funnel-sub">The actual prompts running 83 autonomous crons on a gaming PC — copy, paste, run locally with Ollama or any free model.</p>
 
     <div class="funnel-bullets">
       <ul>
@@ -69,6 +69,44 @@
 </main>
 
 <script>
+const AB_VARIANTS = {"A": {"label": "system_proof", "title": "7 Prompts From the Live 26-Agent Stack", "subtitle": "The actual prompts running 83 autonomous crons on a gaming PC \u2014 copy, paste, run locally with Ollama or any free model.", "cta_text": "Get the 7 Free Prompts", "brand_score": 9.2}, "B": {"label": "outcome", "title": "7 Prompts That Run 83 Tasks While I Sleep", "subtitle": "These are the exact prompts handling content, lead scoring, and self-healing across 26 agents \u2014 yours free to copy and run on any local model.", "cta_text": "Send Me the 7 Prompts", "brand_score": 9.2}};
+const FUNNEL_ID = 'ai-prompt-pack-v1';
+let ACTIVE_VARIANT = '';
+
+// ── A/B assignment: persistent per-visitor, honors declared winner ──
+async function initAB() {
+  const ids = Object.keys(AB_VARIANTS);
+  if (ids.length < 2) return;  // no A/B configured
+  // 1. Declared winner routes 100%
+  let winner = null;
+  try {
+    const wr = await fetch('https://swi-chatbot.macsmacpro.workers.dev/ab/' + FUNNEL_ID);
+    const wd = await wr.json();
+    if (wd && wd.winner && AB_VARIANTS[wd.winner]) winner = wd.winner;
+  } catch (e) {}
+  // 2. Persistent assignment in localStorage, else random even split
+  const storeKey = 'ab_' + FUNNEL_ID;
+  let variant = winner || localStorage.getItem(storeKey);
+  if (!variant || !AB_VARIANTS[variant]) {
+    variant = ids[Math.floor(Math.random() * ids.length)];
+  }
+  if (winner) variant = winner;  // winner overrides stored
+  localStorage.setItem(storeKey, variant);
+  ACTIVE_VARIANT = variant;
+  // 3. Apply variant copy to the DOM
+  const v = AB_VARIANTS[variant];
+  if (v.title)    document.getElementById('funnel-headline').textContent = v.title;
+  if (v.subtitle) document.getElementById('funnel-sub').textContent = v.subtitle;
+  if (v.cta_text) document.getElementById('capture-btn').textContent = v.cta_text;
+  // 4. Track the view with variant
+  fetch('https://swi-chatbot.macsmacpro.workers.dev/track', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ event: 'page_view', funnel: FUNNEL_ID, variant: variant,
+                           utm_campaign: 'ai-prompt-pack-v1' })
+  }).catch(() => {});
+}
+initAB();
+
 async function submitCapture(e) {
   e.preventDefault();
   const email = document.getElementById('capture-email').value.trim();
@@ -79,24 +117,25 @@ async function submitCapture(e) {
     const r = await fetch('https://swi-chatbot.macsmacpro.workers.dev/capture', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: 'lead_magnet', funnel_id: 'ai-prompt-pack-v1' })
+      body: JSON.stringify({ email, source: 'lead_magnet', funnel_id: FUNNEL_ID,
+                             variant: ACTIVE_VARIANT })
     });
     const d = await r.json();
     if (d.ok) {
       document.getElementById('capture-form').style.display = 'none';
       document.getElementById('form-success').style.display = 'block';
-      // Track conversion
       fetch('https://swi-chatbot.macsmacpro.workers.dev/track', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ event: 'intake_submit', funnel: 'ai-prompt-pack-v1', utm_campaign: 'ai-prompt-pack-v1' })
+        body: JSON.stringify({ event: 'intake_submit', funnel: FUNNEL_ID,
+                               variant: ACTIVE_VARIANT, utm_campaign: 'ai-prompt-pack-v1' })
       }).catch(() => {});
     } else {
       btn.textContent = 'Try again';
       btn.disabled = false;
     }
   } catch (err) {
-    btn.textContent = 'Get the 7 Free Prompts';
+    btn.textContent = document.getElementById('capture-btn').dataset.original || 'Get Free Access';
     btn.disabled = false;
   }
 }
