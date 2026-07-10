@@ -20,10 +20,12 @@ img{max-width:100%;border-radius:14px;margin:20px 0}.price{font-size:22px;color:
 <form id=f onsubmit="return lead(event)"><input id=name placeholder="Name" required>
 <input id=email type=email placeholder="Work email" required><input id=co placeholder="Company / website">
 <button>Request my scoping call</button></form><div id=msg></div></div>
-<script>async function lead(ev){ev.preventDefault();var m=document.getElementById('msg');m.textContent='Sending…';
-try{const r=await fetch((location.hostname=='127.0.0.1'?'':'http://127.0.0.1:8791')+'/api/lead',{method:'POST',
+<script>async function lead(ev){ev.preventDefault();var m=document.getElementById('msg');m.style.color='#8fb3d9';m.textContent='Sending…';
+try{const r=await fetch('https://swi-leads.macsmacpro.workers.dev/api/lead',{method:'POST',
 headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name.value,email:email.value,company:co.value,
-source:'venture:ai-chatbot-development'})});const d=await r.json();m.textContent=d.ok?'✓ Got it — we\'ll reach out within 48 hours.':'Please try again.';
-if(d.ok)document.getElementById('f').reset();}catch(e){m.textContent='✓ Received — we\'ll be in touch.';}return false;}</script>
+source:'venture:ai-chatbot-development'})});const d=await r.json();
+if(d.ok){m.style.color='#22e6b4';m.textContent='✓ Got it — we\'ll reach out within 48 hours.';document.getElementById('f').reset();}
+else{m.style.color='#ff7b72';m.textContent='Didn\'t go through ('+(d.error||('HTTP '+r.status))+'). Email macsmacpro@gmail.com and we\'ll reply.';}}
+catch(e){m.style.color='#ff7b72';m.textContent='Couldn\'t reach the signup server. Email macsmacpro@gmail.com and we\'ll reply.';}return false;}</script>
 <footer style=color:#3d5470;margin-top:40px;font-size:13px>SteelWorks Intelligence · @therealmacsteel · built in public</footer>
 </div></body></html>
