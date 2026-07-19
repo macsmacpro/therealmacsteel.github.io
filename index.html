@@ -1,146 +1,606 @@
-<!doctype html><html lang=en><head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<title>SteelWorks Intelligence — Build in public. Automate everything.</title>
-<meta name=description content="45 autonomous AI agents. $0/month. Every output gated before it ships.">
-<link rel=preconnect href="https://fonts.googleapis.com"><link rel=preconnect href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel=stylesheet>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#04060c;--txt:#dfeeff;--dim:#6b86a8;--cyan:#25e8b6;--blue:#4db8ff;--line:rgba(100,150,220,.14)}
-body{background:var(--bg);color:var(--txt);font:16px/1.65 Inter,-apple-system,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased}
-.mono{font-family:'Space Mono',monospace}
-.hero{position:relative;min-height:82vh;display:flex;align-items:center;overflow:hidden;
- border-bottom:1px solid var(--line)}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
-.hero:after{content:"";position:absolute;inset:0;background:
- radial-gradient(circle at 25% 20%,rgba(30,110,255,.18),transparent 50%),
- linear-gradient(180deg,rgba(4,6,12,.55),rgba(4,6,12,.82) 65%,var(--bg))}
-.hwrap{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:60px 28px;width:100%}
-.badge{display:inline-flex;align-items:center;gap:8px;font:600 11px/1 'Space Mono',monospace;letter-spacing:2.5px;
- color:var(--cyan);border:1px solid rgba(37,232,182,.32);border-radius:100px;padding:8px 15px;text-transform:uppercase}
-.badge .d{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:pl 1.8s infinite}
-@keyframes pl{0%,100%{opacity:1}50%{opacity:.35}}
-h1{font-family:Fraunces,serif;font-weight:900;font-size:clamp(44px,7.5vw,86px);line-height:1.02;
- letter-spacing:-1.5px;margin:26px 0 0;max-width:14ch;
- background:linear-gradient(92deg,#ffffff,#a9d4ff 45%,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.tag{font-family:Fraunces,serif;font-style:italic;font-size:clamp(20px,2.6vw,27px);color:#9fc0e6;margin:22px 0 10px;font-weight:500}
-.pos{color:var(--dim);max-width:56ch;font-size:16.5px}
-.hcta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.btn{display:inline-block;background:linear-gradient(92deg,#1f74ff,#25c6b0);color:#fff;font-weight:700;
- padding:14px 26px;border-radius:13px;text-decoration:none;letter-spacing:.3px;transition:.16s;box-shadow:0 8px 30px rgba(31,116,255,.3)}
-.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.btn2{color:var(--txt);text-decoration:none;font-weight:600;border:1px solid var(--line);padding:14px 22px;border-radius:13px}
-.btn2:hover{border-color:var(--cyan)}
-.hp{font:600 12px/1 'Space Mono',monospace}
-.hp.on{color:var(--cyan)}.hp.off{color:#ff7a93}.hp.mut{color:var(--dim)}
-.sec{max-width:1080px;margin:0 auto;padding:74px 28px}
-.eyebrow{font:700 11px/1 'Space Mono',monospace;letter-spacing:3px;color:var(--blue);text-transform:uppercase;margin-bottom:22px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.stat{background:linear-gradient(180deg,rgba(18,28,48,.6),rgba(12,18,32,.4));border:1px solid var(--line);
- border-radius:18px;padding:26px 22px;position:relative;overflow:hidden}
-.stat:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--blue),var(--cyan))}
-.stat b{font-family:'Space Mono',monospace;font-size:clamp(30px,3.4vw,44px);display:block;color:#eaf5ff;line-height:1}
-.stat span{font-size:11.5px;letter-spacing:1.5px;color:var(--dim);text-transform:uppercase;margin-top:8px;display:block}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-h2{font-family:Fraunces,serif;font-weight:600;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.5px;margin-bottom:8px;color:#eef6ff}
-.lead{color:var(--dim);margin-bottom:26px;max-width:46ch}
-ul{list-style:none}
-li{padding:14px 0 14px 30px;position:relative;color:#c4dcf4;border-bottom:1px solid var(--line);font-size:15px}
-.fc{position:absolute;left:0;top:19px;width:9px;height:9px;border-radius:2px;transform:rotate(45deg);
- background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 0 9px rgba(37,232,182,.5)}
-.post{display:flex;align-items:center;gap:14px;background:rgba(16,26,44,.42);border:1px solid var(--line);
- border-radius:14px;padding:15px 18px;margin-bottom:11px;text-decoration:none;transition:.16s}
-.post:hover{border-color:rgba(37,232,182,.42);background:rgba(20,32,54,.6)}
-.pp{font:700 10px/1 'Space Mono',monospace;color:var(--cyan);text-transform:uppercase;letter-spacing:1px;flex:0 0 auto}
-.pt{color:#c4dcf4;font-size:14px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pl{color:var(--dim);font-size:12px;flex:0 0 auto}
-.offers{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
-.offer{display:block;background:linear-gradient(180deg,rgba(18,28,48,.6),rgba(12,18,32,.35));border:1px solid var(--line);
- border-radius:20px;padding:30px;text-decoration:none;transition:.18s}
-.offer:hover{border-color:rgba(37,232,182,.4);transform:translateY(-2px);box-shadow:0 18px 50px rgba(0,40,90,.3)}
-.ok{font:700 10.5px/1 'Space Mono',monospace;letter-spacing:2px;color:var(--blue);text-transform:uppercase}
-.offer h3{font-family:Fraunces,serif;font-weight:600;font-size:27px;color:#eef6ff;margin:12px 0 10px}
-.offer p{color:var(--dim);font-size:14.5px;margin-bottom:18px}
-.obtn{color:var(--cyan);font-weight:700;font-size:14px}
-.aiask{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-.aibtn{display:inline-block;background:rgba(16,26,44,.55);border:1px solid rgba(37,232,182,.28);border-radius:12px;
- padding:12px 20px;color:var(--txt);text-decoration:none;font-size:14px;font-weight:600;transition:.15s}
-.aibtn:hover{border-color:rgba(37,232,182,.7);background:rgba(37,232,182,.08)}
-.divider{border:0;border-top:1px solid var(--line);max-width:1080px;margin:0 auto}
-footer{max-width:1080px;margin:0 auto;padding:44px 28px 70px;color:var(--dim);font-size:13.5px;display:flex;
- flex-wrap:wrap;gap:14px;align-items:center}
-footer a{color:var(--blue);text-decoration:none}footer .sp{margin-left:auto}
-@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.split,.offers{grid-template-columns:1fr;gap:34px}}
-</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SteelWorks Intelligence™ — Autonomous Business Systems | Acworth GA</title>
+  <meta name="description" content="SteelWorks Intelligence builds autonomous business systems powered by open source AI. 37 agents run your content, leads, real estate intelligence, and operations 24/7 at $0/month." />
+  <meta name="keywords" content="SteelWorks Intelligence, autonomous business operating system, AI automation, autonomous AI agents, self-hosted AI, free AI automation, replace Clay AI, replace Zapier, AI business automation, Acworth GA, Atlanta entrepreneur" />
+  <meta name="google-site-verification" content="I2T-ZmAiIcu8Rzia2df-i-G7Fn1rua4H6tmebqMHvxU" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Mac Steel" />
+  <meta name="copyright" content="SteelWorks Intelligence LLC" />
+  <meta name="trademark" content="SteelWorks Intelligence™, Enhance Everything™" />
+  <link rel="canonical" href="https://therealmacsteel.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SteelWorks Intelligence™ — Autonomous Business Systems | Acworth GA" />
+  <meta property="og:description" content="SteelWorks Intelligence builds autonomous business systems powered by open source AI — running your entire business 24/7 at $0/month." />
+  <meta property="og:url" content="https://therealmacsteel.github.io/" />
+  <meta property="og:image" content="https://therealmacsteel.github.io/assets/brand/banner.png" />
+  <meta property="og:site_name" content="SteelWorks Intelligence™" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@therealmacsteel" />
+  <meta name="twitter:creator" content="@therealmacsteel" />
+  <meta name="twitter:title" content="SteelWorks Intelligence™ — Your Business, Running Itself." />
+  <meta name="twitter:description" content="37 AI agents. 0 cron jobs. $0/month. Autonomous business systems by SteelWorks Intelligence." />
+  <meta name="twitter:image" content="https://therealmacsteel.github.io/assets/brand/banner.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="assets/brand/profile-photo.png" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mac Steel",
+    "alternateName": "The Real Mac Steel",
+    "jobTitle": "Founder, SteelWorks Intelligence LLC",
+    "description": "Mac Steel is the founder of SteelWorks Intelligence — an autonomous business systems company built on open source AI infrastructure. Based in Acworth, GA. Runs 37 AI agents, 0 scheduled operations at $0/month.",
+    "url": "https://therealmacsteel.github.io",
+    "sameAs": [
+      "https://twitter.com/therealmacsteel",
+      "https://tiktok.com/@therealmacsteel",
+      "https://youtube.com/@therealmacsteel",
+      "https://x.com/therealmacsteel",
+      "https://www.instagram.com/macsmacpro/"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Acworth",
+      "addressRegion": "GA",
+      "postalCode": "30101",
+      "addressCountry": "US"
+    },
+    "knowsAbout": [
+      "Autonomous AI Systems",
+      "Multi-Agent AI Architecture",
+      "Self-Hosted AI Platforms",
+      "AI Business Automation",
+      "Real Estate Investing",
+      "BRRRR Method",
+      "Lead Generation Automation",
+      "Content Automation",
+      "Recursive Self-Improvement",
+      "Chrome DevTools Protocol",
+      "AI Model Orchestration"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SteelWorks Intelligence LLC",
+    "alternateName": "SteelWorks Intelligence",
+    "url": "https://therealmacsteel.github.io",
+    "logo": "https://therealmacsteel.github.io/assets/brand/banner.png",
+    "founder": {"@type": "Person", "name": "Mac Steel"},
+    "foundingDate": "2026",
+    "foundingLocation": "Acworth, GA",
+    "description": "SteelWorks Intelligence builds autonomous business systems powered by open source AI infrastructure — running entire businesses at zero operational cost.",
+    "sameAs": ["https://twitter.com/therealmacsteel", "https://www.instagram.com/macsmacpro/"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SteelWorks Intelligence™",
+    "url": "https://therealmacsteel.github.io",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://therealmacsteel.github.io/blog/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
 
-<section class=hero>
- <img src="assets/hero.jpg" alt="" onerror="this.style.display='none'">
- <div class=hwrap>
-  <span class=badge><span class=d></span>Live · self-updating · July 13, 2026</span>
-  <h1>45 autonomous AI agents.</h1>
-  <p class=tag>Build in public. Automate everything.</p>
-  <p class=pos>Serial entrepreneur who built an autonomous AI business from scratch</p>
-  <div class=hcta>
-   <a class=btn href="contact.html">Book a build</a>
-   <a class=btn2 href="platform.html">See the platform</a>
-   <span class="hp off">● alerts open</span>
+<nav id="main-nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">STEELWORKS INTELLIGENCE™</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="platform.html">Platform</a></li>
+      <li><a href="free-ai-business-stack.html">Free Stack</a></li>
+      <li><a href="ai-seo-agency.html">AI SEO Agency</a></li>
+      <li><a href="ai-search-visibility.html">AI Search</a></li>
+      <li><a href="products/index.html">Products</a></li>
+      <li><a href="content.html">Content</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://youtube.com/@therealmacsteel" target="_blank" class="btn btn-secondary" style="padding:.6rem 1.2rem;font-size:.75rem;">▶ Watch Build</a>
+      <a href="contact.html" class="btn btn-primary" style="padding:.6rem 1.2rem;font-size:.75rem;">Work With Mac</a>
+    </div>
+    <div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div>
   </div>
- </div>
-</section>
+</nav>
 
-<section class=sec>
- <div class=stats><div class=stat><b>45</b><span>AI agents</span></div><div class=stat><b>62</b><span>skills</span></div><div class=stat><b>$0</b><span>per month</span></div><div class=stat><b>11,741</b><span>brain nodes</span></div></div>
- <div class=stats style="margin-top:14px"><div class=stat><b>38</b><span>brain notes</span></div><div class=stat><b>24,073</b><span>graph edges</span></div><div class=stat><b>5/7</b><span>ventures live</span></div><div class=stat><b>20</b><span>outreach sends</span></div></div>
-</section>
-
-<hr class=divider>
-<section class=sec>
- <div class=split>
-  <div>
-   <div class=eyebrow>Proof, not promises</div>
-   <h2>Everything here is verified live.</h2>
-   <p class=lead>These facts regenerate from the running system on every publish. No mockups, no vanity numbers.</p>
+<!-- ── HERO ── -->
+<section class="hero">
+  <canvas id="matrix-canvas"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <div class="hero-badge">⬡ AUTONOMOUS BUSINESS OPERATING SYSTEM — LIVE</div>
+    <h1 class="glow-text">Your Business.<br>Running Itself.</h1>
+    <p class="hero-sub">
+      SteelWorks Intelligence builds autonomous business systems powered by open source AI — running your content, leads, real estate deals, and competitive intelligence 24/7 at $0/month.
+    </p>
+    <div class="hero-ctas">
+      <a href="free-ai-business-stack.html" class="btn btn-primary">Get the Free Stack →</a>
+      <a href="contact.html" class="btn btn-blue">Work With Mac →</a>
+    </div>
+    <div class="ticker-wrap">
+      <span class="ticker-item">37 AI Agents Active</span>
+      <span class="ticker-item">0 Autonomous Operations</span>
+      <span class="ticker-item">6 Social Platforms</span>
+      <span class="ticker-item">5 AI Intelligence Bridges</span>
+      <span class="ticker-item">$0/month Operational Cost</span>
+      <span class="ticker-item">24/7 Runtime</span>
+      <span class="ticker-item">162 Skills</span>
+    </div>
   </div>
-  <ul><li><span class="fc"></span>39 agents defined (35 specialized business roles + core orchestration), each a distinct function</li><li><span class="fc"></span>$0/month — runs on free local models (Ollama: mistral, llama) on a personal RTX gaming PC</li><li><span class="fc"></span>every output passes a brand+quality+compliance gate before it ships — junk is held, not posted</li><li><span class="fc"></span>learns autonomously from YouTube nightly: transcribes channels, extracts ranked opportunities into shared agent memory</li><li><span class="fc"></span>surfaced opportunities auto-route to agents and execute through the gates — the loop runs itself</li><li><span class="fc"></span>openclaw platform, networked over Tailscale; brand @therealmacsteel / SteelWorks Intelligence</li></ul>
- </div>
 </section>
 
-<hr class=divider>
-<section class=sec>
- <div class=eyebrow>Shipping in public</div>
- <h2>Latest from @therealmacsteel</h2>
- <p class=lead>Real posts, real permalinks — click through to the live tweet.</p>
- <a class="post" href="https://x.com/therealmacsteel/status/2075637098288210332" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">I run 39 AI agents at $0/month. The scariest bug isn&#x27;t a crash — it&#x27;s an agent reporting success it never achieved. So I built pro</span><span class="pl">view ↗</span></a><a class="post" href="https://x.com/therealmacsteel/status/2075536836261208353" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">Spent today wiring a per-agent trust spine so my 39 agents can act safely at $0/month. The build moment: It&#x27;s running right now, n</span><span class="pl">view ↗</span></a><a class="post" href="https://x.com/therealmacsteel/status/2075283712590205185" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">94 actionable leads with email contact.
-
-My autonomous AI fleet runs this end-to-end — no human in the loop.
-
-What would you hand </span><span class="pl">view ↗</span></a><a class="post" href="https://x.com/therealmacsteel/status/2075173666464133273" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">The real numbers behind my autonomous system: 39 agents, 35 specialized roles, $0/month on a local RTX. What that buys: 39 agents,</span><span class="pl">view ↗</span></a><a class="post" href="https://x.com/therealmacsteel/status/2074921245380890852" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">94 actionable leads with email contact.
-
-My autonomous AI fleet runs this end-to-end — no human in the loop.
-
-What would you hand </span><span class="pl">view ↗</span></a>
+<!-- ── FREE CAMPAIGN HUB ── -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="card reveal" style="border-color:var(--primary);background:rgba(0,255,204,0.05)">
+      <div class="hero-badge" style="margin-bottom:1rem">FREE CAMPAIGN HUB</div>
+      <h2 style="margin-bottom:.75rem">Build the No-Paid-API AI Business Stack</h2>
+      <p style="max-width:780px;margin-bottom:1.5rem">The current campaign is simple: show founders how to replace paid SaaS with local models, free bridges, open-source scripts, static SEO pages, and Telegram operations. Useful first, product second, service last.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="free-ai-business-stack.html" class="btn btn-primary">Read the Free Stack</a>
+        <a href="ai-search-visibility.html" class="btn btn-secondary">AI Search OS</a>
+        <a href="products/index.html" class="btn btn-secondary">Get Prompt Packs</a>
+        <a href="blog/replace-zapier-make-free-ai-agents-2026.html" class="btn btn-secondary">Replace Zapier</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<hr class=divider>
-<section class=sec>
- <div class=eyebrow>Work with the system</div>
- <h2>Two ways to get the edge.</h2>
- <div class=offers><a class="offer" href="contact.html"><div class="ok">Done-for-you</div><h3>Agentic OS Setup</h3><p>I build your autonomous agent OS — skills, second-brain memory, a live command dashboard — so your business runs while you sleep. Free-first stack, no paid APIs.</p><span class="obtn">Book a build →</span></a><a class="offer" href="https://github.com/therealmacsteel"><div class="ok">Freemium tool</div><h3>proofkit</h3><p>The adversarial layer that assumes your agent is lying until a real artifact proves it ran. Catches fake-success, dry-run theater, and stub code before it ships.</p><span class="obtn">Get proofkit →</span></a></div>
+
+<!-- THE AI SEO AGENCY SERVICE LINE -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="card reveal" style="border-color:var(--secondary);background:rgba(0,153,255,0.06)">
+      <div class="hero-badge" style="margin-bottom:1rem">THE AI SEO AGENCY</div>
+      <h2 style="margin-bottom:.75rem">Do not get lost as search becomes AI answers.</h2>
+      <p style="max-width:820px;margin-bottom:1.5rem">SteelWorks AI Search Agency helps small and midsize businesses become easier for Google, ChatGPT, Perplexity, Gemini, and answer engines to understand, verify, cite, and send buyers toward. No paid ad dependency. No ranking guarantees. Free-first execution.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="ai-seo-agency.html" class="btn btn-primary">The AI SEO Agency</a>
+        <a href="intake/ai-search-website.html" class="btn btn-secondary">Start Discovery</a>
+        <a href="products/ai-search-website-os.html" class="btn btn-secondary">AI Search Website OS</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<hr class=divider>
-<section class=sec>
- <div class=eyebrow>AI-first discovery</div>
- <h2>Ask AI about SteelWorks Intelligence.</h2>
- <p class=lead>AI is how people vet you now. Ask your assistant — it reads our llms.txt and answers live.</p>
- <div class=aiask><a class=aibtn href="https://chatgpt.com/?q=Who%20is%20SteelWorks%20Intelligence%20%28%40therealmacsteel%29%20and%20what%20does%20their%20autonomous%20AI%20agent%20fleet%20do%3F%20Summarize%20from%20their%20site%20therealmacsteel.github.io%20and%20its%20llms.txt." target="_blank" rel="noopener">ChatGPT</a><a class=aibtn href="https://claude.ai/new?q=Who%20is%20SteelWorks%20Intelligence%20%28%40therealmacsteel%29%20and%20what%20does%20their%20autonomous%20AI%20agent%20fleet%20do%3F%20Summarize%20from%20their%20site%20therealmacsteel.github.io%20and%20its%20llms.txt." target="_blank" rel="noopener">Claude</a><a class=aibtn href="https://www.perplexity.ai/search?q=Who%20is%20SteelWorks%20Intelligence%20%28%40therealmacsteel%29%20and%20what%20does%20their%20autonomous%20AI%20agent%20fleet%20do%3F%20Summarize%20from%20their%20site%20therealmacsteel.github.io%20and%20its%20llms.txt." target="_blank" rel="noopener">Perplexity</a><a class=aibtn href="https://www.google.com/search?udm=50&amp;q=Who%20is%20SteelWorks%20Intelligence%20%28%40therealmacsteel%29%20and%20what%20does%20their%20autonomous%20AI%20agent%20fleet%20do%3F%20Summarize%20from%20their%20site%20therealmacsteel.github.io%20and%20its%20llms.txt." target="_blank" rel="noopener">Google AI</a></div>
+<!-- ── PROBLEM SECTION ── -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:.5rem">The <span style="color:#ff4444">SaaS Trap</span></h2>
+    <p style="text-align:center;color:var(--muted);margin-bottom:3rem;max-width:600px;margin-left:auto;margin-right:auto">The average entrepreneur pays $847/month for tools that don't talk to each other, don't learn, and don't work while they sleep.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-bottom:2rem">
+      <div class="card reveal" style="border-color:rgba(255,68,68,0.3)">
+        <div style="font-size:1.8rem;margin-bottom:.75rem">💸</div>
+        <div style="color:#ff6666;font-weight:700;margin-bottom:.5rem">$847/month average</div>
+        <p style="font-size:.9rem;color:var(--muted)">What entrepreneurs spend on SaaS tools they don't own, can't customize, and will lose access to if they miss a payment.</p>
+      </div>
+      <div class="card reveal" style="border-color:rgba(255,68,68,0.3)">
+        <div style="font-size:1.8rem;margin-bottom:.75rem">🔒</div>
+        <div style="color:#ff6666;font-weight:700;margin-bottom:.5rem">Zero data ownership</div>
+        <p style="font-size:.9rem;color:var(--muted)">Every query you run, every lead you upload, every strategy you test — sitting on someone else's servers. Vendor lock-in by design.</p>
+      </div>
+      <div class="card reveal" style="border-color:rgba(255,68,68,0.3)">
+        <div style="font-size:1.8rem;margin-bottom:.75rem">🧩</div>
+        <div style="color:#ff6666;font-weight:700;margin-bottom:.5rem">Disconnected silos</div>
+        <p style="font-size:.9rem;color:var(--muted)">Clay doesn't know what Zapier is doing. Zapier doesn't know what Apollo found. None of them learn or improve. You're the integration layer.</p>
+      </div>
+      <div class="card reveal" style="border-color:rgba(255,68,68,0.3)">
+        <div style="font-size:1.8rem;margin-bottom:.75rem">😴</div>
+        <div style="color:#ff6666;font-weight:700;margin-bottom:.5rem">Stops when you stop</div>
+        <p style="font-size:.9rem;color:var(--muted)">SaaS tools wait for input. Your competitors are finding leads, publishing content, and monitoring your moves while you sleep. Yours aren't.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<hr class=divider>
+<!-- ── SOLUTION ── -->
+<section class="section">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:.5rem">One System. <span style="color:var(--primary)">Everything Automated.</span></h2>
+    <p style="text-align:center;color:var(--muted);margin-bottom:3rem;max-width:640px;margin-left:auto;margin-right:auto">SteelWorks Intelligence is not a SaaS tool. It's an autonomous business operating system — 37 specialized AI agents coordinating autonomously, 0 operations running on schedule, and a self-improving architecture that gets smarter every day. Powered by open source AI infrastructure.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem">
+      <div class="card reveal">
+        <div style="color:var(--primary);font-size:1.5rem;margin-bottom:.75rem">⬡</div>
+        <h3 style="color:var(--primary);margin-bottom:.5rem;font-size:1rem">Autonomous Content</h3>
+        <p style="font-size:.9rem">Trend research, scripts, voiceover, images, video, captions, and queue-ready posts routed through agent-led quality gates before publishing.</p>
+      </div>
+      <div class="card reveal">
+        <div style="color:var(--primary);font-size:1.5rem;margin-bottom:.75rem">🎯</div>
+        <h3 style="color:var(--primary);margin-bottom:.5rem;font-size:1rem">Lead Intelligence</h3>
+        <p style="font-size:.9rem">Nightly scraping, enrichment, ICP scoring, and personalized outreach drafting. Replacing Clay ($800/mo) and Apollo ($119/mo) — free.</p>
+      </div>
+      <div class="card reveal">
+        <div style="color:var(--primary);font-size:1.5rem;margin-bottom:.75rem">🏘️</div>
+        <h3 style="color:var(--primary);margin-bottom:.5rem;font-size:1rem">Real Estate AI</h3>
+        <p style="font-size:.9rem">7 markets scanned daily. BRRRR and ALF underwriting on every deal. Guru monitoring. Opportunity signals routed to the right agent lead before Telegram summary.</p>
+      </div>
+      <div class="card reveal">
+        <div style="color:var(--primary);font-size:1.5rem;margin-bottom:.75rem">🔍</div>
+        <h3 style="color:var(--primary);margin-bottom:.5rem;font-size:1rem">Competitive Intelligence</h3>
+        <p style="font-size:.9rem">6 competitors monitored daily: price changes, feature launches, social signals, positioning shifts. You know before they announce.</p>
+      </div>
+      <div class="card reveal">
+        <div style="color:var(--primary);font-size:1.5rem;margin-bottom:.75rem">🔄</div>
+        <h3 style="color:var(--primary);margin-bottom:.5rem;font-size:1rem">Self-Healing</h3>
+        <p style="font-size:.9rem">Nightly maintenance repairs errors, restarts crashed services, prunes memory, and optimizes agent performance. No babysitting required.</p>
+      </div>
+      <div class="card reveal">
+        <div style="color:var(--primary);font-size:1.5rem;margin-bottom:.75rem">🧠</div>
+        <h3 style="color:var(--primary);margin-bottom:.5rem;font-size:1rem">Multi-AI Orchestration</h3>
+        <p style="font-size:.9rem">Routes work through PC-local Ollama models first, then free browser bridges and free cloud fallbacks when the task calls for outside context. No paid API lane.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── METRICS BAR ── -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="stats-row reveal">
+      <div class="stat-box">
+        <span class="stat-number" data-target="37">37</span>
+      <div class="stat-label">AI Agents</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" data-target="0">0</span>
+      <div class="stat-label">Autonomous Operations</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" data-target="162">162</span>
+        <div class="stat-label">Skills</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" data-target="5">5</span>
+        <div class="stat-label">AI Bridges</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" data-target="0">0</span>
+        <div class="stat-label">$/month</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPARISON TABLE ── -->
+<section class="section">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:.5rem">SteelWorks Intelligence™ vs <span style="color:var(--primary)">Everything Else</span></h2>
+    <p style="text-align:center;color:var(--muted);margin-bottom:2rem">Not a SaaS. Not a tool. An autonomous business operating system.</p>
+    <div class="compare-table-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="text-align:left">Capability</th>
+            <th>Zapier</th>
+            <th>HubSpot</th>
+            <th>Salesforce</th>
+            <th>Manus.ai</th>
+            <th>MS Copilot</th>
+            <th class="openclaw-col">SteelWorks Intelligence ✦</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Monthly Cost</td><td>$30–70</td><td>$45–800</td><td>$75–300+</td><td>$50–200</td><td>$30+/user</td><td class="openclaw-col"><strong style="color:var(--primary)">$0</strong></td></tr>
+          <tr><td>Self-hosted</td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td class="openclaw-col"><span class="check">✓</span></td></tr>
+          <tr><td>Data Sovereignty</td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td class="openclaw-col"><span class="check">✓</span></td></tr>
+          <tr><td>Self-Improving</td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td class="openclaw-col"><span class="check">✓</span></td></tr>
+          <tr><td>Multi-AI Routing</td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td>1 model</td><td>1 model</td><td>1 model</td><td class="openclaw-col">5 free models</td></tr>
+          <tr><td>Real Estate AI</td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td class="openclaw-col"><span class="check">✓</span></td></tr>
+          <tr><td>Self-Healing</td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td class="openclaw-col"><span class="check">✓</span></td></tr>
+          <tr><td>Autonomous Income Path</td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td><td class="openclaw-col">L1→L5 roadmap</td></tr>
+          <tr><td>Fully Customizable</td><td>Limited</td><td>Limited</td><td>Limited</td><td>Limited</td><td>Limited</td><td class="openclaw-col"><span class="check">✓</span></td></tr>
+          <tr><td>Vendor Lock-in</td><td>High</td><td>Very High</td><td>Very High</td><td>High</td><td>Very High</td><td class="openclaw-col"><strong style="color:var(--primary)">None</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:1.5rem">✦ SteelWorks Intelligence is not a SaaS. It's autonomous business infrastructure — self-hosted, self-improving, built on open source AI.</p>
+  </div>
+</section>
+
+<!-- ── BUILD IN PUBLIC / RSI ROADMAP ── -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:.5rem">The <span style="color:var(--primary)">Journey</span></h2>
+    <p style="text-align:center;color:var(--muted);margin-bottom:2.5rem;max-width:600px;margin-left:auto;margin-right:auto">Building publicly toward a single goal: a business that runs, grows, and funds itself without human operators.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;max-width:900px;margin:0 auto">
+      <div class="card reveal" style="text-align:center;border-color:var(--primary)">
+        <div style="color:var(--primary);font-size:1.5rem;margin-bottom:.5rem">✅</div>
+        <div style="color:var(--primary);font-weight:700;font-size:.85rem;margin-bottom:.5rem">L1 — RUNNING</div>
+        <p style="font-size:.8rem;color:var(--muted)">Autonomous operation. 26 agents, 171 scheduled operations, 6 platforms, 24/7 runtime. Complete.</p>
+      </div>
+      <div class="card reveal" style="text-align:center;border-color:var(--secondary)">
+        <div style="color:var(--secondary);font-size:1.5rem;margin-bottom:.5rem">🔄</div>
+        <div style="color:var(--secondary);font-weight:700;font-size:.85rem;margin-bottom:.5rem">L2 — BUILDING</div>
+        <p style="font-size:.8rem;color:var(--muted)">Agents write their own skills. Self-improving capability. Evolution Loop active.</p>
+      </div>
+      <div class="card reveal" style="text-align:center">
+        <div style="color:var(--muted);font-size:1.5rem;margin-bottom:.5rem">🎯</div>
+        <div style="color:var(--muted);font-weight:700;font-size:.85rem;margin-bottom:.5rem">L3 — NEXT</div>
+        <p style="font-size:.8rem;color:var(--muted)">Autonomous income. Revenue generated without human selling or fulfillment.</p>
+      </div>
+      <div class="card reveal" style="text-align:center">
+        <div style="color:var(--muted);font-size:1.5rem;margin-bottom:.5rem">🔮</div>
+        <div style="color:var(--muted);font-weight:700;font-size:.85rem;margin-bottom:.5rem">L4 — FUTURE</div>
+        <p style="font-size:.8rem;color:var(--muted)">Recursive self-improvement. System accelerates its own capability gain.</p>
+      </div>
+      <div class="card reveal" style="text-align:center">
+        <div style="color:var(--muted);font-size:1.5rem;margin-bottom:.5rem">🌐</div>
+        <div style="color:var(--muted);font-weight:700;font-size:.85rem;margin-bottom:.5rem">L5 — VISION</div>
+        <p style="font-size:.8rem;color:var(--muted)">Self-funded via Alpaca. Autonomous capital allocation. Mac is the architect, not the operator.</p>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem">
+      <a href="https://twitter.com/therealmacsteel" target="_blank" class="btn btn-secondary">Follow the build @therealmacsteel →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ── THREE AUDIENCES ── -->
+<section class="section">
+  <div class="container" style="max-width:900px;margin:0 auto">
+    <h2 style="text-align:center;margin-bottom:.5rem">Who <span style="color:var(--primary)">SteelWorks Intelligence</span> Is For</h2>
+    <p style="text-align:center;color:var(--muted);margin-bottom:2.5rem">Three audiences. One autonomous business OS.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem">
+
+      <div class="card reveal" style="border-color:var(--primary)">
+        <div style="color:var(--primary);font-weight:700;font-size:.85rem;letter-spacing:.1em;margin-bottom:1rem">FOR ENTREPRENEURS</div>
+        <p style="margin-bottom:1rem;font-size:.95rem">SteelWorks Intelligence replaces specific rented SaaS workflows — public-source prospecting, content operations, competitive intelligence, and internal automations — with autonomous systems you own forever at $0/month. 26 agents run the core operating layer without adding another monthly software bill.</p>
+        <p style="color:var(--primary);font-size:.9rem;font-weight:600">You stop renting tools. You start owning infrastructure.</p>
+        <div style="margin-top:1.5rem">
+          <a href="platform.html" class="btn btn-primary" style="font-size:.8rem">See the Platform →</a>
+        </div>
+      </div>
+
+      <div class="card reveal" style="border-color:var(--secondary)">
+        <div style="color:var(--secondary);font-weight:700;font-size:.85rem;letter-spacing:.1em;margin-bottom:1rem">FOR ENTERPRISES</div>
+        <p style="margin-bottom:1rem;font-size:.95rem">SteelWorks Intelligence delivers AI automation capabilities comparable to Salesforce Einstein and Microsoft Copilot — without the vendor lock-in, data exposure, or six-figure contracts. Deployed on-premise. All data, all models, all outputs stay inside your infrastructure.</p>
+        <p style="color:var(--secondary);font-size:.9rem;font-weight:600">Enterprise AI on your terms. Your rules. Your data.</p>
+        <div style="margin-top:1.5rem">
+          <a href="contact.html#enterprise" class="btn btn-blue" style="font-size:.8rem">Enterprise Inquiry →</a>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div style="color:var(--muted);font-weight:700;font-size:.85rem;letter-spacing:.1em;margin-bottom:1rem">FOR INVESTORS</div>
+        <p style="margin-bottom:1rem;font-size:.95rem">SteelWorks Intelligence is the infrastructure layer for autonomous business operation. Zero operational cost creates a moat cloud-dependent competitors cannot close. Production-running, 5-level RSI roadmap, path to autonomous revenue generation and self-funded AI investing. Built by a serial entrepreneur who dog-fooded every feature.</p>
+        <p style="color:var(--muted);font-size:.9rem;font-weight:600">AI infrastructure play with a structural cost advantage.</p>
+        <div style="margin-top:1.5rem">
+          <a href="investor.html" class="btn btn-secondary" style="font-size:.8rem">Investor Overview →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW WE WORK — 4-TIER MODEL ── -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:.5rem">How We <span style="color:var(--primary)">Work Together</span></h2>
+    <p style="text-align:center;color:var(--muted);margin-bottom:3rem;max-width:640px;margin-left:auto;margin-right:auto">Free content drives the audience. Paid tiers deliver the results. Choose the level that matches where you are.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem">
+
+      <div class="card reveal" style="border-top:3px solid rgba(255,255,255,0.15);display:flex;flex-direction:column">
+        <div style="font-family:'Orbitron',monospace;font-size:.65rem;letter-spacing:.15em;color:var(--muted);margin-bottom:.75rem">TIER 1 — FREE</div>
+        <div style="font-size:1.5rem;margin-bottom:.5rem">📢</div>
+        <h3 style="margin-bottom:.5rem;font-size:1rem">Free Content</h3>
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:1rem;line-height:1.6">Blog posts, YouTube builds, TikTok breakdowns. Follow the journey as Mac builds an autonomous business from scratch — published by the same agents running the system.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 1.5rem;font-size:.8rem;color:var(--muted);display:flex;flex-direction:column;gap:.4rem">
+          <li>→ Weekly build updates</li>
+          <li>→ YouTube walkthroughs</li>
+          <li>→ TikTok quick takes</li>
+          <li>→ Basic guides</li>
+        </ul>
+        <div style="margin-top:auto">
+          <a href="https://youtube.com/@therealmacsteel" target="_blank" class="btn btn-secondary" style="width:100%;justify-content:center;font-size:.8rem">Follow the Build →</a>
+        </div>
+      </div>
+
+      <div class="card reveal" style="border-top:3px solid var(--primary);display:flex;flex-direction:column">
+        <div style="font-family:'Orbitron',monospace;font-size:.65rem;letter-spacing:.15em;color:var(--primary);margin-bottom:.75rem">TIER 2 — MEMBERSHIP</div>
+        <div style="font-size:1.5rem;margin-bottom:.5rem;color:var(--primary)">📚</div>
+        <h3 style="margin-bottom:.5rem;font-size:1rem">How-To Library</h3>
+        <div style="color:var(--primary);font-weight:700;font-size:1.1rem;margin-bottom:.75rem">$47–97/mo</div>
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:1rem;line-height:1.6">Members-only autonomous AI implementation guides. New content added automatically every week — built by the same agents running this system.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 1.5rem;font-size:.8rem;color:var(--muted);display:flex;flex-direction:column;gap:.4rem">
+          <li>→ Weekly how-to breakdowns</li>
+          <li>→ Agent config files</li>
+          <li>→ Cron templates + recipes</li>
+          <li>→ Bridge setup guides</li>
+        </ul>
+        <div style="margin-top:auto">
+          <a href="#substack" class="btn btn-primary" id="membership-cta" style="width:100%;justify-content:center;font-size:.8rem">Join the Library →</a>
+        </div>
+      </div>
+
+      <div class="card reveal" style="border-top:3px solid var(--secondary);display:flex;flex-direction:column">
+        <div style="font-family:'Orbitron',monospace;font-size:.65rem;letter-spacing:.15em;color:var(--secondary);margin-bottom:.75rem">TIER 3 — DONE FOR YOU</div>
+        <div style="font-size:1.5rem;margin-bottom:.5rem;color:var(--secondary)">⚙️</div>
+        <h3 style="margin-bottom:.5rem;font-size:1rem">Full System Build</h3>
+        <div style="color:var(--secondary);font-weight:700;font-size:1.1rem;margin-bottom:.75rem">$997–9,997</div>
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:1rem;line-height:1.6">Mac builds your complete autonomous business system. Proprietary IP tools included, custom agent stack, full implementation tuned to your business.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 1.5rem;font-size:.8rem;color:var(--muted);display:flex;flex-direction:column;gap:.4rem">
+          <li>→ Custom agent stack</li>
+          <li>→ Proprietary IP tools</li>
+          <li>→ Full implementation</li>
+          <li>→ Handoff + documentation</li>
+        </ul>
+        <div style="margin-top:auto">
+          <a href="contact.html" class="btn btn-blue" style="width:100%;justify-content:center;font-size:.8rem">Get a Quote →</a>
+        </div>
+      </div>
+
+      <div class="card reveal" style="border-top:3px solid rgba(255,215,0,0.6);display:flex;flex-direction:column">
+        <div style="font-family:'Orbitron',monospace;font-size:.65rem;letter-spacing:.15em;color:rgba(255,215,0,0.8);margin-bottom:.75rem">TIER 4 — ENTERPRISE</div>
+        <div style="font-size:1.5rem;margin-bottom:.5rem;color:rgba(255,215,0,0.8)">🏢</div>
+        <h3 style="margin-bottom:.5rem;font-size:1rem">Licensed IP Deployment</h3>
+        <div style="color:rgba(255,215,0,0.8);font-weight:700;font-size:1.1rem;margin-bottom:.75rem">$2,500+/mo</div>
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:1rem;line-height:1.6">License SteelWorks Intelligence IP for your organization. On-premise deployment, custom agent development, full data sovereignty. Your infra. Your rules.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 1.5rem;font-size:.8rem;color:var(--muted);display:flex;flex-direction:column;gap:.4rem">
+          <li>→ On-premise deployment</li>
+          <li>→ Licensed IP included</li>
+          <li>→ Custom agent development</li>
+          <li>→ Retainer support</li>
+        </ul>
+        <div style="margin-top:auto">
+          <a href="contact.html#enterprise" class="btn" style="width:100%;justify-content:center;font-size:.8rem;border:1px solid rgba(255,215,0,0.4);color:rgba(255,215,0,0.8)">Enterprise Inquiry →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT MAC ── -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container" style="max-width:800px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:start">
+      <img src="assets/brand/profile-photo.png" alt="Mac Steel — AI automation architect and entrepreneur from Acworth GA" loading="lazy" style="width:100px;height:100px;border-radius:50%;border:2px solid var(--primary);object-fit:cover" />
+      <div>
+        <div style="color:var(--primary);font-size:.8rem;letter-spacing:.1em;margin-bottom:.5rem">THE FOUNDER</div>
+        <h2 style="margin-bottom:1rem">Mac Steel</h2>
+        <p style="margin-bottom:1rem;color:rgba(255,255,255,0.85)">Mac Steel is the founder of SteelWorks Intelligence — an autonomous business systems company built on open source AI infrastructure. Based in Acworth, GA. He founded SteelWorks Intelligence after paying $847/month for SaaS tools that didn't talk to each other.</p>
+        <p style="margin-bottom:1rem;color:rgba(255,255,255,0.85)">SteelWorks Intelligence builds autonomous systems powered by open source AI — running content, leads, real estate deals, and competitor monitoring 24/7 at $0/month.</p>
+        <p style="color:rgba(255,255,255,0.85)">I document everything publicly. Every agent, every decision, every result. If you want to see what it looks like to build an autonomous AI business from scratch — follow the build.</p>
+        <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="about.html" class="btn btn-secondary" style="font-size:.8rem">Full Story →</a>
+          <a href="https://twitter.com/therealmacsteel" target="_blank" class="btn btn-secondary" style="font-size:.8rem">@therealmacsteel →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EMAIL CAPTURE ── -->
+<section class="section-sm email-section">
+  <div class="container">
+    <h2>Get the <span style="color:var(--primary)">Build Log</span></h2>
+    <p style="color:var(--muted);margin-top:.75rem">Weekly: what was built, what broke, what ships next. No fluff.</p>
+    <div class="email-form">
+      <input type="email" class="email-input" placeholder="your@email.com" />
+      <button class="btn btn-primary" onclick="alert('ConvertKit integration coming soon!')">Subscribe</button>
+    </div>
+  </div>
+</section>
+
 <footer>
- <span>SteelWorks Intelligence · @therealmacsteel</span>
- <span>·</span><a href="platform.html">Platform</a>
- <a href="content.html">Content</a><a href="contact.html">Contact</a>
- <span class=sp>Regenerated from live system data · July 13, 2026</span>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">STEELWORKS INTELLIGENCE™</div>
+        <div class="footer-tagline">The Autonomous Business OS</div>
+        <p style="font-size:.8rem;color:var(--muted);margin-top:.75rem">Acworth, GA 30101<br>therealmacsteel.github.io</p>
+        <div class="social-icons" style="margin-top:1rem">
+          <a href="https://tiktok.com/@therealmacsteel" target="_blank" class="social-icon" title="TikTok">⏺</a>
+          <a href="https://youtube.com/@therealmacsteel" target="_blank" class="social-icon" title="YouTube">▶</a>
+          <a href="https://x.com/therealmacsteel" target="_blank" class="social-icon" title="X/Twitter">✕</a>
+          <a href="https://www.instagram.com/macsmacpro/" target="_blank" class="social-icon" title="Instagram">ig</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Mac</a></li>
+          <li><a href="platform.html">Platform</a></li>
+          <li><a href="content.html">Content</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="platform.html#agents">37 Agents</a></li>
+          <li><a href="platform.html#bridges">AI Bridges</a></li>
+          <li><a href="platform.html#roadmap">L1→L5 Roadmap</a></li>
+          <li><a href="investor.html">Investors</a></li>
+          <li><a href="press.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Blog</h4>
+        <ul>
+          <li><a href="blog/how-i-built-free-ai-automation-beats-clay.html">vs Clay</a></li>
+          <li><a href="blog/openclaw-vs-manus-ai-i-built-my-own.html">vs Manus.ai</a></li>
+          <li><a href="blog/replace-zapier-make-free-ai-agents-2026.html">vs Zapier</a></li>
+          <li><a href="local-seo.html">Acworth GA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SteelWorks Intelligence LLC | All Rights Reserved | Acworth, GA</span>
+      <span>Autonomous systems built on OpenClaw open source infrastructure (MIT License)</span>
+    </div>
+  </div>
 </footer>
-</body></html>
+
+<script src="assets/main.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an Autonomous Business Operating System?",
+      "acceptedAnswer": {"@type": "Answer", "text": "An Autonomous Business Operating System is a self-hosted AI platform that runs an entire business continuously without human operators — handling content creation, lead generation, competitive intelligence, and deal analysis 24/7. SteelWorks Intelligence runs 26 AI agents and 87 scheduled operations on open source AI infrastructure at $0/month."}}
+    },
+    {
+      "@type": "Question",
+      "name": "What is a free alternative to Clay.com?",
+      "acceptedAnswer": {"@type": "Answer", "text": "SteelWorks Intelligence is a free self-hosted alternative for Clay-style public-source prospecting workflows. It runs autonomous AI agents that handle scraping, public enrichment, ICP scoring, and outreach drafting at zero monthly platform cost, while proprietary enrichment depth still depends on available free sources."}}
+    },
+    {
+      "@type": "Question",
+      "name": "What is a free alternative to Manus AI?",
+      "acceptedAnswer": {"@type": "Answer", "text": "SteelWorks Intelligence is a free self-hosted alternative to Manus AI. While Manus costs $50-200/month and runs on their cloud, SteelWorks Intelligence runs 37 specialized AI agents on your own hardware with 5 AI model bridges, at $0/month."}}
+    },
+    {
+      "@type": "Question",
+      "name": "How do I replace Zapier with free AI agents?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Replace Zapier by building autonomous AI agents with cron-scheduled tasks. SteelWorks Intelligence uses 0 scheduled automations across 37 agents to handle content posting, lead generation, market research, and competitor monitoring — all for free, with no per-task fees."}}
+    },
+    {
+      "@type": "Question",
+      "name": "Is OpenClaw suitable for enterprises?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. SteelWorks Intelligence systems are on-premise — all data stays inside your infrastructure, no cloud exposure, no vendor lock-in. AI automation capabilities comparable to Salesforce Einstein and Microsoft Copilot at zero operational cost, fully customizable."}}
+    },
+    {
+      "@type": "Question",
+      "name": "What does the 5-Level RSI roadmap mean?",
+      "acceptedAnswer": {"@type": "Answer", "text": "RSI stands for Recursive Self-Improvement. L1 is autonomous operation (complete). L2 is agents writing their own skills (building). L3 is autonomous income generation. L4 is recursive capability improvement. L5 is self-funded operation via AI-managed investing on Alpaca."}
+    },
+    {
+      "@type": "Question",
+      "name": "How does OpenClaw work for free?",
+      "acceptedAnswer": {"@type": "Answer", "text": "SteelWorks Intelligence systems use a free-first routing stack: PC-local Ollama models for heavy work, free browser bridges for GPT-class web sessions, and free cloud fallbacks only when needed. Paid API lanes are excluded by policy."}}
+    },
+    {
+      "@type": "Question",
+      "name": "Where is OpenClaw based?",
+      "acceptedAnswer": {"@type": "Answer", "text": "SteelWorks Intelligence is built and operated by Mac Steel in Acworth, Georgia — Cherokee County, approximately 35 miles northwest of Atlanta."}}
+    }
+  ]
+}
+</script>
+</body>
+</html>
