@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /investor-deck.html
 
 Sitemap: https://therealmacsteel.github.io/sitemap.xml
 Sitemap: https://therealmacsteel.github.io/sitemap-local.xml
