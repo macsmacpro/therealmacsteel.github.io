@@ -1,0 +1,50 @@
+<!doctype html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><title>Done-For-You AI Operations for Small Business — SteelWorks Intelligence</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{background:#05070d;color:#cfe4ff;font:16px/1.6 -apple-system,Segoe UI,sans-serif;
+background-image:radial-gradient(circle at 20% 0,rgba(0,120,255,.12),transparent 45%)}
+.wrap{max-width:760px;margin:0 auto;padding:60px 24px}h1{font-size:clamp(30px,6vw,52px);font-weight:850;line-height:1.08;
+background:linear-gradient(90deg,#e8f4ff,#22e6b4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{font-size:19px;color:#8fb3d9;margin:18px 0 30px}.card{background:rgba(16,26,44,.55);border:1px solid rgba(80,140,220,.18);
+border-radius:16px;padding:24px;backdrop-filter:blur(12px);margin:24px 0}input,textarea{width:100%;background:rgba(8,16,30,.8);
+border:1px solid rgba(80,140,220,.3);border-radius:10px;padding:13px;color:#cfe4ff;margin-bottom:10px;font-size:15px;font-family:inherit}
+button{width:100%;background:linear-gradient(90deg,#1e6fff,#22c6b4);border:0;border-radius:10px;color:#fff;padding:14px;
+font-weight:700;font-size:16px;cursor:pointer}.badge{color:#22e6b4;font-size:12px;letter-spacing:2px}#msg{margin-top:12px;color:#22e6b4}
+.price{font-size:22px;color:#e8f4ff;margin:10px 0}.list{list-style:none;margin:8px 0}.list li{padding:6px 0;color:#a8c6e6}
+.list li::before{content:"→ ";color:#22e6b4}.vs{color:#8fb3d9;font-size:15px}.vs b{color:#e8f4ff}</style></head><body><div class=wrap>
+<div class=badge>● SteelWorks Intelligence · done-for-you</div>
+<h1>Your back office, run by an AI system that never clocks out</h1>
+<p class=sub>The same autonomous operations we run on our own business — outreach, inbox, content, SEO, monitoring, reporting — set up and run for yours. One monthly rate, no per-seat tool bills.</p>
+
+<div class=card><div class=price>A flat monthly rate — built to undercut the $1,000–$3,000/mo agency retainer</div>
+<p class=vs>An agency bills you for a team's hours. We bill you for a <b>system</b> that does the work on its own and shows you the receipts. We build in public — you can watch the same stack run on our own accounts before you commit a dollar.</p></div>
+
+<div class=card><h3 style=margin-bottom:12px>What the system actually does</h3>
+<ul class=list>
+<li><b>Outreach + follow-up</b> — finds and messages the right prospects, then chases the replies on a schedule so nothing goes cold.</li>
+<li><b>Inbox triage + response</b> — reads every inbound, sorts it, and drafts or sends the reply; the ones that need a human get flagged, not buried.</li>
+<li><b>Content pipeline</b> — turns one idea into posts across your channels, on a cadence, without you writing them.</li>
+<li><b>SEO content</b> — mines the questions your buyers actually search and publishes answers that rank over time.</li>
+<li><b>Monitoring + reporting</b> — watches the whole stack and sends you one plain-English report: what ran, what worked, what needs you.</li>
+</ul></div>
+
+<div class=card><h3 style=margin-bottom:12px>The honest version</h3>
+<p class=vs>This is early and we say so. We are not selling you case studies we don't have — we're offering the exact autonomous system we operate ourselves, set up for your business, at a price a solo owner can actually carry. If it's not a fit after the scoping call, we'll tell you.</p></div>
+
+<div class=card><h3 style=margin-bottom:14px>Tell us your biggest time-sink — get a free scoping call</h3>
+<form id=f onsubmit="return lead(event)">
+<input id=name placeholder="Your name" required>
+<input id=email type=email placeholder="Work email" required>
+<input id=biz placeholder="Business name or website" required>
+<textarea id=sink rows=3 placeholder="What eats the most of your week right now? (e.g. chasing leads, answering the same emails, posting content)" required></textarea>
+<button>Request my free scoping call</button></form><div id=msg></div>
+<p style=color:#3d5470;font-size:12px;margin-top:10px>No payment, no card — just a conversation. We reply within 48 hours.</p></div>
+
+<script>async function lead(ev){ev.preventDefault();var m=document.getElementById('msg');m.style.color='#8fb3d9';m.textContent='Sending…';
+try{const r=await fetch('https://swi-leads.macsmacpro.workers.dev/api/lead',{method:'POST',
+headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name.value,email:email.value,company:biz.value,
+notes:sink.value,source:'venture:service-tier'})});const d=await r.json();
+if(d.ok){m.style.color='#22e6b4';m.textContent='✓ Got it — we\'ll reach out within 48 hours to book your scoping call.';document.getElementById('f').reset();}
+else{m.style.color='#ff7b72';m.textContent='Didn\'t go through ('+(d.error||('HTTP '+r.status))+'). Email macsmacpro@gmail.com and we\'ll reply.';}}
+catch(e){m.style.color='#ff7b72';m.textContent='Couldn\'t reach the signup server. Email macsmacpro@gmail.com and we\'ll reply.';}return false;}</script>
+<footer style=color:#3d5470;margin-top:40px;font-size:13px>SteelWorks Intelligence · @therealmacsteel · built in public · lead capture only, no payment collected</footer>
+</div></body></html>
