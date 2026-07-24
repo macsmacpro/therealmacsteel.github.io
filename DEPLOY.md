@@ -19,6 +19,7 @@ Free-first rule: do not buy domains, paid hosting, paid DNS, paid deploy tooling
 ### Step 2 — Push Website Files
 
 Run from terminal:
+
 ```bash
 cd ~/openclaw/website
 git init
@@ -54,13 +55,13 @@ Only use this section if Mac explicitly confirms a separate domain is owned and 
 
 Add these DNS records:
 
-| Type | Name | Value |
-|------|------|-------|
-| A | @ | 185.199.108.153 |
-| A | @ | 185.199.109.153 |
-| A | @ | 185.199.110.153 |
-| A | @ | 185.199.111.153 |
-| CNAME | www | therealmacsteel.github.io |
+| Type  | Name | Value                     |
+| ----- | ---- | ------------------------- |
+| A     | @    | 185.199.108.153           |
+| A     | @    | 185.199.109.153           |
+| A     | @    | 185.199.110.153           |
+| A     | @    | 185.199.111.153           |
+| CNAME | www  | therealmacsteel.github.io |
 
 DNS propagation: 5-30 minutes (sometimes up to 24h)
 
@@ -73,20 +74,21 @@ DNS propagation: 5-30 minutes (sometimes up to 24h)
 
 ## Estimated Time Live
 
-| Step | Time |
-|------|------|
-| GitHub setup | 2 min |
-| Push files | 1 min |
-| GitHub Pages build | 2-5 min |
-| DNS propagation | 5-30 min |
-| HTTPS cert | 15-30 min after DNS |
-| **Total** | **~30 min** |
+| Step               | Time                |
+| ------------------ | ------------------- |
+| GitHub setup       | 2 min               |
+| Push files         | 1 min               |
+| GitHub Pages build | 2-5 min             |
+| DNS propagation    | 5-30 min            |
+| HTTPS cert         | 15-30 min after DNS |
+| **Total**          | **~30 min**         |
 
 ---
 
 ## Update Website
 
 After any changes:
+
 ```bash
 cd ~/openclaw/website
 git add .
@@ -101,6 +103,7 @@ GitHub Pages auto-deploys on every push (< 2 min).
 ## Brand Assets
 
 Before pushing, add actual images to `assets/brand/`:
+
 - `profile-photo.png` — profile photo (square, 800x800px recommended)
 - `banner.png` — banner image (1500x500px recommended for Twitter/YouTube)
 
@@ -122,13 +125,16 @@ Replace the placeholder email forms:
 ## Google Analytics (GA4)
 
 Add before `</head>` in all HTML files:
+
 ```html
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
 </script>
 ```
 

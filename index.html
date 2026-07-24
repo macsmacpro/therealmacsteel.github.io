@@ -118,7 +118,7 @@
       border-radius:12px;box-shadow:0 10px 34px rgba(0,0,0,.35)}
     .tbar{display:flex;gap:7px;padding:12px 16px;border-bottom:1px solid #1a2130}
     .dot{width:10px;height:10px;border-radius:50%;background:var(--term-line)}
-    .term pre{font:400 13.5px/1.9 var(--mono);padding:20px 24px;overflow-x:auto}
+    .term pre{font:400 13.5px/1.9 var(--mono);padding:20px 24px;overflow-x:auto;max-width:100%}
     .t-p{color:#7aa87c}.t-ok{color:#22c39a}.t-n{color:var(--term-bright);font-weight:700}
     .t-link{color:var(--term-blue)}
     .cursor{display:inline-block;width:8px;height:14px;background:var(--term-blue);
@@ -213,8 +213,9 @@
     @media (max-width:900px){
       .hero{grid-template-columns:1fr;gap:40px;padding:var(--s6) 0}
       .grid3,.funnel{grid-template-columns:1fr}
-      .nav-links{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:12.5px;
-        width:100%;order:3;padding-top:8px}
+      .nav-links{display:flex;flex-wrap:wrap;gap:2px 6px;font-size:14px;
+        width:100%;order:3;padding-top:4px}
+      .nav-links a{padding:12px 10px;display:inline-block}
       .nav-in{flex-wrap:wrap}
       section{padding:var(--s6) 0}
       .receipt{transform:none;padding:24px 20px}
@@ -276,7 +277,7 @@
     <div class="r-row"><span>intelligence bridges</span>
       <span class="stat-number" data-target="7" data-stat="bridges">7</span></div>
     <div class="r-row zero"><span>revenue (honest)</span>
-      <b>$<span class="stat-number" data-target="0.0" data-stat="revenue">0.0</span></b></div>
+      <b>$<span class="stat-number" data-target="0" data-stat="revenue">0</span></b></div>
     <div class="r-total"><span>FABRICATED NUMBERS</span><span>0</span></div>
     <div class="r-stamp"><span class="r-cut">— ✂ —</span><br>
       <!--STATS:STAMP-->Live-derived from fleet state · verified 2026-07-24<!--/STATS:STAMP--></div>
@@ -292,8 +293,14 @@
       that runs this company:</p>
     <div class="proof-grid">
     <figure class="machine reveal">
-      <img src="assets/machine-room.png" alt="The machine room — AI-generated still from this fleet's own video pipeline" loading="lazy">
-      <figcaption>the machine, as its own image pipeline drew it</figcaption>
+      <img src="assets/hero-VHmBX7FnXw0.jpg" alt="Server racks — atmospheric stock photo (Unsplash), not our infrastructure" loading="lazy" width="1920" height="1280">
+      <figcaption>atmosphere: someone else's datacenter. ours is one MacBook.</figcaption>
+    <!-- AUTHENTIC-HERO SLOT (reserved): swap the img above for a real photo of the
+         M1 rig when Mac shoots it — filename assets/hero-the-actual-machine.jpg,
+         caption becomes: "this $0 stack runs on this machine." PHOTO SPEC for Mac:
+         the M1 MacBook on the real desk, lid open showing a terminal (gatecheck
+         output ideal), shot from ~30° above keyboard level, natural light or one
+         warm lamp, landscape, no clutter cropping needed — honest, not staged-clean. -->
     </figure>
     <div class="term">
       <div class="tbar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>

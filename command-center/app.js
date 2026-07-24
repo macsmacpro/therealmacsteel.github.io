@@ -18,17 +18,61 @@ const state = {
 };
 
 const $ = (id) => document.getElementById(id);
-const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const esc = (value) =>
+  String(value ?? "").replace(
+    /[&<>"']/g,
+    (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c],
+  );
 
 const BOARD_ROLES = [
-  { title: "Chair / CEO", department: "executive", agent: "lead", brief: "Strategy, priorities, risk posture, resource allocation." },
-  { title: "Revenue Director", department: "sales", agent: "prospecting", brief: "Pipeline, close motion, offers, client conversion." },
-  { title: "Growth Director", department: "marketing", agent: "marketing", brief: "Demand, SEO, social, campaign performance." },
-  { title: "Operations Director", department: "operations", agent: "ops", brief: "Crons, services, reliability, backups, load control." },
-  { title: "Product Director", department: "production", agent: "content", brief: "Creative output, publishing quality, product collateral." },
-  { title: "Risk Director", department: "legal_compliance", agent: "ops", brief: "Claims, compliance, platform rules, external action gates." },
-  { title: "Research Director", department: "rd", agent: "research", brief: "Market learning, RSI, tooling, future capability gaps." },
-  { title: "Investment Director", department: "investment", agent: "trading", brief: "Paper trading, risk controls, research, self-funding readiness." },
+  {
+    title: "Chair / CEO",
+    department: "executive",
+    agent: "lead",
+    brief: "Strategy, priorities, risk posture, resource allocation.",
+  },
+  {
+    title: "Revenue Director",
+    department: "sales",
+    agent: "prospecting",
+    brief: "Pipeline, close motion, offers, client conversion.",
+  },
+  {
+    title: "Growth Director",
+    department: "marketing",
+    agent: "marketing",
+    brief: "Demand, SEO, social, campaign performance.",
+  },
+  {
+    title: "Operations Director",
+    department: "operations",
+    agent: "ops",
+    brief: "Crons, services, reliability, backups, load control.",
+  },
+  {
+    title: "Product Director",
+    department: "production",
+    agent: "content",
+    brief: "Creative output, publishing quality, product collateral.",
+  },
+  {
+    title: "Risk Director",
+    department: "legal_compliance",
+    agent: "ops",
+    brief: "Claims, compliance, platform rules, external action gates.",
+  },
+  {
+    title: "Research Director",
+    department: "rd",
+    agent: "research",
+    brief: "Market learning, RSI, tooling, future capability gaps.",
+  },
+  {
+    title: "Investment Director",
+    department: "investment",
+    agent: "trading",
+    brief: "Paper trading, risk controls, research, self-funding readiness.",
+  },
 ];
 
 async function api(path, options = {}) {
@@ -75,7 +119,10 @@ function selectedDepartment() {
       purpose: "Route a cross-functional command to every department lead.",
       model_lane: "department leads choose their free-first model lanes",
       cron_count: departments.reduce((total, d) => total + Number(d.cron_count || 0), 0),
-      routed_events_24h: departments.reduce((total, d) => total + Number(d.routed_events_24h || 0), 0),
+      routed_events_24h: departments.reduce(
+        (total, d) => total + Number(d.routed_events_24h || 0),
+        0,
+      ),
     };
   }
   return departments.find((d) => d.id === state.selectedDepartment) || departments[0] || {};
@@ -85,11 +132,22 @@ function departmentAgents(department) {
   const agents = state.data?.agents || [];
   const ids = [department.owner, ...(department.support || [])].filter(Boolean);
   const unique = [...new Set(ids)];
-  return unique.map((id) => agents.find((a) => a.id === id) || { id, has_soul: false, has_ollama_auth: false, updated: "unknown" });
+  return unique.map(
+    (id) =>
+      agents.find((a) => a.id === id) || {
+        id,
+        has_soul: false,
+        has_ollama_auth: false,
+        updated: "unknown",
+      },
+  );
 }
 
 function allAgentIds() {
-  const fromDepartments = (state.data?.departments || []).flatMap((d) => [d.owner, ...(d.support || [])]);
+  const fromDepartments = (state.data?.departments || []).flatMap((d) => [
+    d.owner,
+    ...(d.support || []),
+  ]);
   const fromAgents = (state.data?.agents || []).map((a) => a.id);
   return [...new Set([...fromDepartments, ...fromAgents].filter(Boolean))].sort();
 }
@@ -113,14 +171,20 @@ function fillCommand({ department, target = "department", text, agent = "" }) {
 }
 
 function renderNav(departments) {
-  $("departmentNav").innerHTML = departments.map((d) => `
+  $("departmentNav").innerHTML = departments
+    .map(
+      (d) => `
     <button class="nav-item ${d.id === state.selectedDepartment ? "active" : ""}" data-dept="${esc(d.id)}">
       <strong>${esc(d.name)}</strong><br><span>${esc(d.owner)}</span>
     </button>
-  `).join("");
-  $("departmentNav").querySelectorAll("button").forEach((button) => {
-    button.addEventListener("click", () => setDepartment(button.dataset.dept));
-  });
+  `,
+    )
+    .join("");
+  $("departmentNav")
+    .querySelectorAll("button")
+    .forEach((button) => {
+      button.addEventListener("click", () => setDepartment(button.dataset.dept));
+    });
 }
 
 function renderAgentTarget() {
@@ -139,7 +203,10 @@ function renderSelects(departments) {
   const scopedAgents = departmentAgents(selected).map((a) => a.id);
   const remaining = allAgentIds().filter((id) => !scopedAgents.includes(id));
   $("agentSelect").innerHTML = [
-    ...scopedAgents.map((id) => `<option value="${esc(id)}">${esc(id)} · ${esc(departmentName(selected.id))}</option>`),
+    ...scopedAgents.map(
+      (id) =>
+        `<option value="${esc(id)}">${esc(id)} · ${esc(departmentName(selected.id))}</option>`,
+    ),
     ...remaining.map((id) => `<option value="${esc(id)}">${esc(id)}</option>`),
   ].join("");
   if (!state.selectedAgent) state.selectedAgent = scopedAgents[0] || allAgentIds()[0] || "";
@@ -150,11 +217,19 @@ function renderSelects(departments) {
 function renderKpis(data) {
   const k = data.kpis || {};
   $("kpis").innerHTML = [
-    kpi("Company Health", k.company_health ?? "unknown", Number(k.company_health) >= 90 ? "good" : "warn"),
+    kpi(
+      "Company Health",
+      k.company_health ?? "unknown",
+      Number(k.company_health) >= 90 ? "good" : "warn",
+    ),
     kpi("Revenue", k.revenue_total ?? "$0.00"),
     kpi("MRR", k.mrr ?? "$0.00"),
     kpi("Cron Failures", k.cron_failures ?? 0, Number(k.cron_failures) ? "bad" : "good"),
-    kpi("PC Ollama", k.pc_ollama ?? "unknown", String(k.pc_ollama).toLowerCase() === "ok" ? "good" : "warn"),
+    kpi(
+      "PC Ollama",
+      k.pc_ollama ?? "unknown",
+      String(k.pc_ollama).toLowerCase() === "ok" ? "good" : "warn",
+    ),
     kpi("Telegram Interrupts 24h", k.telegram_immediate_24h ?? 0),
   ].join("");
 }
@@ -175,13 +250,17 @@ function renderContext() {
       ${agents.map((a) => `<button class="agent-chip" data-agent="${esc(a.id)}" type="button">${esc(a.id)}</button>`).join("")}
     </div>
   `;
-  $("contextSummary").querySelectorAll(".agent-chip").forEach((button) => {
-    button.addEventListener("click", () => fillCommand({
-      department: dept.id,
-      agent: button.dataset.agent,
-      text: `Ask ${button.dataset.agent} for expert analysis on the current ${dept.name} priorities, blockers, and next autonomous actions.`,
-    }));
-  });
+  $("contextSummary")
+    .querySelectorAll(".agent-chip")
+    .forEach((button) => {
+      button.addEventListener("click", () =>
+        fillCommand({
+          department: dept.id,
+          agent: button.dataset.agent,
+          text: `Ask ${button.dataset.agent} for expert analysis on the current ${dept.name} priorities, blockers, and next autonomous actions.`,
+        }),
+      );
+    });
 }
 
 function renderCampaign(data) {
@@ -189,8 +268,21 @@ function renderCampaign(data) {
   const summary = lane.summary || {};
   $("campaignTitle").textContent = lane.campaign || "No active campaign";
   $("campaignStatus").textContent = lane.status || "unknown";
-  $("campaignSummary").innerHTML = Object.entries(summary).map(([key, value]) => mini(key.replaceAll("_", " "), value)).join("");
-  $("agentActions").innerHTML = (lane.actions || []).slice(0, 5).map((a) => actionItem(`${a.owner} · ${a.priority}`, a.action, `<span>${esc(a.campaign_title || "")}</span>`)).join("") || actionItem("No actions", "The daily campaign lane has not published actions yet.");
+  $("campaignSummary").innerHTML = Object.entries(summary)
+    .map(([key, value]) => mini(key.replaceAll("_", " "), value))
+    .join("");
+  $("agentActions").innerHTML =
+    (lane.actions || [])
+      .slice(0, 5)
+      .map((a) =>
+        actionItem(
+          `${a.owner} · ${a.priority}`,
+          a.action,
+          `<span>${esc(a.campaign_title || "")}</span>`,
+        ),
+      )
+      .join("") ||
+    actionItem("No actions", "The daily campaign lane has not published actions yet.");
 }
 
 function recommendationSeed(data) {
@@ -259,7 +351,9 @@ function recommendationSeed(data) {
 function renderRecommendations(data) {
   const items = recommendationSeed(data);
   $("recommendationCount").textContent = String(items.length);
-  $("recommendedCommands").innerHTML = items.map((item) => `
+  $("recommendedCommands").innerHTML = items
+    .map(
+      (item) => `
     <article class="recommendation">
       <button type="button" data-department="${esc(item.department)}" data-target="${esc(item.target)}" data-text="${esc(item.text)}">
         <strong>${esc(item.label)}</strong>
@@ -267,18 +361,25 @@ function renderRecommendations(data) {
       </button>
       <p>${esc(item.text)}</p>
     </article>
-  `).join("");
-  $("recommendedCommands").querySelectorAll("button").forEach((button) => {
-    button.addEventListener("click", () => fillCommand({
-      department: button.dataset.department,
-      target: button.dataset.target,
-      text: button.dataset.text,
-    }));
-  });
+  `,
+    )
+    .join("");
+  $("recommendedCommands")
+    .querySelectorAll("button")
+    .forEach((button) => {
+      button.addEventListener("click", () =>
+        fillCommand({
+          department: button.dataset.department,
+          target: button.dataset.target,
+          text: button.dataset.text,
+        }),
+      );
+    });
 }
 
 function renderBoard() {
-  $("boardRoles").innerHTML = BOARD_ROLES.map((role) => `
+  $("boardRoles").innerHTML = BOARD_ROLES.map(
+    (role) => `
     <article class="board-card">
       <button type="button" data-department="${esc(role.department)}" data-agent="${esc(role.agent)}">
         <strong>${esc(role.title)}</strong>
@@ -286,23 +387,29 @@ function renderBoard() {
       </button>
       <p>${esc(role.brief)}</p>
     </article>
-  `).join("");
-  $("boardRoles").querySelectorAll("button").forEach((button) => {
-    button.addEventListener("click", () => fillCommand({
-      department: button.dataset.department,
-      agent: button.dataset.agent,
-      text: `Ask ${button.dataset.agent} to provide board-level analysis for ${departmentName(button.dataset.department)}: priorities, risks, blockers, opportunities, and next actions.`,
-    }));
-  });
+  `,
+  ).join("");
+  $("boardRoles")
+    .querySelectorAll("button")
+    .forEach((button) => {
+      button.addEventListener("click", () =>
+        fillCommand({
+          department: button.dataset.department,
+          agent: button.dataset.agent,
+          text: `Ask ${button.dataset.agent} to provide board-level analysis for ${departmentName(button.dataset.department)}: priorities, risks, blockers, opportunities, and next actions.`,
+        }),
+      );
+    });
 }
 
 function renderDepartments(data) {
   const departments = data.departments || [];
   const selected = selectedDepartment();
   $("selectedAgentCount").textContent = `${departmentAgents(selected).length} agents`;
-  $("departments").innerHTML = departments.map((d) => {
-    const agents = departmentAgents(d);
-    return `
+  $("departments").innerHTML = departments
+    .map((d) => {
+      const agents = departmentAgents(d);
+      return `
       <details class="department-card" ${d.id === state.selectedDepartment ? "open" : ""}>
         <summary>
           <span><strong>${esc(d.name)}</strong><small>${esc(d.owner)}</small></span>
@@ -314,51 +421,89 @@ function renderDepartments(data) {
           <span>Events 24h: ${esc(d.routed_events_24h)}</span>
         </div>
         <div class="agent-drilldown">
-          ${agents.map((a) => `
+          ${agents
+            .map(
+              (a) => `
             <button type="button" class="agent-row" data-dept="${esc(d.id)}" data-agent="${esc(a.id)}">
               <span>${esc(a.id)}</span>
               <small class="${a.has_soul ? "good" : "warn"}">SOUL ${a.has_soul ? "ok" : "missing"}</small>
               <small class="${a.has_ollama_auth ? "good" : "warn"}">Ollama ${a.has_ollama_auth ? "ok" : "missing"}</small>
             </button>
-          `).join("")}
+          `,
+            )
+            .join("")}
         </div>
       </details>
     `;
-  }).join("");
-  $("departments").querySelectorAll("summary button").forEach((button) => {
-    button.addEventListener("click", (event) => {
-      event.preventDefault();
-      setDepartment(button.dataset.dept);
+    })
+    .join("");
+  $("departments")
+    .querySelectorAll("summary button")
+    .forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        setDepartment(button.dataset.dept);
+      });
     });
-  });
-  $("departments").querySelectorAll(".agent-row").forEach((button) => {
-    button.addEventListener("click", () => fillCommand({
-      department: button.dataset.dept,
-      agent: button.dataset.agent,
-      text: `Ask ${button.dataset.agent} for specific expertise on ${departmentName(button.dataset.dept)} execution quality, gaps, and recommended autonomous actions.`,
-    }));
-  });
+  $("departments")
+    .querySelectorAll(".agent-row")
+    .forEach((button) => {
+      button.addEventListener("click", () =>
+        fillCommand({
+          department: button.dataset.dept,
+          agent: button.dataset.agent,
+          text: `Ask ${button.dataset.agent} for specific expertise on ${departmentName(button.dataset.dept)} execution quality, gaps, and recommended autonomous actions.`,
+        }),
+      );
+    });
 }
 
 function renderMarketAndOps(data) {
   const marketActions = data.lanes?.market_intelligence?.actions || [];
-  $("marketActions").innerHTML = marketActions.slice(0, 7).map((a) => actionItem(`${a.priority || "review"} · ${a.owner || "market"}`, a.next_action || a.type || "Review action", `<span>${esc(a.target || "")}</span>`)).join("") || actionItem("No market actions", "Market intelligence is waiting for the next scan.");
+  $("marketActions").innerHTML =
+    marketActions
+      .slice(0, 7)
+      .map((a) =>
+        actionItem(
+          `${a.priority || "review"} · ${a.owner || "market"}`,
+          a.next_action || a.type || "Review action",
+          `<span>${esc(a.target || "")}</span>`,
+        ),
+      )
+      .join("") ||
+    actionItem("No market actions", "Market intelligence is waiting for the next scan.");
 
   const cron = data.lanes?.cron || {};
   const trading = data.lanes?.trading || {};
   const items = [
-    actionItem("Cron failures", `${cron.failing_count || 0} active failure records`, `<span>${esc(cron.enabled || 0)} enabled</span>`),
-    actionItem("Trading status", trading.status || trading.health_status || "unknown", `<span>${esc((trading.hard_blocks || []).join(", ") || "no hard blocks listed")}</span>`),
+    actionItem(
+      "Cron failures",
+      `${cron.failing_count || 0} active failure records`,
+      `<span>${esc(cron.enabled || 0)} enabled</span>`,
+    ),
+    actionItem(
+      "Trading status",
+      trading.status || trading.health_status || "unknown",
+      `<span>${esc((trading.hard_blocks || []).join(", ") || "no hard blocks listed")}</span>`,
+    ),
     actionItem("Social lane", data.kpis?.social_ready || "unknown"),
   ];
-  (cron.failing || []).slice(0, 5).forEach((f) => items.push(actionItem(`Cron: ${f.name}`, f.last_error || f.status, `<span>${esc(f.agent)}</span>`)));
+  (cron.failing || [])
+    .slice(0, 5)
+    .forEach((f) =>
+      items.push(
+        actionItem(`Cron: ${f.name}`, f.last_error || f.status, `<span>${esc(f.agent)}</span>`),
+      ),
+    );
   $("opsHealth").innerHTML = items.join("");
 }
 
 function renderAgents(data) {
   const agents = data.agents || [];
   $("agentCount").textContent = `${agents.length} agents`;
-  $("agents").innerHTML = agents.map((a) => `
+  $("agents").innerHTML = agents
+    .map(
+      (a) => `
     <article class="agent-card">
       <h3>${esc(a.id)}</h3>
       <div class="meta">
@@ -367,7 +512,9 @@ function renderAgents(data) {
         <span>${esc(a.updated)}</span>
       </div>
     </article>
-  `).join("");
+  `,
+    )
+    .join("");
 }
 
 function timelineStatus(command) {
@@ -379,8 +526,29 @@ function timelineStatus(command) {
 
 function renderCommands(data) {
   const commands = data.commands_recent || [];
-  $("recentCommands").innerHTML = commands.slice().reverse().map((c) => actionItem(`${c.department} · ${c.status}`, c.text, `<span>${esc(c.created_at || "")}</span>`)).join("") || actionItem("No routed commands", "Use the command router to send a request to the agent structure.");
-  $("commandTimeline").innerHTML = commands.slice().reverse().slice(0, 8).map((c) => `
+  $("recentCommands").innerHTML =
+    commands
+      .slice()
+      .reverse()
+      .map((c) =>
+        actionItem(
+          `${c.department} · ${c.status}`,
+          c.text,
+          `<span>${esc(c.created_at || "")}</span>`,
+        ),
+      )
+      .join("") ||
+    actionItem(
+      "No routed commands",
+      "Use the command router to send a request to the agent structure.",
+    );
+  $("commandTimeline").innerHTML =
+    commands
+      .slice()
+      .reverse()
+      .slice(0, 8)
+      .map(
+        (c) => `
     <article class="timeline-item">
       <span class="timeline-dot ${statusClass(timelineStatus(c))}"></span>
       <div>
@@ -393,7 +561,9 @@ function renderCommands(data) {
         </div>
       </div>
     </article>
-  `).join("") || actionItem("No routed commands", "Commands will appear here after routing.");
+  `,
+      )
+      .join("") || actionItem("No routed commands", "Commands will appear here after routing.");
 }
 
 function renderVoiceStatus(data) {
@@ -402,9 +572,12 @@ function renderVoiceStatus(data) {
   const piperReady = Boolean(voice.piper?.available);
   const wakeReady = Boolean(voice.openwakeword?.available);
   const backend = whisperReady ? "Whisper Ready" : "Browser STT";
-  $("voiceBackend").textContent = `${backend}${piperReady ? " + Piper" : ""}${wakeReady ? " + Wake" : ""}`;
+  $("voiceBackend").textContent =
+    `${backend}${piperReady ? " + Piper" : ""}${wakeReady ? " + Wake" : ""}`;
   if (!state.voice.listening && !state.voice.transcript) {
-    $("voiceState").textContent = state.voice.supported ? "Standing By" : "Voice Needs Browser Support";
+    $("voiceState").textContent = state.voice.supported
+      ? "Standing By"
+      : "Voice Needs Browser Support";
   }
 }
 
@@ -565,7 +738,8 @@ function setupVoice() {
   }
   if (!Recognition) {
     $("voiceState").textContent = "Voice Needs Browser Support";
-    $("voiceResult").textContent = "Use Chrome on localhost now; Whisper local STT is tracked in the backend.";
+    $("voiceResult").textContent =
+      "Use Chrome on localhost now; Whisper local STT is tracked in the backend.";
     $("voiceButton").disabled = true;
     return;
   }
@@ -636,25 +810,31 @@ $("commandForm").addEventListener("submit", async (event) => {
   event.preventDefault();
   $("commandResult").textContent = "Routing...";
   try {
-    const target = $("targetSelect").value === "specific-agent" ? `agent:${$("agentSelect").value}` : $("targetSelect").value;
+    const target =
+      $("targetSelect").value === "specific-agent"
+        ? `agent:${$("agentSelect").value}`
+        : $("targetSelect").value;
     const result = await routeCommand({
       department: $("departmentSelect").value,
       target,
       text: $("commandText").value,
       mode: "internal",
     });
-    $("commandResult").textContent = `Routed: ${result.command.lead_agent || result.command.status}`;
+    $("commandResult").textContent =
+      `Routed: ${result.command.lead_agent || result.command.status}`;
     $("commandText").value = "";
   } catch (error) {
     $("commandResult").textContent = `Failed: ${error.message}`;
   }
 });
 
-$("boardCommand").addEventListener("click", () => fillCommand({
-  department: "all",
-  target: "all-leads",
-  text: "Board of Directors: run a cross-functional review. Each director should report priorities, risks, revenue opportunities, blockers, and the next autonomous action.",
-}));
+$("boardCommand").addEventListener("click", () =>
+  fillCommand({
+    department: "all",
+    target: "all-leads",
+    text: "Board of Directors: run a cross-functional review. Each director should report priorities, risks, revenue opportunities, blockers, and the next autonomous action.",
+  }),
+);
 
 $("voiceButton").addEventListener("click", () => {
   if (!state.voice.recognition || state.voice.listening) return;
@@ -663,7 +843,9 @@ $("voiceButton").addEventListener("click", () => {
 
 $("voiceSpeakToggle").addEventListener("click", () => {
   state.voice.speakReplies = !state.voice.speakReplies;
-  $("voiceSpeakToggle").textContent = state.voice.speakReplies ? "Voice Reply On" : "Voice Reply Off";
+  $("voiceSpeakToggle").textContent = state.voice.speakReplies
+    ? "Voice Reply On"
+    : "Voice Reply Off";
 });
 
 setupVoice();
