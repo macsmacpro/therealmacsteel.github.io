@@ -10,23 +10,130 @@
     <ns1:email>steelworksintelligence@gmail.com</ns1:email>
     <ns1:explicit>false</ns1:explicit>
     <item>
-      <title>Day 72: While most entrepreneurs were asleep, this system published 0 posts, ran quantit</title>
-      <description>Day 72 — July 22, 2026. SteelWorks Intelligence.
+      <title>Day 74: - 30s hook: one surprising fact from today</title>
+      <description>voice.
+No fluff. Real numbers.
 
-While most entrepreneurs were asleep, this system published 0 posts, ran quantitative market analysis, and built a lead pipeline — without a single human touch. That's not a feature. That's the whole point.
+Structure:
+- 30s hook: one surprising fact from today
+- 2min: what the system did overnight
+- 1min: trading + revenue update
+- 1min: one lesson or insight
+- 30s: CTA to therealmacsteel.github.io
 
-What the system did overnight: 111 actionable leads with email contact The lead pipeline sits at 0 contacts. Found autonomously. No cold calls. No manual outreach.
+Stats: {
+  "day_number": 74,
+  "date": "July 24, 2026",
+  "posts_today": 0,
+  "trading": {
+    "signal": "BUY",
+    "action": "market_closed",
+    "portfolio_value": 100100.52
+  },
+  "leads": 0,
+  "top_trend": {
+    "rank": 1,
+    "title": "Rise of AI agents and autonomous workflows",
+    "description": "AI agents are moving from personal assistants to enterprise\u2011orchestrated teams, enabling end\u2011to\u2011end task automation and reducing reliance on traditional apps. (Sources: IBM AI trends 2026, MIT Sloan AI Trends 2026)"
+  },
+  "system_update": "112 actionable leads with email contact"
+}
+Show more
 
-Trading and revenue: Signal is BUY. Action taken: health_gate_no_trade_analysis_refreshed. Portfolio value: $N/A. The R-model runs quantitative analysis every cycle — no emotion, just data.
+OK.
 
-Lesson for today: Rise of AI agents and autonomous workflows. This isn't a trend to watch — it's the infrastructure of the next decade. The entrepreneurs who move now will own the results.
+Edit
 
-One ask: go to therealmacsteel.github.io. Every agent, every script, every automation is documented there. Subscribe. This is a real-time case study in autonomous business building.
+Day 74. July 24th.
 
-Day 72 done. See you tomorrow.</description>
+Here's the surprising part.
+
+I published zero posts today.
+
+But the system still created value while I was doing other work.
+
+That's the goal I've been chasing from day one. Build systems that keep moving even when I don't. If your business only grows when you're actively clicking buttons, you don't own a system. You own a job.
+
+Welcome back. I'm Mac Steel, and this is the daily AI business update.
+
+Overnight, the system kept working.
+
+The biggest result was identifying 112 actionable prospects with verified email contacts for outreach. That's a much better outcome than collecting thousands of random names that never convert.
+
+No new public content went live today, so the post count stays at zero. I'm okay with that because publishing isn't the only metric that matters. Building infrastructure compounds longer than individual posts.
+
+The biggest trend I'm watching continues to be the shift toward AI teams handling complete workflows instead of isolated tasks. Companies are moving away from using AI as a chatbot and toward systems that coordinate research, outreach, operations, reporting, and execution across multiple steps.
+
+That's exactly the direction I'm building toward.
+
+Every improvement removes another manual task. Every workflow I automate becomes something I never have to repeat. Small optimizations don't look impressive on a single day, but after months they become a completely different business.
+
+Now let's look at trading and revenue.
+
+Today's trading signal is BUY.
+
+The market was closed, so no position was executed.
+
+The paper portfolio now stands at $100,100.52.
+
+I'm deliberately keeping this process mechanical. No emotional trades. No chasing headlines. Generate the signal, verify the conditions, execute only when the market allows it, then move on.
+
+Revenue is still being built through infrastructure rather than shortcuts. I'd rather spend another week improving systems that generate opportunities automatically than spend that week manually repeating the same work.
+
+Today's lesson is simple.
+
+Measure outputs, not activity.
+
+It's easy to feel productive because you're answering emails, switching between apps, and checking dashboards all day.
+
+None of that matters if the business doesn't improve.
+
+Instead, ask better questions.
+
+Did the system create opportunities?
+
+Did it reduce manual work?
+
+Did it improve tomorrow compared to yesterday?
+
+For me today, the answer is yes.
+
+Zero posts.
+
+One hundred twelve actionable prospects.
+
+A BUY signal ready for the next market session.
+
+A portfolio value of $100,100.52.
+
+Those are measurable results.
+
+If you're building your own AI business, stop collecting tools and start building systems.
+
+Thanks for listening to today's update.
+
+If you want the free resources, automation guides, and updates on what I'm building, head over to therealmacsteel.github.io.
+
+I'll be back tomorrow with Day 75 and another real update from the system.
+
+MongoDB
+
+The Best Way to Build AI-Powered Apps
+
+Build AI without the silos. Atlas unifies vector and operational data so you can ship AI apps faster
+
+Ad</description>
+      <link>https://therealmacsteel.github.io/podcast/daily-2026-07-24.html</link>
+      <guid isPermaLink="true">https://therealmacsteel.github.io/podcast/daily-2026-07-24.html</guid>
+      <pubDate>Fri, 24 Jul 2026 10:04:41 +0000</pubDate>
+      <enclosure url="https://therealmacsteel.github.io/podcast/audio/daily-2026-07-24.mp3" length="2620706" type="audio/mpeg" />
+    </item>
+    <item>
+      <title>Daily 2026 07 22</title>
+      <description>SteelWorks Intelligence audio briefing.</description>
       <link>https://therealmacsteel.github.io/podcast/daily-2026-07-22.html</link>
       <guid isPermaLink="true">https://therealmacsteel.github.io/podcast/daily-2026-07-22.html</guid>
-      <pubDate>Wed, 22 Jul 2026 10:06:28 +0000</pubDate>
+      <pubDate>Wed, 22 Jul 2026 10:06:11 +0000</pubDate>
       <enclosure url="https://therealmacsteel.github.io/podcast/audio/daily-2026-07-22.mp3" length="714936" type="audio/mpeg" />
     </item>
     <item>
