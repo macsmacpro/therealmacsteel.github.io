@@ -23,6 +23,34 @@
     <div class="price-block">$29</div>
     <a href="https://macsmacpro.gumroad.com/l/ppvasu" class="offer-cta" target="_blank" rel="noopener">Get Instant Access →</a>
     <p class="guarantee">30-day refund if it doesn't help. No questions asked.</p>
+    <div id="not-ready" style="margin-top:2rem;padding-top:1.25rem;border-top:1px solid #333">
+      <p style="font-size:.9rem;opacity:.8">Not ready to buy? Get the free stack + playbook by email first.</p>
+      <form id="fallback-form" onsubmit="submitFallback(event)" style="display:flex;gap:.5rem;max-width:420px;margin:0 auto">
+        <input type="email" id="fallback-email" placeholder="you@company.com" required
+               style="flex:1;padding:.7rem .9rem;font-size:.95rem;border:1px solid #333;border-radius:6px;background:#111;color:#fff">
+        <button type="submit" id="fallback-btn" style="padding:.7rem 1rem;font-weight:700;background:#3aa0ff;color:#000;border:none;border-radius:6px;cursor:pointer">Send it</button>
+      </form>
+      <div id="fallback-success" style="display:none;margin-top:.5rem;color:#3aa0ff">Sent — check your inbox.</div>
+    </div>
+    <script>
+    async function submitFallback(e) {
+      e.preventDefault();
+      const email = document.getElementById('fallback-email').value.trim();
+      const btn = document.getElementById('fallback-btn');
+      btn.textContent = '...'; btn.disabled = true;
+      try {
+        const r = await fetch('https://swi-chatbot.macsmacpro.workers.dev/capture', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, source: 'offer_fallback', funnel_id: 'ai-prompt-pack-v1' })
+        });
+        const d = await r.json();
+        if (d.ok) {
+          document.getElementById('fallback-form').style.display = 'none';
+          document.getElementById('fallback-success').style.display = 'block';
+        } else { btn.textContent = 'Retry'; btn.disabled = false; }
+      } catch (err) { btn.textContent = 'Retry'; btn.disabled = false; }
+    }
+    </script>
   </div>
 </main>
 </body>

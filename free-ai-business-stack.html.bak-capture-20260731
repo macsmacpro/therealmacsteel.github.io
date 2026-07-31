@@ -105,40 +105,8 @@
       <a href="#stack" class="btn btn-primary">See the Stack</a>
       <a href="products/index.html" class="btn btn-secondary">Get the Prompt Packs</a>
     </div>
-    <div id="stack-capture" style="max-width:420px;margin:2rem auto 0">
-      <form id="capture-form" onsubmit="submitCapture(event)">
-        <input type="email" id="capture-email" placeholder="you@company.com" required
-               style="width:100%;padding:.85rem 1rem;font-size:1rem;border:1px solid var(--line,#333);border-radius:6px;background:var(--surface,#111);color:var(--text,#fff);margin-bottom:.75rem;box-sizing:border-box">
-        <button id="capture-btn" type="submit" class="btn btn-primary" style="width:100%">Email me the full stack + playbook</button>
-        <p style="font-size:.75rem;opacity:.7;margin-top:.5rem">The complete checklist and setup links, one email. No spam, unsubscribe anytime.</p>
-      </form>
-      <div id="form-success" style="display:none;padding:1rem;background:#3aa0ff22;border:1px solid #3aa0ff;border-radius:6px;text-align:center;color:#3aa0ff">Check your inbox — the stack is on its way.</div>
-    </div>
   </div>
 </div>
-<script>
-async function submitCapture(e) {
-  e.preventDefault();
-  const email = document.getElementById('capture-email').value.trim();
-  const btn = document.getElementById('capture-btn');
-  btn.textContent = 'Sending...'; btn.disabled = true;
-  try {
-    const r = await fetch('https://swi-chatbot.macsmacpro.workers.dev/capture', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: 'free_stack', funnel_id: 'free-ai-business-stack' })
-    });
-    const d = await r.json();
-    if (d.ok) {
-      document.getElementById('capture-form').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-      fetch('https://swi-chatbot.macsmacpro.workers.dev/track', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ event: 'intake_submit', funnel: 'free-ai-business-stack' })
-      }).catch(() => {});
-    } else { btn.textContent = 'Try again'; btn.disabled = false; }
-  } catch (err) { btn.textContent = 'Try again'; btn.disabled = false; }
-}
-</script>
 
 <section class="section" id="stack">
   <div class="container">
