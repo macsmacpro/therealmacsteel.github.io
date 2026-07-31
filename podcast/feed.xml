@@ -11,8 +11,7 @@
     <ns1:explicit>false</ns1:explicit>
     <item>
       <title>Day 81: - 30s hook: one surprising fact from today</title>
-      <description>voice.
-No fluff. Real numbers.
+      <description>fluff. Real numbers.
 
 Structure:
 - 30s hook: one surprising fact from today
@@ -38,11 +37,15 @@ Stats: {
   },
   "system_update": "113 actionable leads with email contact"
 }
-Show more</description>
+Show more
+
+OK
+
+Voice</description>
       <link>https://therealmacsteel.github.io/podcast/daily-2026-07-31.html</link>
       <guid isPermaLink="true">https://therealmacsteel.github.io/podcast/daily-2026-07-31.html</guid>
-      <pubDate>Fri, 31 Jul 2026 10:03:07 +0000</pubDate>
-      <enclosure url="https://therealmacsteel.github.io/podcast/audio/daily-2026-07-31.mp3" length="673178" type="audio/mpeg" />
+      <pubDate>Fri, 31 Jul 2026 10:05:01 +0000</pubDate>
+      <enclosure url="https://therealmacsteel.github.io/podcast/audio/daily-2026-07-31.mp3" length="680795" type="audio/mpeg" />
     </item>
     <item>
       <title>Daily 2026 07 24</title>
