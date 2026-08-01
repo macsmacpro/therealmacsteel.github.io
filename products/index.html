@@ -524,10 +524,8 @@
     .text-primary { color: var(--primary); }
     .text-secondary { color: var(--secondary); }
     .highlight {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--primary);
+      font-weight: 700;
     }
     .divider {
       border: none;
@@ -890,7 +888,12 @@
     <p class="section-intro">Each active offer is checked for fulfillment path, proof artifact, bounded bonuses, upgrade path, free-first execution, expectation-safe claims, and E2E buyer journey before promotion.</p>
     <div class="offer-library-group">
         <h3>AI Search Services</h3>
-        <div class="offer-library-grid"><article class="offer-library-card">
+        <div class="offer-library-grid"><article class="offer-library-card" style="border-color:var(--primary,#00c2a8);">
+          <h3>The $0 Outreach Machine</h3>
+          <p>The cold-outreach system we run: signal-first playbook, ship-bar-85 quality gate, follow-ups, compliance rails. No paid tools.</p>
+          <div class="offer-library-meta"><span>$24</span><span>digital_product</span></div>
+          <a href="outreach-machine.html" class="btn btn-primary">View offer</a>
+        </article><article class="offer-library-card">
           <h3>AI Search Visibility Audit</h3>
           <p>Small to midsize local or founder-led company with weak organic visibility, outdated website, or no AI-search readiness.</p>
           <div class="offer-library-meta"><span>$99-$199</span><span>service</span></div>
