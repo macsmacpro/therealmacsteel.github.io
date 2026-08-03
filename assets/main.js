@@ -162,15 +162,18 @@ document.querySelectorAll('.reveal').forEach(el => sReveal.observe(el));
       ...extra
     };
     const body = JSON.stringify(payload);
+    /* plain STRING body → text/plain (CORS-safelisted, no preflight);
+       Blob-typed json beacons preflight inconsistently and silently drop
+       events. The worker json-parses the body regardless of content-type. */
     try {
       if (navigator.sendBeacon) {
-        navigator.sendBeacon(endpoint, new Blob([body], { type: 'application/json' }));
+        navigator.sendBeacon(endpoint, body);
         return;
       }
     } catch (_) {}
     fetch(endpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain' },
       body,
       keepalive: true
     }).catch(() => {});

@@ -75,7 +75,7 @@
 
     /* ── hero: the living receipt ─────────────────────────────────── */
     .hero{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;
-      align-items:center;padding:var(--s8) 0 var(--s7)}
+      align-items:center;padding-top:var(--s8);padding-bottom:var(--s7)}
     .hero>*{min-width:0}
     .hero h1{font-size:clamp(2.7rem,5vw,4.1rem);font-weight:700}
     .hero h1 em{font-style:normal;color:var(--steel)}
@@ -250,7 +250,7 @@
       html{scroll-behavior:auto}
     }
     @media (max-width:900px){
-      .hero{grid-template-columns:1fr;gap:44px;padding:var(--s6) 0}
+      .hero{grid-template-columns:1fr;gap:44px;padding-top:var(--s6);padding-bottom:var(--s6)}
       .nav-links{display:none}
       .logo{font-size:14px}
       .nav-cta{padding:8px 12px;font-size:13px}
