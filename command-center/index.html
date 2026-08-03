@@ -71,11 +71,10 @@
   <main class="shell">
     <header class="topbar">
       <div>
-        <p class="eyebrow">OpenClaw Autonomous Business OS</p>
         <h1>Mission Control</h1>
       </div>
       <div class="status-strip">
-        <span id="refreshState" class="pill">Loading</span>
+        <span id="refreshState" class="status-tag">Loading</span>
         <button id="refreshButton" class="icon-button" type="button" title="Refresh">↻</button>
       </div>
     </header>
@@ -84,10 +83,9 @@
       <div class="panel voice-panel">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Voice Command</p>
             <h2 id="voiceState">Standing By</h2>
           </div>
-          <span id="voiceBackend" class="pill muted">Browser STT</span>
+          <span id="voiceBackend" class="status-tag muted">Browser STT</span>
         </div>
         <div class="jarvis-stage" aria-label="Voice command interface">
           <canvas id="voiceWaveform" class="waveform-canvas" width="420" height="120"></canvas>
@@ -97,7 +95,7 @@
         </div>
         <div class="voice-readout">
           <div class="meta voice-meta">
-            <span id="voiceDeptPulse" class="pulse-chip">Executive</span>
+            <span id="voiceDeptPulse" class="dept-tag">Executive</span>
             <button id="voiceSpeakToggle" class="icon-button compact" type="button" title="Toggle spoken replies">Voice Reply On</button>
           </div>
           <p id="voiceTranscript" class="voice-transcript">Press the orb and speak a command.</p>
@@ -108,10 +106,9 @@
       <div class="panel command-panel primary-command">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Command Router</p>
             <h2 id="contextTitle">Call The Company</h2>
           </div>
-          <span class="pill muted">Agent-internal first</span>
+          <span class="status-tag muted">Agent-internal first</span>
         </div>
         <div id="contextSummary" class="context-summary"></div>
         <form id="commandForm" class="command-form">
@@ -147,10 +144,9 @@
       <div class="panel recommendations-panel">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Recommended Commands</p>
             <h2>Next Actions</h2>
           </div>
-          <span id="recommendationCount" class="pill">0</span>
+          <span id="recommendationCount" class="status-tag">0</span>
         </div>
         <div id="recommendedCommands" class="recommendation-list"></div>
       </div>
@@ -160,7 +156,6 @@
       <div class="panel board-panel">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Board Of Directors</p>
             <h2>Strategic Oversight</h2>
           </div>
           <button id="boardCommand" class="icon-button compact" type="button">Route Board Review</button>
@@ -171,10 +166,9 @@
       <div class="panel active-panel">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Daily Revenue Lane</p>
             <h2 id="campaignTitle">Campaign</h2>
           </div>
-          <span id="campaignStatus" class="pill">Unknown</span>
+          <span id="campaignStatus" class="status-tag">Unknown</span>
         </div>
         <div id="campaignSummary" class="mini-grid"></div>
         <div id="agentActions" class="action-list"></div>
@@ -183,7 +177,6 @@
       <div class="panel command-trail-panel">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Command Timeline</p>
             <h2>Conversation Trail</h2>
           </div>
         </div>
@@ -197,10 +190,9 @@
       <div class="panel">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Departments</p>
             <h2>Operating Company</h2>
           </div>
-          <span id="selectedAgentCount" class="pill muted">0 agents</span>
+          <span id="selectedAgentCount" class="status-tag muted">0 agents</span>
         </div>
         <div id="departments" class="department-grid"></div>
       </div>
@@ -208,7 +200,6 @@
       <div class="panel">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Market / SEO</p>
             <h2>Opportunity Watch</h2>
           </div>
         </div>
@@ -218,7 +209,6 @@
       <div class="panel">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Risk / Ops</p>
             <h2>Execution Health</h2>
           </div>
         </div>
@@ -230,10 +220,9 @@
       <div class="panel">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Agents</p>
             <h2>Roster</h2>
           </div>
-          <span id="agentCount" class="pill muted">0 agents</span>
+          <span id="agentCount" class="status-tag muted">0 agents</span>
         </div>
         <div id="agents" class="agent-grid"></div>
       </div>
@@ -241,7 +230,6 @@
       <div class="panel">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Recent Commands</p>
             <h2>Internal Control Trail</h2>
           </div>
         </div>

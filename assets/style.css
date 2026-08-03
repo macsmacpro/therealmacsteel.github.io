@@ -583,7 +583,7 @@ footer {
   padding: 1.5rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
-.level-badge {
+.level-mark {
   flex-shrink: 0;
   width: 60px; height: 60px;
   border-radius: 50%;
@@ -594,9 +594,9 @@ footer {
   font-size: .85rem;
   font-weight: 700;
 }
-.level-badge.done { border-color: var(--primary); color: var(--primary); background: rgba(58,160,255,0.1); }
-.level-badge.active { border-color: var(--secondary); color: var(--secondary); background: rgba(0,153,255,0.1); }
-.level-badge.future { border-color: rgba(255,255,255,0.1); color: var(--muted); }
+.level-mark.done { border-color: var(--primary); color: var(--primary); background: rgba(58,160,255,0.1); }
+.level-mark.active { border-color: var(--secondary); color: var(--secondary); background: rgba(0,153,255,0.1); }
+.level-mark.future { border-color: rgba(255,255,255,0.1); color: var(--muted); }
 .level-content { flex: 1; }
 .level-title { font-family: -apple-system,'Inter','Segoe UI',sans-serif; font-size: .9rem; margin-bottom: .5rem; }
 .level-status { font-size: .8rem; font-weight: 600; margin-bottom: .5rem; }

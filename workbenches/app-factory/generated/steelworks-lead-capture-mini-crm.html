@@ -33,6 +33,8 @@
     .error { color:#ff8a8a; }
     .empty { border:1px dashed var(--line); border-radius:8px; padding:14px; color:var(--muted); }
     code { color:var(--a); }
+    .stack-row { padding:16px 4px; border-bottom:1px solid var(--line); }
+    .stack-row:last-child { border-bottom:0; }
   </style>
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <!-- openclaw-geo-hardening: schema -->
@@ -90,10 +92,10 @@
       <p>AI-search-ready website and visibility workflow. Leads stay in localStorage until an approved export or handoff is performed.</p>
       <a class="cta" href="/contact.html">Request the free-first audit</a>
     </header>
-    <section class="grid">
-      <div class="card"><h2>Total Leads</h2><p class="metric" id="leadTotal">0</p><p>Captured in this browser.</p></div>
-      <div class="card"><h2>Ready</h2><p class="metric" id="leadReady">0</p><p>Valid records ready for review.</p></div>
-      <div class="card"><h2>Needs Review</h2><p class="metric" id="leadReview">0</p><p>Records needing a manual decision.</p></div>
+    <section>
+      <div class="stack-row"><h2>Total Leads</h2><p class="metric" id="leadTotal">0</p><p>Captured in this browser.</p></div>
+      <div class="stack-row"><h2>Ready</h2><p class="metric" id="leadReady">0</p><p>Valid records ready for review.</p></div>
+      <div class="stack-row"><h2>Needs Review</h2><p class="metric" id="leadReview">0</p><p>Records needing a manual decision.</p></div>
     </section>
     <section class="grid">
       <form class="card" id="leadForm">

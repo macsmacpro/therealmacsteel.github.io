@@ -93,22 +93,13 @@ h1 { margin-bottom: 0; font-size: 34px; letter-spacing: 0; }
 h2 { margin-bottom: 0; font-size: 19px; letter-spacing: 0; }
 p { color: var(--muted); line-height: 1.5; }
 
-.eyebrow {
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0;
-  font-size: 12px;
-  font-weight: 800;
-  margin-bottom: 6px;
-}
-
 .status-strip {
   display: flex;
   gap: 8px;
   align-items: center;
 }
 
-.pill {
+.status-tag {
   display: inline-flex;
   min-height: 30px;
   align-items: center;
@@ -121,7 +112,7 @@ p { color: var(--muted); line-height: 1.5; }
   white-space: nowrap;
 }
 
-.pill.muted {
+.status-tag.muted {
   color: var(--muted);
   background: transparent;
 }
@@ -366,7 +357,7 @@ textarea { resize: vertical; min-height: 120px; }
   color: var(--text);
 }
 
-.pulse-chip {
+.dept-tag {
   display: inline-flex;
   min-height: 30px;
   align-items: center;

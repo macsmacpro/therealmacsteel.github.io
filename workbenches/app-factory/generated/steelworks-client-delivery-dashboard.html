@@ -33,6 +33,8 @@
     .error { color:#ff8a8a; }
     .empty { border:1px dashed var(--line); border-radius:8px; padding:14px; color:var(--muted); }
     code { color:var(--a); }
+    .stack-row { padding:16px 4px; border-bottom:1px solid var(--line); }
+    .stack-row:last-child { border-bottom:0; }
   </style>
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <!-- openclaw-geo-hardening: schema -->
@@ -90,10 +92,10 @@
       <p>Small businesses that need organic discovery without paid ads can review delivery status, next actions, expected value, and operator notes without a hosted database.</p>
       <a class="cta" href="../../../contact.html">Request the free-first audit</a>
     </header>
-    <section class="grid" aria-label="Dashboard metrics">
-      <div class="card"><h2>Active Work</h2><p class="metric" id="metricActive">0</p><p>Open delivery streams.</p></div>
-      <div class="card"><h2>Projected Value</h2><p class="metric" id="metricValue">$0</p><p>Pipeline value in the local ledger.</p></div>
-      <div class="card"><h2>At Risk</h2><p class="metric" id="metricRisk">0</p><p>Records needing operator review.</p></div>
+    <section aria-label="Dashboard metrics">
+      <div class="stack-row"><h2>Active Work</h2><p class="metric" id="metricActive">0</p><p>Open delivery streams.</p></div>
+      <div class="stack-row"><h2>Projected Value</h2><p class="metric" id="metricValue">$0</p><p>Pipeline value in the local ledger.</p></div>
+      <div class="stack-row"><h2>At Risk</h2><p class="metric" id="metricRisk">0</p><p>Records needing operator review.</p></div>
     </section>
     <section class="card">
       <h2>Delivery Board</h2>

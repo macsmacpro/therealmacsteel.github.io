@@ -18,6 +18,8 @@
     th, td { text-align:left; padding:10px; border-bottom:1px solid var(--line); vertical-align:top; }
     th { color:var(--b); }
     a { color:var(--a); }
+    .stack-row { padding:16px 4px; border-bottom:1px solid var(--line); }
+    .stack-row:last-child { border-bottom:0; }
   </style>
 </head>
 <body>
@@ -27,11 +29,11 @@
     <p><a href="./index.html">Workbench index</a></p>
   </header>
   <main>
-    <section class="grid">
-      <div class="card"><div class="metric">29</div><p>Platforms tracked</p></div>
-      <div class="card"><div class="metric">29</div><p>Ready</p></div>
-      <div class="card"><div class="metric">0</div><p>Need repair</p></div>
-      <div class="card"><div class="metric">0</div><p>Repair items</p></div>
+    <section>
+      <div class="stack-row"><div class="metric">29</div><p>Platforms tracked</p></div>
+      <div class="stack-row"><div class="metric">29</div><p>Ready</p></div>
+      <div class="stack-row"><div class="metric">0</div><p>Need repair</p></div>
+      <div class="stack-row"><div class="metric">0</div><p>Repair items</p></div>
     </section>
     <h2>Repair Queue</h2>
     <table><thead><tr><th>Priority</th><th>Owner</th><th>Platform</th><th>Issue</th><th>Next Action</th></tr></thead><tbody></tbody></table>

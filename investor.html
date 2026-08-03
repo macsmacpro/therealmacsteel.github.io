@@ -19,7 +19,7 @@
     .form-group label { display:block;color:var(--muted);font-size:.8rem;letter-spacing:.05em;margin-bottom:.4rem; }
     .form-group input, .form-group select, .form-group textarea {
       width:100%;padding:.75rem 1rem;background:rgba(255,255,255,0.05);border:1px solid var(--card-border);
-      border-radius:8px;color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:.9rem;
+      border-radius:8px;color:var(--text);font-family:'Plex Sans',system-ui,sans-serif;font-size:.9rem;
       transition:border-color .2s;box-sizing:border-box;
     }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
@@ -74,6 +74,10 @@
   ]
 }
   </script>
+  <style>
+    @font-face{font-family:'Plex Sans';src:url('assets/fonts/ibm-plex-sans-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:'Plex Sans';src:url('assets/fonts/ibm-plex-sans-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
+  </style>
 </head>
 <body>
 
@@ -92,7 +96,6 @@
 
 <div class="page-header">
   <div class="container" style="max-width:760px">
-    <div class="hero-badge" style="margin-bottom:1rem">INVESTOR INQUIRIES</div>
     <h1>SteelWorks <span style="color:var(--primary)">Intelligence</span></h1>
     <p>We're selective about partners. Tell us about yourself.</p>
   </div>
@@ -120,7 +123,7 @@
       </div>
     </div>
 
-    <div class="card reveal" style="margin-bottom:2rem;border-left:3px solid var(--primary)">
+    <div class="card reveal" style="margin-bottom:2rem;border-left:2px solid var(--primary)">
       <h3 style="color:var(--primary);margin-bottom:.75rem">The Structural Moat</h3>
       <p style="line-height:1.8;color:rgba(255,255,255,0.85)">SteelWorks Intelligence operates at zero marginal cost through a proprietary architecture that cannot be replicated by cloud-dependent competitors without eliminating their own revenue model. This isn't a pricing strategy — it's a structural advantage built into the infrastructure layer. As AI query volume scales, operational cost stays flat. The moat compounds.</p>
     </div>
@@ -226,7 +229,6 @@ function submitApplication(e) {
 </script>
 
   <section class="opportunity-cta" id="business-opportunity-cta">
-    <p class="eyebrow">SteelWorks Intelligence</p>
     <h2>Turn this into a working AI business system</h2>
     <p>Get the practical OpenClaw setup resources, then follow the live build as the system improves itself.</p>
     <div class="opportunity-cta-actions">
