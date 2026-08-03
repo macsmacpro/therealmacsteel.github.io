@@ -136,7 +136,8 @@
       vertical-align:-2px}
     .mr-col{display:flex;flex-direction:column;gap:24px}
     .mr-video{border:1px solid var(--term-line);border-radius:12px;overflow:hidden}
-    .mr-video video{display:block;width:100%;height:auto;aspect-ratio:960/782}
+    .mr-video video{display:block;width:100%;height:auto;aspect-ratio:720/928;
+      max-height:430px;object-fit:cover;object-position:top}
     .mr-cap{padding:10px 16px;font:400 12px/1.6 var(--mono);color:#a3b3c6;
       border-top:1px solid #1a2130;background:#0a0f16}
     .mr-video{position:relative}
@@ -170,7 +171,8 @@
       max-width:220px}
     .row .ev b{color:var(--steel-deep);font-weight:600}
     .mini{display:flex;align-items:center;gap:10px;min-height:34px}
-    .mini-tiers{font:600 11px/1.75 var(--mono);color:#3a4150;white-space:nowrap}
+    .mini-tiers{display:block;font:600 11.5px/1.9 var(--mono);color:#3a4150}
+    .mini-tiers>div{display:flex;justify-content:space-between;gap:8px;max-width:190px}
     .mini-tiers .tf{color:var(--steel-deep)}
     .mini-tiers .td{color:#a33}
     .mini-gate .score{font:600 17px/1 var(--mono);color:var(--ink)}
@@ -342,10 +344,10 @@
       <div class="term-body" id="term-pre" aria-label="Terminal replay of a real gatecheck run"></div>
     </div>
     <figure class="mr-video reveal">
-      <video muted loop playsinline preload="none" width="960" height="782"
-        poster="assets/media/mission-control-poster.jpg" id="mc-video"
+      <video muted loop playsinline preload="none" width="720" height="928"
+        poster="assets/media/mission-control-poster-tight.jpg" id="mc-video"
         aria-label="Screen recording of the SteelWorks command center">
-        <source src="assets/media/mission-control.webm" type="video/webm">
+        <source src="assets/media/mission-control-mobile.webm" type="video/webm">
       </video>
       <figcaption class="mr-cap">SteelWorks Command Center, recorded
         2026-08-02. Real fleet state: 13 departments, live routing.</figcaption>
@@ -364,7 +366,7 @@
           gains never count toward the revenue line.</p>
     </div>
   </div>
-  <p style="margin-top:24px;font-size:15px" class="reveal">Want this machine
+  <p style="margin-top:16px;font-size:15px" class="reveal">Want this machine
     working on your business?
     <a class="mr-link" href="ai-seo-agency.html" style="color:#6db8ff;font-weight:600">See the services →</a></p>
 </div></section>
@@ -400,10 +402,10 @@
   </ol>
   <div class="sheet reveal">
     <div class="row">
-      <div class="mini mini-tiers" aria-label="Real trust-tier assignments">
-        research&nbsp;→ <span class="tf">FULL</span><br>
-        posting&nbsp;&nbsp;→ <span>APPROVAL</span><br>
-        trading&nbsp;&nbsp;→ <span class="td">DISABLED</span>
+      <div class="mini-tiers" aria-label="Real trust-tier assignments">
+        <div><span>research</span><span class="tf">FULL</span></div>
+        <div><span>posting</span><span>APPROVAL</span></div>
+        <div><span>trading</span><span class="td">DISABLED</span></div>
       </div>
       <div>
         <h3>Every agent runs caged</h3>
@@ -621,13 +623,6 @@
         requestAnimationFrame(() => eq.classList.add('draw')); }
     }), { threshold: .4 });
     lio.observe(eq.closest('.ledger'));
-  }
-  // phones get a tighter crop of the same recording so panel text stays legible
-  if (matchMedia('(max-width: 900px)').matches) {
-    mcv.querySelector('source').src = 'assets/media/mission-control-mobile.webm';
-    mcv.width = 720; mcv.height = 928;
-    mcv.style.aspectRatio = '720/928';
-    mcv.load();
   }
   if (!reduce) {
     const vio = new IntersectionObserver(es => es.forEach(e => {
