@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SteelWorks Intelligence — Receipts, not promises</title>
+  <meta name="description" content="An autonomous AI company that publishes its evidence. 48 agents, one MacBook, every number pulled live from the running system — including the $0.">
+  <link rel="canonical" href="https://therealmacsteel.github.io/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    /* SteelWorks v2 — "The Receipt" (stage-1 pick A + B console proof module)
+       palette argued: paper L~0.98 #fafaf7 (receipt stock) · ink #1a1f28
+       (thermal print) · steel-blue #2f7fd0 (machined steel; chroma below SaaS
+       default) · console module keeps steel-dark #0d1219 + #3aa0ff (one card).
+       type: system sans (Inter-class) + ui-monospace receipt numerals.
+       spacing: 8px grid. calibration: Stripe (light field, one accent). */
+    :root{
+      --paper:#fafaf7; --ink:#1a1f28; --ink-2:#4c5560; --ink-3:#6e7681;
+      --line:#e7e5df; --steel:#2f7fd0; --steel-deep:#1f5f9e;
+      --card:#ffffff; --term-bg:#0d1219; --term-line:#232c3d;
+      --term-text:#aab9cc; --term-bright:#e6edf6; --term-blue:#3aa0ff;
+      --ok:#1f7a5c; --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+      --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s8:96px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{max-width:100%;overflow-x:clip}
+    .hero>*,.grid3>*,.funnel>*{min-width:0}
+    .term{min-width:0;max-width:100%}
+    .receipt{max-width:100%}
+
+    html{scroll-behavior:smooth}
+    :focus-visible{outline:2px solid var(--steel);outline-offset:2px;border-radius:4px}
+    body{background:var(--paper);color:var(--ink);
+      font:400 17px/1.65 -apple-system,"Inter","Segoe UI",Arial,sans-serif;
+      -webkit-font-smoothing:antialiased}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+    a{color:inherit;text-decoration:none}
+    h1,h2,h3{letter-spacing:-0.02em;line-height:1.1}
+    section{padding:var(--s8) 0}
+    .eyebrow{font:600 12px/1 var(--mono);letter-spacing:.14em;color:var(--steel-deep);
+      text-transform:uppercase;margin-bottom:18px}
+    .btn{display:inline-block;padding:13px 24px;border-radius:10px;
+      font-weight:600;font-size:16px;transition:transform .15s ease,box-shadow .15s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-ink{background:var(--ink);color:#fff}
+    .btn-line{border:1px solid #d8d5cd;color:var(--ink);background:transparent}
+    .btn-steel{background:var(--steel);color:#fff}
+    .hero-alt{align-self:center;font-weight:600;font-size:16px;
+      color:var(--steel-deep);padding:13px 6px}
+    .hero-alt:hover{text-decoration:underline}
+
+    /* nav */
+    nav{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.88);
+      backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav-in{display:flex;align-items:center;justify-content:space-between;
+      padding:16px 0}
+    .logo{font-weight:700;font-size:16px;letter-spacing:-0.01em}
+    .logo span{color:var(--steel)}
+    .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-2)}
+    .nav-links a:hover{color:var(--ink)}
+    .nav-cta{border:1.5px solid var(--steel);color:var(--steel-deep);
+      padding:8px 15px;border-radius:8px;font-size:14px;font-weight:600}
+
+    /* ticker (truth engine) */
+    .ticker-wrap{border-top:1px solid var(--line);
+      padding:14px 24px;white-space:normal;font:500 13px/2 var(--mono);
+      color:#4c5560;text-align:center;max-width:980px;margin:0 auto}
+    .ticker-item{display:inline-block;margin:0 18px}
+    .ticker-item::before{content:"·";margin-right:18px;color:var(--line)}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;
+      align-items:center;padding:var(--s8) 0 var(--s6);position:relative}
+    .hero::before{content:"";position:absolute;inset:-40px -200px 0;
+      background:radial-gradient(600px 320px at 72% 40%,rgba(47,127,208,.07),transparent 70%);
+      pointer-events:none}
+    .hero>*{position:relative}
+    .hero h1{font-size:clamp(2.6rem,5vw,4rem);font-weight:700}
+    .hero h1 em{font-style:normal;color:var(--steel)}
+    .hero .sub{margin-top:22px;font-size:19px;color:var(--ink-2);max-width:36ch}
+    .hero .btns{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+
+    /* receipt */
+    .receipt{background:var(--card);border:1px solid #edebe4;
+      border-radius:6px;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 18px 50px rgba(26,31,40,.12);
+      padding:32px 36px;font:400 14.5px/1 var(--mono);
+      transform:rotate(.4deg)}
+    .receipt h3{font-size:12px;letter-spacing:.12em;text-align:center;
+      padding-bottom:14px;border-bottom:1.5px dashed #ddd9d0;font-weight:600;
+      color:#4c5560}
+    .r-row{display:flex;justify-content:space-between;align-items:baseline;
+      padding:12px 0;border-bottom:1px dashed #eceae4;color:#2c3440}
+    .r-row .stat-number{font-weight:700;color:var(--ink)}
+    .r-row.zero .stat-number,.r-row.zero b{color:var(--steel);font-weight:700}
+    .r-total{display:flex;justify-content:space-between;padding-top:16px;
+      font-weight:700;font-size:15px}
+    .r-stamp{margin-top:14px;text-align:center;font-size:11.5px;
+      line-height:1.7;color:#3a4150;letter-spacing:.06em}
+    .r-cut{color:#8a919b;letter-spacing:.3em}
+
+    /* console proof module (board B, folded in) */
+    .proof{background:var(--term-bg);border-radius:16px;padding:var(--s6);
+      color:var(--term-text)}
+    .proof .eyebrow{color:var(--term-blue)}
+    .proof .eyebrow{color:#6db8ff}
+    .proof h2{color:var(--term-bright);font-size:clamp(1.7rem,3vw,2.4rem)}
+    .proof p.lead{margin-top:14px;color:var(--term-text);max-width:60ch}
+    .proof-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;
+      margin-top:var(--s5);align-items:stretch}
+    .machine{position:relative;border-radius:12px;overflow:hidden;
+      border:1px solid var(--term-line);margin:0;min-height:220px}
+    .machine img{width:100%;height:100%;object-fit:cover;display:block;
+      filter:grayscale(.5) brightness(.92) contrast(1.06)}
+    .machine figcaption{position:absolute;left:0;right:0;bottom:0;
+      padding:10px 14px;font:500 11.5px/1.4 var(--mono);color:#e2e9f1;
+      background:linear-gradient(transparent,rgba(6,10,16,.88))}
+    .term{background:#0a0f16;border:1px solid var(--term-line);
+      border-radius:12px;box-shadow:0 10px 34px rgba(0,0,0,.35)}
+    .tbar{display:flex;gap:7px;padding:12px 16px;border-bottom:1px solid #1a2130}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--term-line)}
+    .term pre{font:400 13.5px/1.9 var(--mono);padding:20px 24px;overflow-x:auto;max-width:100%}
+    .t-p{color:#7aa87c}.t-ok{color:#22c39a}.t-n{color:var(--term-bright);font-weight:700}
+    .t-link{color:var(--term-blue)}
+    .cursor{display:inline-block;width:8px;height:14px;background:var(--term-blue);
+      vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
+    @keyframes blink{50%{opacity:0}}
+
+    /* how it runs */
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:var(--s5)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+      padding:var(--s5);border-top:3px solid var(--steel);
+      box-shadow:0 8px 28px rgba(26,31,40,.07)}
+    .card svg{display:block;margin-bottom:16px;width:56px;height:36px}
+    .mini{display:flex;align-items:center;gap:10px;margin-bottom:18px;min-height:34px}
+    .mini-grid{display:grid;grid-template-columns:repeat(8,14px);gap:5px}
+    .mini-grid i{width:14px;height:14px;border-radius:3.5px;background:#e9e7e0;
+      border:1px solid #ddd9d0}
+    .mini-grid i.on{background:#2f7fd0;border-color:#2f7fd0}
+    .mini-gate .score{font:700 17px/1 var(--mono);color:var(--ink)}
+    .mini-gate .score em{font-style:normal;font-size:12px;color:#4c5560}
+    .mini-gate .meter{position:relative;flex:1;max-width:130px;height:8px;
+      border-radius:4px;background:#e9e7e0;overflow:visible}
+    .mini-gate .meter>span{display:block;height:100%;border-radius:4px;
+      background:linear-gradient(90deg,#2f7fd0,#1f5f9e)}
+    .mini-gate .meter b{position:absolute;top:-3px;width:2px;height:14px;
+      background:var(--ink);border-radius:1px}
+    .mini-gate .pill{font:700 10.5px/1 var(--mono);letter-spacing:.08em;
+      color:#0d5c40;background:#d9efe4;border:1px solid #b7dfcb;
+      padding:4px 8px;border-radius:99px}
+    .mini-rail .switch{width:46px;height:26px;border-radius:13px;
+      background:#1f7a5c;position:relative;box-shadow:inset 0 1px 3px rgba(0,0,0,.2)}
+    .mini-rail .knob{position:absolute;right:3px;top:3px;width:20px;height:20px;
+      border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+    .mini-rail .sw-label{font:700 10.5px/1.3 var(--mono);letter-spacing:.08em;
+      color:#1f5f9e}
+    .card .ev{margin-top:16px;padding:9px 12px;background:#f4f4ef;
+      border:1px solid var(--line);border-radius:8px;
+      font:500 12px/1.5 var(--mono);color:#3a4150}
+    .card .ev b{color:var(--steel-deep)}
+    .pipe-mobile{display:none}
+    @media (max-width:900px){
+      .pipe-desktop{display:none}
+      .pipe-mobile{display:block;list-style:none;margin-top:24px;
+        font:500 14px/1.5 var(--mono);color:var(--ink-2)}
+      .pipe-mobile li{padding:10px 0 10px 26px;position:relative;
+        border-left:2px solid var(--line);margin-left:8px}
+      .pipe-mobile li::before{content:"";position:absolute;left:-6px;top:16px;
+        width:10px;height:10px;border-radius:50%;background:var(--paper);
+        border:2px solid var(--ink-3)}
+      .pipe-mobile li.gate{color:var(--steel);font-weight:700;
+        border-left-color:var(--steel)}
+      .pipe-mobile li.gate::before{border-color:var(--steel);background:var(--steel)}
+      .pipe-mobile li.gate span{display:block;font-weight:400;font-size:12px;
+        color:var(--ink-2)}
+    }
+    .card h3{font-size:1.25rem;margin-bottom:10px}
+    .card .k{font:600 11px/1 var(--mono);letter-spacing:.12em;color:var(--steel-deep);
+      text-transform:uppercase;display:block;margin-bottom:14px}
+    .card p{font-size:15.5px;color:var(--ink-2)}
+
+    /* funnels */
+    .funnel{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:var(--s5)}
+    .f-card{border:1px solid var(--line);border-radius:14px;padding:var(--s5);
+      background:var(--card);display:flex;flex-direction:column;gap:14px}
+    .f-card h3{font-size:1.35rem}
+    .f-card p{color:var(--ink-2);font-size:15.5px;flex:1}
+    .f-card .price{font:700 13px/1 var(--mono);color:var(--steel-deep)}
+    .sec-head{max-width:62ch}
+    .sec-head h2{font-size:clamp(1.7rem,3vw,2.4rem)}
+    .sec-head p{margin-top:12px;color:var(--ink-2)}
+
+    .band{background:#f2f1ea;border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line)}
+    .band .card{box-shadow:0 12px 32px rgba(26,31,40,.09)}
+    .band .card .ev{background:#fafaf7}
+    footer{border-top:1px solid var(--line);padding:var(--s6) 0;
+      font-size:14px;color:var(--ink-2)}
+    .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+
+    /* motion: print-in + count-up + reveal; honest and once-only */
+    /* progressive enhancement: content is VISIBLE at rest; JS adds .pre only
+       to below-fold elements right before observing, so any static render
+       (screenshot, no-JS, fast load) shows the full page */
+    .reveal{opacity:1;transform:none}
+    .reveal.pre{opacity:0;transform:translateY(12px);
+      transition:opacity .4s ease-out,transform .4s ease-out}
+    .reveal.pre.in{opacity:1;transform:none}
+    @media (prefers-reduced-motion: reduce){
+      .reveal{opacity:1;transform:none;transition:none}
+      .cursor{animation:none}
+      html{scroll-behavior:auto}
+    }
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;gap:40px;padding:var(--s6) 0}
+      .grid3,.funnel{grid-template-columns:1fr}
+      .nav-links{display:flex;flex-wrap:wrap;gap:2px 6px;font-size:14px;
+        width:100%;order:3;padding-top:4px}
+      .nav-links a{padding:12px 10px;display:inline-block}
+      .nav-in{flex-wrap:wrap}
+      section{padding:var(--s6) 0}
+      .receipt{transform:none;padding:24px 20px}
+      .wrap{padding:0 16px}
+      .logo{font-size:14px}
+      .nav-cta{padding:8px 12px;font-size:13px;white-space:nowrap}
+      .nav-in{gap:10px}
+      .ticker-wrap{white-space:normal;line-height:1.9;padding:8px 16px}
+      .ticker-item{margin:0 8px}
+      .ticker-item::before{margin-right:8px}
+      .proof-grid{grid-template-columns:1fr}
+      .machine{min-height:170px}
+      .term pre{font-size:12px;white-space:pre;overflow-x:auto;
+        -webkit-overflow-scrolling:touch}
+      .term::after{content:"← scroll →";display:block;text-align:center;
+        font:700 10.5px/1 var(--mono);color:#9fb0c4;letter-spacing:.1em;
+        padding:2px 0 10px}
+      .proof{padding:var(--s4)}
+    }
+  </style>
+</head>
+<body>
+
+<nav><div class="wrap nav-in">
+  <a class="logo" href="index.html">STEELWORKS<span>/</span>INTELLIGENCE</a>
+  <div class="nav-links">
+    <a href="platform.html">Platform</a>
+    <a href="products/index.html">Products</a>
+    <a href="ai-seo-agency.html">Services</a>
+    <a href="content.html">Content</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a class="nav-cta" href="#proof">See the receipts</a>
+</div></nav>
+
+
+<header class="wrap hero">
+  <div>
+    <div class="eyebrow">// every claim machine-verified</div>
+    <h1>Receipts,<br>not <em>promises.</em></h1>
+    <p class="sub">An autonomous AI company that publishes its evidence —
+      every post gated in code, every number on this page pulled live from
+      the system that did the work.</p>
+    <div class="btns">
+      <a class="btn btn-steel" href="products/outreach-machine.html">The $0 Outreach Machine — $24</a>
+      <a class="hero-alt" href="free-ai-business-stack.html">Get the Free Stack →</a>
+    </div>
+  </div>
+  <div class="receipt reveal" id="receipt">
+    <h3>OPERATING RECEIPT — LIVE</h3>
+    <div class="r-row"><span>agent workspaces</span>
+      <span class="stat-number" data-target="41" data-stat="agents">41</span></div>
+    <div class="r-row"><span>scheduled jobs, one daemon</span>
+      <span class="stat-number" data-target="336" data-stat="crons">336</span></div>
+    <div class="r-row"><span>posts shipped (gate ≥85)</span>
+      <span class="stat-number" data-target="305" data-stat="posts">305</span></div>
+    <div class="r-row"><span>skills in fleet</span>
+      <span class="stat-number" data-target="211" data-stat="skills">211</span></div>
+    <div class="r-row"><span>intelligence bridges</span>
+      <span class="stat-number" data-target="7" data-stat="bridges">7</span></div>
+    <div class="r-row zero"><span>revenue (honest)</span>
+      <b>$<span class="stat-number" data-target="0" data-stat="revenue">0</span></b></div>
+    <div class="r-total"><span>FABRICATED NUMBERS</span><span>0</span></div>
+    <div class="r-stamp"><span class="r-cut">— ✂ —</span><br>
+      <!--STATS:STAMP-->Live-derived from fleet state · verified 2026-08-01<!--/STATS:STAMP--></div>
+  </div>
+</header>
+
+<section id="proof" style="padding-top:0;padding-bottom:var(--s6)"><div class="wrap">
+  <div class="proof reveal">
+    <div class="eyebrow">// the proof module</div>
+    <h2>Watch the gates say no.</h2>
+    <p class="lead">Quality here is not a prompt asking nicely — it is code that
+      can block the pipeline, and does. This is real output from the machine
+      that runs this company:</p>
+    <div class="proof-grid">
+    <figure class="machine reveal">
+      <img src="assets/hero-VHmBX7FnXw0.jpg" alt="Server racks — atmospheric stock photo (Unsplash), not our infrastructure" loading="lazy" width="1920" height="1280">
+      <figcaption>atmosphere: someone else's datacenter. ours is one MacBook.</figcaption>
+    <!-- AUTHENTIC-HERO SLOT (reserved): swap the img above for a real photo of the
+         M1 rig when Mac shoots it — filename assets/hero-the-actual-machine.jpg,
+         caption becomes: "this $0 stack runs on this machine." PHOTO SPEC for Mac:
+         the M1 MacBook on the real desk, lid open showing a terminal (gatecheck
+         output ideal), shot from ~30° above keyboard level, natural light or one
+         warm lamp, landscape, no clutter cropping needed — honest, not staged-clean. -->
+    </figure>
+    <div class="term">
+      <div class="tbar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <pre><span class="t-p">steelworks$</span> gatecheck
+<span class="t-ok">6/6 guard invariants hold → PASS</span>
+<span class="t-p">steelworks$</span> produce_video run --slug fleet-story-v1 --publish
+script gate <span class="t-n">87.78</span>/85 · ship gate <span class="t-n">100</span>/100 · posted <a class="t-link" href="https://www.youtube.com/watch?v=RGMIHtg6lrQ">youtube.com/watch?v=RGMIHtg6lrQ</a>
+<span class="t-p">steelworks$</span> revenue --honest
+<span class="t-n">$0</span> — first sale is the north star <span class="cursor"></span></pre>
+    </div>
+    </div>
+    <p style="margin-top:24px;font-size:15px">Want this machine working on your
+      business? <a href="ai-seo-agency.html" style="color:#6db8ff;font-weight:600">See the services →</a></p>
+  </div>
+</div></section>
+
+<section class="band" style="padding-top:var(--s6);padding-bottom:var(--s6)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="eyebrow">// how it runs</div>
+    <h2>One MacBook. Three disciplines.</h2>
+  </div>
+  <svg class="reveal pipe-desktop" viewBox="0 0 1072 96" style="width:100%;height:auto;margin-top:32px" fill="none">
+    <g font-family="ui-monospace,Menlo,monospace" font-size="13">
+      <rect x="2" y="26" width="150" height="44" rx="10" stroke="#d8d5cd"/>
+      <text x="77" y="52" text-anchor="middle" fill="#3a4150">brief</text>
+      <path d="M152 48h56" stroke="#8a919b" stroke-dasharray="3 4"/><path d="M204 44l8 4-8 4" stroke="#8a919b"/>
+      <rect x="212" y="26" width="150" height="44" rx="10" stroke="#d8d5cd"/>
+      <text x="287" y="52" text-anchor="middle" fill="#3a4150">agents work</text>
+      <path d="M362 48h56" stroke="#8a919b" stroke-dasharray="3 4"/><path d="M414 44l8 4-8 4" stroke="#8a919b"/>
+      <rect x="422" y="26" width="170" height="44" rx="10" stroke="#2f7fd0" stroke-width="2"/>
+      <text x="507" y="45" text-anchor="middle" fill="#2f7fd0" font-weight="700">gate ≥85</text>
+      <text x="507" y="61" text-anchor="middle" fill="#3a4150" font-size="11">code says no</text>
+      <path d="M592 48h56" stroke="#8a919b" stroke-dasharray="3 4"/><path d="M644 44l8 4-8 4" stroke="#8a919b"/>
+      <rect x="652" y="26" width="150" height="44" rx="10" stroke="#d8d5cd"/>
+      <text x="727" y="52" text-anchor="middle" fill="#3a4150">publish</text>
+      <path d="M802 48h56" stroke="#8a919b" stroke-dasharray="3 4"/><path d="M854 44l8 4-8 4" stroke="#8a919b"/>
+      <rect x="862" y="26" width="208" height="44" rx="10" stroke="#d8d5cd"/>
+      <text x="966" y="52" text-anchor="middle" fill="#3a4150">receipt on this page</text>
+      <text x="507" y="14" text-anchor="middle" fill="#5c6470" font-size="12">fail → work list, try again</text>
+    </g>
+  </svg>
+  <ol class="pipe-mobile reveal">
+    <li>brief</li><li>agents work</li>
+    <li class="gate">gate ≥85 <span>— code says no; fail → work list, try again</span></li>
+    <li>publish</li><li>receipt on this page</li>
+  </ol>
+  <div class="grid3">
+    <div class="card reveal">
+      <div class="mini mini-grid" aria-hidden="true">
+        <i></i><i></i><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i>
+      </div>
+      <span class="k">The fleet</span>
+      <h3>Every agent runs caged</h3>
+      <p>Writers, researchers, a paper-trading desk, build engineers — every
+        agent holds its own memory, job list, and permission tier. The default
+        answer to a new capability is no.</p></div>
+    <div class="card reveal">
+      <div class="mini mini-gate" aria-hidden="true">
+        <span class="score">87.78<em>/85</em></span>
+        <span class="meter"><span style="width:87.78%"></span><b style="left:85%"></b></span>
+        <span class="pill">PASS</span>
+      </div>
+      <span class="k">The gates</span>
+      <h3>85/100 or it doesn't ship</h3>
+      <p>Every public artifact must clear a code-enforced quality gate scored
+        by a fresh grader. Failing output gets a work list, not an excuse.</p></div>
+    <div class="card reveal">
+      <div class="mini mini-rail" aria-hidden="true">
+        <span class="switch"><span class="knob"></span></span>
+        <span class="sw-label">KILL SWITCH — ARMED</span>
+      </div>
+      <span class="k">The rails</span>
+      <h3>Paper money. Kill switch.</h3>
+      <p>Trading is structurally paper-only. One kill switch halts every
+        autonomous lane at once — live-proven, not theoretical.</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:var(--s6)"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="eyebrow">// work with the machine</div>
+    <h2>Two ways in.</h2>
+    <p>Both funnels end at a real deliverable. Neither requires believing a
+      promise — the receipts above are the pitch.</p>
+  </div>
+  <div class="funnel">
+    <div class="f-card reveal">
+      <span class="price">FREE → PRODUCTS</span>
+      <h3>The $0 AI Business Stack</h3>
+      <p>The exact free-first stack this company runs on — local models, gates,
+        automation lanes — documented, plus prompt packs and operating systems
+        as products.</p>
+      <div><a class="btn btn-steel" href="free-ai-business-stack.html">Get the Free Stack →</a>
+        <a class="btn btn-line" href="products/index.html">Browse products</a></div>
+    </div>
+    <div class="f-card reveal">
+      <span class="price">SERVICES</span>
+      <h3>Done-for-you AI operations</h3>
+      <p>AI search visibility, SEO for the answer-engine era, and
+        done-for-you automation — built with the same gated pipeline that
+        builds this company.</p>
+      <div><a class="btn btn-ink" href="ai-seo-agency.html">The AI SEO Agency →</a>
+        <a class="btn btn-line" href="contact.html">Work with Mac</a></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="band" style="padding:var(--s6) 0"><div class="wrap" style="text-align:center">
+  <h2 style="font-size:clamp(1.5rem,2.6vw,2rem)">The receipts update themselves.<br>Your move.</h2>
+  <div style="margin-top:24px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a class="btn btn-steel" href="free-ai-business-stack.html">Get the Free Stack →</a>
+    <a class="btn btn-line" href="contact.html">Work with Mac</a>
+  </div>
+</div></section>
+<div class="ticker-wrap"><!--STATS:TICKER:BEGIN-->
+      <span class="ticker-item">41 AI Agents Registered</span>
+      <span class="ticker-item">336 Scheduled Autonomous Jobs</span>
+      <span class="ticker-item">305 Posts Shipped</span>
+      <span class="ticker-item">7 AI Intelligence Bridges</span>
+      <span class="ticker-item">$0/month Paid-API Cost</span>
+      <span class="ticker-item">24/7 Runtime</span>
+      <span class="ticker-item">211 Skills</span>
+    <!--STATS:TICKER:END--></div>
+
+<footer><div class="wrap foot">
+  <div><strong>STEELWORKS/INTELLIGENCE</strong> — Acworth, GA<br>
+    Built in public. Wins and failures both.</div>
+  <div>
+    <a href="https://youtube.com/@therealmacsteel">YouTube</a> ·
+    <a href="content.html">Content</a> ·
+    <a href="blog/index.html">Blog</a> ·
+    <a href="about.html">About</a> ·
+    <a href="contact.html">Contact</a>
+  </div>
+</div></footer>
+
+<script>
+  // reveal-once + receipt count-up; honors prefers-reduced-motion
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
+    || new URLSearchParams(location.search).has('nomotion'); // deterministic render hook
+  if (!reduce) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: .15 });
+    const fold = innerHeight;
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      if (el.getBoundingClientRect().top > fold) {
+        el.classList.add('pre');
+        el.style.transitionDelay = (i % 5) * 60 + 'ms';
+        io.observe(el);
+      }
+    });
+    const counted = new WeakSet();
+    const cio = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.querySelectorAll('.stat-number').forEach(n => {
+        if (counted.has(n)) return; counted.add(n);
+        const target = +n.dataset.target; const t0 = performance.now();
+        const step = t => { const p = Math.min((t - t0) / 900, 1);
+          n.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step); };
+        requestAnimationFrame(step);
+      });
+      cio.unobserve(e.target);
+    }), { threshold: .3 });
+    const r = document.getElementById('receipt'); if (r) cio.observe(r);
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+<script src="assets/track.js" defer></script>
+</body>
+</html>
