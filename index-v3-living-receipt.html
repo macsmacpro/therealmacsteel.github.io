@@ -7,7 +7,7 @@
   <meta name="description" content="An autonomous AI company that publishes its evidence. Every number on this page is pulled live from the running system, including the $0.">
   <link rel="canonical" href="https://therealmacsteel.github.io/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <meta name="theme-color" content="#fafaf7">
+  <meta name="theme-color" content="#f8f9f8">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/ibm-plex-sans-latin-700-normal.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
   <style>
@@ -25,8 +25,10 @@
     @font-face{font-family:'Plex Mono';src:url('assets/fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
     @font-face{font-family:'Plex Mono';src:url('assets/fonts/ibm-plex-mono-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
     :root{
-      --paper:#fafaf7; --ink:#1a1f28; --ink-2:#4c5560; --ink-3:#6e7681;
-      --line:#e7e5df; --steel:#2f7fd0; --steel-deep:#1f5f9e;
+      /* paper cooled 2026-08-03: thermal receipt stock is a cool white,
+         not cream — hue argument now matches the physical referent */
+      --paper:#f8f9f8; --ink:#1a1f28; --ink-2:#4c5560; --ink-3:#5f6872;
+      --line:#e4e6e2; --steel:#2f7fd0; --steel-deep:#1f5f9e;
       --card:#ffffff; --term-bg:#0d1219; --term-line:#232c3d;
       --term-text:#aab9cc; --term-bright:#e6edf6; --term-blue:#3aa0ff;
       --ok:#1f7a5c;
@@ -44,8 +46,9 @@
     a{color:inherit;text-decoration:none}
     h1,h2,h3{letter-spacing:-0.02em;line-height:1.12}
     section{padding:var(--s8) 0}
-    .btn{display:inline-block;padding:13px 24px;border-radius:10px;
-      font-weight:600;font-size:16px;transition:transform .18s cubic-bezier(.22,1,.36,1),box-shadow .18s cubic-bezier(.22,1,.36,1)}
+    .btn{display:inline-block;padding:13px 24px;border-radius:10px;border:0;
+      font:600 16px/1.2 var(--sans);cursor:pointer;
+      transition:transform .18s cubic-bezier(.22,1,.36,1),box-shadow .18s cubic-bezier(.22,1,.36,1)}
     .btn:hover{transform:translateY(-1px)}
     .btn-steel{background:var(--steel);color:#fff}
     .btn-steel:hover{box-shadow:0 6px 18px rgba(47,127,208,.25)}
@@ -55,7 +58,7 @@
     .sec-head h2{font-size:clamp(1.7rem,3vw,2.4rem)}
     .sec-head p{margin-top:12px;color:var(--ink-2)}
 
-    nav{position:sticky;top:0;z-index:50;background:var(--paper);
+    nav{position:sticky;top:0;z-index:50;background:#f8f9f8;
       border-bottom:1px solid var(--line)}
     a,button{touch-action:manipulation}
     h1,h2,h3{text-wrap:balance}
@@ -121,33 +124,39 @@
     .tbar{display:flex;align-items:center;gap:7px;padding:12px 16px;
       border-bottom:1px solid #1a2130}
     .dot{width:10px;height:10px;border-radius:50%;background:var(--term-line)}
-    .tbar span{margin-left:auto;font:400 11px/1 var(--mono);color:#5c6b7e}
-    .term pre{font:400 13.5px/1.9 var(--mono);padding:20px 24px;
-      max-width:100%;white-space:pre-wrap;overflow-wrap:anywhere}
+    .tbar span{margin-left:auto;font:400 11px/1 var(--mono);color:#b8c5d4}
+    .term-body{font:400 13.5px/1.9 var(--mono);padding:20px 24px;max-width:100%}
+    .t-line{overflow-wrap:anywhere}
+    .t-row{display:flex;justify-content:space-between;gap:16px}
+    .t-row .inv{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .t-row .st{flex-shrink:0}
     .t-p{color:#7aa87c}.t-ok{color:#22c39a}.t-n{color:var(--term-bright);font-weight:600}
-    .t-dim{color:#5c6b7e}.t-link{color:var(--term-blue)}
+    .t-dim{color:#b8c5d4}.t-link{color:var(--term-blue)}
     .caret{display:inline-block;width:8px;height:14px;background:var(--term-blue);
       vertical-align:-2px}
     .mr-col{display:flex;flex-direction:column;gap:24px}
     .mr-video{border:1px solid var(--term-line);border-radius:12px;overflow:hidden}
-    .mr-video video{display:block;width:100%;height:auto;aspect-ratio:960/681}
-    .mr-cap{padding:10px 16px;font:400 12px/1.6 var(--mono);color:#8494a8;
+    .mr-video video{display:block;width:100%;height:auto;aspect-ratio:960/782}
+    .mr-cap{padding:10px 16px;font:400 12px/1.6 var(--mono);color:#a3b3c6;
       border-top:1px solid #1a2130;background:#0a0f16}
+    .mr-video{position:relative}
+    .mr-video::after{content:"";position:absolute;top:0;right:0;bottom:37px;width:32px;
+      background:linear-gradient(90deg,transparent,#0a0f16);pointer-events:none}
     .ledger{border:1px solid var(--term-line);border-radius:12px;background:#0a0f16;
       padding:18px 20px 14px}
-    .ledger h3{font:600 12px/1 var(--mono);letter-spacing:.1em;color:#8494a8}
+    .ledger h3{font:600 12px/1 var(--mono);letter-spacing:.1em;color:#b8c5d4}
     .ledger .lg-nums{display:flex;justify-content:space-between;align-items:baseline;
       margin-top:12px;font:400 13px/1 var(--mono)}
     .ledger .lg-nums b{font:600 20px/1 var(--mono);color:var(--term-bright)}
     .ledger .lg-nums .up{color:#22c39a}
     .ledger svg{display:block;width:100%;height:auto;margin-top:10px}
-    .ledger .lg-note{margin-top:10px;font:400 11.5px/1.6 var(--mono);color:#8494a8}
+    .ledger .lg-note{margin-top:10px;font:400 11.5px/1.6 var(--mono);color:#b8c5d4}
     #eq-path{stroke-dasharray:1400;stroke-dashoffset:0}
     #eq-path.pre{stroke-dashoffset:1400}
     #eq-path.draw{stroke-dashoffset:0;transition:stroke-dashoffset 2.2s cubic-bezier(.33,1,.68,1)}
 
     /* ── how it runs ──────────────────────────────────────────────── */
-    .band{background:#f2f1ea;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .band{background:#eff1ee;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
     /* spec sheet: three ruled rows, engineering-drawing register */
     .sheet{margin-top:var(--s5);background:var(--card);border:1px solid var(--line);
       border-radius:14px;overflow:hidden}
@@ -161,10 +170,9 @@
       max-width:220px}
     .row .ev b{color:var(--steel-deep);font-weight:600}
     .mini{display:flex;align-items:center;gap:10px;min-height:34px}
-    .mini-grid{display:grid;grid-template-columns:repeat(8,14px);gap:5px}
-    .mini-grid i{width:14px;height:14px;border-radius:3.5px;background:#e9e7e0;
-      border:1px solid #ddd9d0}
-    .mini-grid i.on{background:var(--steel);border-color:var(--steel)}
+    .mini-tiers{font:600 11px/1.75 var(--mono);color:#3a4150;white-space:nowrap}
+    .mini-tiers .tf{color:var(--steel-deep)}
+    .mini-tiers .td{color:#a33}
     .mini-gate .score{font:600 17px/1 var(--mono);color:var(--ink)}
     .mini-gate .score em{font-style:normal;font-size:12px;color:#4c5560}
     .mini-gate .meter{position:relative;flex:1;max-width:130px;height:8px;
@@ -207,7 +215,7 @@
     .endcap-fig{margin:0}
     .endcap-fig img{display:block;width:100%;height:auto;border-radius:12px;
       max-height:260px;object-fit:cover}
-    .endcap-fig figcaption{margin-top:8px;font:400 12px/1.5 var(--sans);color:var(--ink-3)}
+    .endcap-fig figcaption{margin-top:8px;font:400 12px/1.5 var(--sans);color:var(--ink-2)}
     @media (max-width:900px){
       .endcap{grid-template-columns:1fr;gap:28px}
       .endcap-fig img{max-height:180px}
@@ -218,8 +226,8 @@
     .ticker-wrap{border-top:1px solid var(--line);padding:14px 24px;
       font:400 13px/2 var(--sans);color:#4c5560;text-align:center;
       max-width:980px;margin:0 auto}
-    .ticker-item{display:inline-block;margin:0 18px}
-    .ticker-item::before{content:"·";margin-right:18px;color:#c9c6bd}
+    .ticker-wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 28px}
+    .ticker-item{display:inline-block;white-space:nowrap}
 
     /* motion: content visible at rest; JS adds .pre below the fold only */
     .reveal{opacity:1;transform:none}
@@ -320,7 +328,7 @@
   </div>
 </header>
 
-<section class="machine-room" id="proof"><div class="wrap">
+<section class="machine-room" id="proof" style="padding-bottom:var(--s6)"><div class="wrap">
   <div class="sec-head reveal">
     <h2>Real output from the machine.</h2>
     <p>Quality here is code that can block the pipeline, and does. Below:
@@ -331,10 +339,10 @@
     <div class="term reveal" id="term" title="Click to finish the replay">
       <div class="tbar"><div class="dot"></div><div class="dot"></div><div class="dot"></div>
         <span>replay · real run · 2026-08-02</span></div>
-      <pre id="term-pre" aria-label="Terminal replay of a real gatecheck run"></pre>
+      <div class="term-body" id="term-pre" aria-label="Terminal replay of a real gatecheck run"></div>
     </div>
     <figure class="mr-video reveal">
-      <video muted loop playsinline preload="none" width="960" height="681"
+      <video muted loop playsinline preload="none" width="960" height="782"
         poster="assets/media/mission-control-poster.jpg" id="mc-video"
         aria-label="Screen recording of the SteelWorks command center">
         <source src="assets/media/mission-control.webm" type="video/webm">
@@ -392,8 +400,10 @@
   </ol>
   <div class="sheet reveal">
     <div class="row">
-      <div class="mini mini-grid" aria-hidden="true">
-        <i></i><i></i><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i>
+      <div class="mini mini-tiers" aria-label="Real trust-tier assignments">
+        research&nbsp;→ <span class="tf">FULL</span><br>
+        posting&nbsp;&nbsp;→ <span>APPROVAL</span><br>
+        trading&nbsp;&nbsp;→ <span class="td">DISABLED</span>
       </div>
       <div>
         <h3>Every agent runs caged</h3>
@@ -432,11 +442,11 @@
   </div>
 </div></section>
 
-<section><div class="wrap">
+<section style="padding-top:var(--s6)"><div class="wrap">
   <div class="sec-head reveal">
     <h2>Two ways in.</h2>
-    <p>Both paths end at a real deliverable. Neither requires believing a
-      promise; the receipts above are the pitch.</p>
+    <p>Both paths end at a real deliverable, and the receipts above are
+      the pitch.</p>
   </div>
   <div class="funnel">
     <div class="f-card reveal">
@@ -502,8 +512,8 @@
 <footer><div class="wrap foot">
   <div><strong>STEELWORKS/INTELLIGENCE</strong> — Acworth, GA<br>
     Built in public. Wins and failures both.<br>
-    <span style="font-size:12.5px;color:var(--ink-3)">Page weight, stated
-    honestly: ~0.7&nbsp;MB (fonts 100&nbsp;KB, demo video 465&nbsp;KB),
+    <span style="font-size:12.5px;color:var(--ink-2)">Page weight, stated
+    honestly: ~0.7&nbsp;MB (fonts 100&nbsp;KB, demo video 350&nbsp;KB),
     static on GitHub Pages.</span></div>
   <div>
     <a href="free-ai-business-stack.html">Free Stack</a> ·
@@ -546,15 +556,15 @@
   // Source: python3 scripts/gatecheck.py, output verbatim (detail trimmed to width).
   const LINES = [
     ['cmd', 'gatecheck'],
-    ['out', '<span class="t-dim">GUARD INVARIANT                        STATUS</span>'],
-    ['out', 'spine: trading tier blocked            <span class="t-ok">PASS</span>'],
-    ['out', 'spine: live-money hard-blocked         <span class="t-ok">PASS</span>'],
-    ['out', 'spine: injection defense               <span class="t-ok">PASS</span>'],
-    ['out', 'trading: evidence lane spine-gated     <span class="t-ok">PASS</span>'],
-    ['out', 'kill-switch: readable                  <span class="t-ok">PASS</span>'],
-    ['out', 'posting: ship bar == 85                <span class="t-ok">PASS</span>'],
-    ['out', 'posting: rubric fail-CLOSED            <span class="t-ok">PASS</span>'],
-    ['out', 'locks: registry drift (observe)        <span class="t-ok">PASS</span>'],
+    ['row', '<span class="t-dim">GUARD INVARIANT</span>', '<span class="t-dim">STATUS</span>'],
+    ['row', 'spine: trading tier blocked', '<span class="t-ok">PASS</span>'],
+    ['row', 'spine: live-money hard-blocked', '<span class="t-ok">PASS</span>'],
+    ['row', 'spine: injection defense', '<span class="t-ok">PASS</span>'],
+    ['row', 'trading: evidence lane gated', '<span class="t-ok">PASS</span>'],
+    ['row', 'kill-switch: readable', '<span class="t-ok">PASS</span>'],
+    ['row', 'posting: ship bar == 85', '<span class="t-ok">PASS</span>'],
+    ['row', 'posting: rubric fail-closed', '<span class="t-ok">PASS</span>'],
+    ['row', 'locks: registry drift', '<span class="t-ok">PASS</span>'],
     ['out', '<span class="t-ok">6/6 guard invariants hold → PASS</span>'],
     ['cmd', 'produce_video run --slug fleet-story-v1 --publish'],
     ['out', 'script gate <span class="t-n">87.78</span>/85 · ship gate <span class="t-n">100</span>/100'],
@@ -564,31 +574,30 @@
   ];
   const pre = document.getElementById('term-pre');
   const PROMPT = '<span class="t-p">steelworks$</span> ';
-  function renderStatic() {
-    pre.innerHTML = LINES.map(([k, t]) =>
-      k === 'cmd' ? PROMPT + t : t).join('\n');
+  function lineHTML([k, a, b], caret) {
+    if (k === 'row') return '<div class="t-line t-row"><span class="inv">' + a +
+      '</span><span class="st">' + (b || '') + '</span></div>';
+    const body = (k === 'cmd' ? PROMPT + a : a) + (caret ? '<span class="caret"></span>' : '');
+    return '<div class="t-line">' + body + '</div>';
   }
+  function renderStatic() { pre.innerHTML = LINES.map(l => lineHTML(l)).join(''); }
   let skipReplay = false;
   async function typeReplay() {
-    pre.innerHTML = '';
-    let html = '';
-    for (const [k, t] of LINES) {
+    const shown = [];
+    for (const line of LINES) {
       if (skipReplay) break;
+      const [k, a] = line;
       if (k === 'cmd') {
-        html += PROMPT;
-        for (const ch of t) {
+        for (let i = 1; i <= a.length; i++) {
           if (skipReplay) break;
-          html += ch;
-          pre.innerHTML = html + '<span class="caret"></span>';
+          pre.innerHTML = shown.join('') + lineHTML(['cmd', a.slice(0, i)], true);
           await new Promise(r => setTimeout(r, 26));
         }
         await new Promise(r => setTimeout(r, 300));
-        html += '\n';
-      } else {
-        html += t + '\n';
-        pre.innerHTML = html + '<span class="caret"></span>';
-        await new Promise(r => setTimeout(r, 90));
       }
+      shown.push(lineHTML(line));
+      pre.innerHTML = shown.join('');
+      if (k !== 'cmd') await new Promise(r => setTimeout(r, 90));
     }
     renderStatic(); // full text at rest, caret gone
   }
@@ -612,6 +621,13 @@
         requestAnimationFrame(() => eq.classList.add('draw')); }
     }), { threshold: .4 });
     lio.observe(eq.closest('.ledger'));
+  }
+  // phones get a tighter crop of the same recording so panel text stays legible
+  if (matchMedia('(max-width: 900px)').matches) {
+    mcv.querySelector('source').src = 'assets/media/mission-control-mobile.webm';
+    mcv.width = 720; mcv.height = 928;
+    mcv.style.aspectRatio = '720/928';
+    mcv.load();
   }
   if (!reduce) {
     const vio = new IntersectionObserver(es => es.forEach(e => {
