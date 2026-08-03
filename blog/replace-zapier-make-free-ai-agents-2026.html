@@ -66,7 +66,7 @@
   <div class="container" style="max-width:780px;margin:0 auto">
 
     <div class="card" style="margin-bottom:2rem;border-color:var(--primary);background:rgba(58,160,255,0.04)">
-      <strong style="color:var(--primary)">TL;DR:</strong> Zapier costs $29-69/month. Make.com costs $9-29/month. I replaced both with autonomous AI agents running on my local machine — 47 scheduled automations, 0 per-task fees, and the agents can actually think instead of just routing data between APIs.
+      <strong style="color:var(--primary)">TL;DR:</strong> Zapier costs $29-69/month. Make.com costs $9-29/month. I replaced both with autonomous AI agents running on my local machine: 47 scheduled automations, 0 per-task fees, and the agents can actually think instead of just routing data between APIs.
     </div>
 
     <h2 style="color:var(--primary);margin-bottom:1rem">The Problem With Zapier and Make.com</h2>
@@ -128,10 +128,10 @@
     <h3 style="margin-bottom:.75rem;margin-top:1.5rem">Step 1: Audit Your Current Zaps</h3>
     <p style="margin-bottom:1.25rem">List every automation you have running. Categorize each one:</p>
     <ul style="padding-left:1.5rem;line-height:2;margin-bottom:1.25rem">
-      <li><strong>Simple routing:</strong> "When X happens, send Y to Z" — these are the easiest to replace with a cron script</li>
-      <li><strong>Data enrichment:</strong> "Lookup this person, add data to spreadsheet" — AI agents do this better and cheaper</li>
-      <li><strong>Content generation:</strong> "Draft an email for new lead" — AI agents handle this natively</li>
-      <li><strong>Notifications:</strong> "Alert me when X" — replace with cron + Telegram</li>
+      <li><strong>Simple routing:</strong> "When X happens, send Y to Z": these are the easiest to replace with a cron script</li>
+      <li><strong>Data enrichment:</strong> "Lookup this person, add data to spreadsheet": AI agents do this better and cheaper</li>
+      <li><strong>Content generation:</strong> "Draft an email for new lead": AI agents handle this natively</li>
+      <li><strong>Notifications:</strong> "Alert me when X": replace with cron + Telegram</li>
     </ul>
 
     <h3 style="margin-bottom:.75rem;margin-top:1.5rem">Step 2: Understand the Replacement Architecture</h3>
@@ -142,10 +142,10 @@
         cron schedule → Python script (fetches data + calls AI bridge) → Telegram / file / database
       </div>
     </div>
-    <p style="margin-bottom:1.25rem">The cron scheduler fires the script on a schedule. The script does the data fetching and calls an AI model via bridge (free). The result goes to Telegram, saves to a file, or updates a database — wherever you need it.</p>
+    <p style="margin-bottom:1.25rem">The cron scheduler fires the script on a schedule. The script does the data fetching and calls an AI model via bridge (free). The result goes to Telegram, saves to a file, or updates a database, wherever you need it.</p>
 
     <h3 style="margin-bottom:.75rem;margin-top:1.5rem">Step 3: Replace Notification Zaps First (Easiest Win)</h3>
-    <p style="margin-bottom:1.25rem">If you have Zapier set up to notify you about RSS feeds, Reddit mentions, price changes, or keyword alerts — these are the easiest to replace. Here's the pattern:</p>
+    <p style="margin-bottom:1.25rem">If you have Zapier set up to notify you about RSS feeds, Reddit mentions, price changes, or keyword alerts: these are the easiest to replace. Here's the pattern:</p>
     <div class="card" style="margin-bottom:1.25rem;font-family:monospace;font-size:.78rem;line-height:1.8">
       <div style="color:var(--muted);margin-bottom:.5rem"># Example: RSS feed monitor (replaces Zapier RSS trigger)</div>
       <div>import feedparser, requests</div>
@@ -171,7 +171,7 @@
     <p style="margin-bottom:1.25rem">That full workflow costs $0. On Clay, it would be $0.10-0.50 per lead depending on the data sources. At 500 leads/month, that's $50-250 just in data credits, on top of the platform fee.</p>
 
     <h3 style="margin-bottom:.75rem;margin-top:1.5rem">Step 5: Replace Content Zaps (Biggest Upgrade)</h3>
-    <p style="margin-bottom:1.25rem">Zapier can trigger a ChatGPT API call — but you're paying both Zapier task credits AND OpenAI tokens. And you're building rigid prompt templates with no ability to adapt based on context.</p>
+    <p style="margin-bottom:1.25rem">Zapier can trigger a ChatGPT API call, but you're paying both Zapier task credits AND OpenAI tokens. And you're building rigid prompt templates with no ability to adapt based on context.</p>
     <p style="margin-bottom:1.25rem">AI agents replace this with something fundamentally smarter: an agent that reads context, decides what to create, and produces higher-quality output because it's not constrained to a single API call in a Zap. It can chain reasoning steps, verify its own output, and route to different AI models based on the content type.</p>
     <p style="margin-bottom:1.25rem">My content agent runs on Wednesday mornings at 10am. It: researches trending topics via Grok, finds the angle that fits my SEO keyword targets via Perplexity, outlines a structure via DeepSeek, drafts the full post via ChatGPT, formats it as HTML, and saves it to my website folder. One cron job. Zero dollars.</p>
 
@@ -179,18 +179,18 @@
     <p style="margin-bottom:1.25rem">Zapier handles scheduling. When you move to self-hosted agents, you need a local equivalent. Options:</p>
     <ul style="padding-left:1.5rem;line-height:2;margin-bottom:1.25rem">
       <li><strong>macOS launchd:</strong> Built into Mac. Runs on schedule even after reboots. Good for production.</li>
-      <li><strong>crontab:</strong> Unix cron — simple, reliable, works everywhere Linux/Mac runs.</li>
+      <li><strong>crontab:</strong> Unix cron: simple, reliable, works everywhere Linux/Mac runs.</li>
       <li><strong>n8n (self-hosted):</strong> Visual workflow builder, open source. Combines visual interface of Make.com with the ability to call AI agents. Free to self-host.</li>
       <li><strong>Python schedule library:</strong> Good for simple scripts you want to run in a long-running process.</li>
     </ul>
-    <p style="margin-bottom:1.25rem">OpenClaw uses a custom cron system via the gateway server — but for most people starting out, macOS launchd or a simple crontab is all you need.</p>
+    <p style="margin-bottom:1.25rem">OpenClaw uses a custom cron system via the gateway server, but for most people starting out, macOS launchd or a simple crontab is all you need.</p>
 
     <h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">Real Automation Examples (What I Actually Run)</h2>
-    <p style="margin-bottom:1.25rem">To make this concrete — here are automations I run that would cost $50-150/month on Zapier/Make:</p>
+    <p style="margin-bottom:1.25rem">To make this concrete, here are automations I run that would cost $50-150/month on Zapier/Make:</p>
     <ul style="padding-left:1.5rem;line-height:2.2;margin-bottom:1.25rem">
       <li><strong>Morning intelligence brief (7:10am daily):</strong> Competitor signals + market moves + priority actions → Telegram voice + text</li>
       <li><strong>Lead scraping (3am daily):</strong> GitHub + LinkedIn + Apollo-style search → qualified leads with ICP scores → local database</li>
-      <li><strong>Competitor monitor (4am daily):</strong> Tracks Manus.ai, Clay, Apollo, Suna, AgenticSeek — price changes, feature launches, social traction → Telegram alert if significant</li>
+      <li><strong>Competitor monitor (4am daily):</strong> Tracks Manus.ai, Clay, Apollo, Suna, AgenticSeek: price changes, feature launches, social traction → Telegram alert if significant</li>
       <li><strong>Real estate deal scan (2:30am daily):</strong> Craigslist FSBO + Reddit → distress signals → BRRRR underwriting → Telegram if deal passes</li>
       <li><strong>Market intelligence (6:30am daily):</strong> Reddit + Hacker News + Grok → sentiment scores for 7 target markets → saved to memory</li>
       <li><strong>Content generation (10am Wednesdays):</strong> Full blog post researched, written, formatted, saved</li>
@@ -206,11 +206,11 @@
       <li><strong>You need 200+ native integrations out of the box:</strong> Zapier connects to apps that don't have good APIs. Building custom scrapers for all of them takes time.</li>
       <li><strong>You need team collaboration:</strong> Zapier has team accounts. Self-hosted is solo by default.</li>
     </ul>
-    <p style="margin-bottom:1.25rem">If you're technical, solo, and running real automation volume — the math strongly favors building your own.</p>
+    <p style="margin-bottom:1.25rem">If you're technical, solo, and running real automation volume, the math strongly favors building your own.</p>
 
     <div class="card" style="margin-top:2rem;border-color:var(--primary);background:rgba(58,160,255,0.04)">
       <h3 style="color:var(--primary);margin-bottom:.75rem">Bottom Line</h3>
-      <p>Zapier and Make.com are good products for what they do. But they're designed for non-technical users who need to connect two apps and move on. If you're building real automation — enrichment, research, content, intelligence — AI agents running locally are more capable, more customizable, and cost nothing. The setup investment pays back in month one.</p>
+      <p>Zapier and Make.com are good products for what they do. But they're designed for non-technical users who need to connect two apps and move on. If you're building real automation (enrichment, research, content, intelligence), AI agents running locally are more capable, more customizable, and cost nothing. The setup investment pays back in month one.</p>
     </div>
 
     <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap">

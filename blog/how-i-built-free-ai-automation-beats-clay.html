@@ -90,7 +90,7 @@
     <p style="margin-bottom:1.25rem">I needed the public-source version of that workflow. I also needed content creation, competitor monitoring, market research, and a dozen other automations. So instead of renting another tool before proving the process, I built <strong style="color:var(--primary)">free AI automation</strong> around the exact workflows I could verify and run locally.</p>
 
     <h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">What I Built Instead: OpenClaw</h2>
-    <p style="margin-bottom:1.25rem">OpenClaw is a self-hosted multi-agent AI platform I've been building since 2025. It runs autonomous AI agents on my hardware — no paid cloud model subscription required. The agents cover my public-source prospecting workflow plus the broader business operations around it.</p>
+    <p style="margin-bottom:1.25rem">OpenClaw is a self-hosted multi-agent AI platform I've been building since 2025. It runs autonomous AI agents on my hardware, with no paid cloud model subscription required. The agents cover my public-source prospecting workflow plus the broader business operations around it.</p>
 
     <h3 style="margin-bottom:.75rem;margin-top:1.5rem">The Lead Generation Stack (Clay-Style Public Workflow)</h3>
     <p style="margin-bottom:1rem">My prospecting pipeline focuses on the parts I can run and verify with free public sources:</p>
@@ -156,7 +156,7 @@
     <ol style="padding-left:1.5rem;line-height:2">
       <li>Check GitHub commit emails (developer founders often push with personal emails)</li>
       <li>SMTP pattern verification (construct first.last@domain.com variants, verify via MX lookup)</li>
-      <li>Hunter.io free tier (25 searches/month — reserved for high-priority leads)</li>
+      <li>Hunter.io free tier (25 searches/month, reserved for high-priority leads)</li>
       <li>Twitter bio parsing (many founders list contact info in bios)</li>
     </ol>
     <p style="margin-top:1rem;margin-bottom:1.25rem">This waterfall finds verified emails for ~40% of leads — comparable to Clay's enrichment rates for the startup/founder segment I'm targeting.</p>
@@ -164,13 +164,13 @@
     <h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">The Autonomous Lead Generation Cron</h2>
     <p style="margin-bottom:1.25rem">The entire prospecting pipeline runs automatically at 2 AM ET every day. Here's what runs:</p>
     <div class="card" style="margin-bottom:1.5rem;font-family:monospace;font-size:.8rem;line-height:1.8">
-      <div style="color:var(--muted)">2:00 AM ET — lead-generation-daily cron fires</div>
-      <div>→ scrape_producthunt.py — new product launches</div>
-      <div>→ scrape_hn_jobs.py — YC companies hiring</div>
-      <div>→ scrape_indiehackers.py — revenue-generating founders</div>
-      <div>→ scrape_reddit_leads.py — pain-point posts r/SaaS, r/startups</div>
-      <div>→ scrape_appsumo.py — early-stage products</div>
-      <div>→ waterfall_enrich.py — email finding + SMTP verification</div>
+      <div style="color:var(--muted)">2:00 AM ET: lead-generation-daily cron fires</div>
+      <div>→ scrape_producthunt.py: new product launches</div>
+      <div>→ scrape_hn_jobs.py: YC companies hiring</div>
+      <div>→ scrape_indiehackers.py: revenue-generating founders</div>
+      <div>→ scrape_reddit_leads.py: pain-point posts r/SaaS, r/startups</div>
+      <div>→ scrape_appsumo.py: early-stage products</div>
+      <div>→ waterfall_enrich.py: email finding + SMTP verification</div>
       <div style="color:var(--primary)">→ Result: 10-30 new enriched leads/day, scored 1-10</div>
     </div>
 
@@ -178,7 +178,7 @@
     <p style="margin-bottom:1.25rem">Here's what Clay can never do, no matter how much you pay:</p>
     <ul style="padding-left:1.5rem;line-height:2">
       <li><strong>Self-hosting:</strong> Your data stays on your machine. No vendor lock-in. No "sorry, we're raising prices."</li>
-      <li><strong>22 agents covering full business operations:</strong> Content creation, competitor monitoring, trading analysis, real estate intelligence, social posting — all coordinated.</li>
+      <li><strong>22 agents covering full business operations:</strong> Content creation, competitor monitoring, trading analysis, real estate intelligence, social posting, all coordinated.</li>
       <li><strong>Self-improvement:</strong> The Evolution Loop agent writes and tests new skills. The system gets smarter without me doing anything.</li>
       <li><strong>Zero marginal cost:</strong> Every additional lead, email, or automation costs exactly $0. Clay charges per enrichment credit.</li>
     </ul>
@@ -204,7 +204,7 @@
     </div>
 
     <h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">How to Build Your Own</h2>
-    <p style="margin-bottom:1.25rem">I'm documenting the entire OpenClaw build publicly. The architecture, the scripts, the agent configs — everything is being shared through my YouTube channel and this blog. The goal is to help entrepreneurs stop paying $500-1000/month for SaaS subscriptions they don't need.</p>
+    <p style="margin-bottom:1.25rem">I'm documenting the entire OpenClaw build publicly. The architecture, the scripts, the agent configs: everything is being shared through my YouTube channel and this blog. The goal is to help entrepreneurs stop paying $500-1000/month for SaaS subscriptions they don't need.</p>
     <p style="margin-bottom:1.25rem">The core stack you need:</p>
     <ul style="padding-left:1.5rem;line-height:2">
       <li>A Mac or Linux machine (I run on MacBook M1 Pro)</li>
