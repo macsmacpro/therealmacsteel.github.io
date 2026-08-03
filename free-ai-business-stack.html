@@ -74,6 +74,11 @@
     ]
   }
   </script>
+<style>
+  .stack-row{padding:20px 4px;border-bottom:1px solid var(--card-border,#232c3d)}
+  .stack-row:last-child{border-bottom:0}
+  .stack-row h3{margin-bottom:.5rem}
+</style>
 </head>
 <body>
 
@@ -96,7 +101,6 @@
 
 <div class="page-header">
   <div class="container">
-    <div class="hero-badge" style="margin-bottom:1rem">NO PAID APIS · LOCAL FIRST · TELEGRAM OPERATED</div>
     <h1>Free AI Business Automation Stack</h1>
     <p>A practical campaign blueprint for founders who want content, SEO, leads, products, and daily operations without monthly SaaS burn.</p>
     <div id="stack-capture" style="max-width:420px;margin:2rem auto 0">
@@ -140,27 +144,27 @@ async function submitCapture(e) {
     <h2 style="text-align:center;margin-bottom:.5rem">The Free Campaign Stack</h2>
     <p style="text-align:center;color:var(--muted);max-width:760px;margin:0 auto 3rem">The point is not to avoid software. The point is to stop renting the same workflow five times. SteelWorks runs local-first, uses free bridges only when useful, and turns every output into a compounding asset.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem">
-      <div class="card">
+      <div class="stack-row">
         <h3 style="color:var(--primary);font-size:1rem;margin-bottom:.75rem">1. Local Model Lane</h3>
         <p>Ollama on the PC handles drafting, coding, strategy, scoring, and analysis. This is the default lane because it has no marginal cost and keeps business context close.</p>
       </div>
-      <div class="card">
+      <div class="stack-row">
         <h3 style="color:var(--primary);font-size:1rem;margin-bottom:.75rem">2. Free Bridge Lane</h3>
         <p>n8n and browser bridges route rare high-context or style-sensitive tasks to free model accounts, then close browser sessions when the task is done.</p>
       </div>
-      <div class="card">
+      <div class="stack-row">
         <h3 style="color:var(--primary);font-size:1rem;margin-bottom:.75rem">3. SEO Asset Lane</h3>
         <p>Static pages answer specific search intent: free AI agents, replace Zapier, replace Clay, local AI automation, and founder operating systems.</p>
       </div>
-      <div class="card">
+      <div class="stack-row">
         <h3 style="color:var(--primary);font-size:1rem;margin-bottom:.75rem">4. Social Distribution Lane</h3>
         <p>Every idea becomes a short post, thread, short-form video script, and community post. The CTA points to a useful page before asking for money.</p>
       </div>
-      <div class="card">
+      <div class="stack-row">
         <h3 style="color:var(--primary);font-size:1rem;margin-bottom:.75rem">5. Product Ladder Lane</h3>
         <p>Low-ticket prompt packs turn attention into first revenue. Services and builds sit behind the products for people who want implementation.</p>
       </div>
-      <div class="card">
+      <div class="stack-row">
         <h3 style="color:var(--primary);font-size:1rem;margin-bottom:.75rem">6. Telegram Ops Lane</h3>
         <p>Telegram is the command center: status, failures, approvals, campaign results, and revenue opportunities. The business should be operable from one phone.</p>
       </div>
@@ -173,10 +177,10 @@ async function submitCapture(e) {
     <h2>What This Replaces</h2>
     <p style="margin-bottom:1.5rem">This stack is built for founders who would otherwise stitch together paid tools before they have cash flow. It does not pretend every free tool is better. It does force every paid tool to earn its place.</p>
     <div style="display:grid;gap:1rem">
-      <div class="card"><strong style="color:var(--primary)">Zapier / Make:</strong> replaced first by Python scripts, launchd/cron schedules, n8n self-hosting, and direct webhooks.</div>
-      <div class="card"><strong style="color:var(--primary)">Clay / Apollo-style workflows:</strong> replaced by public-data prospecting, enrichment scripts, scoring rules, and CRM updates.</div>
-      <div class="card"><strong style="color:var(--primary)">Copy and content tools:</strong> replaced by local models, brand memory, content calendars, and quality gates.</div>
-      <div class="card"><strong style="color:var(--primary)">Dashboards:</strong> replaced by static reports, SQLite, JSON logs, and Telegram summaries.</div>
+      <div class="stack-row"><strong style="color:var(--primary)">Zapier / Make:</strong> replaced first by Python scripts, launchd/cron schedules, n8n self-hosting, and direct webhooks.</div>
+      <div class="stack-row"><strong style="color:var(--primary)">Clay / Apollo-style workflows:</strong> replaced by public-data prospecting, enrichment scripts, scoring rules, and CRM updates.</div>
+      <div class="stack-row"><strong style="color:var(--primary)">Copy and content tools:</strong> replaced by local models, brand memory, content calendars, and quality gates.</div>
+      <div class="stack-row"><strong style="color:var(--primary)">Dashboards:</strong> replaced by static reports, SQLite, JSON logs, and Telegram summaries.</div>
     </div>
   </div>
 </section>
@@ -186,15 +190,15 @@ async function submitCapture(e) {
     <h2>The Free Campaign Playbook</h2>
     <p style="margin-bottom:1.5rem">Use this page as the hub. Every post should drive one of three actions: read the stack, get the prompt pack, or ask Mac to build the system.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
-      <div class="card">
+      <div class="stack-row">
         <h3 style="color:var(--primary);font-size:1rem">Daily Post</h3>
         <p>One real system result, failure, repair, or lesson. No fake revenue claims. No vague hype.</p>
       </div>
-      <div class="card">
+      <div class="stack-row">
         <h3 style="color:var(--primary);font-size:1rem">Weekly Pillar</h3>
         <p>One useful SEO page or blog post that answers a search query with more proof than a generic AI listicle.</p>
       </div>
-      <div class="card">
+      <div class="stack-row">
         <h3 style="color:var(--primary);font-size:1rem">Product CTA</h3>
         <p>Sell the next smallest step: prompt pack first, setup guide next, custom build last.</p>
       </div>
@@ -215,15 +219,15 @@ async function submitCapture(e) {
   <div class="container" style="max-width:900px">
     <h2>FAQ</h2>
     <div style="display:grid;gap:1rem;margin-top:1.5rem">
-      <div class="card">
+      <div class="stack-row">
         <h3 style="font-size:1rem;color:var(--primary)">Can this run without ChatGPT Pro or Claude Pro?</h3>
         <p>Yes for routine operations. Premium tools are useful for review and high-context strategy, but the architecture should survive on local models, free bridges, and deterministic scripts.</p>
       </div>
-      <div class="card">
+      <div class="stack-row">
         <h3 style="font-size:1rem;color:var(--primary)">What is the first revenue path?</h3>
         <p>Attention goes to the free-stack page. Warm readers go to low-ticket prompt packs. High-intent people go to a custom build or local business automation package.</p>
       </div>
-      <div class="card">
+      <div class="stack-row">
         <h3 style="font-size:1rem;color:var(--primary)">What should stay human-approved?</h3>
         <p>Real money, billing, legal commitments, account deletion, sensitive outreach, and live trading. Everything else should be automated with logs, limits, and recovery paths.</p>
       </div>

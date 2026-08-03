@@ -10,7 +10,7 @@ body{background:#fafaf7;color:#1a1f28;font:17px/1.65 -apple-system,"Inter","Sego
 h1{font-size:clamp(30px,6vw,50px);font-weight:700;line-height:1.08;letter-spacing:-0.025em;color:#1a1f28}
 h2,h3{letter-spacing:-0.02em;line-height:1.2;margin:26px 0 10px}
 .sub{font-size:19px;color:#4c5560;margin:18px 0 30px}
-.card{background:#fff;border:1px solid #e7e5df;border-radius:14px;padding:28px;margin:24px 0;box-shadow:0 8px 28px rgba(26,31,40,.07)}
+.card{background:#fff;border:1px solid #e7e5df;border-radius:14px;padding:28px;margin:24px 0}
 .price{font:700 15px/1.4 ui-monospace,Menlo,monospace;color:#1f5f9e;margin:10px 0}
 .list{list-style:none;margin:8px 0}
 .list li{padding:7px 0;color:#4c5560}
@@ -80,17 +80,17 @@ a{color:#1f5f9e}
 <p><a class="btn" href="#f" style="margin:4px 0 6px">Get a free scoping call →</a></p>
 
 <div class=card><div class=price>Free scoping call · then flat-rate delivery</div>
-<p style="color:#2c3440">Delivered end-to-end by the same autonomous agent fleet that runs this company — live receipts on the <a href="/">homepage</a>. Setup, automation, and reporting handled — $0 tool overhead.</p></div>
+<p style="color:#2c3440">Delivered end-to-end by the same autonomous agent fleet that runs this company: live receipts on the <a href="/">homepage</a>. Setup, automation, and reporting handled: $0 tool overhead.</p></div>
 <div class=card><h3 style=margin-bottom:14px>Get a free 15-minute scoping call</h3>
 <h3 style="margin-top:28px">What you get</h3><ul class="list">
-<li><b>Outreach + follow-up</b> — prospects found, messaged, and chased on schedule.</li>
-<li><b>Inbox triage</b> — every inbound read, sorted, answered or flagged for you.</li>
-<li><b>Content pipeline</b> — one idea becomes posts across your channels, on cadence.</li>
-<li><b>Monitoring + reporting</b> — one plain-English report: what ran, what worked, what needs you.</li>
-</ul><p class="vs">Same stack we run on our own business — <a href="/">live receipts</a>.</p></div>
-<figure style="margin:24px 0;border:1px solid #e7e5df;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 8px 28px rgba(26,31,40,.07)">
-<img src="../assets/live-receipt-crop.png" alt="The live operating receipt from our homepage — real numbers, self-updating" style="width:100%;display:block" width="582" height="456" loading="lazy">
-<figcaption style="padding:10px 14px;font:500 12px/1.5 ui-monospace,Menlo,monospace;color:#4c5560">real screenshot of the live receipt on <a href="/">our homepage</a> — the same system we set up for you, numbers self-updating</figcaption></figure>
+<li><b>Outreach + follow-up</b>: prospects found, messaged, and chased on schedule.</li>
+<li><b>Inbox triage</b>: every inbound read, sorted, answered or flagged for you.</li>
+<li><b>Content pipeline</b>: one idea becomes posts across your channels, on cadence.</li>
+<li><b>Monitoring + reporting</b>: one plain-English report: what ran, what worked, what needs you.</li>
+</ul><p class="vs">Same stack we run on our own business: <a href="/">live receipts</a>.</p></div>
+<figure style="margin:24px 0;border:1px solid #e7e5df;border-radius:12px;overflow:hidden;background:#fff">
+<img src="../assets/live-receipt-crop.png" alt="The live operating receipt from our homepage: real numbers, self-updating" style="width:100%;display:block" width="582" height="456" loading="lazy">
+<figcaption style="padding:10px 14px;font:500 12px/1.5 ui-monospace,Menlo,monospace;color:#4c5560">real screenshot of the live receipt on <a href="/">our homepage</a>: the same system we set up for you, numbers self-updating</figcaption></figure>
 <div class="card"><form id=f onsubmit="return lead(event)"><label for=name style="display:block;font:600 13px/1.8 inherit;color:#1a1f28;margin-top:8px">Name</label><input id=name placeholder="e.g. Sam Rivera…" required>
 <label for=email style="display:block;font:600 13px/1.8 inherit;color:#1a1f28;margin-top:8px">Work email</label><input id=email type=email placeholder="e.g. sam@yourbusiness.com…" required><label for=co style="display:block;font:600 13px/1.8 inherit;color:#1a1f28;margin-top:8px">Company / website</label><input id=co placeholder="e.g. riveraroofing.com…">
 <button>Request my scoping call</button></form></div><div id=msg></div></div>
@@ -98,7 +98,7 @@ a{color:#1f5f9e}
 try{const r=await fetch('https://swi-leads.macsmacpro.workers.dev/api/lead',{method:'POST',
 headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name.value,email:email.value,company:co.value,
 source:'venture:ai-automation'})});const d=await r.json();
-if(d.ok){m.style.color='#1f7a5c';m.textContent='✓ Got it — we\'ll reach out within 48 hours.';document.getElementById('f').reset();}
+if(d.ok){m.style.color='#1f7a5c';m.textContent='✓ Got it: we\'ll reach out within 48 hours.';document.getElementById('f').reset();}
 else{m.style.color='#ff7b72';m.textContent='Didn\'t go through ('+(d.error||('HTTP '+r.status))+'). Email steelworksintelligence@gmail.com and we\'ll reply.';}}
 catch(e){m.style.color='#ff7b72';m.textContent='Couldn\'t reach the signup server. Email steelworksintelligence@gmail.com and we\'ll reply.';}return false;}</script>
 <footer style="max-width:760px;margin:0 auto;padding:16px 24px" style=color:#3d5470;margin-top:40px;font-size:13px>SteelWorks Intelligence · @therealmacsteel · built in public</footer>
