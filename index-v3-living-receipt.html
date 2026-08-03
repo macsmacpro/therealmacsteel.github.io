@@ -106,7 +106,7 @@
     .r-total{display:flex;justify-content:space-between;padding-top:16px;
       font-weight:600;font-size:15px}
     .r-stamp{margin-top:14px;text-align:center;font-size:11.5px;line-height:1.7;
-      color:#3a4150;letter-spacing:.06em}
+      color:#2c3440;letter-spacing:.06em}
     .r-cut{color:#8a919b;letter-spacing:.3em}
     .r-edge{position:absolute;left:0;right:0;bottom:-9px;height:10px;
       background:linear-gradient(-45deg,transparent 6px,var(--card) 0) 0 0/14px 10px repeat-x}
@@ -136,12 +136,15 @@
       vertical-align:-2px}
     .mr-col{display:flex;flex-direction:column;gap:24px}
     .mr-video{border:1px solid var(--term-line);border-radius:12px;overflow:hidden}
-    .mr-video video{display:block;width:100%;height:auto;aspect-ratio:720/928;
-      max-height:430px;object-fit:cover;object-position:top}
+    .mr-video video{display:block;width:100%;height:auto;aspect-ratio:960/782}
+    @media (max-width:900px){
+      .mr-video video{aspect-ratio:640/1316;max-height:70vh;object-fit:cover;
+        object-position:top}
+    }
     .mr-cap{padding:10px 16px;font:400 12px/1.6 var(--mono);color:#a3b3c6;
       border-top:1px solid #1a2130;background:#0a0f16}
     .mr-video{position:relative}
-    .mr-video::after{content:"";position:absolute;top:0;right:0;bottom:37px;width:32px;
+    .mr-video::after{content:"";position:absolute;top:0;right:0;bottom:37px;width:52px;
       background:linear-gradient(90deg,transparent,#0a0f16);pointer-events:none}
     .ledger{border:1px solid var(--term-line);border-radius:12px;background:#0a0f16;
       padding:18px 20px 14px}
@@ -195,6 +198,8 @@
     .funnel>*{min-width:0}
     .f-card{border:1px solid var(--line);border-radius:14px;padding:var(--s5);
       background:var(--card);display:flex;flex-direction:column;gap:14px}
+    .f-card .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    .f-card .btn-row .btn{flex:1;text-align:center;white-space:nowrap}
     .f-card h3{font-size:1.35rem}
     .f-card p{color:var(--ink-2);font-size:15.5px;flex:1}
     .f-card .price{font:600 13px/1 var(--mono);color:var(--steel-deep)}
@@ -344,10 +349,10 @@
       <div class="term-body" id="term-pre" aria-label="Terminal replay of a real gatecheck run"></div>
     </div>
     <figure class="mr-video reveal">
-      <video muted loop playsinline preload="none" width="720" height="928"
-        poster="assets/media/mission-control-poster-tight.jpg" id="mc-video"
+      <video muted loop playsinline preload="none" width="960" height="782"
+        poster="assets/media/mission-control-poster.jpg" id="mc-video"
         aria-label="Screen recording of the SteelWorks command center">
-        <source src="assets/media/mission-control-mobile.webm" type="video/webm">
+        <source src="assets/media/mission-control.webm" type="video/webm">
       </video>
       <figcaption class="mr-cap">SteelWorks Command Center, recorded
         2026-08-02. Real fleet state: 13 departments, live routing.</figcaption>
@@ -368,7 +373,7 @@
   </div>
   <p style="margin-top:16px;font-size:15px" class="reveal">Want this machine
     working on your business?
-    <a class="mr-link" href="ai-seo-agency.html" style="color:#6db8ff;font-weight:600">See the services →</a></p>
+    <a class="mr-link" href="ai-seo-agency.html" style="color:#8ec4ff;font-weight:600">See the services →</a></p>
 </div></section>
 
 <section class="band"><div class="wrap">
@@ -456,7 +461,7 @@
       <p>The exact free-first stack this company runs on: local models,
         gates, automation lanes. Documented, with prompt packs and operating
         systems as products.</p>
-      <div><a class="btn btn-steel" href="free-ai-business-stack.html">Get the Free Stack →</a>
+      <div class="btn-row"><a class="btn btn-steel" href="free-ai-business-stack.html">Get the Free Stack →</a>
         <a class="btn btn-line" href="products/index.html">Browse products</a></div>
     </div>
     <div class="f-card reveal">
@@ -464,7 +469,7 @@
       <p>AI search visibility, SEO for the answer-engine era, and
         done-for-you automation, built with the same gated pipeline that
         builds this company.</p>
-      <div><a class="btn btn-ink" href="ai-seo-agency.html">The AI SEO Agency →</a>
+      <div class="btn-row"><a class="btn btn-ink" href="ai-seo-agency.html">The AI SEO Agency →</a>
         <a class="btn btn-line" href="contact.html">Work with Mac</a></div>
     </div>
   </div>
@@ -623,6 +628,13 @@
         requestAnimationFrame(() => eq.classList.add('draw')); }
     }), { threshold: .4 });
     lio.observe(eq.closest('.ledger'));
+  }
+  // phones get a single-panel crop of the same recording so its text reads
+  if (matchMedia('(max-width: 900px)').matches) {
+    mcv.querySelector('source').src = 'assets/media/mission-control-mobile.webm';
+    mcv.poster = 'assets/media/mission-control-poster-tight.jpg';
+    mcv.width = 640; mcv.height = 1316;
+    mcv.load();
   }
   if (!reduce) {
     const vio = new IntersectionObserver(es => es.forEach(e => {
