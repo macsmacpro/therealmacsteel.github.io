@@ -1,146 +1,695 @@
-<!doctype html><html lang=en><head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<title>SteelWorks Intelligence — Build in public. Automate everything.</title>
-<meta name=description content="48 autonomous AI agents. $0/month. Every output gated before it ships.">
-<link rel=preconnect href="https://fonts.googleapis.com"><link rel=preconnect href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel=stylesheet>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#04060c;--txt:#dfeeff;--dim:#6b86a8;--cyan:#25e8b6;--blue:#4db8ff;--line:rgba(100,150,220,.14)}
-body{background:var(--bg);color:var(--txt);font:16px/1.65 Inter,-apple-system,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased}
-.mono{font-family:'Space Mono',monospace}
-.hero{position:relative;min-height:82vh;display:flex;align-items:center;overflow:hidden;
- border-bottom:1px solid var(--line)}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
-.hero:after{content:"";position:absolute;inset:0;background:
- radial-gradient(circle at 25% 20%,rgba(30,110,255,.18),transparent 50%),
- linear-gradient(180deg,rgba(4,6,12,.55),rgba(4,6,12,.82) 65%,var(--bg))}
-.hwrap{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:60px 28px;width:100%}
-.badge{display:inline-flex;align-items:center;gap:8px;font:600 11px/1 'Space Mono',monospace;letter-spacing:2.5px;
- color:var(--cyan);border:1px solid rgba(37,232,182,.32);border-radius:100px;padding:8px 15px;text-transform:uppercase}
-.badge .d{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:pl 1.8s infinite}
-@keyframes pl{0%,100%{opacity:1}50%{opacity:.35}}
-h1{font-family:Fraunces,serif;font-weight:900;font-size:clamp(44px,7.5vw,86px);line-height:1.02;
- letter-spacing:-1.5px;margin:26px 0 0;max-width:14ch;
- background:linear-gradient(92deg,#ffffff,#a9d4ff 45%,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.tag{font-family:Fraunces,serif;font-style:italic;font-size:clamp(20px,2.6vw,27px);color:#9fc0e6;margin:22px 0 10px;font-weight:500}
-.pos{color:var(--dim);max-width:56ch;font-size:16.5px}
-.hcta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.btn{display:inline-block;background:linear-gradient(92deg,#1f74ff,#25c6b0);color:#fff;font-weight:700;
- padding:14px 26px;border-radius:13px;text-decoration:none;letter-spacing:.3px;transition:.16s;box-shadow:0 8px 30px rgba(31,116,255,.3)}
-.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.btn2{color:var(--txt);text-decoration:none;font-weight:600;border:1px solid var(--line);padding:14px 22px;border-radius:13px}
-.btn2:hover{border-color:var(--cyan)}
-.hp{font:600 12px/1 'Space Mono',monospace}
-.hp.on{color:var(--cyan)}.hp.off{color:#ff7a93}.hp.mut{color:var(--dim)}
-.sec{max-width:1080px;margin:0 auto;padding:74px 28px}
-.eyebrow{font:700 11px/1 'Space Mono',monospace;letter-spacing:3px;color:var(--blue);text-transform:uppercase;margin-bottom:22px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.stat{background:linear-gradient(180deg,rgba(18,28,48,.6),rgba(12,18,32,.4));border:1px solid var(--line);
- border-radius:18px;padding:26px 22px;position:relative;overflow:hidden}
-.stat:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--blue),var(--cyan))}
-.stat b{font-family:'Space Mono',monospace;font-size:clamp(30px,3.4vw,44px);display:block;color:#eaf5ff;line-height:1}
-.stat span{font-size:11.5px;letter-spacing:1.5px;color:var(--dim);text-transform:uppercase;margin-top:8px;display:block}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-h2{font-family:Fraunces,serif;font-weight:600;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.5px;margin-bottom:8px;color:#eef6ff}
-.lead{color:var(--dim);margin-bottom:26px;max-width:46ch}
-ul{list-style:none}
-li{padding:14px 0 14px 30px;position:relative;color:#c4dcf4;border-bottom:1px solid var(--line);font-size:15px}
-.fc{position:absolute;left:0;top:19px;width:9px;height:9px;border-radius:2px;transform:rotate(45deg);
- background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 0 9px rgba(37,232,182,.5)}
-.post{display:flex;align-items:center;gap:14px;background:rgba(16,26,44,.42);border:1px solid var(--line);
- border-radius:14px;padding:15px 18px;margin-bottom:11px;text-decoration:none;transition:.16s}
-.post:hover{border-color:rgba(37,232,182,.42);background:rgba(20,32,54,.6)}
-.pp{font:700 10px/1 'Space Mono',monospace;color:var(--cyan);text-transform:uppercase;letter-spacing:1px;flex:0 0 auto}
-.pt{color:#c4dcf4;font-size:14px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pl{color:var(--dim);font-size:12px;flex:0 0 auto}
-.offers{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
-.offer{display:block;background:linear-gradient(180deg,rgba(18,28,48,.6),rgba(12,18,32,.35));border:1px solid var(--line);
- border-radius:20px;padding:30px;text-decoration:none;transition:.18s}
-.offer:hover{border-color:rgba(37,232,182,.4);transform:translateY(-2px);box-shadow:0 18px 50px rgba(0,40,90,.3)}
-.ok{font:700 10.5px/1 'Space Mono',monospace;letter-spacing:2px;color:var(--blue);text-transform:uppercase}
-.offer h3{font-family:Fraunces,serif;font-weight:600;font-size:27px;color:#eef6ff;margin:12px 0 10px}
-.offer p{color:var(--dim);font-size:14.5px;margin-bottom:18px}
-.obtn{color:var(--cyan);font-weight:700;font-size:14px}
-.aiask{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-.aibtn{display:inline-block;background:rgba(16,26,44,.55);border:1px solid rgba(37,232,182,.28);border-radius:12px;
- padding:12px 20px;color:var(--txt);text-decoration:none;font-size:14px;font-weight:600;transition:.15s}
-.aibtn:hover{border-color:rgba(37,232,182,.7);background:rgba(37,232,182,.08)}
-.divider{border:0;border-top:1px solid var(--line);max-width:1080px;margin:0 auto}
-footer{max-width:1080px;margin:0 auto;padding:44px 28px 70px;color:var(--dim);font-size:13.5px;display:flex;
- flex-wrap:wrap;gap:14px;align-items:center}
-footer a{color:var(--blue);text-decoration:none}footer .sp{margin-left:auto}
-@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.split,.offers{grid-template-columns:1fr;gap:34px}}
-</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SteelWorks Intelligence — Receipts, not promises</title>
+  <meta name="description" content="An autonomous AI company that publishes its evidence. Every number on this page is pulled live from the running system, including the $0.">
+  <link rel="canonical" href="https://therealmacsteel.github.io/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#f8f9f8">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/ibm-plex-sans-latin-700-normal.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
+  <style>
+    /* SteelWorks v3 — "The Living Receipt".
+       palette argued: paper #fafaf7 = receipt stock, the surface the company
+       prints its evidence on · ink #1a1f28 = thermal print · steel #2f7fd0 =
+       machined steel, chroma held below SaaS-default blue · one dark band
+       #0d1219 for real machine output only (console, dashboard, ledger).
+       type argued: IBM Plex, commissioned type for a machine company; Plex
+       Mono prints the numerals and the terminal.
+       spacing: 8px grid, section rhythm 96/48, max 1120px, text 68ch. */
+    @font-face{font-family:'Plex Sans';src:url('assets/fonts/ibm-plex-sans-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:'Plex Sans';src:url('assets/fonts/ibm-plex-sans-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
+    @font-face{font-family:'Plex Sans';src:url('assets/fonts/ibm-plex-sans-latin-700-normal.woff2') format('woff2');font-weight:700;font-display:swap}
+    @font-face{font-family:'Plex Mono';src:url('assets/fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:'Plex Mono';src:url('assets/fonts/ibm-plex-mono-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
+    :root{
+      /* paper cooled 2026-08-03: thermal receipt stock is a cool white,
+         not cream — hue argument now matches the physical referent */
+      --paper:#f8f9f8; --ink:#1a1f28; --ink-2:#4c5560; --ink-3:#5f6872;
+      --line:#e4e6e2; --steel:#2f7fd0; --steel-deep:#1f5f9e;
+      --card:#ffffff; --term-bg:#0d1219; --term-line:#232c3d;
+      --term-text:#aab9cc; --term-bright:#e6edf6; --term-blue:#3aa0ff;
+      --ok:#1f7a5c;
+      --sans:'Plex Sans',-apple-system,'Segoe UI',Arial,sans-serif;
+      --mono:'Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+      --s2:8px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:96px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{max-width:100%;overflow-x:clip}
+    html{scroll-behavior:smooth}
+    :focus-visible{outline:2px solid var(--steel);outline-offset:2px;border-radius:4px}
+    body{background:var(--paper);color:var(--ink);
+      font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+    a{color:inherit;text-decoration:none}
+    h1,h2,h3{letter-spacing:-0.02em;line-height:1.12}
+    section{padding:var(--s8) 0}
+    .btn{display:inline-block;padding:13px 24px;border-radius:10px;border:0;
+      font:600 16px/1.2 var(--sans);cursor:pointer;
+      transition:transform .18s cubic-bezier(.22,1,.36,1),box-shadow .18s cubic-bezier(.22,1,.36,1)}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-steel{background:var(--steel);color:#fff}
+    .btn-steel:hover{box-shadow:0 6px 18px rgba(47,127,208,.25)}
+    .btn-ink{background:var(--ink);color:#fff}
+    .btn-line{border:1px solid #d8d5cd;color:var(--ink);background:transparent}
+    .sec-head{max-width:64ch}
+    .sec-head h2{font-size:clamp(1.7rem,3vw,2.4rem)}
+    .sec-head p{margin-top:12px;color:var(--ink-2)}
 
-<section class=hero>
- <img src="assets/hero.jpg" alt="" onerror="this.style.display='none'">
- <div class=hwrap>
-  <span class=badge><span class=d></span>Live · self-updating · August 3, 2026</span>
-  <h1>48 autonomous AI agents.</h1>
-  <p class=tag>Build in public. Automate everything.</p>
-  <p class=pos>Serial entrepreneur who built an autonomous AI business from scratch</p>
-  <div class=hcta>
-   <a class=btn href="contact.html">Book a build</a>
-   <a class=btn2 href="platform.html">See the platform</a>
-   <span class="hp off">● alerts open</span>
+    nav{position:sticky;top:0;z-index:50;background:#f8f9f8;
+      border-bottom:1px solid var(--line)}
+    a,button{touch-action:manipulation}
+    h1,h2,h3{text-wrap:balance}
+    section{scroll-margin-top:64px}
+    .nav-in{display:flex;align-items:center;justify-content:space-between;padding:15px 0;gap:12px}
+    .logo{font:600 16px/1 var(--mono);letter-spacing:-0.01em;white-space:nowrap}
+    .logo span{color:var(--steel)}
+    .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-2)}
+    .nav-links a:hover{color:var(--ink)}
+    .nav-cta{background:var(--steel);color:#fff;padding:9px 16px;border-radius:8px;
+      font-size:14px;font-weight:600;white-space:nowrap;transition:background .15s ease}
+    .nav-cta:hover{background:var(--steel-deep)}
+    footer a:hover,.mr-link:hover{text-decoration:underline}
+
+    /* ── hero: the living receipt ─────────────────────────────────── */
+    .hero{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;
+      align-items:center;padding-top:var(--s8);padding-bottom:var(--s7)}
+    .hero>*{min-width:0}
+    .hero h1{font-size:clamp(2.7rem,5vw,4.1rem);font-weight:700}
+    .hero h1 em{font-style:normal;color:var(--steel)}
+    .hero .sub{margin-top:20px;font-size:19px;color:var(--ink-2);max-width:38ch}
+    .hero .btns{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .hero .whatis{margin-top:14px;font:400 14px/1.5 var(--sans);color:var(--ink-3);max-width:42ch}
+    .hero .whatis a{color:var(--steel-deep);font-weight:600}
+    .hero .whatis a:hover{text-decoration:underline}
+
+    .printer{position:relative}
+    .slot{height:18px;border-radius:9px;background:linear-gradient(#20262f,#141920);
+      box-shadow:inset 0 2px 5px rgba(0,0,0,.55),0 1px 0 rgba(255,255,255,.7);
+      position:relative;z-index:3;margin:0 8px}
+    .slot::after{content:"";position:absolute;left:14px;right:14px;top:8px;height:2px;
+      border-radius:1px;background:#000}
+    .paper-clip{overflow:hidden;padding:0 8px 26px;margin-top:-2px}
+    .receipt{background:var(--card);border-radius:0 0 4px 4px;
+      box-shadow:0 16px 44px rgba(26,31,40,.13);
+      padding:26px 32px 22px;font:400 14.5px/1 var(--mono);position:relative}
+    .receipt.printing{transform:translateY(-104%)}
+    .receipt.printed{transform:none;transition:transform 2.4s cubic-bezier(.16,1,.3,1)}
+    .receipt h2{font:600 12.5px/1 var(--mono);letter-spacing:.12em;text-align:center;
+      padding-bottom:14px;border-bottom:1.5px dashed #ddd9d0;color:#4c5560}
+    .r-row{display:flex;justify-content:space-between;align-items:baseline;
+      padding:12px 0;border-bottom:1px dashed #eceae4;color:#2c3440}
+    .r-row .stat-number{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+    .r-row.zero .stat-number,.r-row.zero b{color:var(--steel);font-weight:600}
+    .r-total{display:flex;justify-content:space-between;padding-top:16px;
+      font-weight:600;font-size:15px}
+    .r-stamp{margin-top:14px;text-align:center;font-size:11.5px;line-height:1.7;
+      color:#2c3440;letter-spacing:.06em}
+    .r-cut{color:#8a919b;letter-spacing:.3em}
+    .r-edge{position:absolute;left:0;right:0;bottom:-9px;height:10px;
+      background:linear-gradient(-45deg,transparent 6px,var(--card) 0) 0 0/14px 10px repeat-x}
+    .r-live{position:absolute;top:26px;right:32px;font:600 10px/1 var(--mono);
+      letter-spacing:.1em;color:var(--ok)}
+
+    /* ── the machine room: one dark band, real output only ────────── */
+    .machine-room{background:var(--term-bg);color:var(--term-text)}
+    .machine-room .sec-head h2{color:var(--term-bright)}
+    .machine-room .sec-head p{color:var(--term-text)}
+    .mr-grid{display:grid;grid-template-columns:1.22fr .78fr;gap:24px;
+      margin-top:var(--s5);align-items:start}
+    .mr-grid>*{min-width:0}
+    .mr-wide{grid-column:1/-1}
+    .term{background:#0a0f16;border:1px solid var(--term-line);border-radius:12px}
+    .tbar{display:flex;align-items:center;gap:7px;padding:12px 16px;
+      border-bottom:1px solid #1a2130}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--term-line)}
+    .tbar span{margin-left:auto;font:400 11px/1 var(--mono);color:#c6d1de}
+    .term-body{font:400 13.5px/1.9 var(--mono);padding:20px 24px;max-width:100%}
+    .t-line{overflow-wrap:anywhere}
+    .t-row{display:flex;justify-content:space-between;gap:16px}
+    .t-row .inv{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .t-row .st{flex-shrink:0}
+    .t-p{color:#7aa87c}.t-ok{color:#22c39a}.t-n{color:var(--term-bright);font-weight:600}
+    .t-dim{color:#c6d1de}.t-link{color:var(--term-blue)}
+    .caret{display:inline-block;width:8px;height:14px;background:var(--term-blue);
+      vertical-align:-2px}
+    .mr-col{display:flex;flex-direction:column;gap:24px}
+    .mr-video{border:1px solid var(--term-line);border-radius:12px;overflow:hidden}
+    .mr-video video{display:block;width:100%;height:auto;aspect-ratio:656/846}
+    @media (max-width:900px){
+      .mr-video video{aspect-ratio:640/1316;max-height:70vh;object-fit:cover;
+        object-position:top}
+    }
+    .mr-cap{padding:10px 16px;font:400 12.5px/1.6 var(--sans);color:#c6d1de;
+      border-top:1px solid #1a2130;background:#0a0f16}
+    .mr-video{position:relative}
+    .mr-video::after{content:"";position:absolute;top:0;right:0;bottom:37px;width:52px;
+      background:linear-gradient(90deg,transparent,#0a0f16);pointer-events:none}
+    .ledger{border:1px solid var(--term-line);border-radius:12px;background:#0a0f16;
+      padding:18px 20px 14px}
+    .ledger h3{font:600 12px/1 var(--mono);letter-spacing:.1em;color:#c6d1de}
+    .ledger .lg-nums{display:flex;justify-content:space-between;align-items:baseline;
+      margin-top:12px;font:400 13px/1 var(--mono)}
+    .ledger .lg-nums b{font:600 20px/1 var(--mono);color:var(--term-bright)}
+    .ledger .lg-nums .up{color:#22c39a}
+    .ledger svg{display:block;width:100%;height:auto;margin-top:10px}
+    .ledger .lg-note{margin-top:10px;font:400 11.5px/1.6 var(--mono);color:#c6d1de;max-width:70ch}
+    #eq-path{stroke-dasharray:1400;stroke-dashoffset:0}
+    #eq-path.pre{stroke-dashoffset:1400}
+    #eq-path.draw{stroke-dashoffset:0;transition:stroke-dashoffset 2.2s cubic-bezier(.33,1,.68,1)}
+
+    /* ── how it runs ──────────────────────────────────────────────── */
+    .band{background:#eff1ee;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    /* spec sheet: three ruled rows, engineering-drawing register */
+    .sheet{margin-top:var(--s5);background:var(--card);border:1px solid var(--line);
+      border-radius:14px;overflow:hidden}
+    .row{display:grid;grid-template-columns:220px 1fr auto;gap:32px;
+      align-items:center;padding:28px var(--s5)}
+    .row+.row{border-top:1px solid var(--line)}
+    .row>*{min-width:0}
+    .row h3{font-size:1.2rem;margin-bottom:8px}
+    .row p{font-size:15.5px;color:var(--ink-2);max-width:56ch}
+    .row .ev{font:400 12px/1.5 var(--mono);color:#3a4150;text-align:right;
+      max-width:220px}
+    .row .ev b{color:var(--steel-deep);font-weight:600}
+    .mini{display:flex;align-items:center;gap:10px;min-height:34px}
+    .mini-tiers{display:block;font:600 11.5px/1.9 var(--mono);color:#3a4150}
+    .mini-tiers>div{display:flex;justify-content:space-between;gap:8px;max-width:190px}
+    .mini-tiers .tf{color:var(--steel-deep)}
+    .mini-tiers .td{color:#a33}
+    .mini-gate .score{font:600 17px/1 var(--mono);color:var(--ink)}
+    .mini-gate .score em{font-style:normal;font-size:12px;color:#4c5560}
+    .mini-gate .meter{position:relative;flex:1;max-width:130px;height:8px;
+      border-radius:4px;background:#e9e7e0;overflow:visible}
+    .mini-gate .meter>span{display:block;height:100%;border-radius:4px;background:var(--steel)}
+    .mini-gate .meter b{position:absolute;top:-3px;width:2px;height:14px;
+      background:var(--ink);border-radius:1px}
+    .mini-gate .verdict{font:600 12px/1 var(--mono);letter-spacing:.08em;color:#0d5c40}
+    .mini-rail .switch{width:46px;height:26px;border-radius:13px;
+      background:var(--ok);position:relative;box-shadow:inset 0 1px 3px rgba(0,0,0,.2)}
+    .mini-rail .knob{position:absolute;right:3px;top:3px;width:20px;height:20px;
+      border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+    .mini-rail .sw-label{font:600 10.5px/1.3 var(--mono);letter-spacing:.08em;color:var(--steel-deep)}
+    .pipe-mobile{display:none}
+
+    /* ── funnels + capture ────────────────────────────────────────── */
+    .funnel{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:var(--s5)}
+    .funnel>*{min-width:0}
+    .f-card{border:1px solid var(--line);border-radius:14px;padding:var(--s5);
+      background:var(--card);display:flex;flex-direction:column;gap:14px}
+    .f-card .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    .f-card .btn-row .btn{flex:1;text-align:center;white-space:nowrap}
+    .f-card h3{font-size:1.35rem}
+    .f-card p{color:var(--ink-2);font-size:15.5px;flex:1}
+    .f-card .price{font:600 13px/1 var(--mono);color:var(--steel-deep)}
+    .capture{margin-top:var(--s5);border:1px solid var(--line);border-radius:14px;
+      background:var(--card);padding:var(--s5);display:grid;
+      grid-template-columns:1fr auto;gap:24px;align-items:center}
+    .capture>*{min-width:0}
+    .capture h3{font-size:1.2rem}
+    .capture p{color:var(--ink-2);font-size:14.5px;margin-top:6px;max-width:52ch}
+    .cap-form{display:flex;gap:10px;flex-wrap:wrap}
+    .cap-form input{padding:12px 14px;font:400 15px/1 var(--sans);min-width:250px;
+      border:1px solid #d8d5cd;border-radius:10px;background:#fff;color:var(--ink)}
+    .cap-form input:focus{outline:2px solid var(--steel);outline-offset:1px}
+    .cap-ok{display:none;font:600 14px/1.5 var(--sans);color:var(--ok)}
+    .cap-err{display:none;font:400 13px/1.5 var(--sans);color:#a33}
+    .cap-err a{font-weight:600;text-decoration:underline}
+
+    .endcap{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+    .endcap>*{min-width:0}
+    .endcap-fig{margin:0}
+    .endcap-fig img{display:block;width:100%;height:auto;border-radius:12px;
+      max-height:260px;object-fit:cover}
+    .endcap-fig figcaption{margin-top:8px;font:400 12px/1.5 var(--sans);color:var(--ink-2)}
+    @media (max-width:900px){
+      .endcap{grid-template-columns:1fr;gap:28px}
+      .endcap-fig img{max-height:180px}
+    }
+    footer{border-top:1px solid var(--line);padding:var(--s6) 0;
+      font-size:14px;color:var(--ink-2)}
+    .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+    .ticker-wrap{border-top:1px solid var(--line);padding:14px 24px;
+      font:400 13px/2 var(--sans);color:#4c5560;text-align:center;
+      max-width:980px;margin:0 auto}
+    .ticker-wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 28px}
+    .ticker-item{display:inline-block;white-space:nowrap}
+
+    /* motion: content visible at rest; JS adds .pre below the fold only */
+    .reveal{opacity:1;transform:none}
+    .reveal.pre{opacity:0;transform:translateY(12px);
+      transition:opacity .45s cubic-bezier(.33,1,.68,1),transform .45s cubic-bezier(.33,1,.68,1)}
+    .reveal.pre.in{opacity:1;transform:none}
+    @media (prefers-reduced-motion: reduce){
+      .reveal,.reveal.pre{opacity:1;transform:none;transition:none}
+      .receipt.printing{transform:none}
+      .receipt.printed{transition:none}
+      #eq-path.pre{stroke-dashoffset:0}
+      html{scroll-behavior:auto}
+    }
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;gap:44px;padding-top:var(--s6);padding-bottom:var(--s6)}
+      .nav-links{display:none}
+      .logo{font-size:14px}
+      .nav-cta{padding:8px 12px;font-size:13px}
+      section{padding:var(--s6) 0}
+      .wrap{padding:0 16px}
+      .receipt{padding:22px 20px 18px}
+      .r-live{right:20px;top:22px}
+      .mr-grid{grid-template-columns:1fr}
+      .term pre{font-size:12px;min-height:0}
+      .funnel{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr;gap:14px;padding:24px 20px}
+      .row .ev{text-align:left;max-width:none}
+      .capture{grid-template-columns:1fr}
+      .cap-form{flex-direction:column;align-items:stretch}
+      .cap-form input{width:100%;min-width:0}
+      .cap-form .btn{width:100%;text-align:center}
+      .pipe-desktop{display:none}
+      .pipe-mobile{display:block;list-style:none;margin-top:24px;
+        font:400 14px/1.5 var(--sans);color:var(--ink-2)}
+      .pipe-mobile li{padding:10px 0 10px 26px;position:relative;
+        border-left:2px solid var(--line);margin-left:8px}
+      .pipe-mobile li::before{content:"";position:absolute;left:-6px;top:16px;
+        width:10px;height:10px;border-radius:50%;background:var(--paper);
+        border:2px solid var(--ink-3)}
+      .pipe-mobile li.gate{color:var(--steel);font-weight:600;border-left-color:var(--steel)}
+      .pipe-mobile li.gate::before{border-color:var(--steel);background:var(--steel)}
+      .pipe-mobile li.gate span{display:block;font-weight:400;font-size:12px;color:var(--ink-2)}
+    }
+  </style>
+</head>
+<body>
+
+<nav><div class="wrap nav-in">
+  <a class="logo" href="index.html">STEELWORKS<span>/</span>INTELLIGENCE</a>
+  <div class="nav-links">
+    <a href="platform.html">Platform</a>
+    <a href="products/index.html">Products</a>
+    <a href="ai-seo-agency.html">Services</a>
+    <a href="content.html">Content</a>
+    <a href="contact.html">Contact</a>
   </div>
- </div>
-</section>
+  <a class="nav-cta" href="free-ai-business-stack.html">Get the Free Stack</a>
+</div></nav>
 
-<section class=sec>
- <div class=stats><div class=stat><b>48</b><span>AI agents</span></div><div class=stat><b>64</b><span>skills</span></div><div class=stat><b>$0</b><span>per month</span></div><div class=stat><b>11,741</b><span>brain nodes</span></div></div>
- <div class=stats style="margin-top:14px"><div class=stat><b>74</b><span>brain notes</span></div><div class=stat><b>24,073</b><span>graph edges</span></div><div class=stat><b>5/8</b><span>ventures live</span></div><div class=stat><b>33</b><span>outreach sends</span></div></div>
-</section>
-
-<hr class=divider>
-<section class=sec>
- <div class=split>
+<header class="wrap hero">
   <div>
-   <div class=eyebrow>Proof, not promises</div>
-   <h2>Everything here is verified live.</h2>
-   <p class=lead>These facts regenerate from the running system on every publish. No mockups, no vanity numbers.</p>
+    <h1>Receipts,<br>not <em>promises.</em></h1>
+    <p class="sub">An autonomous AI company that publishes its evidence.
+      Every number on the receipt is pulled live from the system that did
+      the work, including the $0.</p>
+    <div class="btns">
+      <a class="btn btn-steel" href="free-ai-business-stack.html">Get the Free Stack →</a>
+      <a class="btn btn-line" href="products/outreach-machine.html">The $0 Outreach Machine, $24</a>
+    </div>
+    <p class="whatis">The Outreach Machine is the cold-outreach system this
+      company runs on itself: the gates, the templates, and the honesty
+      rails. <a href="products/outreach-machine.html">What’s inside →</a></p>
   </div>
-  <ul><li><span class="fc"></span>45 agents defined (specialized business roles + core orchestration), each a distinct function</li><li><span class="fc"></span>$0/month — runs on free local models (Ollama) on an M1 MacBook, with a personal RTX gaming PC as burst inference</li><li><span class="fc"></span>every output passes a brand+quality+compliance gate before it ships — junk is held, not posted</li><li><span class="fc"></span>learns autonomously from YouTube nightly: transcribes channels, extracts ranked opportunities into shared agent memory</li><li><span class="fc"></span>surfaced opportunities auto-route to agents and execute through the gates — the loop runs itself</li><li><span class="fc"></span>openclaw platform, networked over Tailscale; brand @therealmacsteel / SteelWorks Intelligence</li></ul>
- </div>
-</section>
+  <div class="printer" id="printer">
+    <div class="slot" aria-hidden="true"></div>
+    <div class="paper-clip">
+      <div class="receipt" id="receipt" aria-label="Live operating receipt">
+        <span class="r-live">● LIVE</span>
+        <h2>OPERATING RECEIPT</h2>
+        <div class="r-row"><span>agent workspaces</span>
+          <span class="stat-number" data-target="42" data-stat="agents">42</span></div>
+        <div class="r-row"><span>scheduled jobs, one daemon</span>
+          <span class="stat-number" data-target="345" data-stat="crons">345</span></div>
+        <div class="r-row"><span>posts shipped (gate ≥85)</span>
+          <span class="stat-number" data-target="329" data-stat="posts">329</span></div>
+        <div class="r-row"><span>skills in fleet</span>
+          <span class="stat-number" data-target="211" data-stat="skills">211</span></div>
+        <div class="r-row"><span>intelligence bridges</span>
+          <span class="stat-number" data-target="7" data-stat="bridges">7</span></div>
+        <div class="r-row zero"><span>revenue (honest)</span>
+          <b>$<span class="stat-number" data-target="0" data-stat="revenue">0</span></b></div>
+        <div class="r-total"><span>FABRICATED NUMBERS</span><span>0</span></div>
+        <div class="r-stamp"><span class="r-cut">— ✂ —</span><br>
+          <!--STATS:STAMP-->Live-derived from fleet state · verified 2026-08-03<!--/STATS:STAMP--></div>
+        <div class="r-edge" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</header>
 
-<hr class=divider>
-<section class=sec>
- <div class=eyebrow>Shipping in public</div>
- <h2>Latest from @therealmacsteel</h2>
- <p class=lead>Real posts, real permalinks — click through to the live tweet.</p>
- <a class="post" href="https://x.com/therealmacsteel/status/2083199457307271574" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">Spent today wiring a per-agent trust spine so my 39 agents can act safely at $0/month. The build moment: It&#x27;s running right now, n</span><span class="pl">view ↗</span></a><a class="post" href="https://x.com/therealmacsteel/status/2080719259991191589" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">112 actionable leads with email contact.
+<section class="machine-room" id="proof" style="padding-bottom:var(--s6)"><div class="wrap">
+  <div class="sec-head reveal">
+    <h2>Real output from the machine.</h2>
+    <p>Quality here is code that can block the pipeline, and does. Below:
+      the console replaying today’s guard-rail check, the command center the
+      fleet runs from, and the paper-trading ledger it keeps.</p>
+  </div>
+  <div class="mr-grid">
+    <div class="term reveal" id="term" title="Click to finish the replay">
+      <div class="tbar"><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <span>replay · real run · 2026-08-02</span></div>
+      <div class="term-body" id="term-pre" aria-label="Terminal replay of a real gatecheck run"></div>
+    </div>
+    <figure class="mr-video reveal">
+      <video muted loop playsinline preload="none" width="656" height="846"
+        poster="assets/media/mission-control-poster-desktop.jpg" id="mc-video"
+        aria-label="Screen recording of the SteelWorks command center">
+        <source src="assets/media/mission-control-desktop.webm" type="video/webm">
+      </video>
+      <figcaption class="mr-cap">SteelWorks Command Center, recorded
+        2026-08-02. Real fleet state: 13 departments, live routing.</figcaption>
+    </figure>
+    <div class="ledger reveal mr-wide">
+        <h3>PAPER-TRADING LEDGER</h3>
+        <div class="lg-nums"><span>May 21 · $100,000</span>
+          <b>$100,125<span class="up">.12</span></b></div>
+        <svg viewBox="0 0 640 170" fill="none" aria-label="Equity curve of the paper trading account, May 21 to August 2">
+          <path id="eq-path" stroke="#3aa0ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
+            d="M0,141.5 18.8,141.5 37.6,141.5 56.5,141.5 75.3,141.5 94.1,109.3 112.9,138 131.8,67.7 150.6,54.8 169.4,54.8 188.2,60.2 207.1,60.1 225.9,64 244.7,64.9 263.5,64.9 282.4,58.9 301.2,58.9 320,81.4 338.8,78.6 357.6,55.6 376.5,62.4 395.3,47.4 414.1,27.7 432.9,26 451.8,31.1 470.6,46.5 489.4,49.8 508.2,45.1 527.1,42.7 545.9,42.8 564.7,40.3 583.5,41.8 602.4,35 621.2,18.5 640,18.5"/>
+          <line x1="0" y1="141.5" x2="640" y2="141.5" stroke="#232c3d" stroke-dasharray="3 5"/>
+        </svg>
+        <p class="lg-note">Alpaca paper account, SPY 50/200 MA crossover.
+          Orders simulated, ledger public, kill switch armed, and paper
+          gains never count toward the revenue line.</p>
+    </div>
+  </div>
+  <p style="margin-top:16px;font-size:15px" class="reveal">Want this machine
+    working on your business?
+    <a class="mr-link" href="ai-seo-agency.html" style="color:#8ec4ff;font-weight:600">See the services →</a></p>
+</div></section>
 
-My autonomous AI fleet runs this end-to-end — no human in the loop.
+<section class="band"><div class="wrap">
+  <div class="sec-head reveal">
+    <h2>One MacBook. Three disciplines.</h2>
+  </div>
+  <svg class="reveal pipe-desktop" viewBox="0 0 1072 96" style="width:100%;height:auto;margin-top:32px" fill="none" aria-label="Pipeline: brief, agents work, gate at 85, publish, receipt on this page">
+    <g font-family="'Plex Sans',-apple-system,Arial,sans-serif" font-size="13">
+      <rect x="2" y="26" width="150" height="44" rx="10" stroke="#d8d5cd"/>
+      <text x="77" y="52" text-anchor="middle" fill="#3a4150">brief</text>
+      <path d="M152 48h56" stroke="#8a919b" stroke-dasharray="3 4"/><path d="M204 44l8 4-8 4" stroke="#8a919b"/>
+      <rect x="212" y="26" width="150" height="44" rx="10" stroke="#d8d5cd"/>
+      <text x="287" y="52" text-anchor="middle" fill="#3a4150">agents work</text>
+      <path d="M362 48h56" stroke="#8a919b" stroke-dasharray="3 4"/><path d="M414 44l8 4-8 4" stroke="#8a919b"/>
+      <rect x="422" y="26" width="170" height="44" rx="10" stroke="#2f7fd0" stroke-width="2"/>
+      <text x="507" y="45" text-anchor="middle" fill="#2f7fd0" font-weight="600">gate ≥85</text>
+      <text x="507" y="61" text-anchor="middle" fill="#3a4150" font-size="11">code says no</text>
+      <path d="M592 48h56" stroke="#8a919b" stroke-dasharray="3 4"/><path d="M644 44l8 4-8 4" stroke="#8a919b"/>
+      <rect x="652" y="26" width="150" height="44" rx="10" stroke="#d8d5cd"/>
+      <text x="727" y="52" text-anchor="middle" fill="#3a4150">publish</text>
+      <path d="M802 48h56" stroke="#8a919b" stroke-dasharray="3 4"/><path d="M854 44l8 4-8 4" stroke="#8a919b"/>
+      <rect x="862" y="26" width="208" height="44" rx="10" stroke="#d8d5cd"/>
+      <text x="966" y="52" text-anchor="middle" fill="#3a4150">receipt on this page</text>
+      <text x="507" y="14" text-anchor="middle" fill="#5c6470" font-size="12">fail: work list, try again</text>
+    </g>
+  </svg>
+  <ol class="pipe-mobile reveal">
+    <li>brief</li><li>agents work</li>
+    <li class="gate">gate ≥85 <span>code says no; fail means a work list, then try again</span></li>
+    <li>publish</li><li>receipt on this page</li>
+  </ol>
+  <div class="sheet reveal">
+    <div class="row">
+      <div class="mini-tiers" aria-label="Real trust-tier assignments">
+        <div><span>research</span><span class="tf">FULL</span></div>
+        <div><span>posting</span><span>APPROVAL</span></div>
+        <div><span>trading</span><span class="td">DISABLED</span></div>
+      </div>
+      <div>
+        <h3>Every agent runs caged</h3>
+        <p>Writers, researchers, a paper-trading desk, build engineers. Each
+          agent holds its own memory, job list, and permission tier, and the
+          default answer to a new capability is no.</p>
+      </div>
+      <div class="ev">trust_tiers.py<br>FULL / APPROVAL / <b>DISABLED</b></div>
+    </div>
+    <div class="row">
+      <div class="mini mini-gate" aria-hidden="true">
+        <span class="score">87.78<em>/85</em></span>
+        <span class="meter"><span style="width:87.78%"></span><b style="left:85%"></b></span>
+        <span class="verdict">PASS</span>
+      </div>
+      <div>
+        <h3>85/100 or it doesn’t ship</h3>
+        <p>Every public artifact must clear a code-enforced quality gate scored
+          by a fresh grader. Failing output gets a work list and another
+          pass through the gate.</p>
+      </div>
+      <div class="ev">last shipped video<br>scored <b>87.78</b></div>
+    </div>
+    <div class="row">
+      <div class="mini mini-rail" aria-hidden="true">
+        <span class="switch"><span class="knob"></span></span>
+        <span class="sw-label">KILL SWITCH · ARMED</span>
+      </div>
+      <div>
+        <h3>Paper money and a kill switch</h3>
+        <p>Trading is structurally paper-only. One kill switch halts every
+          autonomous lane at once, and a live drill has proven it works.</p>
+      </div>
+      <div class="ev">live-money orders<br><b>hard-blocked in code</b></div>
+    </div>
+  </div>
+</div></section>
 
-What would you hand</span><span class="pl">view ↗</span></a><a class="post" href="https://x.com/therealmacsteel/status/2075637098288210332" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">I run 39 AI agents at $0/month. The scariest bug isn&#x27;t a crash — it&#x27;s an agent reporting success it never achieved. So I built pro</span><span class="pl">view ↗</span></a><a class="post" href="https://x.com/therealmacsteel/status/2075536836261208353" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">Spent today wiring a per-agent trust spine so my 39 agents can act safely at $0/month. The build moment: It&#x27;s running right now, n</span><span class="pl">view ↗</span></a><a class="post" href="https://x.com/therealmacsteel/status/2075283712590205185" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">94 actionable leads with email contact.
+<section style="padding-top:var(--s6)"><div class="wrap">
+  <div class="sec-head reveal">
+    <h2>Two ways in.</h2>
+    <p>Both paths end at a real deliverable, and the receipts above are
+      the pitch.</p>
+  </div>
+  <div class="funnel">
+    <div class="f-card reveal">
+      <h3>The $0 AI Business Stack</h3>
+      <p>The exact free-first stack this company runs on: local models,
+        gates, automation lanes. Documented, with prompt packs and operating
+        systems as products.</p>
+      <div class="btn-row"><a class="btn btn-steel" href="free-ai-business-stack.html">Get the Free Stack →</a>
+        <a class="btn btn-line" href="products/index.html">Browse products</a></div>
+    </div>
+    <div class="f-card reveal">
+      <h3>Done-for-you AI operations</h3>
+      <p>AI search visibility, SEO for the answer-engine era, and
+        done-for-you automation, built with the same gated pipeline that
+        builds this company.</p>
+      <div class="btn-row"><a class="btn btn-ink" href="ai-seo-agency.html">The AI SEO Agency →</a>
+        <a class="btn btn-line" href="contact.html">Work with Mac</a></div>
+    </div>
+  </div>
+  <div class="capture reveal" id="capture">
+    <div>
+      <h3>Or start with one email.</h3>
+      <p>The full free stack, the setup checklist, and one build note each
+        week when something ships. Unsubscribe anytime.</p>
+    </div>
+    <form class="cap-form" id="cap-form">
+      <input type="email" id="cap-email" name="email" autocomplete="email"
+        spellcheck="false" placeholder="you@company.com" required
+        aria-label="Email address">
+      <button class="btn btn-steel" id="cap-btn" type="submit">Send me the stack</button>
+    </form>
+    <p class="cap-ok" id="cap-ok" role="status">Check your inbox. The stack is on its way.</p>
+    <p class="cap-err" id="cap-err" role="alert" tabindex="-1">That didn&rsquo;t go
+      through. Retry, or email
+      <a href="mailto:steelworksintelligence@gmail.com">steelworksintelligence@gmail.com</a>.</p>
+  </div>
+</div></section>
 
-My autonomous AI fleet runs this end-to-end — no human in the loop.
+<section class="band" style="padding:var(--s6) 0"><div class="wrap endcap">
+  <figure class="endcap-fig reveal">
+    <img src="assets/img/receipt-roll.jpg" alt="Macro photograph of a receipt paper roll on brushed steel" width="1200" height="820" loading="lazy">
+    <figcaption>the next roll — illustration, generated locally on the same MacBook</figcaption>
+  </figure>
+  <div class="endcap-txt reveal">
+    <h2 style="font-size:clamp(1.5rem,2.6vw,2rem)">These receipts update themselves.<br>The next one could carry your project.</h2>
+    <div style="margin-top:24px;display:flex;gap:14px;flex-wrap:wrap">
+      <a class="btn btn-steel" href="free-ai-business-stack.html">Get the Free Stack →</a>
+      <a class="btn btn-line" href="contact.html">Work with Mac</a>
+    </div>
+  </div>
+</div></section>
 
-What would you hand </span><span class="pl">view ↗</span></a>
-</section>
+<div class="ticker-wrap"><!--STATS:TICKER:BEGIN-->
+      <span class="ticker-item">42 AI Agents Registered</span>
+      <span class="ticker-item">345 Scheduled Autonomous Jobs</span>
+      <span class="ticker-item">329 Posts Shipped</span>
+      <span class="ticker-item">7 AI Intelligence Bridges</span>
+      <span class="ticker-item">$0/month Paid-API Cost</span>
+      <span class="ticker-item">24/7 Runtime</span>
+      <span class="ticker-item">211 Skills</span>
+    <!--STATS:TICKER:END--></div>
 
-<hr class=divider>
-<section class=sec>
- <div class=eyebrow>Work with the system</div>
- <h2>Two ways to get the edge.</h2>
- <div class=offers><a class="offer" href="contact.html"><div class="ok">Done-for-you</div><h3>Agentic OS Setup</h3><p>I build your autonomous agent OS — skills, second-brain memory, a live command dashboard — so your business runs while you sleep. Free-first stack, no paid APIs.</p><span class="obtn">Book a build →</span></a><a class="offer" href="https://github.com/therealmacsteel"><div class="ok">Freemium tool</div><h3>proofkit</h3><p>The adversarial layer that assumes your agent is lying until a real artifact proves it ran. Catches fake-success, dry-run theater, and stub code before it ships.</p><span class="obtn">Get proofkit →</span></a></div>
-</section>
+<footer><div class="wrap foot">
+  <div><strong>STEELWORKS/INTELLIGENCE</strong> — Acworth, GA<br>
+    Built in public. Wins and failures both.<br>
+    <span style="font-size:12.5px;color:var(--ink-2)">Page weight, stated
+    honestly: ~0.7&nbsp;MB (fonts 100&nbsp;KB, demo video 350&nbsp;KB),
+    static on GitHub Pages.</span></div>
+  <div>
+    <a href="free-ai-business-stack.html">Free Stack</a> ·
+    <a href="products/index.html">Products</a> ·
+    <a href="https://youtube.com/@therealmacsteel">YouTube</a> ·
+    <a href="blog/index.html">Blog</a> ·
+    <a href="about.html">About</a> ·
+    <a href="contact.html">Contact</a>
+  </div>
+</div></footer>
 
-<hr class=divider>
-<section class=sec>
- <div class=eyebrow>AI-first discovery</div>
- <h2>Ask AI about SteelWorks Intelligence.</h2>
- <p class=lead>AI is how people vet you now. Ask your assistant — it reads our llms.txt and answers live.</p>
- <div class=aiask><a class=aibtn href="https://chatgpt.com/?q=Who%20is%20SteelWorks%20Intelligence%20%28%40therealmacsteel%29%20and%20what%20does%20their%20autonomous%20AI%20agent%20fleet%20do%3F%20Summarize%20from%20their%20site%20therealmacsteel.github.io%20and%20its%20llms.txt." target="_blank" rel="noopener">ChatGPT</a><a class=aibtn href="https://claude.ai/new?q=Who%20is%20SteelWorks%20Intelligence%20%28%40therealmacsteel%29%20and%20what%20does%20their%20autonomous%20AI%20agent%20fleet%20do%3F%20Summarize%20from%20their%20site%20therealmacsteel.github.io%20and%20its%20llms.txt." target="_blank" rel="noopener">Claude</a><a class=aibtn href="https://www.perplexity.ai/search?q=Who%20is%20SteelWorks%20Intelligence%20%28%40therealmacsteel%29%20and%20what%20does%20their%20autonomous%20AI%20agent%20fleet%20do%3F%20Summarize%20from%20their%20site%20therealmacsteel.github.io%20and%20its%20llms.txt." target="_blank" rel="noopener">Perplexity</a><a class=aibtn href="https://www.google.com/search?udm=50&amp;q=Who%20is%20SteelWorks%20Intelligence%20%28%40therealmacsteel%29%20and%20what%20does%20their%20autonomous%20AI%20agent%20fleet%20do%3F%20Summarize%20from%20their%20site%20therealmacsteel.github.io%20and%20its%20llms.txt." target="_blank" rel="noopener">Google AI</a></div>
-</section>
+<script src="assets/track.js" defer></script>
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
+    || new URLSearchParams(location.search).has('nomotion');
 
-<hr class=divider>
-<footer>
- <span>SteelWorks Intelligence · @therealmacsteel</span>
- <span>·</span><a href="platform.html">Platform</a>
- <a href="content.html">Content</a><a href="contact.html">Contact</a>
- <span class=sp>Regenerated from live system data · August 3, 2026</span>
-</footer>
-</body></html>
+  // ── hero receipt: print + count ─────────────────────────────────
+  const receipt = document.getElementById('receipt');
+  function countUp(scope, dur) {
+    scope.querySelectorAll('.stat-number').forEach(n => {
+      const target = +n.dataset.target; const t0 = performance.now();
+      const step = t => { const p = Math.min((t - t0) / dur, 1);
+        n.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    });
+  }
+  // no-JS / failed-JS keeps the receipt visible: the hiding class is only
+  // ever applied from here, one frame before the print transition runs
+  if (!reduce) {
+    receipt.classList.add('printing');
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      receipt.classList.add('printed');
+      receipt.classList.remove('printing');
+      setTimeout(() => countUp(receipt, 900), 1400);
+    }));
+  }
+
+  // ── terminal: typed replay of the real 2026-08-02 gatecheck run ──
+  // Source: python3 scripts/gatecheck.py, output verbatim (detail trimmed to width).
+  const LINES = [
+    ['cmd', 'gatecheck'],
+    ['row', '<span class="t-dim">GUARD INVARIANT</span>', '<span class="t-dim">STATUS</span>'],
+    ['row', 'spine: trading tier blocked', '<span class="t-ok">PASS</span>'],
+    ['row', 'spine: live-money hard-blocked', '<span class="t-ok">PASS</span>'],
+    ['row', 'spine: injection defense', '<span class="t-ok">PASS</span>'],
+    ['row', 'trading: evidence lane gated', '<span class="t-ok">PASS</span>'],
+    ['row', 'kill-switch: readable', '<span class="t-ok">PASS</span>'],
+    ['row', 'posting: ship bar == 85', '<span class="t-ok">PASS</span>'],
+    ['row', 'posting: rubric fail-closed', '<span class="t-ok">PASS</span>'],
+    ['row', 'locks: registry drift', '<span class="t-ok">PASS</span>'],
+    ['out', '<span class="t-ok">6/6 guard invariants hold → PASS</span>'],
+    ['cmd', 'produce_video run --slug fleet-story-v1 --publish'],
+    ['out', 'script gate <span class="t-n">87.78</span>/85 · ship gate <span class="t-n">100</span>/100'],
+    ['out', 'posted <a class="t-link" href="https://www.youtube.com/watch?v=RGMIHtg6lrQ">youtube.com/watch?v=RGMIHtg6lrQ</a>'],
+    ['cmd', 'revenue --honest'],
+    ['out', '<span class="t-n">$0</span> — first sale is the north star'],
+  ];
+  const pre = document.getElementById('term-pre');
+  const PROMPT = '<span class="t-p">steelworks$</span> ';
+  function lineHTML([k, a, b], caret) {
+    if (k === 'row') return '<div class="t-line t-row"><span class="inv">' + a +
+      '</span><span class="st">' + (b || '') + '</span></div>';
+    const body = (k === 'cmd' ? PROMPT + a : a) + (caret ? '<span class="caret"></span>' : '');
+    return '<div class="t-line">' + body + '</div>';
+  }
+  function renderStatic() { pre.innerHTML = LINES.map(l => lineHTML(l)).join(''); }
+  let skipReplay = false;
+  async function typeReplay() {
+    const shown = [];
+    for (const line of LINES) {
+      if (skipReplay) break;
+      const [k, a] = line;
+      if (k === 'cmd') {
+        for (let i = 1; i <= a.length; i++) {
+          if (skipReplay) break;
+          pre.innerHTML = shown.join('') + lineHTML(['cmd', a.slice(0, i)], true);
+          await new Promise(r => setTimeout(r, 26));
+        }
+        await new Promise(r => setTimeout(r, 300));
+      }
+      shown.push(lineHTML(line));
+      pre.innerHTML = shown.join('');
+      if (k !== 'cmd') await new Promise(r => setTimeout(r, 90));
+    }
+    renderStatic(); // full text at rest, caret gone
+  }
+  if (reduce) { renderStatic(); }
+  else {
+    renderStatic(); // visible at rest if observer never fires
+    document.getElementById('term').addEventListener('click', () => { skipReplay = true; });
+    const tio = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { tio.disconnect(); typeReplay(); }
+    }), { threshold: .35 });
+    tio.observe(document.getElementById('term'));
+  }
+
+  // ── ledger draw + video play on view ────────────────────────────
+  const eq = document.getElementById('eq-path');
+  const mcv = document.getElementById('mc-video');
+  if (!reduce) {
+    eq.classList.add('pre');
+    const lio = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { lio.disconnect();
+        requestAnimationFrame(() => eq.classList.add('draw')); }
+    }), { threshold: .4 });
+    lio.observe(eq.closest('.ledger'));
+  }
+  // phones get a single-panel crop of the same recording so its text reads
+  if (matchMedia('(max-width: 900px)').matches) {
+    mcv.querySelector('source').src = 'assets/media/mission-control-mobile.webm';
+    mcv.poster = 'assets/media/mission-control-poster-tight.jpg';
+    mcv.width = 640; mcv.height = 1316;
+    mcv.load();
+  }
+  if (!reduce) {
+    const vio = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { mcv.play().catch(() => {}); }
+      else { mcv.pause(); }
+    }), { threshold: .3 });
+    vio.observe(mcv);
+  } else {
+    mcv.setAttribute('controls', ''); // reduced motion: user starts it
+  }
+
+  // ── reveal-once ─────────────────────────────────────────────────
+  if (!reduce) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: .15 });
+    const fold = innerHeight;
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      if (el.getBoundingClientRect().top > fold) {
+        el.classList.add('pre');
+        el.style.transitionDelay = (i % 4) * 60 + 'ms';
+        io.observe(el);
+      }
+    });
+    // failsafe: content may never stay hidden, whatever the observer does
+    setTimeout(() => {
+      document.querySelectorAll('.reveal.pre:not(.in)').forEach(el => el.classList.add('in'));
+      if (eq.classList.contains('pre')) eq.classList.add('draw');
+    }, 4000);
+  }
+
+  // ── homepage capture (real endpoint, honest failure) ────────────
+  document.getElementById('cap-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = document.getElementById('cap-btn');
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    try {
+      const r = await fetch('https://swi-chatbot.macsmacpro.workers.dev/capture', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: document.getElementById('cap-email').value.trim(),
+          source: 'homepage', funnel_id: 'homepage-inline' })
+      });
+      const d = await r.json();
+      if (d.ok) {
+        document.getElementById('cap-form').style.display = 'none';
+        document.getElementById('cap-ok').style.display = 'block';
+        if (window.swTrack) swTrack('intake_submit', { href: 'homepage-inline' });
+      } else { throw new Error('capture not ok'); }
+    } catch (err) {
+      const errEl = document.getElementById('cap-err');
+      errEl.style.display = 'block'; errEl.focus();
+      btn.textContent = 'Send me the stack'; btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
