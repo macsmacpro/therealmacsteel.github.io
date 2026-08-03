@@ -257,7 +257,7 @@
     <p style="color:var(--muted);margin-top:.75rem">Weekly build log — what was built, what broke, what's next.</p>
     <div class="email-form">
       <input type="email" class="email-input" placeholder="your@email.com" />
-      <button class="btn btn-primary" onclick="alert('ConvertKit integration coming soon!')">Subscribe</button>
+      <form onsubmit="(async e=>{e.preventDefault();const b=e.target.querySelector('button');b.disabled=true;b.textContent='Sending…';try{const r=await fetch('https://swi-chatbot.macsmacpro.workers.dev/capture',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:e.target.email.value.trim(),source:'newsletter',funnel_id:'newsletter-inline'})});const d=await r.json();if(d.ok){e.target.innerHTML='<p style=\'color:#22c39a\'>Check your inbox.</p>';}else{throw 0}}catch(_){b.disabled=false;b.textContent='Try again';}})(event)" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><input type="email" name="email" required placeholder="you@company.com" autocomplete="email" spellcheck="false" style="padding:10px 12px;border-radius:8px;border:1px solid #444;background:transparent;color:inherit;min-width:220px"><button class="btn btn-primary" type="submit">Subscribe</button></form>
     </div>
   </div>
 </section>
