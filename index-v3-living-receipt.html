@@ -117,44 +117,45 @@
     .machine-room{background:var(--term-bg);color:var(--term-text)}
     .machine-room .sec-head h2{color:var(--term-bright)}
     .machine-room .sec-head p{color:var(--term-text)}
-    .mr-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:24px;margin-top:var(--s5)}
+    .mr-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:24px;
+      margin-top:var(--s5);align-items:start}
     .mr-grid>*{min-width:0}
     .mr-wide{grid-column:1/-1}
     .term{background:#0a0f16;border:1px solid var(--term-line);border-radius:12px}
     .tbar{display:flex;align-items:center;gap:7px;padding:12px 16px;
       border-bottom:1px solid #1a2130}
     .dot{width:10px;height:10px;border-radius:50%;background:var(--term-line)}
-    .tbar span{margin-left:auto;font:400 11px/1 var(--mono);color:#b8c5d4}
+    .tbar span{margin-left:auto;font:400 11px/1 var(--mono);color:#c6d1de}
     .term-body{font:400 13.5px/1.9 var(--mono);padding:20px 24px;max-width:100%}
     .t-line{overflow-wrap:anywhere}
     .t-row{display:flex;justify-content:space-between;gap:16px}
     .t-row .inv{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .t-row .st{flex-shrink:0}
     .t-p{color:#7aa87c}.t-ok{color:#22c39a}.t-n{color:var(--term-bright);font-weight:600}
-    .t-dim{color:#b8c5d4}.t-link{color:var(--term-blue)}
+    .t-dim{color:#c6d1de}.t-link{color:var(--term-blue)}
     .caret{display:inline-block;width:8px;height:14px;background:var(--term-blue);
       vertical-align:-2px}
     .mr-col{display:flex;flex-direction:column;gap:24px}
     .mr-video{border:1px solid var(--term-line);border-radius:12px;overflow:hidden}
-    .mr-video video{display:block;width:100%;height:auto;aspect-ratio:960/782}
+    .mr-video video{display:block;width:100%;height:auto;aspect-ratio:656/846}
     @media (max-width:900px){
       .mr-video video{aspect-ratio:640/1316;max-height:70vh;object-fit:cover;
         object-position:top}
     }
-    .mr-cap{padding:10px 16px;font:400 12px/1.6 var(--mono);color:#a3b3c6;
+    .mr-cap{padding:10px 16px;font:400 12.5px/1.6 var(--sans);color:#c6d1de;
       border-top:1px solid #1a2130;background:#0a0f16}
     .mr-video{position:relative}
     .mr-video::after{content:"";position:absolute;top:0;right:0;bottom:37px;width:52px;
       background:linear-gradient(90deg,transparent,#0a0f16);pointer-events:none}
     .ledger{border:1px solid var(--term-line);border-radius:12px;background:#0a0f16;
       padding:18px 20px 14px}
-    .ledger h3{font:600 12px/1 var(--mono);letter-spacing:.1em;color:#b8c5d4}
+    .ledger h3{font:600 12px/1 var(--mono);letter-spacing:.1em;color:#c6d1de}
     .ledger .lg-nums{display:flex;justify-content:space-between;align-items:baseline;
       margin-top:12px;font:400 13px/1 var(--mono)}
     .ledger .lg-nums b{font:600 20px/1 var(--mono);color:var(--term-bright)}
     .ledger .lg-nums .up{color:#22c39a}
     .ledger svg{display:block;width:100%;height:auto;margin-top:10px}
-    .ledger .lg-note{margin-top:10px;font:400 11.5px/1.6 var(--mono);color:#b8c5d4}
+    .ledger .lg-note{margin-top:10px;font:400 11.5px/1.6 var(--mono);color:#c6d1de}
     #eq-path{stroke-dasharray:1400;stroke-dashoffset:0}
     #eq-path.pre{stroke-dashoffset:1400}
     #eq-path.draw{stroke-dashoffset:0;transition:stroke-dashoffset 2.2s cubic-bezier(.33,1,.68,1)}
@@ -268,7 +269,7 @@
       .cap-form .btn{width:100%;text-align:center}
       .pipe-desktop{display:none}
       .pipe-mobile{display:block;list-style:none;margin-top:24px;
-        font:400 14px/1.5 var(--mono);color:var(--ink-2)}
+        font:400 14px/1.5 var(--sans);color:var(--ink-2)}
       .pipe-mobile li{padding:10px 0 10px 26px;position:relative;
         border-left:2px solid var(--line);margin-left:8px}
       .pipe-mobile li::before{content:"";position:absolute;left:-6px;top:16px;
@@ -349,10 +350,10 @@
       <div class="term-body" id="term-pre" aria-label="Terminal replay of a real gatecheck run"></div>
     </div>
     <figure class="mr-video reveal">
-      <video muted loop playsinline preload="none" width="960" height="782"
-        poster="assets/media/mission-control-poster.jpg" id="mc-video"
+      <video muted loop playsinline preload="none" width="656" height="846"
+        poster="assets/media/mission-control-poster-desktop.jpg" id="mc-video"
         aria-label="Screen recording of the SteelWorks command center">
-        <source src="assets/media/mission-control.webm" type="video/webm">
+        <source src="assets/media/mission-control-desktop.webm" type="video/webm">
       </video>
       <figcaption class="mr-cap">SteelWorks Command Center, recorded
         2026-08-02. Real fleet state: 13 departments, live routing.</figcaption>
