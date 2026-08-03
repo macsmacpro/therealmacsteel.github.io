@@ -112,8 +112,8 @@ try{const r=await fetch('https://swi-leads.macsmacpro.workers.dev/api/lead',{met
 headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name.value,email:email.value,company:biz.value,
 notes:sink.value,source:'venture:service-tier'})});const d=await r.json();
 if(d.ok){m.style.color='#1f7a5c';m.textContent='✓ Got it — we\'ll reach out within 48 hours to book your scoping call.';document.getElementById('f').reset();}
-else{m.style.color='#ff7b72';m.textContent='Didn\'t go through ('+(d.error||('HTTP '+r.status))+'). Email macsmacpro@gmail.com and we\'ll reply.';}}
-catch(e){m.style.color='#ff7b72';m.textContent='Couldn\'t reach the signup server. Email macsmacpro@gmail.com and we\'ll reply.';}return false;}</script>
+else{m.style.color='#ff7b72';m.textContent='Didn\'t go through ('+(d.error||('HTTP '+r.status))+'). Email steelworksintelligence@gmail.com and we\'ll reply.';}}
+catch(e){m.style.color='#ff7b72';m.textContent='Couldn\'t reach the signup server. Email steelworksintelligence@gmail.com and we\'ll reply.';}return false;}</script>
 <footer style=color:#3d5470;margin-top:40px;font-size:13px>SteelWorks Intelligence · @therealmacsteel · built in public · lead capture only, no payment collected</footer>
 </div>
 <!-- openclaw-geo-hardening: visible answer section -->
@@ -143,4 +143,5 @@ catch(e){m.style.color='#ff7b72';m.textContent='Couldn\'t reach the signup serve
 <h2 style="margin-bottom:6px">Ready to hand off the busywork?</h2>
 <p class="vs" style="margin-bottom:16px">One scoping call. No payment, no card — if it's not a fit, we'll say so.</p>
 <a class="btn" href="#f">Get a free scoping call →</a></div>
+<script src="../assets/track.js" defer></script>
 </body></html>
