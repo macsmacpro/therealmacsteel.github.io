@@ -1,149 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>7 Prompts From the Live 26-Agent Stack — SteelWorks Intelligence</title>
-  <meta name="description" content="The actual prompts running 83 autonomous crons on a gaming PC: copy, paste, run locally with Ollama or any free model." />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="stylesheet" href="/assets/style.css" />
-  <style>
-    .funnel-hero { max-width: 640px; margin: 0 auto; padding: 3rem 1.5rem 2rem; text-align: center; }
-    .funnel-hero h1 { font-size: clamp(1.6rem,4vw,2.4rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
-    .funnel-hero .sub { font-size: 1.1rem; color: var(--text-muted,#888); margin-bottom: 2rem; }
-    .funnel-bullets { text-align: left; max-width: 480px; margin: 0 auto 2rem; padding: 1.5rem; background: var(--surface,#111); border-radius: 8px; border: 1px solid var(--border,#222); }
-    .funnel-bullets ul { list-style: none; padding: 0; margin: 0; }
-    .funnel-bullets li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; }
-    .funnel-bullets li::before { content: "✓"; position: absolute; left: 0; color: #3aa0ff; font-weight: 700; }
-    .capture-form { max-width: 400px; margin: 0 auto; }
-    .capture-form input[type="email"] { width: 100%; padding: 0.85rem 1rem; font-size: 1rem; border: 1px solid var(--border,#333); border-radius: 6px; background: var(--surface,#111); color: var(--text,#fff); margin-bottom: 0.75rem; box-sizing: border-box; }
-    .capture-form button { width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 700; background: #3aa0ff; color: #000; border: none; border-radius: 6px; cursor: pointer; transition: opacity .2s; }
-    .capture-form button:hover { opacity: 0.88; }
-    .form-note { font-size: 0.78rem; color: var(--text-muted,#666); margin-top: 0.5rem; text-align: center; }
-    .upsell-line { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border,#222); font-size: 0.9rem; color: var(--text-muted,#888); }
-    #form-success { display: none; padding: 1rem; background: #3aa0ff22; border: 1px solid #3aa0ff; border-radius: 6px; text-align: center; color: #3aa0ff; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7 Free Agent Prompts | SteelWorks Intelligence</title>
+<meta name="description" content="Seven prompts pulled from a live 26-agent production fleet. Free, no wall on the sample.">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/components.css">
+<!--
+  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
+  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
+  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
+  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
+  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
+  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
+  design-knowledge: style-systems.csv#21 Conversion-Optimized — one dominant next step
+  Decisions of record: data/org/web-design-decisions.md
+-->
 </head>
 <body>
-<nav class="nav">
-  <div class="container nav-inner">
-    <a href="/" class="nav-logo">STEELWORKS INTELLIGENCE</a>
+
+<!-- steelworks:header -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href="/index.html">
+      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
+      SteelWorks
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/ai-search-visibility.html">AI Visibility</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
   </div>
-</nav>
+</header>
+<!-- /steelworks:header -->
 
-<main>
-  <div class="funnel-hero">
-    <h1 id="funnel-headline">7 Prompts From the Live 26-Agent Stack</h1>
-    <p class="sub" id="funnel-sub">The actual prompts running 83 autonomous crons on a gaming PC: copy, paste, run locally with Ollama or any free model.</p>
+<main id="main">
 
-    <div class="funnel-bullets">
-      <ul>
-        <li>Agent Identity Brief: the template that keeps 26 agents on task</li>
-<li>Cron Task Spec: how to design a recurring job that actually runs</li>
-<li>Build-in-Public Content: the exact format for authentic posts</li>
-<li>Lead Scoring: rate prospects with a local model, no API cost</li>
-<li>Self-Heal Diagnostic: the script that keeps 83 crons alive overnight</li>
-<li>Free Model Routing: send tasks to the right free model every time</li>
-<li>Daily Status Report: 5-line brief that covers a 39-agent system</li>
-      </ul>
-    </div>
-
-    <div class="capture-form">
-      <div id="form-success">
-        ✓ Check your inbox — your prompts are on the way.
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow reveal">Free — 7 agent prompts</p>
+      <h1 class="reveal">Seven prompts,<br>pulled from production.</h1>
+      <p class="lede reveal">The same prompts a running 26-agent fleet uses daily. No
+        signup wall on the sample &mdash; read them first, decide after.</p>
+      <div class="grid grid-2 reveal">
+        <figure class="flush">
+          <img src="/assets/live-receipt-crop.png" width="800" height="600"
+               alt="Archived operating receipt from the fleet these prompts run inside.">
+          <figcaption class="fine">Archived print, 2026&#8209;07&#8209;24.</figcaption>
+        </figure>
+        <div class="receipt">
+          <dl>
+            <dt>free prompts</dt><dd>7</dd>
+            <dt>full pack</dt><dd>25</dd>
+            <dt>source</dt><dd>live fleet</dd>
+            <dt>price of the pack</dt><dd>$29</dd>
+          </dl>
+        </div>
       </div>
-      <form id="capture-form" onsubmit="submitCapture(event)">
-        <input type="email" id="capture-email" placeholder="your@email.com"
-               required autocomplete="email" />
-        <button type="submit" id="capture-btn">Get the 7 Free Prompts</button>
-        <p class="form-note">No spam. Unsubscribe any time. The paid pack ($29) is offered in the welcome email, no pressure.</p>
-      </form>
+      <div class="cluster reveal pad-t">
+        <a class="btn" href="/funnels/ai-prompt-pack-v1/offer.html">See the full pack <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-arrow-right"></use></svg></a>
+      </div>
     </div>
+  </section>
 
-    <div class="upsell-line">
-      Already want the full 25-prompt pack?
-      <a href="https://macsmacpro.gumroad.com/l/ppvasu" target="_blank" rel="noopener" style="color:#3aa0ff;">Get it on Gumroad ($29)</a>
+  <section class="section">
+    <div class="shell">
+      <hr class="rule">
+      <div class="stack pad-t">
+        <h2 class="reveal">Get the seven by email.</h2>
+        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
+          <label class="visually-hidden" for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+          <button class="btn" type="submit">Send the prompts <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
+        </form>
+      </div>
     </div>
-  </div>
+  </section>
+
 </main>
 
-<script>
-const AB_VARIANTS = {"A": {"label": "system_proof", "title": "7 Prompts From the Live 26-Agent Stack", "subtitle": "The actual prompts running 83 autonomous crons on a gaming PC \u2014 copy, paste, run locally with Ollama or any free model.", "cta_text": "Get the 7 Free Prompts", "brand_score": 9.2}, "B": {"label": "outcome", "title": "7 Prompts That Run 83 Tasks While I Sleep", "subtitle": "These are the exact prompts handling content, lead scoring, and self-healing across 26 agents \u2014 yours free to copy and run on any local model.", "cta_text": "Send Me the 7 Prompts", "brand_score": 9.2}};
-const FUNNEL_ID = 'ai-prompt-pack-v1';
-let ACTIVE_VARIANT = '';
-
-// ── A/B assignment: persistent per-visitor, honors declared winner ──
-async function initAB() {
-  const ids = Object.keys(AB_VARIANTS);
-  if (ids.length < 2) return;  // no A/B configured
-  // 1. Declared winner routes 100%
-  let winner = null;
-  try {
-    const wr = await fetch('https://swi-chatbot.macsmacpro.workers.dev/ab/' + FUNNEL_ID);
-    const wd = await wr.json();
-    if (wd && wd.winner && AB_VARIANTS[wd.winner]) winner = wd.winner;
-  } catch (e) {}
-  // 2. Persistent assignment in localStorage, else random even split
-  const storeKey = 'ab_' + FUNNEL_ID;
-  let variant = winner || localStorage.getItem(storeKey);
-  if (!variant || !AB_VARIANTS[variant]) {
-    variant = ids[Math.floor(Math.random() * ids.length)];
-  }
-  if (winner) variant = winner;  // winner overrides stored
-  localStorage.setItem(storeKey, variant);
-  ACTIVE_VARIANT = variant;
-  // 3. Apply variant copy to the DOM
-  const v = AB_VARIANTS[variant];
-  if (v.title)    document.getElementById('funnel-headline').textContent = v.title;
-  if (v.subtitle) document.getElementById('funnel-sub').textContent = v.subtitle;
-  if (v.cta_text) document.getElementById('capture-btn').textContent = v.cta_text;
-  // 4. Track the view with variant
-  fetch('https://swi-chatbot.macsmacpro.workers.dev/track', {
-    method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ event: 'page_view', funnel: FUNNEL_ID, variant: variant,
-                           utm_campaign: 'ai-prompt-pack-v1' })
-  }).catch(() => {});
-}
-initAB();
-
-async function submitCapture(e) {
-  e.preventDefault();
-  const email = document.getElementById('capture-email').value.trim();
-  const btn   = document.getElementById('capture-btn');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  try {
-    const r = await fetch('https://swi-chatbot.macsmacpro.workers.dev/capture', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: 'lead_magnet', funnel_id: FUNNEL_ID,
-                             variant: ACTIVE_VARIANT })
-    });
-    const d = await r.json();
-    if (d.ok) {
-      document.getElementById('capture-form').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-      fetch('https://swi-chatbot.macsmacpro.workers.dev/track', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ event: 'intake_submit', funnel: FUNNEL_ID,
-                               variant: ACTIVE_VARIANT, utm_campaign: 'ai-prompt-pack-v1' })
-      }).catch(() => {});
-    } else {
-      btn.textContent = 'Try again';
-      btn.disabled = false;
-    }
-  } catch (err) {
-    btn.textContent = document.getElementById('capture-btn').dataset.original || 'Get Free Access';
-    btn.disabled = false;
-  }
-}
-</script>
-
-<footer class="footer" style="text-align:center;padding:2rem;color:#666;font-size:.8rem;">
-  <a href="/" style="color:#666;">SteelWorks Intelligence</a> ·
-  <a href="/legal.html" style="color:#666;">Privacy</a>
+<!-- steelworks:footer -->
+<footer class="site-footer">
+  <div class="shell">
+    <hr class="rule">
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://github.com/therealmacsteel" rel="noopener">
+        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
+        GitHub
+      </a>
+    </div>
+    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
+  </div>
 </footer>
-<script src="../../assets/track.js" defer></script>
+<!-- /steelworks:footer -->
+
+<script src="/assets/capture.js" defer></script>
 </body>
 </html>

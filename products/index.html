@@ -1,450 +1,152 @@
-<!--
-  Copyright © 2026 SteelWorks Intelligence LLC. All rights reserved.
-  Page: Products catalog
-  Brand: SteelWorks Intelligence | Platform: OpenClaw (MIT)
-  Author: Mac Steel | @therealmacsteel
--->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Products — SteelWorks Intelligence</title>
-  <meta name="description" content="The SteelWorks Intelligence product shelf: the $0 Outreach Machine, the Business OS Setup Guide, prompt packs, and the free AI business stack. Every number on this page comes from the running system.">
-  <link rel="canonical" href="https://therealmacsteel.github.io/products/">
-  <meta name="theme-color" content="#f8f9f8">
-  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/ibm-plex-sans-latin-700-normal.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
-  <style>
-    /* SteelWorks v3 receipt register — tokens shared with index-v3-living-receipt */
-    @font-face{font-family:'Plex Sans';src:url('../assets/fonts/ibm-plex-sans-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
-    @font-face{font-family:'Plex Sans';src:url('../assets/fonts/ibm-plex-sans-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
-    @font-face{font-family:'Plex Sans';src:url('../assets/fonts/ibm-plex-sans-latin-700-normal.woff2') format('woff2');font-weight:700;font-display:swap}
-    @font-face{font-family:'Plex Mono';src:url('../assets/fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
-    @font-face{font-family:'Plex Mono';src:url('../assets/fonts/ibm-plex-mono-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
-    :root{
-      --paper:#f8f9f8; --ink:#1a1f28; --ink-2:#4c5560; --ink-3:#5f6872;
-      --line:#e4e6e2; --steel:#2f7fd0; --steel-deep:#1f5f9e;
-      --card:#ffffff; --ok:#1f7a5c;
-      --sans:'Plex Sans',-apple-system,'Segoe UI',Arial,sans-serif;
-      --mono:'Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
-      --s2:8px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:96px;
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    html,body{max-width:100%;overflow-x:clip}
-    :focus-visible{outline:2px solid var(--steel);outline-offset:2px;border-radius:4px}
-    body{background:var(--paper);color:var(--ink);
-      font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
-    .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-    a{color:inherit;text-decoration:none}
-    a,button{touch-action:manipulation}
-    h1,h2,h3{letter-spacing:-0.02em;line-height:1.12;text-wrap:balance}
-    section{padding:var(--s7) 0}
-    .btn{display:inline-block;padding:13px 24px;border-radius:10px;border:0;
-      font:600 16px/1.2 var(--sans);cursor:pointer;
-      transition:transform .18s cubic-bezier(.22,1,.36,1),box-shadow .18s cubic-bezier(.22,1,.36,1)}
-    .btn:hover{transform:translateY(-1px)}
-    .btn-steel{background:var(--steel);color:#fff}
-    .btn-steel:hover{box-shadow:0 6px 18px rgba(47,127,208,.25)}
-    .btn-line{border:1px solid #d8d5cd;color:var(--ink);background:transparent}
-
-    nav{position:sticky;top:0;z-index:50;background:#f8f9f8;
-      border-bottom:1px solid var(--line)}
-    .nav-in{display:flex;align-items:center;justify-content:space-between;padding:15px 0;gap:12px}
-    .logo{font:600 16px/1 var(--mono);letter-spacing:-0.01em;white-space:nowrap}
-    .logo span{color:var(--steel)}
-    .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-2)}
-    .nav-links a:hover{color:var(--ink)}
-    .nav-cta{background:var(--steel);color:#fff;padding:9px 16px;border-radius:8px;
-      font-size:14px;font-weight:600;white-space:nowrap;transition:background .15s ease}
-    .nav-cta:hover{background:var(--steel-deep)}
-    footer a:hover{text-decoration:underline}
-
-    .hero{padding-top:var(--s7);padding-bottom:var(--s6)}
-    .hero h1{font-size:clamp(2.2rem,4.4vw,3.4rem);font-weight:700}
-    .hero h1 em{font-style:normal;color:var(--steel)}
-    .hero .sub{margin-top:18px;font-size:18px;color:var(--ink-2);max-width:58ch}
-    .hero .truth{margin-top:14px;font-size:15px;color:var(--ink-3);max-width:64ch}
-    .hero .truth .stat-number{font:600 15px/1 var(--mono);color:var(--steel-deep);
-      font-variant-numeric:tabular-nums}
-
-    .sec-head{max-width:64ch}
-    .sec-head h2{font-size:clamp(1.5rem,2.6vw,2rem)}
-    .sec-head p{margin-top:10px;color:var(--ink-2)}
-
-    /* featured offers: two unequal panels, receipt-white on paper */
-    .offers{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:var(--s5)}
-    .offers>*{min-width:0}
-    .offer{border:1px solid var(--line);border-radius:14px;background:var(--card);
-      padding:var(--s5);display:flex;flex-direction:column;gap:14px}
-    .offer h3{font-size:1.35rem}
-    .offer .price{font:600 13px/1 var(--mono);color:var(--steel-deep)}
-    .offer p{color:var(--ink-2);font-size:15.5px;flex:1;max-width:56ch}
-    .offer .btn-row{display:flex;gap:12px;flex-wrap:wrap}
-    .offer .btn-row .btn{flex:1;text-align:center;white-space:nowrap}
-
-    /* pack ledger: ruled spec-sheet rows, not a card grid */
-    .sheet{margin-top:var(--s5);background:var(--card);border:1px solid var(--line);
-      border-radius:14px;overflow:hidden}
-    .prow{display:grid;grid-template-columns:1fr auto auto;gap:24px;align-items:center;
-      padding:20px var(--s5);transition:background .15s ease}
-    .prow+.prow{border-top:1px solid var(--line)}
-    .prow>*{min-width:0}
-    .prow:hover{background:#fcfcfb}
-    .prow h3{font-size:1.02rem;font-weight:600}
-    .prow p{font-size:14px;color:var(--ink-2);margin-top:2px;max-width:60ch}
-    .prow .p-price{font:600 14px/1 var(--mono);color:var(--ink);
-      font-variant-numeric:tabular-nums;text-align:right}
-    .prow .p-go{font-size:14px;font-weight:600;color:var(--steel-deep);white-space:nowrap}
-
-    .freecap{margin-top:var(--s6);border:1px solid var(--line);border-radius:14px;
-      background:var(--card);padding:var(--s5);display:grid;
-      grid-template-columns:1fr auto;gap:24px;align-items:center}
-    .freecap>*{min-width:0}
-    .freecap h2{font-size:1.3rem}
-    .freecap p{color:var(--ink-2);font-size:15px;margin-top:6px;max-width:56ch}
-    .freecap .price{font:600 13px/1 var(--mono);color:var(--ok);margin-top:8px;display:inline-block}
-
-    footer{border-top:1px solid var(--line);padding:var(--s6) 0;
-      font-size:14px;color:var(--ink-2)}
-    .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-    .ticker-wrap{border-top:1px solid var(--line);padding:14px 24px;
-      font:400 13px/2 var(--sans);color:#4c5560;text-align:center;
-      max-width:980px;margin:0 auto;
-      display:flex;flex-wrap:wrap;justify-content:center;gap:6px 28px}
-    .ticker-item{display:inline-block;white-space:nowrap}
-
-    @media (max-width:900px){
-      .nav-links{display:none}
-      .logo{font-size:14px}
-      .nav-cta{padding:8px 12px;font-size:13px}
-      section{padding:var(--s6) 0}
-      .wrap{padding:0 16px}
-      .offers{grid-template-columns:1fr}
-      .prow{grid-template-columns:1fr auto;gap:10px;padding:18px 20px}
-      .prow .p-go{grid-column:1/-1;justify-self:start}
-      .freecap{grid-template-columns:1fr}
-    }
-  </style>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Products | SteelWorks Intelligence",
-  "description": "The SteelWorks Intelligence product shelf: the $0 Outreach Machine, the Business OS Setup Guide, prompt packs, and the free AI business stack.",
-  "url": "https://therealmacsteel.github.io/products/",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "SteelWorks Intelligence",
-    "url": "https://therealmacsteel.github.io"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "SteelWorks Intelligence LLC",
-    "url": "https://therealmacsteel.github.io"
-  }
-}
-  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Products — SteelWorks Intelligence</title>
+<meta name="description" content="Two working systems this autonomous company runs on itself: the $0 Outreach Machine ($24) and the Business OS Setup Guide ($47).">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/components.css">
+<!--
+  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
+  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
+  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
+  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
+  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
+  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
+  design-knowledge: style-systems.csv#21 Conversion-Optimized — one clear checkout per offer
+  Decisions of record: data/org/web-design-decisions.md
+-->
 </head>
 <body>
 
-<nav><div class="wrap nav-in">
-  <a class="logo" href="../index.html">STEELWORKS<span>/</span>INTELLIGENCE</a>
-  <div class="nav-links">
-    <a href="../platform.html">Platform</a>
-    <a href="index.html" aria-current="page">Products</a>
-    <a href="../ai-seo-agency.html">Services</a>
-    <a href="../content.html">Content</a>
-    <a href="../contact.html">Contact</a>
+<!-- steelworks:header -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href="/index.html">
+      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
+      SteelWorks
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/ai-search-visibility.html">AI Visibility</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
   </div>
-  <a class="nav-cta" href="../free-ai-business-stack.html">Get the Free Stack</a>
-</div></nav>
-
-<header class="wrap hero">
-  <h1>Products, priced <em>plainly.</em></h1>
-  <p class="sub">Everything on this shelf documents a system this company
-    actually runs on itself. One price each, one-time, on Gumroad. No
-    subscriptions, no invented numbers.</p>
-  <p class="truth">The stack behind these products currently runs
-    <span class="stat-number" data-target="41" data-stat="agents">41</span> agent
-    workspaces and
-    <span class="stat-number" data-target="336" data-stat="crons">336</span>
-    scheduled jobs on one MacBook. Those figures update from the live system,
-    not from marketing copy.</p>
 </header>
+<!-- /steelworks:header -->
 
-<section style="padding-top:var(--s5)"><div class="wrap">
-  <div class="sec-head">
-    <h2>The two working systems.</h2>
-    <p>Both are the systems we run, written down. The receipts on the
-      <a href="../index.html" style="color:var(--steel-deep);font-weight:600">homepage</a>
-      are the pitch.</p>
-  </div>
-  <div class="offers">
-    <div class="offer">
-      <h3>The $0 Outreach Machine</h3>
-      <span class="price">$24 · one-time</span>
-      <p>The cold-outreach system we actually run: a signal-first playbook,
-        the ship-bar-85 quality-gate skill, two-touch follow-ups, CAN-SPAM
-        compliance rails, and a setup guide. No paid tools anywhere in the
-        loop.</p>
-      <div class="btn-row">
-        <a class="btn btn-steel" href="outreach-machine.html">See what&rsquo;s inside &rarr;</a>
+<main id="main">
+
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow reveal">Products</p>
+      <h1 class="reveal">The two<br>working systems.</h1>
+      <p class="lede reveal">Both are systems this company runs on itself, written down.
+        The receipts on the <a href="/index.html">homepage</a> are the pitch.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+
+      <article class="reveal grid grid-2">
+        <div>
+          <h2><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-bolt"></use></svg> The $0 Outreach Machine</h2>
+          <p class="fine">$24 &middot; one-time</p>
+          <p>The cold-outreach system we actually run: a signal-first playbook, the
+            ship-bar-85 quality gate, two-touch follow-ups and CAN-SPAM rails. No paid
+            tools anywhere in the loop &mdash; the same daily cap that holds our own
+            sends holds yours.</p>
+          <p><a class="btn" href="https://macsmacpro.gumroad.com/l/stqefcm">
+            Buy on Gumroad &mdash; $24 <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-building-store"></use></svg></a></p>
+        </div>
+        <figure class="flush">
+          <img src="/assets/img/dial-gauge.jpg" width="800" height="600"
+               alt="A calibrated gauge: outreach here is capped and measured, not blasted.">
+          <figcaption class="fine">Capped and measured, not blasted.</figcaption>
+        </figure>
+      </article>
+
+      <hr class="rule">
+
+      <article class="reveal">
+        <h2><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg> The Business OS Setup Guide</h2>
+        <p class="fine">$47 &middot; one-time</p>
+        <p>The configs, scripts, routing patterns and cron templates behind the
+          free-first business OS: the agent operating map, model routing, scheduled
+          operations and the lead-generation script suite.</p>
+        <div class="receipt">
+          <dl>
+            <dt>agent operating map</dt><dd>included</dd>
+            <dt>model routing patterns</dt><dd>included</dd>
+            <dt>cron templates</dt><dd>included</dd>
+            <dt>paid tools required</dt><dd>none</dd>
+          </dl>
+        </div>
+        <p class="pad-t"><a class="btn" href="https://macsmacpro.gumroad.com/l/dkhfzd">
+          Buy on Gumroad &mdash; $47 <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-building-store"></use></svg></a></p>
+      </article>
+
+      <hr class="rule">
+
+      <article class="reveal">
+        <h2><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-file-text"></use></svg> Prompt packs and starter kits</h2>
+        <p>Smaller single-lane resources, each with its own page and checkout.</p>
+        <p class="cluster">
+          <a class="btn btn-ghost" href="/funnels/ai-prompt-pack-v1/offer.html">
+            Agent Prompt Pack &mdash; $29 <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-chevron-right"></use></svg></a>
+          <a class="btn btn-ghost" href="/products/model-router-pack.html">
+            Model Router Pack <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-chevron-right"></use></svg></a>
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <hr class="rule">
+      <div class="stack pad-t">
+        <p class="eyebrow reveal">Not buying yet</p>
+        <h2 class="reveal">Take the free stack instead.</h2>
+        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
+          <label class="visually-hidden" for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+          <button class="btn" type="submit">Send the stack <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
+        </form>
       </div>
     </div>
-    <div class="offer">
-      <h3>The Business OS Setup Guide</h3>
-      <span class="price">$47 · one-time</span>
-      <p>The configs, scripts, routing patterns, and cron templates behind
-        the SteelWorks free-first business OS: agent operating map, model
-        routing, scheduled operations, and the lead-generation script
-        suite.</p>
-      <div class="btn-row">
-        <a class="btn btn-steel" href="https://macsmacpro.gumroad.com/l/dkhfzd">Buy on Gumroad, $47</a>
-        <a class="btn btn-line" href="business-os-guide.html">Full details &rarr;</a>
-      </div>
+  </section>
+
+</main>
+
+<!-- steelworks:footer -->
+<footer class="site-footer">
+  <div class="shell">
+    <hr class="rule">
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://github.com/therealmacsteel" rel="noopener">
+        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
+        GitHub
+      </a>
     </div>
+    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
   </div>
-</div></section>
+</footer>
+<!-- /steelworks:footer -->
 
-<section style="padding-top:0"><div class="wrap">
-  <div class="sec-head">
-    <h2>Prompt packs and starter kits.</h2>
-    <p>Smaller, single-lane resources. Each links to its own page with the
-      full contents and a Gumroad checkout.</p>
-  </div>
-  <div class="sheet">
-    <a class="prow" href="agent-prompts-pack.html">
-      <div><h3>Agent Prompt Pack</h3><p>25 prompts for building autonomous AI agents.</p></div>
-      <span class="p-price">$10</span><span class="p-go">View &rarr;</span>
-    </a>
-    <a class="prow" href="model-router-pack.html">
-      <div><h3>Model Router Prompt Pack</h3><p>25 prompts for multi-model AI workflows.</p></div>
-      <span class="p-price">$10</span><span class="p-go">View &rarr;</span>
-    </a>
-    <a class="prow" href="ai-launch-stack-prompts.html">
-      <div><h3>AI Launch Stack Prompt Pack</h3><p>25 prompts for planning a product launch.</p></div>
-      <span class="p-price">$10</span><span class="p-go">View &rarr;</span>
-    </a>
-    <a class="prow" href="ai-model-optimization-prompts.html">
-      <div><h3>AI Model Optimization Prompt Pack</h3><p>25 prompts for tuning model performance.</p></div>
-      <span class="p-price">$10</span><span class="p-go">View &rarr;</span>
-    </a>
-    <a class="prow" href="ai-automation-storytelling.html">
-      <div><h3>AI Automation Storytelling Pack</h3><p>25 prompts for writing up automation wins.</p></div>
-      <span class="p-price">$10</span><span class="p-go">View &rarr;</span>
-    </a>
-    <a class="prow" href="ai-automation-templates.html">
-      <div><h3>AI Automation Templates</h3><p>Starter templates for common automation lanes.</p></div>
-      <span class="p-price">$10</span><span class="p-go">View &rarr;</span>
-    </a>
-    <a class="prow" href="free-first-growth-workflow.html">
-      <div><h3>Free-First Growth Workflow</h3><p>A growth workflow built entirely on free tools.</p></div>
-      <span class="p-price">$10</span><span class="p-go">View &rarr;</span>
-    </a>
-    <a class="prow" href="gumroad-notion-templates.html">
-      <div><h3>Gumroad Notion Templates</h3><p>Notion templates for running a Gumroad shop.</p></div>
-      <span class="p-price">$10</span><span class="p-go">View &rarr;</span>
-    </a>
-    <a class="prow" href="auto-generate-tiktok-voice-over-packs.html">
-      <div><h3>TikTok Voiceover Automation Pack</h3><p>Prompts for auto-generating short-video voiceovers.</p></div>
-      <span class="p-price">$10</span><span class="p-go">View &rarr;</span>
-    </a>
-    <a class="prow" href="browser-based-ai-script-runner.html">
-      <div><h3>Browser AI Script Runner Starter Pack</h3><p>A starter pack for running AI scripts in the browser.</p></div>
-      <span class="p-price">$10</span><span class="p-go">View &rarr;</span>
-    </a>
-    <a class="prow" href="api-for-ai-generated-voice-avatars.html">
-      <div><h3>AI Voice Avatar API Starter Pack</h3><p>A starter pack for AI voice-avatar APIs.</p></div>
-      <span class="p-price">$10</span><span class="p-go">View &rarr;</span>
-    </a>
-    <a class="prow" href="free-prompt-pack.html">
-      <div><h3>Free Prompt Pack</h3><p>A general-purpose prompt collection.</p></div>
-      <span class="p-price">$10</span><span class="p-go">View &rarr;</span>
-    </a>
-    <a class="prow" href="build-in-public-pack.html">
-      <div><h3>Build in Public Prompt Pack</h3><p>25 prompts for founder build-in-public content.</p></div>
-      <span class="p-price">$7</span><span class="p-go">View &rarr;</span>
-    </a>
-    <a class="prow" href="public-aibuilder-prompts.html">
-      <div><h3>Public AI Builder Prompt Pack</h3><p>25 prompts for sharing progress publicly.</p></div>
-      <span class="p-price">$7</span><span class="p-go">View &rarr;</span>
-    </a>
-  </div>
-
-  <div class="freecap">
-    <div>
-      <h2>Not ready to buy anything?</h2>
-      <p>Start with the free AI business stack: the exact free-first setup
-        this company runs on, documented, with the setup checklist.</p>
-      <span class="price">$0 · email delivery</span>
-    </div>
-    <a class="btn btn-steel" href="../free-ai-business-stack.html">Get the Free Stack &rarr;</a>
-  </div>
-</div></section>
-
-<div class="ticker-wrap"><!--STATS:TICKER:BEGIN-->
-      <span class="ticker-item">41 AI Agents Registered</span>
-      <span class="ticker-item">336 Scheduled Autonomous Jobs</span>
-      <span class="ticker-item">305 Posts Shipped</span>
-      <span class="ticker-item">7 AI Intelligence Bridges</span>
-      <span class="ticker-item">$0/month Paid-API Cost</span>
-      <span class="ticker-item">24/7 Runtime</span>
-      <span class="ticker-item">211 Skills</span>
-    <!--STATS:TICKER:END--></div>
-
-<footer><div class="wrap foot">
-  <div><strong>STEELWORKS/INTELLIGENCE</strong> — Acworth, GA<br>
-    Built in public. Wins and failures both.</div>
-  <div>
-    <a href="../free-ai-business-stack.html">Free Stack</a> ·
-    <a href="index.html">Products</a> ·
-    <a href="https://youtube.com/@therealmacsteel">YouTube</a> ·
-    <a href="../blog/index.html">Blog</a> ·
-    <a href="../about.html">About</a> ·
-    <a href="../contact.html">Contact</a>
-  </div>
-</div></footer>
-
-<script src="../assets/track.js" defer></script>
-<!-- OFFER_QUALITY_LIBRARY_START -->
-<section id="offer-quality-library">
-  <div class="container">
-    <span class="label">Offer Library</span>
-    <h2>Proof-Checked Offers</h2>
-    <p class="section-intro">Each active offer is checked for fulfillment path, proof artifact, bounded bonuses, upgrade path, free-first execution, expectation-safe claims, and E2E buyer journey before promotion.</p>
-    <div class="offer-library-group">
-        <h3>AI Search Services</h3>
-        <div class="offer-library-grid"><article class="offer-library-card">
-          <h3>AI Search Visibility Audit</h3>
-          <p>Small to midsize local or founder-led company with weak organic visibility, outdated website, or no AI-search readiness.</p>
-          <div class="offer-library-meta"><span>$99-$199</span><span>service</span></div>
-          <a href="ai-search-website-os.html" class="btn btn-primary">Start intake</a>
-        </article><article class="offer-library-card">
-          <h3>AI Search Implementation Sprint</h3>
-          <p>Small to midsize local or founder-led company with weak organic visibility, outdated website, or no AI-search readiness.</p>
-          <div class="offer-library-meta"><span>$499-$999</span><span>service</span></div>
-          <a href="ai-search-website-os.html" class="btn btn-primary">Start intake</a>
-        </article><article class="offer-library-card">
-          <h3>AI Search Website Build</h3>
-          <p>Small to midsize local or founder-led company with weak organic visibility, outdated website, or no AI-search readiness.</p>
-          <div class="offer-library-meta"><span>$499-$1499</span><span>service</span></div>
-          <a href="ai-search-website-os.html" class="btn btn-primary">Start intake</a>
-        </article><article class="offer-library-card">
-          <h3>Monthly AI Visibility Retainer</h3>
-          <p>Small to midsize local or founder-led company with weak organic visibility, outdated website, or no AI-search readiness.</p>
-          <div class="offer-library-meta"><span>$97-$497/mo</span><span>service</span></div>
-          <a href="ai-search-website-os.html" class="btn btn-primary">Start intake</a>
-        </article></div>
-      </div><div class="offer-library-group">
-        <h3>Digital Products</h3>
-        <div class="offer-library-grid"><article class="offer-library-card">
-          <h3>Agent Prompt Pack — 25 Prompts for Building Autonomous AI Agents</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$10</span><span>digital_product</span></div>
-          <a href="agent-prompts-pack.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>AI Automation Storytelling Prompt Pack — 25 Prompts for Sharing Automation Wins</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$10</span><span>digital_product</span></div>
-          <a href="ai-automation-storytelling.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>Ai Automation Templates</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$10</span><span>digital_product</span></div>
-          <a href="ai-automation-templates.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>AI-Powered Launch Stack Prompt Pack — 25 Prompts for Crafting a Winning Product Launch</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$10</span><span>digital_product</span></div>
-          <a href="ai-launch-stack-prompts.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>Profit-Driven AI Model Optimization Prompt Pack — 25 Prompts for Boosting Model Performance</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$10</span><span>digital_product</span></div>
-          <a href="ai-model-optimization-prompts.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>AI Voice Avatar API Starter Pack</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$10</span><span>digital_product</span></div>
-          <a href="api-for-ai-generated-voice-avatars.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>TikTok Voiceover Automation Prompt Pack</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$10</span><span>digital_product</span></div>
-          <a href="auto-generate-tiktok-voice-over-packs.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>Browser AI Script Runner Starter Pack</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$10</span><span>digital_product</span></div>
-          <a href="browser-based-ai-script-runner.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>Build in Public Prompt Pack — 25 Prompts for Authentic Founder Content</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$7</span><span>digital_product</span></div>
-          <a href="build-in-public-pack.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>Free First Growth Workflow</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$10</span><span>digital_product</span></div>
-          <a href="free-first-growth-workflow.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>Free Prompt Pack</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$10</span><span>digital_product</span></div>
-          <a href="free-prompt-pack.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>Gumroad Notion Templates</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$10</span><span>digital_product</span></div>
-          <a href="gumroad-notion-templates.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>Model Router Prompt Pack — 25 Prompts for Multi-Model AI Workflows</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$10</span><span>digital_product</span></div>
-          <a href="model-router-pack.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>Public AI Builder Prompt Pack — 25 Prompts for Sharing Progress</h3>
-          <p>operator, creator, or founder buying a practical SteelWorks digital resource</p>
-          <div class="offer-library-meta"><span>$7</span><span>digital_product</span></div>
-          <a href="public-aibuilder-prompts.html" class="btn btn-primary">View offer</a>
-        </article></div>
-      </div><div class="offer-library-group">
-        <h3>Business Opportunity Builds</h3>
-        <div class="offer-library-grid"><article class="offer-library-card">
-          <h3>Practical guide for &#x27;Pinterest&#x27;</h3>
-          <p>Creator, consultant, or small business owner trying to turn organic attention into revenue.</p>
-          <div class="offer-library-meta"><span>Free-first fulfillment</span><span>digital_product</span></div>
-          <a href="create-gumroad-product-for-pinterest.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>Conversion path for investor-deck.html</h3>
-          <p>Prospective investor or strategic partner evaluating SteelWorks Intelligence.</p>
-          <div class="offer-library-meta"><span>Free-first fulfillment</span><span>digital_product</span></div>
-          <a href="page-without-buy-cta-investor-deck-html.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>Conversion path for local-seo.html</h3>
-          <p>Local service business owner who needs more inbound leads without paid ads.</p>
-          <div class="offer-library-meta"><span>Free-first fulfillment</span><span>digital_product</span></div>
-          <a href="page-without-buy-cta-local-seo-html.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>Conversion path for investor.html</h3>
-          <p>Prospective investor or strategic partner evaluating SteelWorks Intelligence.</p>
-          <div class="offer-library-meta"><span>Free-first fulfillment</span><span>digital_product</span></div>
-          <a href="page-without-buy-cta-investor-html.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>Practical guide for &#x27;Reddit&#x27;</h3>
-          <p>Creator, consultant, or small business owner trying to turn organic attention into revenue.</p>
-          <div class="offer-library-meta"><span>Free-first fulfillment</span><span>digital_product</span></div>
-          <a href="create-gumroad-product-for-reddit.html" class="btn btn-primary">View offer</a>
-        </article><article class="offer-library-card">
-          <h3>High-engagement topic without product: &#x27;The AI SEO Agency&#x27;</h3>
-          <p>Business operator who wants a free-first AI automation path.</p>
-          <div class="offer-library-meta"><span>Free-first fulfillment</span><span>digital_product</span></div>
-          <a href="high-engagement-topic-without-product-the-ai-seo-agency.html" class="btn btn-primary">View offer</a>
-        </article></div>
-      </div>
-  </div>
-</section>
-<!-- OFFER_QUALITY_LIBRARY_END -->
+<script src="/assets/capture.js" defer></script>
 </body>
 </html>

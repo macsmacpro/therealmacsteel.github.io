@@ -1,129 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The $0 Outreach Machine | SteelWorks Intelligence</title>
-  <meta name="description" content="The cold-outreach system we actually run: a signal-first playbook, a ship-bar-85 quality-gate skill, two-touch follow-ups, CAN-SPAM compliance rails, and a setup guide. No paid tools. $24 on Gumroad." />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <link rel="canonical" href="https://therealmacsteel.github.io/products/outreach-machine.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="The $0 Outreach Machine | SteelWorks Intelligence" />
-  <meta property="og:description" content="The cold-outreach system we run — playbook, quality-gate skill, follow-ups, compliance rails. No paid tools. $24." />
-  <meta property="og:url" content="https://therealmacsteel.github.io/products/outreach-machine.html" />
-  <meta name="twitter:card" content="summary" />
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
-  <link rel="stylesheet" href="../assets/style.css" />
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "The $0 Outreach Machine",
-  "description": "The cold-outreach system we run: signal-first playbook, ship-bar-85 quality-gate skill, two-touch follow-ups, CAN-SPAM compliance rails, and a setup guide. No paid tools required.",
-  "brand": { "@type": "Brand", "name": "SteelWorks Intelligence" },
-  "url": "https://therealmacsteel.github.io/products/outreach-machine.html",
-  "offers": {
-    "@type": "Offer",
-    "price": "24",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock",
-    "url": "https://macsmacpro.gumroad.com/l/uqywh"
-  }
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "What is The $0 Outreach Machine?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A cold-outreach system that runs on a real business: a signal-first lead playbook, a quality-gate skill that scores every draft before it can send, two-touch follow-up templates, CAN-SPAM compliance rails, and a setup guide. Five markdown docs plus one skill file. No paid tools." } },
-    { "@type": "Question", "name": "Does it promise reply rates?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. Single-digit reply rates are what well-run cold outreach gets, and the playbook explains why that is normal. The value is making every send specific, honest, capped, and compliant so the channel stays alive long enough to compound." } },
-    { "@type": "Question", "name": "What do I need to run it?",
-      "acceptedAnswer": { "@type": "Answer", "text": "An email account you control, about 30 to 60 minutes of setup, and a human on approvals. Optionally any LLM (free local models work) for draft personalization; it degrades gracefully to template mode without one." } }
-  ]
-}
-  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The $0 Outreach Machine | SteelWorks Intelligence</title>
+<meta name="description" content="The cold-outreach system we actually run: a signal-first playbook, a ship-bar-85 quality-gate skill, two-touch follow-ups, CAN-SPAM compliance rails, and a setup guide. No paid tools. $24 on Gumroad.">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/components.css">
+<!--
+  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
+  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
+  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
+  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
+  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
+  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
+  Decisions of record: data/org/web-design-decisions.md
+-->
 </head>
 <body>
-<nav>
-  <div class="nav-inner">
-    <a href="../index.html" class="brand">SteelWorks Intelligence</a>
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../products/index.html">Offer Library</a></li>
-      <li><a href="../free-ai-business-stack.html">Free Stack</a></li>
-      <li><a href="../blog/index.html">Blog</a></li>
-      <li><a href="../contact.html">Contact</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="https://macsmacpro.gumroad.com/l/uqywh" class="btn btn-primary" target="_blank" rel="noopener" style="padding:.6rem 1.2rem;font-size:.75rem;">Get It — $24</a>
-    </div>
-    <div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div>
+
+<!-- steelworks:header -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href="/index.html">
+      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
+      SteelWorks
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/ai-search-visibility.html">AI Visibility</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
   </div>
-</nav>
-<main class="product-page conversion-page">
-  <section class="conversion-hero">
-    <h1>The $0 Outreach Machine</h1>
-    <p>The cold-outreach system built and run on a real business — not a template dump: a signal-first playbook, a quality gate that scores every draft before it can send, two-touch follow-ups, the compliance rails that keep it honest, plus a setup guide. No paid tools anywhere in the stack.</p>
-    <div class="conversion-actions">
-      <a class="btn btn-primary" href="https://macsmacpro.gumroad.com/l/uqywh" target="_blank" rel="noopener">Get Instant Access — $24</a>
-      <a class="btn btn-secondary" href="../products/index.html">Compare Offers</a>
-    </div>
-    <div class="conversion-kpis">
-      <span>5 docs + 1 quality-gate skill</span>
-      <span>No paid tools required</span>
-      <span>Runs manually or automated</span>
+</header>
+<!-- /steelworks:header -->
+
+<main id="main">
+
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow reveal">SteelWorks</p>
+      <h1 class="reveal">The $0 Outreach Machine</h1>
+      <p class="lede reveal">The cold-outreach system built and run on a real business — not a template dump: a signal-first playbook, a quality gate that scores every draft before it can send, two-touch follow-ups, the compliance rails that keep it honest, plus a setup guide. No paid tools anywhere in the stack.</p>
+      <p class="cluster reveal">
+        <a class="btn" href="https://macsmacpro.gumroad.com/l/uqywh">Buy on Gumroad <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-building-store"></use></svg></a>
+      </p>
     </div>
   </section>
 
-  <section class="product-grid">
-    <article>
-      <h2>What is inside</h2>
-      <ul>
-        <li><strong>The Playbook</strong>: signal-first lead finding (no purchased lists), the one-observation rule, the four-beat draft structure, volume discipline that protects your domain.</li>
-        <li><strong>The Quality-Gate Skill</strong>: a ship-bar-85 grading rubric that works with any LLM or as a human checklist. Seven named hard-fails that block a bad send outright.</li>
-        <li><strong>Follow-Up Templates</strong>: two touches then stop, each one adds value. Reply skeletons included. No breakup-email theater, no fake scarcity.</li>
-        <li><strong>Compliance Rails</strong>: the CAN-SPAM-floor footer, permanent suppression done at the send chokepoint, and the reply-classification traps we learned as real incidents.</li>
-        <li><strong>Setup Guide</strong>: running in 30 minutes manually, plus a graduation path to free automation in risk order.</li>
+
+  <section class="section">
+    <div class="shell">
+      <figure class="reveal flush">
+        <img src="/assets/img/generated/products-outreach-machine-html.png" width="768" height="576" alt="The $0 Outreach Machine">
+      </figure>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">What is inside</h2>
+      <p class="reveal">This needs an email account you control, 30 to 60 minutes of setup, and a human on approvals — the system drafts and queues, you approve what sends. That is a feature.</p>
+      <p class="reveal">It will not promise you reply rates. Single-digit reply rates are what well-run cold outreach gets, and the playbook tells you why that is normal. What it does is make every send specific, honest, capped, and compliant — which is what keeps the channel alive long enough to compound.</p>
+      <p class="reveal">No fabricated testimonials on this page, because the product is new. When buyers say useful things, they will appear here with permission, not before.</p>
+      <ul class="reveal mono">
+        <li>The Playbook : signal-first lead finding (no purchased lists), the one-observation rule, the four-beat draft structure, volume discipline that protects your domain.</li>
+        <li>The Quality-Gate Skill : a ship-bar-85 grading rubric that works with any LLM or as a human checklist. Seven named hard-fails that block a bad send outright.</li>
+        <li>Follow-Up Templates : two touches then stop, each one adds value. Reply skeletons included. No breakup-email theater, no fake scarcity.</li>
+        <li>Compliance Rails : the CAN-SPAM-floor footer, permanent suppression done at the send chokepoint, and the reply-classification traps we learned as real incidents.</li>
+        <li>Setup Guide : running in 30 minutes manually, plus a graduation path to free automation in risk order.</li>
       </ul>
-    </article>
-    <article>
-      <h2>Honest expectations</h2>
-      <p>This needs an email account you control, 30 to 60 minutes of setup, and a human on approvals — the system drafts and queues, you approve what sends. That is a feature.</p>
-      <p>It will not promise you reply rates. Single-digit reply rates are what well-run cold outreach gets, and the playbook tells you why that is normal. What it does is make every send specific, honest, capped, and compliant — which is what keeps the channel alive long enough to compound.</p>
-      <p>No fabricated testimonials on this page, because the product is new. When buyers say useful things, they will appear here with permission, not before.</p>
-    </article>
-  </section>
-
-  <section class="conversion-close">
-    <h2>Buy it only if it matches your bottleneck</h2>
-    <p>If your problem is that outreach feels like spam-at-scale or your drafts embarrass you, this is the system that fixes both — the gate is the piece that makes the rest safe to automate. If you do not do outbound at all, skip it.</p>
-    <a class="btn btn-primary" href="https://macsmacpro.gumroad.com/l/uqywh" target="_blank" rel="noopener">Get Instant Access — $24</a>
-  </section>
-
-<section class="section" data-openclaw-geo="true">
-  <div class="container" style="max-width: 980px;">
-    <h2>The $0 Outreach Machine: direct answer</h2>
-    <p>The $0 Outreach Machine is a $24 cold-outreach system from SteelWorks Intelligence: a signal-first lead playbook, a quality-gate skill that scores every draft against a ship bar of 85 before it can send, two-touch follow-up templates, CAN-SPAM compliance rails, and a setup guide. It runs on free tools, works manually or automated, and is written from a system that runs on a real business.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1.5rem 0;">
-      <div class="card"><strong>Best for</strong><p>Founders and operators who do cold outreach and want it specific, honest, and compliant instead of blasted.</p></div>
-      <div class="card"><strong>Delivery</strong><p>Instant download after purchase: five markdown documents plus the quality-gate skill file.</p></div>
-      <div class="card"><strong>Proof discipline</strong><p>Every rule in the product exists because something real broke without it. The incidents are documented inside.</p></div>
     </div>
-    <p>Related sources:
-      <a href="/products/index.html">Offer Library</a>,
-      <a href="/free-ai-business-stack.html">Free AI Business Stack</a>,
-      <a href="/blog/index.html">SteelWorks Blog</a>,
-      <a href="/contact.html">contact SteelWorks</a>.
-    </p>
-    <p style="color:var(--muted,#667);font-size:.95rem;">Last updated: 2026-08-01. Canonical source path: /products/outreach-machine.html.</p>
-  </div>
-</section>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">Honest expectations</h2>
+      <p class="reveal">This needs an email account you control, 30 to 60 minutes of setup, and a human on approvals — the system drafts and queues, you approve what sends. That is a feature.</p>
+      <p class="reveal">It will not promise you reply rates. Single-digit reply rates are what well-run cold outreach gets, and the playbook tells you why that is normal. What it does is make every send specific, honest, capped, and compliant — which is what keeps the channel alive long enough to compound.</p>
+      <p class="reveal">No fabricated testimonials on this page, because the product is new. When buyers say useful things, they will appear here with permission, not before.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">Buy it only if it matches your bottleneck</h2>
+      <p class="reveal">If your problem is that outreach feels like spam-at-scale or your drafts embarrass you, this is the system that fixes both — the gate is the piece that makes the rest safe to automate. If you do not do outbound at all, skip it.</p>
+      <p class="reveal">The $0 Outreach Machine is a $24 cold-outreach system from SteelWorks Intelligence: a signal-first lead playbook, a quality-gate skill that scores every draft against a ship bar of 85 before it can send, two-touch follow-up templates, CAN-SPAM compliance rails, and a setup guide. It runs on free tools, works manually or automated, and is written from a system that runs on a real business.</p>
+      <p class="reveal">Founders and operators who do cold outreach and want it specific, honest, and compliant instead of blasted.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">The $0 Outreach Machine: direct answer</h2>
+      <p class="reveal">The $0 Outreach Machine is a $24 cold-outreach system from SteelWorks Intelligence: a signal-first lead playbook, a quality-gate skill that scores every draft against a ship bar of 85 before it can send, two-touch follow-up templates, CAN-SPAM compliance rails, and a setup guide. It runs on free tools, works manually or automated, and is written from a system that runs on a real business.</p>
+      <p class="reveal">Founders and operators who do cold outreach and want it specific, honest, and compliant instead of blasted.</p>
+      <p class="reveal">Instant download after purchase: five markdown documents plus the quality-gate skill file.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <hr class="rule">
+      <div class="stack pad-t">
+        <h2 class="reveal">Get the free stack.</h2>
+        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
+          <label class="visually-hidden" for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+          <button class="btn" type="submit">Send it <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
+        </form>
+      </div>
+    </div>
+  </section>
 
 </main>
-<script src="../assets/main.js"></script>
-<script src="../assets/track.js" defer></script>
+
+<!-- steelworks:footer -->
+<footer class="site-footer">
+  <div class="shell">
+    <hr class="rule">
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://github.com/therealmacsteel" rel="noopener">
+        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
+        GitHub
+      </a>
+    </div>
+    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
+  </div>
+</footer>
+<!-- /steelworks:footer -->
+
+<script src="/assets/capture.js" defer></script>
 </body>
 </html>

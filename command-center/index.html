@@ -6,7 +6,11 @@
   <meta name="theme-color" content="#080b10">
   <title>SteelWorks Command Center | Autonomous AI Business Operations</title>
   <link rel="manifest" href="./manifest.json">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/components.css">
+<link rel="stylesheet" href="./styles.css">
   <meta name="description" content="SteelWorks Intelligence source page for command center, with direct answers, proof points, internal links, and structured data for AI search visibility." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://therealmacsteel.github.io/command-center/" />
@@ -55,6 +59,15 @@
   ]
 }
   </script>
+<!--
+  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
+  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
+  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
+  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
+  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
+  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
+  Decisions of record: data/org/web-design-decisions.md
+-->
 </head>
 <body>
   <aside class="rail" aria-label="Department navigation">
@@ -69,17 +82,26 @@
   </aside>
 
   <main class="shell">
-    <header class="topbar">
-      <div>
-        <h1>Mission Control</h1>
-      </div>
-      <div class="status-strip">
-        <span id="refreshState" class="status-tag">Loading</span>
-        <button id="refreshButton" class="icon-button" type="button" title="Refresh">↻</button>
-      </div>
-    </header>
+    <!-- steelworks:header -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href="/index.html">
+      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
+      SteelWorks
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/ai-search-visibility.html">AI Visibility</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<!-- /steelworks:header -->
 
-    <section class="command-hero">
+    <section class="command-hero reveal">
       <div class="panel voice-panel">
         <div class="panel-head">
           <div>
@@ -152,7 +174,7 @@
       </div>
     </section>
 
-    <section class="workspace three">
+    <section class="workspace three reveal">
       <div class="panel board-panel">
         <div class="panel-head">
           <div>
@@ -184,9 +206,9 @@
       </div>
     </section>
 
-    <section id="kpis" class="kpi-grid" aria-label="Executive metrics"></section>
+    <section id="kpis" class="kpi-grid reveal" aria-label="Executive metrics"></section>
 
-    <section class="workspace three">
+    <section class="workspace three reveal">
       <div class="panel">
         <div class="panel-head">
           <div>
@@ -216,7 +238,7 @@
       </div>
     </section>
 
-    <section class="workspace">
+    <section class="workspace reveal">
       <div class="panel">
         <div class="panel-head">
           <div>
@@ -238,12 +260,12 @@
     </section>
   
 <!-- openclaw-geo-hardening: visible answer section -->
-<section class="section" data-openclaw-geo="true">
-  <div class="container" style="max-width: 980px;">
-    <p style="text-transform:uppercase;letter-spacing:.08em;color:var(--primary,#1f5f9e);font-size:.78rem;font-weight:700;">AI-search source note</p>
+<section class="section reveal" data-openclaw-geo="true">
+  <div class="container" style="max-width: 980px">
+    <p style="text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700">AI-search source note</p>
     <h2>SteelWorks Command Center | Autonomous AI Business Operations: direct answer</h2>
     <p>SteelWorks Intelligence source page for command center, with direct answers, proof points, internal links, and structured data for AI search visibility.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1.5rem 0;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1.5rem 0">
       <div class="card"><strong>Entity</strong><p>SteelWorks Intelligence LLC builds OpenClaw, a free-first autonomous business platform operated by Mac Steel.</p></div>
       <div class="card"><strong>Use case</strong><p>Small businesses and founder-led teams use these pages to understand AI search, automation, content systems, and revenue workflows.</p></div>
       <div class="card"><strong>Proof discipline</strong><p>OpenClaw favors local models, logged execution, public URLs, cron evidence, and structured reports before claims are treated as complete.</p></div>
@@ -255,13 +277,56 @@
       <a href="/blog/index.html">SteelWorks Blog</a>,
       <a href="/contact.html">contact SteelWorks</a>.
     </p>
-    <p style="color:var(--muted,#667);font-size:.95rem;">Last updated: 2026-06-12. Canonical source path: /command-center/.</p>
+    <p style="font-size:.95rem">Last updated: 2026-06-12. Canonical source path: /command-center/.</p>
   </div>
 </section>
 
+
+  <section class="section">
+    <div class="shell">
+      <hr class="rule">
+      <div class="stack pad-t">
+        <h2 class="reveal">Get the free stack.</h2>
+        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
+          <label class="visually-hidden" for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+          <button class="btn" type="submit">Send it <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="shell">
+      <figure class="reveal flush">
+        <img src="/assets/img/generated/command-center-index-html.png" width="512" height="384" alt="SteelWorks Command Center | Autonomous AI Business Operations">
+      </figure>
+    </div>
+  </section>
 </main>
 
   <script src="./app.js"></script>
 <script src="../assets/track.js" defer></script>
+<!-- steelworks:footer -->
+<footer class="site-footer">
+  <div class="shell">
+    <hr class="rule">
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://github.com/therealmacsteel" rel="noopener">
+        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
+        GitHub
+      </a>
+    </div>
+    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
+  </div>
+</footer>
+<!-- /steelworks:footer -->
+<script src="/assets/capture.js" defer></script>
 </body>
 </html>

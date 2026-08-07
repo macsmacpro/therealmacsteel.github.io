@@ -1,367 +1,121 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact — SteelWorks Intelligence</title>
-  <meta name="description" content="Work with Mac Steel. Two service paths, one real lead form, one email list. Pricing lives on the service pages, receipts live on the homepage.">
-  <link rel="canonical" href="https://therealmacsteel.github.io/contact.html">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <meta name="theme-color" content="#f8f9f8">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact — SteelWorks Intelligence">
-  <meta property="og:description" content="Work with Mac Steel: AI search visibility or done-for-you AI operations. Real forms, honest failure states, no invented pricing.">
-  <meta property="og:url" content="https://therealmacsteel.github.io/contact.html">
-  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/ibm-plex-sans-latin-700-normal.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
-  <style>
-    /* SteelWorks v3 receipt system — light register (funnel page).
-       Tokens shared with index-v3-living-receipt.html. */
-    @font-face{font-family:'Plex Sans';src:url('assets/fonts/ibm-plex-sans-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
-    @font-face{font-family:'Plex Sans';src:url('assets/fonts/ibm-plex-sans-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
-    @font-face{font-family:'Plex Sans';src:url('assets/fonts/ibm-plex-sans-latin-700-normal.woff2') format('woff2');font-weight:700;font-display:swap}
-    @font-face{font-family:'Plex Mono';src:url('assets/fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
-    @font-face{font-family:'Plex Mono';src:url('assets/fonts/ibm-plex-mono-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
-    :root{
-      --paper:#f8f9f8; --ink:#1a1f28; --ink-2:#4c5560; --ink-3:#5f6872;
-      --line:#e4e6e2; --steel:#2f7fd0; --steel-deep:#1f5f9e;
-      --card:#ffffff; --ok:#1f7a5c; --err:#a33;
-      --sans:'Plex Sans',-apple-system,'Segoe UI',Arial,sans-serif;
-      --mono:'Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
-      --s2:8px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:96px;
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    html,body{max-width:100%;overflow-x:clip}
-    :focus-visible{outline:2px solid var(--steel);outline-offset:2px;border-radius:4px}
-    body{background:var(--paper);color:var(--ink);
-      font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
-    .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-    a{color:inherit;text-decoration:none}
-    a,button{touch-action:manipulation}
-    h1,h2,h3{letter-spacing:-0.02em;line-height:1.12;text-wrap:balance}
-    section{padding:var(--s7) 0}
-    .btn{display:inline-block;padding:13px 24px;border-radius:10px;border:0;
-      font:600 16px/1.2 var(--sans);cursor:pointer;
-      transition:transform .18s cubic-bezier(.22,1,.36,1),box-shadow .18s cubic-bezier(.22,1,.36,1)}
-    .btn:hover{transform:translateY(-1px)}
-    .btn-steel{background:var(--steel);color:#fff}
-    .btn-steel:hover{box-shadow:0 6px 18px rgba(47,127,208,.25)}
-    .btn-ink{background:var(--ink);color:#fff}
-    .btn-line{border:1px solid #d8d5cd;color:var(--ink);background:transparent}
-    .sec-head{max-width:64ch}
-    .sec-head h2{font-size:clamp(1.7rem,3vw,2.4rem)}
-    .sec-head p{margin-top:12px;color:var(--ink-2)}
-
-    nav{position:sticky;top:0;z-index:50;background:#f8f9f8;
-      border-bottom:1px solid var(--line)}
-    .nav-in{display:flex;align-items:center;justify-content:space-between;padding:15px 0;gap:12px}
-    .logo{font:600 16px/1 var(--mono);letter-spacing:-0.01em;white-space:nowrap}
-    .logo span{color:var(--steel)}
-    .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-2)}
-    .nav-links a:hover{color:var(--ink)}
-    .nav-cta{background:var(--steel);color:#fff;padding:9px 16px;border-radius:8px;
-      font-size:14px;font-weight:600;white-space:nowrap;transition:background .15s ease}
-    .nav-cta:hover{background:var(--steel-deep)}
-    footer a:hover{text-decoration:underline}
-
-    .hero{padding-top:var(--s8);padding-bottom:var(--s6)}
-    .hero h1{font-size:clamp(2.3rem,4.5vw,3.4rem);font-weight:700}
-    .hero h1 em{font-style:normal;color:var(--steel)}
-    .hero .sub{margin-top:18px;font-size:19px;color:var(--ink-2);max-width:54ch}
-
-    /* two routes */
-    .funnel{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:var(--s5)}
-    .funnel>*{min-width:0}
-    .f-card{border:1px solid var(--line);border-radius:14px;padding:var(--s5);
-      background:var(--card);display:flex;flex-direction:column;gap:14px}
-    .f-card h3{font-size:1.35rem}
-    .f-card p{color:var(--ink-2);font-size:15.5px;flex:1}
-    .f-card .note{font-size:13.5px;color:var(--ink-3);flex:0}
-    .f-card .btn{align-self:flex-start}
-
-    /* lead form */
-    .band{background:#eff1ee;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .lead-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;margin-top:var(--s5);align-items:start}
-    .lead-grid>*{min-width:0}
-    .lead-side p{color:var(--ink-2);font-size:15.5px;max-width:44ch}
-    .lead-side p+p{margin-top:14px}
-    .lead-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-      padding:var(--s5)}
-    .lead-card label{display:block;font:600 14px/1.6 var(--sans);color:var(--ink);
-      margin-top:18px}
-    .lead-card label:first-of-type{margin-top:0}
-    .lead-card input,.lead-card textarea{width:100%;margin-top:6px;padding:12px 14px;
-      font:400 15px/1.5 var(--sans);border:1px solid #d8d5cd;border-radius:10px;
-      background:#fff;color:var(--ink)}
-    .lead-card input:focus,.lead-card textarea:focus{outline:2px solid var(--steel);outline-offset:1px}
-    .lead-card textarea{resize:vertical}
-    .lead-card .btn{width:100%;margin-top:22px;text-align:center}
-    .form-ok{display:none;font:600 15px/1.6 var(--sans);color:var(--ok);margin-top:16px}
-    .form-err{display:none;font:400 14px/1.6 var(--sans);color:var(--err);margin-top:16px}
-    .form-err a{font-weight:600;text-decoration:underline}
-    .lead-fine{margin-top:12px;font-size:12.5px;color:var(--ink-3)}
-
-    /* email capture */
-    .capture{margin-top:var(--s5);border:1px solid var(--line);border-radius:14px;
-      background:var(--card);padding:var(--s5);display:grid;
-      grid-template-columns:1fr auto;gap:24px;align-items:center}
-    .capture>*{min-width:0}
-    .capture h2{font-size:1.2rem}
-    .capture p{color:var(--ink-2);font-size:14.5px;margin-top:6px;max-width:52ch}
-    .cap-form{display:flex;gap:10px;flex-wrap:wrap}
-    .cap-form input{padding:12px 14px;font:400 15px/1 var(--sans);min-width:250px;
-      border:1px solid #d8d5cd;border-radius:10px;background:#fff;color:var(--ink)}
-    .cap-form input:focus{outline:2px solid var(--steel);outline-offset:1px}
-
-    /* elsewhere */
-    .chan{margin-top:var(--s5);display:flex;gap:12px;flex-wrap:wrap}
-    .chan a{border:1px solid #d8d5cd;border-radius:10px;padding:10px 18px;
-      font:600 14px/1.4 var(--sans);color:var(--ink);transition:border-color .15s ease}
-    .chan a:hover{border-color:var(--steel);color:var(--steel-deep)}
-
-    footer{border-top:1px solid var(--line);padding:var(--s6) 0;
-      font-size:14px;color:var(--ink-2)}
-    .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-    .ticker-wrap{border-top:1px solid var(--line);padding:14px 24px;
-      font:400 13px/2 var(--sans);color:#4c5560;text-align:center;
-      max-width:980px;margin:0 auto}
-    .ticker-wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 28px}
-    .ticker-item{display:inline-block;white-space:nowrap}
-
-    @media (max-width:900px){
-      .nav-links{display:none}
-      .logo{font-size:14px}
-      .nav-cta{padding:8px 12px;font-size:13px}
-      section{padding:var(--s6) 0}
-      .wrap{padding:0 16px}
-      .hero{padding-top:var(--s6);padding-bottom:var(--s5)}
-      .funnel{grid-template-columns:1fr}
-      .lead-grid{grid-template-columns:1fr;gap:28px}
-      .capture{grid-template-columns:1fr}
-      .cap-form{flex-direction:column;align-items:stretch}
-      .cap-form input{width:100%;min-width:0}
-      .cap-form .btn{width:100%;text-align:center}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — SteelWorks Intelligence</title>
+<meta name="description" content="Two service paths, one form, and a straight answer within 48 hours.">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/components.css">
+<!--
+  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
+  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
+  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
+  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
+  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
+  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
+  design-knowledge: ux-guidelines.csv — one primary action per view; direct email offered as an alternative path
+  Decisions of record: data/org/web-design-decisions.md
+-->
 </head>
 <body>
 
-<nav><div class="wrap nav-in">
-  <a class="logo" href="index.html">STEELWORKS<span>/</span>INTELLIGENCE</a>
-  <div class="nav-links">
-    <a href="platform.html">Platform</a>
-    <a href="products/index.html">Products</a>
-    <a href="ai-seo-agency.html">Services</a>
-    <a href="content.html">Content</a>
-    <a href="contact.html">Contact</a>
+<!-- steelworks:header -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href="/index.html">
+      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
+      SteelWorks
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/ai-search-visibility.html">AI Visibility</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
   </div>
-  <a class="nav-cta" href="free-ai-business-stack.html">Get the Free Stack</a>
-</div></nav>
-
-<header class="wrap hero">
-  <h1>Work with <em>Mac.</em></h1>
-  <p class="sub">Two service paths, one form, and a straight answer within
-    48 hours. Pricing lives on the service pages, and the receipts behind
-    all of it live on the <a href="index.html" style="color:var(--steel-deep);font-weight:600">homepage</a>.</p>
 </header>
+<!-- /steelworks:header -->
 
-<section style="padding-top:0"><div class="wrap">
-  <div class="sec-head">
-    <h2>Pick the path that fits.</h2>
-    <p>Both are built with the same gated pipeline that builds this company.
-      Each page states its own pricing; this page won't quote numbers at you.</p>
-  </div>
-  <div class="funnel">
-    <div class="f-card">
-      <h3>AI search visibility &amp; SEO</h3>
-      <p>Audits and SEO for the answer-engine era: how your business shows up
-        when buyers ask an AI instead of a search box. Scope and pricing are
-        on the service page.</p>
-      <a class="btn btn-ink" href="ai-seo-agency.html">The AI SEO Agency →</a>
-      <p class="note">Best for: businesses that already sell and want to be found.</p>
+<main id="main">
+
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow reveal">Contact</p>
+      <h1 class="reveal">Work with Mac.</h1>
+      <p class="lede reveal">Two service paths, one form, and a straight answer within 48
+        hours. Pricing lives on the service pages; the receipts behind all of it are on
+        the homepage.</p>
     </div>
-    <div class="f-card">
-      <h3>Done-for-you AI operations</h3>
-      <p>Outreach, inbox triage, content, and reporting run as one autonomous
-        system on your accounts. Scope and pricing are on the service page.</p>
-      <a class="btn btn-steel" href="ventures/done-for-you-ai-operations.html">Done-for-you ops →</a>
-      <p class="note">Best for: solo owners drowning in repeat work.</p>
+  </section>
+
+  <section class="section">
+    <div class="shell grid grid-2">
+      <div class="reveal">
+        <h2><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-chart-line"></use></svg> AI search visibility</h2>
+        <p>Get found by the models people actually ask. Audit, fix, and a re-check that
+          proves the fix held &mdash; the same gated pipeline this company runs on itself.</p>
+        <p><a href="/ai-search-visibility.html">See how the audit works <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-arrow-right"></use></svg></a></p>
+      </div>
+      <div class="reveal">
+        <h2><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-rocket"></use></svg> Build the fleet</h2>
+        <p>An agent system that ships its own work behind gates: quality bars enforced in
+          code, kill switch reachable, and nothing marked done from a dry run.</p>
+        <p><a href="/ai-seo-agency.html">See the agency lane <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-arrow-right"></use></svg></a></p>
+      </div>
     </div>
-  </div>
-</div></section>
+  </section>
 
-<section class="band"><div class="wrap">
-  <div class="sec-head">
-    <h2>Or skip the reading. Tell me the problem.</h2>
-    <p>Four fields, one free scoping call, no card. If it isn't a fit,
-      I'll say so on the call.</p>
-  </div>
-  <div class="lead-grid">
-    <div class="lead-side">
-      <p>This form posts to the same lead system the fleet runs on. A human
-        (me) reads every submission and replies within 48 hours.</p>
-      <p>Prefer email? <a href="mailto:steelworksintelligence@gmail.com" style="color:var(--steel-deep);font-weight:600">steelworksintelligence@gmail.com</a>
-        works too, but the form routes faster.</p>
+  <section class="section">
+    <div class="shell grid grid-2">
+      <figure class="reveal flush">
+        <img src="/assets/img/kill-switch.jpg" width="800" height="600"
+             alt="A physical kill switch — every automated lane here can be halted by one.">
+        <figcaption class="fine">Every lane has one of these. It is tested, not assumed.</figcaption>
+      </figure>
+      <div class="reveal" id="reach">
+        <p class="eyebrow">Straight answer, 48 hours</p>
+        <h2>Send it over.</h2>
+        <p>Tell me which path fits and what you are trying to move. If it is not a fit I
+          will say so rather than book a call about it.</p>
+        <form class="capture" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
+          <label class="visually-hidden" for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+          <button class="btn" type="submit">Start the conversation <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
+        </form>
+        <p class="fine">Or email direct:
+          <a href="mailto:steelworksintelligence@gmail.com">steelworksintelligence@gmail.com</a></p>
+      </div>
     </div>
-    <div class="lead-card">
-      <form id="lead-form">
-        <label for="lead-name">Name</label>
-        <input id="lead-name" name="name" autocomplete="name" placeholder="Sam Rivera" required>
-        <label for="lead-email">Work email</label>
-        <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="sam@yourbusiness.com" required>
-        <label for="lead-biz">Business name or website</label>
-        <input id="lead-biz" name="company" autocomplete="organization" placeholder="riveraroofing.com" required>
-        <label for="lead-sink">What eats the most of your week right now?</label>
-        <textarea id="lead-sink" name="notes" rows="3" placeholder="Chasing leads, answering the same emails, posting content…" required></textarea>
-        <button class="btn btn-steel" id="lead-btn" type="submit">Request my free scoping call</button>
-      </form>
-      <p class="form-ok" id="lead-ok" role="status">Got it. I'll reach out within
-        48 hours to book your scoping call.</p>
-      <p class="form-err" id="lead-err" role="alert" tabindex="-1">That didn&rsquo;t go
-        through. Retry, or email
-        <a href="mailto:steelworksintelligence@gmail.com">steelworksintelligence@gmail.com</a>
-        and I&rsquo;ll reply.</p>
-      <p class="lead-fine">Lead capture only. No payment collected, ever, from this page.</p>
+  </section>
+
+</main>
+
+<!-- steelworks:footer -->
+<footer class="site-footer">
+  <div class="shell">
+    <hr class="rule">
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://github.com/therealmacsteel" rel="noopener">
+        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
+        GitHub
+      </a>
     </div>
+    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
   </div>
-</div></section>
+</footer>
+<!-- /steelworks:footer -->
 
-<section><div class="wrap">
-  <div class="capture">
-    <div>
-      <h2>Not ready to talk? Start with one email.</h2>
-      <p>The full free stack, the setup checklist, and one build note each
-        week when something ships. Unsubscribe anytime.</p>
-    </div>
-    <form class="cap-form" id="cap-form">
-      <input type="email" id="cap-email" name="email" autocomplete="email"
-        spellcheck="false" placeholder="you@company.com" required
-        aria-label="Email address">
-      <button class="btn btn-steel" id="cap-btn" type="submit">Send me the stack</button>
-    </form>
-    <p class="form-ok" id="cap-ok" role="status" style="margin-top:0">Check your inbox. The stack is on its way.</p>
-    <p class="form-err" id="cap-err" role="alert" tabindex="-1" style="margin-top:0">That didn&rsquo;t go
-      through. Retry, or email
-      <a href="mailto:steelworksintelligence@gmail.com">steelworksintelligence@gmail.com</a>.</p>
-  </div>
-
-  <div class="sec-head" style="margin-top:var(--s7)">
-    <h2>Watch the build in public.</h2>
-    <p>The system posts its own updates. Same numbers, same failures,
-      no polish pass.</p>
-  </div>
-  <div class="chan">
-    <a href="https://t.me/therealmacsteel" target="_blank" rel="noopener">Telegram</a>
-    <a href="https://youtube.com/@therealmacsteel" target="_blank" rel="noopener">YouTube</a>
-    <a href="https://x.com/therealmacsteel" target="_blank" rel="noopener">X</a>
-    <a href="https://tiktok.com/@therealmacsteel" target="_blank" rel="noopener">TikTok</a>
-    <a href="https://www.instagram.com/macsmacpro/" target="_blank" rel="noopener">Instagram</a>
-  </div>
-</div></section>
-
-<div class="ticker-wrap"><!--STATS:TICKER:BEGIN-->
-      <span class="ticker-item">41 AI Agents Registered</span>
-      <span class="ticker-item">336 Scheduled Autonomous Jobs</span>
-      <span class="ticker-item">305 Posts Shipped</span>
-      <span class="ticker-item">7 AI Intelligence Bridges</span>
-      <span class="ticker-item">$0/month Paid-API Cost</span>
-      <span class="ticker-item">24/7 Runtime</span>
-      <span class="ticker-item">211 Skills</span>
-    <!--STATS:TICKER:END--></div>
-
-<footer><div class="wrap foot">
-  <div><strong>STEELWORKS/INTELLIGENCE</strong> — Acworth, GA<br>
-    Built in public. Wins and failures both.</div>
-  <div>
-    <a href="free-ai-business-stack.html">Free Stack</a> ·
-    <a href="products/index.html">Products</a> ·
-    <a href="https://youtube.com/@therealmacsteel">YouTube</a> ·
-    <a href="blog/index.html">Blog</a> ·
-    <a href="about.html">About</a> ·
-    <a href="contact.html">Contact</a>
-  </div>
-</div></footer>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "SteelWorks Intelligence LLC",
-  "description": "SteelWorks Intelligence builds autonomous business systems on free-first, self-hosted AI. Based in Acworth, GA.",
-  "url": "https://therealmacsteel.github.io",
-  "email": "steelworksintelligence@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Acworth",
-    "addressRegion": "GA",
-    "postalCode": "30101",
-    "addressCountry": "US"
-  },
-  "areaServed": ["Acworth GA", "Atlanta GA", "United States"],
-  "sameAs": [
-    "https://twitter.com/therealmacsteel",
-    "https://tiktok.com/@therealmacsteel",
-    "https://youtube.com/@therealmacsteel",
-    "https://www.instagram.com/macsmacpro/"
-  ]
-}
-</script>
-<script src="assets/track.js" defer></script>
-<script>
-  // ── service-lead form → swi-leads (real endpoint, honest failure) ──
-  document.getElementById('lead-form').addEventListener('submit', async e => {
-    e.preventDefault();
-    const btn = document.getElementById('lead-btn');
-    const errEl = document.getElementById('lead-err');
-    btn.textContent = 'Sending…'; btn.disabled = true;
-    errEl.style.display = 'none';
-    try {
-      const r = await fetch('https://swi-leads.macsmacpro.workers.dev/api/lead', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: document.getElementById('lead-name').value.trim(),
-          email: document.getElementById('lead-email').value.trim(),
-          company: document.getElementById('lead-biz').value.trim(),
-          notes: document.getElementById('lead-sink').value.trim(),
-          source: 'venture:contact'
-        })
-      });
-      const d = await r.json();
-      if (d.ok) {
-        document.getElementById('lead-form').style.display = 'none';
-        document.getElementById('lead-ok').style.display = 'block';
-        if (window.swTrack) swTrack('lead_submit', { href: 'contact-lead' });
-      } else { throw new Error(d.error || ('HTTP ' + r.status)); }
-    } catch (err) {
-      errEl.style.display = 'block'; errEl.focus();
-      btn.textContent = 'Request my free scoping call'; btn.disabled = false;
-    }
-  });
-
-  // ── email capture → swi-chatbot (real endpoint, honest failure) ──
-  document.getElementById('cap-form').addEventListener('submit', async e => {
-    e.preventDefault();
-    const btn = document.getElementById('cap-btn');
-    const errEl = document.getElementById('cap-err');
-    btn.textContent = 'Sending…'; btn.disabled = true;
-    errEl.style.display = 'none';
-    try {
-      const r = await fetch('https://swi-chatbot.macsmacpro.workers.dev/capture', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: document.getElementById('cap-email').value.trim(),
-          source: 'contact', funnel_id: 'contact' })
-      });
-      const d = await r.json();
-      if (d.ok) {
-        document.getElementById('cap-form').style.display = 'none';
-        document.getElementById('cap-ok').style.display = 'block';
-        if (window.swTrack) swTrack('intake_submit', { href: 'contact-inline' });
-      } else { throw new Error('capture not ok'); }
-    } catch (err) {
-      errEl.style.display = 'block'; errEl.focus();
-      btn.textContent = 'Send me the stack'; btn.disabled = false;
-    }
-  });
-</script>
+<script src="/assets/capture.js" defer></script>
 </body>
 </html>

@@ -1,250 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free AI Business Automation Stack | Replace Paid SaaS With Local Agents</title>
-  <meta name="description" content="A practical free AI business automation stack for founders: local models, browser bridges, open-source tools, SEO, content, lead generation, and Telegram operations without paid APIs." />
-  <meta name="keywords" content="free AI business automation stack, free AI agents, replace Zapier free, replace Clay AI free, local Ollama business automation, autonomous business system, AI automation for founders" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="author" content="Mac Steel" />
-  <link rel="canonical" href="https://therealmacsteel.github.io/free-ai-business-stack.html" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Free AI Business Automation Stack | SteelWorks Intelligence" />
-  <meta property="og:description" content="The no-paid-API stack Mac Steel uses to run agents for content, leads, SEO, product funnels, and Telegram operations." />
-  <meta property="og:url" content="https://therealmacsteel.github.io/free-ai-business-stack.html" />
-  <meta property="og:image" content="https://therealmacsteel.github.io/assets/brand/banner.png" />
-  <meta property="og:site_name" content="SteelWorks Intelligence" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@therealmacsteel" />
-  <meta name="twitter:creator" content="@therealmacsteel" />
-  <meta name="twitter:title" content="The Free AI Business Automation Stack" />
-  <meta name="twitter:description" content="Local models, free bridges, open-source workflows, and Telegram operations. Built for founders avoiding monthly SaaS burn." />
-  <meta name="twitter:image" content="https://therealmacsteel.github.io/assets/brand/banner.png" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" href="assets/brand/profile-photo.png" />
-  <link rel="stylesheet" href="assets/style.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Free AI Business Automation Stack",
-    "description": "A practical free AI automation stack for founders using local models, free browser bridges, open-source scripts, static SEO pages, and Telegram operations.",
-    "url": "https://therealmacsteel.github.io/free-ai-business-stack.html",
-    "author": {"@type": "Person", "name": "Mac Steel", "url": "https://therealmacsteel.github.io/about.html"},
-    "publisher": {"@type": "Organization", "name": "SteelWorks Intelligence LLC", "url": "https://therealmacsteel.github.io"}
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "Build a free AI business automation stack",
-    "description": "A no-paid-API path for founders who want content, lead generation, SEO, product promotion, and operational monitoring without monthly SaaS costs.",
-    "totalTime": "P7D",
-    "step": [
-      {"@type": "HowToStep", "name": "Run local models first", "text": "Use a local Ollama server for routine reasoning, coding, analysis, and drafting before any cloud fallback."},
-      {"@type": "HowToStep", "name": "Route rare hard tasks through free bridges", "text": "Use browser or n8n bridges only when a task needs outside context or a different model style."},
-      {"@type": "HowToStep", "name": "Publish useful search pages", "text": "Build crawlable static pages that answer specific founder questions and link to deeper posts or products."},
-      {"@type": "HowToStep", "name": "Turn every post into a funnel", "text": "Each social post should point to a useful page, a free resource, or a low-friction product."},
-      {"@type": "HowToStep", "name": "Operate through Telegram", "text": "Use Telegram as the control room for status, approvals, alerts, and revenue actions."}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Can an AI business automation stack run without paid APIs?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Yes, for many founder workflows. Local models can handle drafting, analysis, coding, SEO planning, lead scoring, and reporting. Free browser bridges can be reserved for harder tasks, but the system should be designed to work even when those bridges are unavailable."}
-      },
-      {
-        "@type": "Question",
-        "name": "What should a free AI business stack automate first?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Start with monitoring, content repurposing, SEO pages, lead capture, CRM updates, and daily reporting. These produce compounding business value without requiring paid infrastructure or risky irreversible actions."}
-      },
-      {
-        "@type": "Question",
-        "name": "Is free AI automation as strong as paid SaaS?",
-        "acceptedAnswer": {"@type": "Answer", "text": "It can be stronger for custom workflows if you own the scripts, data, and local models. Paid SaaS is usually easier to start, but a self-hosted system can be cheaper, more private, and more adaptable over time."}
-      }
-    ]
-  }
-  </script>
-<style>
-  .stack-row{padding:20px 4px;border-bottom:1px solid var(--card-border,#232c3d)}
-  .stack-row:last-child{border-bottom:0}
-  .stack-row h3{margin-bottom:.5rem}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Free AI Business Stack | SteelWorks Intelligence</title>
+<meta name="description" content="Every tool this autonomous company runs on is free or self-hosted. No paid API anywhere in the path.">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/components.css">
+<!--
+  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
+  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
+  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
+  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
+  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
+  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
+  design-knowledge: style-systems.csv#21 Conversion-Optimized — single capture as the page's one job
+  Decisions of record: data/org/web-design-decisions.md
+-->
 </head>
 <body>
 
-<nav id="main-nav">
-  <div class="container nav-inner">
-    <a href="index.html" class="nav-logo">STEELWORKS INTELLIGENCE</a>
-    <ul class="nav-links">
-      <li><a href="platform.html">Platform</a></li>
-      <li><a href="products/index.html">Products</a></li>
-      <li><a href="ai-seo-agency.html">Services</a></li>
-      <li><a href="content.html">Content</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="contact.html" class="btn btn-primary" style="padding:.6rem 1.2rem;font-size:.75rem;">Work with Mac</a>
-    </div>
-    <div class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></div>
+<!-- steelworks:header -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href="/index.html">
+      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
+      SteelWorks
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/ai-search-visibility.html">AI Visibility</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
   </div>
-</nav>
+</header>
+<!-- /steelworks:header -->
 
-<div class="page-header">
-  <div class="container">
-    <h1>Free AI Business Automation Stack</h1>
-    <p>A practical campaign blueprint for founders who want content, SEO, leads, products, and daily operations without monthly SaaS burn.</p>
-    <div id="stack-capture" style="max-width:420px;margin:2rem auto 0">
-      <form id="capture-form" onsubmit="submitCapture(event)">
-        <input type="email" id="capture-email" placeholder="you@company.com" required
-               style="width:100%;padding:.85rem 1rem;font-size:1rem;border:1px solid var(--line,#333);border-radius:6px;background:var(--surface,#111);color:var(--text,#fff);margin-bottom:.75rem;box-sizing:border-box">
-        <button id="capture-btn" type="submit" class="btn btn-primary" style="width:100%">Email me the full stack + playbook</button>
-        <p style="font-size:.75rem;opacity:.7;margin-top:.5rem">The complete checklist and setup links, one email. No spam, unsubscribe anytime.</p>
-      </form>
-      <div id="form-success" style="display:none;padding:1rem;background:#3aa0ff22;border:1px solid #3aa0ff;border-radius:6px;text-align:center;color:#3aa0ff">Check your inbox — the stack is on its way.</div>
-    </div>
-    <p style="text-align:center;margin-top:1.25rem"><a href="#stack" style="font-size:.9rem;font-weight:600">See the stack ↓</a></p>
-  </div>
-</div>
-<script>
-async function submitCapture(e) {
-  e.preventDefault();
-  const email = document.getElementById('capture-email').value.trim();
-  const btn = document.getElementById('capture-btn');
-  btn.textContent = 'Sending...'; btn.disabled = true;
-  try {
-    const r = await fetch('https://swi-chatbot.macsmacpro.workers.dev/capture', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: 'free_stack', funnel_id: 'free-ai-business-stack' })
-    });
-    const d = await r.json();
-    if (d.ok) {
-      document.getElementById('capture-form').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-      fetch('https://swi-chatbot.macsmacpro.workers.dev/track', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ event: 'intake_submit', funnel: 'free-ai-business-stack' })
-      }).catch(() => {});
-    } else { btn.textContent = 'Try again'; btn.disabled = false; }
-  } catch (err) { btn.textContent = 'Try again'; btn.disabled = false; }
-}
-</script>
+<main id="main">
 
-<section class="section" id="stack">
-  <div class="container">
-    <h2 style="text-align:center;margin-bottom:.5rem">The Free Campaign Stack</h2>
-    <p style="text-align:center;color:var(--muted);max-width:760px;margin:0 auto 3rem">The point is not to avoid software. The point is to stop renting the same workflow five times. SteelWorks runs local-first, uses free bridges only when useful, and turns every output into a compounding asset.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem">
-      <div class="stack-row">
-        <h3 style="color:var(--primary);font-size:1rem;margin-bottom:.75rem">1. Local Model Lane</h3>
-        <p>Ollama on the PC handles drafting, coding, strategy, scoring, and analysis. This is the default lane because it has no marginal cost and keeps business context close.</p>
-      </div>
-      <div class="stack-row">
-        <h3 style="color:var(--primary);font-size:1rem;margin-bottom:.75rem">2. Free Bridge Lane</h3>
-        <p>n8n and browser bridges route rare high-context or style-sensitive tasks to free model accounts, then close browser sessions when the task is done.</p>
-      </div>
-      <div class="stack-row">
-        <h3 style="color:var(--primary);font-size:1rem;margin-bottom:.75rem">3. SEO Asset Lane</h3>
-        <p>Static pages answer specific search intent: free AI agents, replace Zapier, replace Clay, local AI automation, and founder operating systems.</p>
-      </div>
-      <div class="stack-row">
-        <h3 style="color:var(--primary);font-size:1rem;margin-bottom:.75rem">4. Social Distribution Lane</h3>
-        <p>Every idea becomes a short post, thread, short-form video script, and community post. The CTA points to a useful page before asking for money.</p>
-      </div>
-      <div class="stack-row">
-        <h3 style="color:var(--primary);font-size:1rem;margin-bottom:.75rem">5. Product Ladder Lane</h3>
-        <p>Low-ticket prompt packs turn attention into first revenue. Services and builds sit behind the products for people who want implementation.</p>
-      </div>
-      <div class="stack-row">
-        <h3 style="color:var(--primary);font-size:1rem;margin-bottom:.75rem">6. Telegram Ops Lane</h3>
-        <p>Telegram is the command center: status, failures, approvals, campaign results, and revenue opportunities. The business should be operable from one phone.</p>
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow reveal">Free stack</p>
+      <h1 class="reveal">The whole stack,<br>and none of it billed.</h1>
+      <p class="lede reveal">Every tool this company runs on is free or self-hosted. Not a
+        trial, not a freemium tier &mdash; there is no paid API anywhere in the path, and
+        that is a constraint the fleet is built around.</p>
+      <div class="cluster reveal">
+        <a class="btn" href="#get">Send me the stack <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-download"></use></svg></a>
+        <a class="btn btn-ghost" href="/products/index.html">See the paid systems <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-chevron-right"></use></svg></a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section" style="background:var(--bg2)">
-  <div class="container" style="max-width:900px">
-    <h2>What This Replaces</h2>
-    <p style="margin-bottom:1.5rem">This stack is built for founders who would otherwise stitch together paid tools before they have cash flow. It does not pretend every free tool is better. It does force every paid tool to earn its place.</p>
-    <div style="display:grid;gap:1rem">
-      <div class="stack-row"><strong style="color:var(--primary)">Zapier / Make:</strong> replaced first by Python scripts, launchd/cron schedules, n8n self-hosting, and direct webhooks.</div>
-      <div class="stack-row"><strong style="color:var(--primary)">Clay / Apollo-style workflows:</strong> replaced by public-data prospecting, enrichment scripts, scoring rules, and CRM updates.</div>
-      <div class="stack-row"><strong style="color:var(--primary)">Copy and content tools:</strong> replaced by local models, brand memory, content calendars, and quality gates.</div>
-      <div class="stack-row"><strong style="color:var(--primary)">Dashboards:</strong> replaced by static reports, SQLite, JSON logs, and Telegram summaries.</div>
+  <section class="section">
+    <div class="shell grid grid-2">
+      <figure class="reveal flush">
+        <img src="/assets/img/steel-texture.jpg" width="800" height="600"
+             alt="Brushed steel: the plain material this stack is made of, with nothing hidden behind a paywall.">
+        <figcaption class="fine">No paid API sits anywhere in this path.</figcaption>
+      </figure>
+      <div class="reveal">
+        <p class="eyebrow">What is actually in it</p>
+        <h2>Free is the constraint, not the pitch.</h2>
+        <p>A free-tier tool that expires is not free. Everything listed runs locally or on
+          a permanently free plan, and the fleet fails closed rather than reaching for a
+          paid fallback.</p>
+        <div class="receipt">
+          <dl>
+            <dt>local inference</dt><dd>Ollama</dd>
+            <dt>image generation</dt><dd>ComfyUI</dd>
+            <dt>automation</dt><dd>n8n, self-hosted</dd>
+            <dt>paid APIs in path</dt><dd>0</dd>
+          </dl>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <div class="container" style="max-width:900px">
-    <h2>The Free Campaign Playbook</h2>
-    <p style="margin-bottom:1.5rem">Use this page as the hub. Every post should drive one of three actions: read the stack, get the prompt pack, or ask Mac to build the system.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
-      <div class="stack-row">
-        <h3 style="color:var(--primary);font-size:1rem">Daily Post</h3>
-        <p>One real system result, failure, repair, or lesson. No fake revenue claims. No vague hype.</p>
-      </div>
-      <div class="stack-row">
-        <h3 style="color:var(--primary);font-size:1rem">Weekly Pillar</h3>
-        <p>One useful SEO page or blog post that answers a search query with more proof than a generic AI listicle.</p>
-      </div>
-      <div class="stack-row">
-        <h3 style="color:var(--primary);font-size:1rem">Product CTA</h3>
-        <p>Sell the next smallest step: prompt pack first, setup guide next, custom build last.</p>
+  <section class="section" id="get">
+    <div class="shell">
+      <hr class="rule">
+      <div class="stack pad-t">
+        <h2 class="reveal">Where should it go?</h2>
+        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
+          <label class="visually-hidden" for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+          <button class="btn" type="submit">Send the stack <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
+        </form>
       </div>
     </div>
-    <div class="card" style="margin-top:2rem;border-color:var(--primary);background:rgba(58,160,255,0.05)">
-      <h3 style="color:var(--primary);margin-bottom:.75rem">Start Here</h3>
-      <p style="margin-bottom:1rem">If you are building with no budget, start with the prompt packs and copy the operating pattern: local-first models, clear agent roles, scheduled work, quality gates, and Telegram control.</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap">
-        <a href="https://macsmacpro.gumroad.com/l/ppvasu" class="btn btn-primary" target="_blank">Agent Prompt Pack</a>
-        <a href="https://macsmacpro.gumroad.com/l/aihma" class="btn btn-secondary" target="_blank">Model Router Pack</a>
-        <a href="contact.html" class="btn btn-blue">Build It With Mac</a>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="section" style="background:var(--bg2)">
-  <div class="container" style="max-width:900px">
-    <h2>FAQ</h2>
-    <div style="display:grid;gap:1rem;margin-top:1.5rem">
-      <div class="stack-row">
-        <h3 style="font-size:1rem;color:var(--primary)">Can this run without ChatGPT Pro or Claude Pro?</h3>
-        <p>Yes for routine operations. Premium tools are useful for review and high-context strategy, but the architecture should survive on local models, free bridges, and deterministic scripts.</p>
-      </div>
-      <div class="stack-row">
-        <h3 style="font-size:1rem;color:var(--primary)">What is the first revenue path?</h3>
-        <p>Attention goes to the free-stack page. Warm readers go to low-ticket prompt packs. High-intent people go to a custom build or local business automation package.</p>
-      </div>
-      <div class="stack-row">
-        <h3 style="font-size:1rem;color:var(--primary)">What should stay human-approved?</h3>
-        <p>Real money, billing, legal commitments, account deletion, sensitive outreach, and live trading. Everything else should be automated with logs, limits, and recovery paths.</p>
-      </div>
-    </div>
-  </div>
-</section>
+</main>
 
-<footer>
-  <div class="container">
-    <div class="footer-bottom">
-      <span>© 2026 SteelWorks Intelligence LLC · Acworth, GA</span>
-      <span><a href="platform.html">Platform</a> · <a href="products/index.html">Products</a> · <a href="contact.html">Contact</a></span>
+<!-- steelworks:footer -->
+<footer class="site-footer">
+  <div class="shell">
+    <hr class="rule">
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://github.com/therealmacsteel" rel="noopener">
+        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
+        GitHub
+      </a>
     </div>
+    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
   </div>
 </footer>
+<!-- /steelworks:footer -->
 
-<script src="assets/main.js"></script>
-<script src="assets/track.js" defer></script>
+<script src="/assets/capture.js" defer></script>
 </body>
 </html>

@@ -1,566 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Platform | SteelWorks Intelligence™ | Autonomous Business OS</title>
-  <meta name="description" content="SteelWorks Intelligence runs 26 specialized AI agents, 171 scheduled operations, PC-local Ollama models, free browser bridges, and agent-routed Telegram reporting at $0/month." />
-  <meta name="keywords" content="SteelWorks Intelligence platform, autonomous business operating system, free AI automation platform, 26 AI agents, Clay alternative free, Manus AI alternative, self-hosted AI, replace Zapier free, AI agent platform, multi-agent AI system" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="Mac Steel" />
-  <meta name="copyright" content="SteelWorks Intelligence LLC" />
-  <meta name="trademark" content="SteelWorks Intelligence™, Enhance Everything™" />
-  <link rel="canonical" href="https://therealmacsteel.github.io/platform.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="The Platform | SteelWorks Intelligence™ | Autonomous Business OS" />
-  <meta property="og:description" content="SteelWorks Intelligence: 26 agents, 171 scheduled operations, PC-local Ollama routing, free browser bridges. $0/month autonomous business OS." />
-  <meta property="og:url" content="https://therealmacsteel.github.io/platform.html" />
-  <meta property="og:image" content="https://therealmacsteel.github.io/assets/brand/banner.png" />
-  <meta property="og:site_name" content="SteelWorks Intelligence™" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@therealmacsteel" />
-  <meta name="twitter:creator" content="@therealmacsteel" />
-  <meta name="twitter:title" content="SteelWorks Intelligence™ — 26 AI Agents Running at $0/Month" />
-  <meta name="twitter:description" content="Autonomous Business OS by SteelWorks Intelligence. Agent workflows, local models, free bridges, Telegram routing, and owned infrastructure at a $0/month platform target." />
-  <meta name="twitter:image" content="https://therealmacsteel.github.io/assets/brand/banner.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" href="assets/brand/profile-photo.png" />
-  <link rel="stylesheet" href="assets/style.css" />
-  <style>
-    @font-face{font-family:'Plex Sans';src:url('assets/fonts/ibm-plex-sans-latin-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
-    @font-face{font-family:'Plex Sans';src:url('assets/fonts/ibm-plex-sans-latin-600-normal.woff2') format('woff2');font-weight:600;font-display:swap}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Platform | SteelWorks Intelligence™ | Autonomous Business OS</title>
+<meta name="description" content="SteelWorks Intelligence runs 26 specialized AI agents, 171 scheduled operations, PC-local Ollama models, free browser bridges, and agent-routed Telegram reporting at $0/month.">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/components.css">
+<!--
+  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
+  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
+  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
+  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
+  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
+  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
+  Decisions of record: data/org/web-design-decisions.md
+-->
 </head>
 <body>
 
-<nav id="main-nav">
-  <div class="container nav-inner">
-    <a href="index.html" class="nav-logo">STEELWORKS INTELLIGENCE™</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="platform.html" class="active">Platform</a></li>
-      <li><a href="free-ai-business-stack.html">Free Stack</a></li>
-      <li><a href="products/index.html">Products</a></li>
-      <li><a href="content.html">Content</a></li>
-      <li><a href="blog/">Blog</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="https://youtube.com/@therealmacsteel" target="_blank" class="btn btn-secondary" style="padding:.6rem 1.2rem;font-size:.75rem;">▶ Watch Build</a>
-      <a href="contact.html" class="btn btn-primary" style="padding:.6rem 1.2rem;font-size:.75rem;">Get Access</a>
-    </div>
-    <div class="nav-burger"><span></span><span></span><span></span></div>
+<!-- steelworks:header -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href="/index.html">
+      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
+      SteelWorks
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/ai-search-visibility.html">AI Visibility</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
   </div>
-</nav>
+</header>
+<!-- /steelworks:header -->
 
-<div class="page-header">
-  <div class="container">
-    <h1><span style="color:var(--primary)">SteelWorks Intelligence</span> Platform</h1>
-    <p>The autonomous business operating system, running content, leads, intelligence, and operations 24/7 at $0/month. Built on OpenClaw open source infrastructure (MIT License, openclaw.ai).</p>
-    <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-      <a href="#agents" class="btn btn-primary">See the Agents →</a>
-      <a href="#bridges" class="btn btn-secondary">How the $0 Cost Works</a>
+<main id="main">
+
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow reveal">SteelWorks</p>
+      <h1 class="reveal">SteelWorks Intelligence Platform</h1>
+      <p class="lede reveal">The autonomous business operating system, running content, leads, intelligence, and operations 24/7 at $0/month. Built on OpenClaw open source infrastructure (MIT License, openclaw.ai).</p>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- ── Stats Bar ── -->
-<section style="background:rgba(58,160,255,0.04);border-top:1px solid rgba(58,160,255,0.2);border-bottom:1px solid rgba(58,160,255,0.2);padding:2rem 0">
-  <div class="container">
-    <div class="stats-row">
-      <div class="stat-box"><span class="stat-number" data-target="26">26</span><div class="stat-label">Active Agents</div></div>
-      <div class="stat-box"><span class="stat-number" data-target="162">162</span><div class="stat-label">Skills</div></div>
-      <div class="stat-box"><span class="stat-number" data-target="171">171</span><div class="stat-label">Scheduled Ops</div></div>
-      <div class="stat-box"><span class="stat-number" data-target="5">5</span><div class="stat-label">AI Bridges</div></div>
-      <div class="stat-box"><span class="stat-number" data-target="0">0</span><div class="stat-label">$/Month</div></div>
+
+  <section class="section">
+    <div class="shell">
+      <figure class="reveal flush">
+        <img src="/assets/img/generated/platform-html.png" width="768" height="576" alt="SteelWorks Intelligence Platform">
+      </figure>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── What It Actually Does ── -->
-<section class="section" id="capabilities">
-  <div class="container">
-    <h2 style="text-align:center;margin-bottom:.75rem">What <span style="color:var(--primary)">Actually Runs</span></h2>
-    <p style="text-align:center;color:var(--muted);margin-bottom:3rem;max-width:600px;margin-left:auto;margin-right:auto">Not a dashboard. Not a chatbot. A production system running 171 scheduled operations, right now.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem">
 
-      <div class="card reveal">
-        <div style="color:var(--primary);font-family:monospace;font-size:.75rem;letter-spacing:.1em;margin-bottom:1rem">CONTENT PIPELINE</div>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem;font-size:.9rem">
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Topic research via local model routing and free web bridges</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Script drafting through agent-selected PC, browser, or free fallback lanes</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Voice synthesis (macOS say + ElevenLabs fallback)</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Image generation (Pollinations free API)</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Video assembly (ffmpeg + Pillow pipeline)</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Multi-platform caption adaptation</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Quality-gated cross-platform publishing</li>
-        </ul>
-        <div style="margin-top:1rem;padding:.75rem;background:rgba(0,0,0,0.3);border-radius:8px;font-size:.8rem;color:var(--muted)">Replaces: Canva AI, Buffer, Loom, Descript, Jasper</div>
-      </div>
-
-      <div class="card reveal">
-        <div style="color:var(--primary);font-family:monospace;font-size:.75rem;letter-spacing:.1em;margin-bottom:1rem">LEAD INTELLIGENCE</div>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem;font-size:.9rem">
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> LinkedIn profile scraping</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> GitHub developer profiling</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Twitter audience targeting</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Hunter.io email discovery</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> ICP scoring with DeepSeek analysis</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Personalized outreach drafting</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Pipeline tracking and follow-up</li>
-        </ul>
-        <div style="margin-top:1rem;padding:.75rem;background:rgba(0,0,0,0.3);border-radius:8px;font-size:.8rem;color:var(--muted)">Replaces: Clay ($150-800/mo), Apollo.io ($49-149/mo)</div>
-      </div>
-
-      <div class="card reveal">
-        <div style="color:var(--primary);font-family:monospace;font-size:.75rem;letter-spacing:.1em;margin-bottom:1rem">COMPETITOR INTELLIGENCE</div>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem;font-size:.9rem">
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Daily price/feature monitoring: Manus, Clay, AgenticSeek, Zapier, Gumloop, Suna</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Grok-powered social signal analysis</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Weekly competitive briefing</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Gap identification and positioning alerts</li>
-        </ul>
-        <div style="margin-top:1rem;padding:.75rem;background:rgba(0,0,0,0.3);border-radius:8px;font-size:.8rem;color:var(--muted)">Replaces: Crayon, Kompyte, manual research</div>
-      </div>
-
-      <div class="card reveal">
-        <div style="color:var(--primary);font-family:monospace;font-size:.75rem;letter-spacing:.1em;margin-bottom:1rem">REAL ESTATE INTELLIGENCE</div>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem;font-size:.9rem">
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> 7-market daily deal scans (BRRRR/ALF/sober living)</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Automated BRRRR underwriting</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Creative finance opportunity identification</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> RE guru monitoring (strategy tracking)</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Weekly opportunity briefing to Telegram</li>
-        </ul>
-        <div style="margin-top:1rem;padding:.75rem;background:rgba(0,0,0,0.3);border-radius:8px;font-size:.8rem;color:var(--muted)">Replaces: PropStream, DealMachine, manual underwriting</div>
-      </div>
-
-      <div class="card reveal">
-        <div style="color:var(--primary);font-family:monospace;font-size:.75rem;letter-spacing:.1em;margin-bottom:1rem">SEO AUTOMATION</div>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem;font-size:.9rem">
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Weekly keyword rank tracking (11 P1 keywords)</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Automated 1500-word blog post generation</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Backlink opportunity scanning (Reddit, HN)</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Schema markup: Person, Software, FAQ, LocalBusiness</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Local SEO (Acworth GA / Atlanta metro)</li>
-        </ul>
-        <div style="margin-top:1rem;padding:.75rem;background:rgba(0,0,0,0.3);border-radius:8px;font-size:.8rem;color:var(--muted)">Replaces: Ahrefs, SEMrush, Surfer SEO (all $99-199/mo)</div>
-      </div>
-
-      <div class="card reveal">
-        <div style="color:var(--primary);font-family:monospace;font-size:.75rem;letter-spacing:.1em;margin-bottom:1rem">SELF-HEALING OPERATIONS</div>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem;font-size:.9rem">
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Nightly maintenance cron (service restarts)</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Bridge health check every 2 hours → Telegram</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Memory consolidation and dreaming cycle</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Error recovery and retry logic</li>
-          <li style="display:flex;align-items:flex-start;gap:.5rem"><span style="color:var(--primary);flex-shrink:0">→</span> Morning voice brief (7:10 AM ET): system status</li>
-        </ul>
-        <div style="margin-top:1rem;padding:.75rem;background:rgba(0,0,0,0.3);border-radius:8px;font-size:.8rem;color:var(--muted)">Replaces: PagerDuty, Datadog, DevOps contractor</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── Agent Hierarchy ── -->
-<section class="section" style="background:var(--bg2)" id="agents">
-  <div class="container">
-    <h2 style="text-align:center;margin-bottom:.75rem">The <span style="color:var(--primary)">22 Agents</span></h2>
-    <p style="text-align:center;color:var(--muted);margin-bottom:3rem">Each agent owns a domain. They communicate, coordinate, and escalate to each other autonomously.</p>
-    <div class="agent-grid">
-
-      <div class="card agent-card reveal" style="border-color:rgba(58,160,255,0.4)">
-        <div class="agent-role" style="color:var(--primary)">COMMAND</div>
-        <div class="agent-name">Architect</div>
-        <div class="agent-desc">Top-level orchestration. Backlog management. Cross-agent coordination. The operating system's kernel: routes all strategic decisions.</div>
-      </div>
-
-      <div class="card agent-card reveal">
-        <div class="agent-role">INTELLIGENCE</div>
-        <div class="agent-name">Research</div>
-        <div class="agent-desc">Market intelligence, competitor tracking, industry trends, citation retrieval. Routes tasks to the optimal intelligence layer for each query type.</div>
-      </div>
-
-      <div class="card agent-card reveal">
-        <div class="agent-role">CONTENT</div>
-        <div class="agent-name">Worker</div>
-        <div class="agent-desc">Content production, scripts, video captions, social copy, email drafts. Optimized for creative output across all content formats.</div>
-      </div>
-
-      <div class="card agent-card reveal">
-        <div class="agent-role">ANALYTICS</div>
-        <div class="agent-name">Analytics</div>
-        <div class="agent-desc">KPI tracking, engagement metrics, revenue reporting. Aggregates data across all channels. Identifies what's working and what's not.</div>
-      </div>
-
-      <div class="card agent-card reveal">
-        <div class="agent-role">OPERATIONS</div>
-        <div class="agent-name">Ops</div>
-        <div class="agent-desc">System health, bridge monitoring, cron management, self-healing. The platform's immune system: keeps everything running 24/7.</div>
-      </div>
-
-      <div class="card agent-card reveal">
-        <div class="agent-role">SOCIAL</div>
-        <div class="agent-name">Social</div>
-        <div class="agent-desc">Multi-platform monitoring, posting coordination, engagement tracking, social signal scanning. Real-time trend awareness across all platforms.</div>
-      </div>
-
-      <div class="card agent-card reveal">
-        <div class="agent-role">SEO</div>
-        <div class="agent-name">SEO</div>
-        <div class="agent-desc">Keyword rank tracking, content generation, backlink opportunity scanning. Runs weekly SEO audits and generates optimized blog posts.</div>
-      </div>
-
-      <div class="card agent-card reveal">
-        <div class="agent-role">REAL ESTATE</div>
-        <div class="agent-name">RealEstate</div>
-        <div class="agent-desc">Daily market scans across 7 markets. BRRRR/ALF underwriting, creative finance identification, guru monitoring, weekly briefings.</div>
-      </div>
-
-      <div class="card agent-card reveal">
-        <div class="agent-role">LEAD GEN</div>
-        <div class="agent-name">Prospecting</div>
-        <div class="agent-desc">LinkedIn/GitHub/Twitter scraping, Hunter email discovery, ICP scoring, outreach drafting. Full sales pipeline automation.</div>
-      </div>
-
-      <div class="card agent-card reveal">
-        <div class="agent-role">EVOLUTION</div>
-        <div class="agent-name">Evolution L2</div>
-        <div class="agent-desc">Identifies capability gaps. Proposes new skills. Writes code to implement them. Self-pruning based on performance data. The system's growth engine.</div>
-      </div>
-
-      <div class="card agent-card reveal" style="border-style:dashed;opacity:.75">
-        <div class="agent-role">+12 MORE</div>
-        <div class="agent-name">Full Roster</div>
-        <div class="agent-desc">Email marketing, brand intelligence, community management, trading analysis (Alpaca-ready), CRO, voice, image, video, all deployed.</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── Bridge Architecture ── -->
-<section class="section" id="bridges">
-  <div class="container">
-    <h2 style="text-align:center;margin-bottom:.75rem">The <span style="color:var(--primary)">$0 Architecture</span></h2>
-    <p style="text-align:center;color:var(--muted);margin-bottom:3rem;max-width:600px;margin-left:auto;margin-right:auto">How SteelWorks Intelligence routes AI work across local models, n8n bridges, and free browser lanes without paying per API token.</p>
-
-    <!-- Architecture Flow -->
-    <div class="card reveal" style="margin-bottom:2rem;background:rgba(0,0,0,0.4);font-family:monospace;font-size:.8rem">
-      <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.75rem;text-align:center">
-        <div style="padding:.5rem 1rem;border:1px solid var(--primary);border-radius:6px;color:var(--primary)">Agent Task</div>
-        <div style="color:var(--muted)">→</div>
-        <div style="padding:.5rem 1rem;border:1px solid var(--muted);border-radius:6px;color:var(--text)">Task Router</div>
-        <div style="color:var(--muted)">→</div>
-        <div style="padding:.5rem 1rem;border:1px solid var(--secondary);border-radius:6px;color:var(--secondary)">Proprietary Bridge</div>
-        <div style="color:var(--muted)">→</div>
-        <div style="padding:.5rem 1rem;border:1px solid var(--muted);border-radius:6px;color:var(--text)">AI Browser Session</div>
-        <div style="color:var(--muted)">→</div>
-        <div style="padding:.5rem 1rem;border:1px solid var(--primary);border-radius:6px;color:var(--primary)">Response Returned</div>
-      </div>
-      <p style="text-align:center;margin-top:1rem;color:var(--muted);font-size:.7rem;font-family:'Plex Sans',system-ui,sans-serif">Proprietary bridge architecture routes queries to AI browser sessions already logged in. No API key. No billing. <a href="#membership" style="color:var(--primary)">Full implementation in Members Library →</a></p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem">
-      <div class="card reveal" style="text-align:center;padding:1.25rem">
-        <div style="font-family:monospace;color:var(--primary);font-size:.9rem;margin-bottom:.5rem">DeepSeek</div>
-        <div style="color:var(--muted);font-size:.75rem;margin-bottom:.75rem">chat.deepseek.com</div>
-        <div style="font-size:.75rem;color:rgba(255,255,255,0.6);line-height:1.5">Strategy · Analysis<br>Planning · Architecture</div>
-      </div>
-      <div class="card reveal" style="text-align:center;padding:1.25rem">
-        <div style="font-family:monospace;color:var(--primary);font-size:.9rem;margin-bottom:.5rem">ChatGPT</div>
-        <div style="color:var(--muted);font-size:.75rem;margin-bottom:.75rem">chatgpt.com</div>
-        <div style="font-size:.75rem;color:rgba(255,255,255,0.6);line-height:1.5">Creative · Writing<br>Hooks · Copy</div>
-      </div>
-      <div class="card reveal" style="text-align:center;padding:1.25rem">
-        <div style="font-family:monospace;color:var(--primary);font-size:.9rem;margin-bottom:.5rem">Gemini</div>
-        <div style="color:var(--muted);font-size:.75rem;margin-bottom:.75rem">gemini.google.com</div>
-        <div style="font-size:.75rem;color:rgba(255,255,255,0.6);line-height:1.5">Fallback Reasoning<br>Long-form Analysis</div>
-      </div>
-      <div class="card reveal" style="text-align:center;padding:1.25rem">
-        <div style="font-family:monospace;color:var(--primary);font-size:.9rem;margin-bottom:.5rem">Grok</div>
-        <div style="color:var(--muted);font-size:.75rem;margin-bottom:.75rem">grok.com</div>
-        <div style="font-size:.75rem;color:rgba(255,255,255,0.6);line-height:1.5">Realtime · Trending<br>Social Intelligence</div>
-      </div>
-      <div class="card reveal" style="text-align:center;padding:1.25rem">
-        <div style="font-family:monospace;color:var(--primary);font-size:.9rem;margin-bottom:.5rem">Perplexity</div>
-        <div style="color:var(--muted);font-size:.75rem;margin-bottom:.75rem">perplexity.ai</div>
-        <div style="font-size:.75rem;color:rgba(255,255,255,0.6);line-height:1.5">Research · Citations<br>Market Data</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Competitor Table ── -->
-<section class="section" style="background:var(--bg2)" id="compare">
-  <div class="container">
-    <h2 style="text-align:center;margin-bottom:.75rem">vs. the <span style="color:var(--primary)">Competition</span></h2>
-    <p style="text-align:center;color:var(--muted);margin-bottom:3rem">Why pay for a walled garden when you can own the whole farm?</p>
-    <div style="overflow-x:auto">
-      <table style="width:100%;border-collapse:collapse;font-size:.9rem">
-        <thead>
-          <tr>
-            <th style="padding:.75rem 1rem;text-align:left;border-bottom:1px solid var(--card-border);color:var(--muted);font-weight:400">Feature</th>
-            <th style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid var(--card-border);color:var(--danger,#ff4757)">Zapier Pro</th>
-            <th style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid var(--card-border);color:var(--danger,#ff4757)">Clay Pro</th>
-            <th style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid var(--card-border);color:var(--danger,#ff4757)">Manus.ai</th>
-            <th style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid var(--card-border);color:var(--danger,#ff4757)">MS Copilot</th>
-            <th style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid var(--card-border);color:var(--primary);font-family:monospace">SteelWorks Intelligence</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding:.75rem 1rem;border-bottom:1px solid rgba(255,255,255,0.05)">Monthly Cost</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--danger,#ff4757)">$70–250</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--danger,#ff4757)">$150–800</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--danger,#ff4757)">$50–200</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--danger,#ff4757)">$30/seat</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--primary);font-weight:700">$0</td>
-          </tr>
-          <tr>
-            <td style="padding:.75rem 1rem;border-bottom:1px solid rgba(255,255,255,0.05)">Autonomous Agents</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">Limited</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">Limited</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--primary);font-weight:700">22</td>
-          </tr>
-          <tr>
-            <td style="padding:.75rem 1rem;border-bottom:1px solid rgba(255,255,255,0.05)">Data Sovereignty</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗ Cloud only</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗ Cloud only</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗ Cloud only</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗ Cloud only</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--primary);font-weight:700">✓ Self-hosted</td>
-          </tr>
-          <tr>
-            <td style="padding:.75rem 1rem;border-bottom:1px solid rgba(255,255,255,0.05)">Self-Improving</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--primary);font-weight:700">✓ L2 Active</td>
-          </tr>
-          <tr>
-            <td style="padding:.75rem 1rem;border-bottom:1px solid rgba(255,255,255,0.05)">Multi-AI Routing</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">Limited</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">1 model</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">1 model</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--primary);font-weight:700">5 models</td>
-          </tr>
-          <tr>
-            <td style="padding:.75rem 1rem;border-bottom:1px solid rgba(255,255,255,0.05)">Real Estate Intel</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--primary);font-weight:700">✓ 7 markets</td>
-          </tr>
-          <tr>
-            <td style="padding:.75rem 1rem;border-bottom:1px solid rgba(255,255,255,0.05)">Full Customization</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">Limited</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">Limited</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05)">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--primary);font-weight:700">✓ Full code</td>
-          </tr>
-          <tr>
-            <td style="padding:.75rem 1rem">Autonomous Revenue Path</td>
-            <td style="padding:.75rem 1rem;text-align:center">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center">✗</td>
-            <td style="padding:.75rem 1rem;text-align:center;color:var(--primary);font-weight:700">✓ L3 roadmap</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ── RSI Roadmap ── -->
-<section class="section" id="roadmap">
-  <div class="container">
-    <h2 style="text-align:center;margin-bottom:.75rem">Platform <span style="color:var(--primary)">Roadmap</span></h2>
-    <p style="text-align:center;color:var(--muted);margin-bottom:3rem;max-width:600px;margin-left:auto;margin-right:auto">5-Level Recursive Self-Improvement. L1 is done. The rest is being built in public: watch it happen.</p>
-    <div style="max-width:780px;margin:0 auto" class="roadmap reveal">
-      <div class="roadmap-level">
-        <div class="level-mark done">L1</div>
-        <div class="level-content">
-          <div class="level-title">Autonomous Operation — COMPLETE</div>
-          <div class="level-status status-done">✓ LIVE NOW</div>
-          <p>26 agents · 162+ skills · 171 scheduled operations · PC-local Ollama · free browser bridges · agent-routed Telegram · self-healing · memory system · content pipeline · lead intelligence · real estate · social automation · all running 24/7 without human intervention.</p>
-        </div>
-      </div>
-      <div class="roadmap-level">
-        <div class="level-mark active">L2</div>
-        <div class="level-content">
-          <div class="level-title">Agents Write Their Own Skills</div>
-          <div class="level-status status-active">→ BUILDING NOW</div>
-          <p>Evolution Loop architecture deployed. Agents identify capability gaps → propose new skills → write the code → test → promote to production. Self-pruning removes underperformers. P&L tracking begins tracking what drives real revenue.</p>
-        </div>
-      </div>
-      <div class="roadmap-level">
-        <div class="level-mark future">L3</div>
-        <div class="level-content">
-          <div class="level-title">Autonomous Income Generation</div>
-          <div class="level-status status-future">NEXT</div>
-          <p>Gumroad digital products auto-created and listed. Amazon Associates links embedded in all content. Email list built and monetized. Affiliate commissions managed. All without a single manual action.</p>
-        </div>
-      </div>
-      <div class="roadmap-level">
-        <div class="level-mark future">L4</div>
-        <div class="level-content">
-          <div class="level-title">Recursive Growth Loop</div>
-          <div class="level-status status-future">FUTURE</div>
-          <p>L3 revenue reinvested autonomously into expanded infrastructure, more compute, and accelerated capability development. Mac's role shifts from operator to architect.</p>
-        </div>
-      </div>
-      <div class="roadmap-level" style="border-bottom:none">
-        <div class="level-mark future">L5</div>
-        <div class="level-content">
-          <div class="level-title">Alpaca / S&P — Complete Autonomy</div>
-          <div class="level-status status-future">THE VISION</div>
-          <p>SteelWorks Intelligence trades S&P/Nasdaq via Alpaca API. Passive investing income self-funds the entire operation indefinitely. The first genuinely self-sustaining autonomous business.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Members Library ── -->
-<section class="section" id="membership" style="background:var(--bg2)">
-  <div class="container" style="max-width:800px;margin:0 auto;text-align:center">
-    <h2 style="margin-bottom:.75rem">The Full <span style="color:var(--primary)">Implementation Guide</span></h2>
-    <p style="color:var(--muted);margin-bottom:2rem">The public page shows you what. The Members Library shows you exactly how, with real configs, real cron recipes, and the bridge architecture that makes $0 operational cost possible.</p>
-
-    <div style="border:1px solid var(--card-border);border-radius:12px;padding:2rem;margin-bottom:2rem;text-align:left">
-      <div style="color:var(--primary);font-size:.8rem;letter-spacing:.1em;margin-bottom:1rem">LOCKED: MEMBERS ONLY</div>
-      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.75rem">
-        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
-          <span style="color:var(--primary)">🔒</span> The exact bridge implementation — how we route AI queries for free
-        </li>
-        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
-          <span style="color:var(--primary)">🔒</span> All 22 agent IDENTITY.md configuration files
-        </li>
-        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
-          <span style="color:var(--primary)">🔒</span> The model routing logic: which AI handles which task and why
-        </li>
-        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
-          <span style="color:var(--primary)">🔒</span> 55 production cron recipes with exact schedules
-        </li>
-        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
-          <span style="color:var(--primary)">🔒</span> Lead scoring algorithm and ICP matching criteria
-        </li>
-        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
-          <span style="color:var(--primary)">🔒</span> RE deal analysis methodology and scoring matrices
-        </li>
-        <li style="display:flex;gap:.75rem;align-items:center;color:var(--muted)">
-          <span style="color:var(--primary)">🔒</span> Weekly build log: what the system actually built and learned
-        </li>
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">What Actually Runs</h2>
+      <p class="reveal">Not a dashboard. Not a chatbot. A production system running 171 scheduled operations, right now.</p>
+      <ul class="reveal mono">
+        <li>→ Topic research via local model routing and free web bridges</li>
+        <li>→ Script drafting through agent-selected PC, browser, or free fallback lanes</li>
+        <li>→ Voice synthesis (macOS say + ElevenLabs fallback)</li>
+        <li>→ Image generation (Pollinations free API)</li>
+        <li>→ Video assembly (ffmpeg + Pillow pipeline)</li>
+        <li>→ Multi-platform caption adaptation</li>
       </ul>
     </div>
+  </section>
 
-    <a href="products/index.html" class="btn btn-primary" style="margin-right:1rem">Get the Setup Guide →</a>
-    <a href="contact.html" class="btn btn-secondary">Done-For-You Build →</a>
-  </div>
-</section>
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">The 22 Agents</h2>
+      <p class="reveal">Each agent owns a domain. They communicate, coordinate, and escalate to each other autonomously.</p>
+    </div>
+  </section>
 
-<!-- ── CTA ── -->
-<section class="section-sm" style="background:var(--bg2);text-align:center">
-  <div class="container">
-    <h2 style="margin-bottom:.75rem">Ready to <span style="color:var(--primary)">Own Your AI?</span></h2>
-    <p style="color:var(--muted);margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto">SteelWorks Intelligence is a production system running 24/7. Consulting engagements and implementation services available for serious builders.</p>
-    <a href="contact.html" class="btn btn-primary" style="margin-right:1rem">Work With Mac →</a>
-    <a href="https://youtube.com/@therealmacsteel" target="_blank" class="btn btn-secondary">Watch It Being Built</a>
-  </div>
-</section>
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">The $0 Architecture</h2>
+      <p class="reveal">How SteelWorks Intelligence routes AI work across local models, n8n bridges, and free browser lanes without paying per API token.</p>
+      <p class="reveal">Proprietary bridge architecture routes queries to AI browser sessions already logged in. No API key. No billing. Full implementation in Members Library →</p>
+    </div>
+  </section>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">STEELWORKS INTELLIGENCE™</div>
-        <div class="footer-tagline">The Autonomous Business OS</div>
-        <div class="social-icons" style="margin-top:1rem">
-          <a href="https://tiktok.com/@therealmacsteel" target="_blank" class="social-icon">⏺</a>
-          <a href="https://youtube.com/@therealmacsteel" target="_blank" class="social-icon">▶</a>
-          <a href="https://x.com/therealmacsteel" target="_blank" class="social-icon">✕</a>
-          <a href="https://www.instagram.com/macsmacpro/" target="_blank" class="social-icon">ig</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="platform.html">Platform</a></li>
-          <li><a href="content.html">Content</a></li>
-          <li><a href="blog/">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Platform</h4>
-        <ul>
-          <li><a href="#agents">22 Agents</a></li>
-          <li><a href="#bridges">Bridge Architecture</a></li>
-          <li><a href="#compare">vs. Competitors</a></li>
-          <li><a href="#roadmap">Roadmap</a></li>
-          <li><a href="investor.html">Investor Overview</a></li>
-        </ul>
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">vs. the Competition</h2>
+      <p class="reveal">Why pay for a walled garden when you can own the whole farm?</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">Platform Roadmap</h2>
+      <p class="reveal">5-Level Recursive Self-Improvement. L1 is done. The rest is being built in public: watch it happen.</p>
+      <p class="reveal">26 agents · 162+ skills · 171 scheduled operations · PC-local Ollama · free browser bridges · agent-routed Telegram · self-healing · memory system · content pipeline · lead intelligence · real estate · social automation · all running 24/7 without human intervention.</p>
+      <p class="reveal">Evolution Loop architecture deployed. Agents identify capability gaps → propose new skills → write the code → test → promote to production. Self-pruning removes underperformers. P&amp;L tracking begins tracking what drives real revenue.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">The Full Implementation Guide</h2>
+      <p class="reveal">The public page shows you what. The Members Library shows you exactly how, with real configs, real cron recipes, and the bridge architecture that makes $0 operational cost possible.</p>
+      <ul class="reveal mono">
+        <li><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-lock"></use></svg> The exact bridge implementation — how we route AI queries for free</li>
+        <li><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-lock"></use></svg> All 22 agent IDENTITY.md configuration files</li>
+        <li><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-lock"></use></svg> The model routing logic: which AI handles which task and why</li>
+        <li><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-lock"></use></svg> 55 production cron recipes with exact schedules</li>
+        <li><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-lock"></use></svg> Lead scoring algorithm and ICP matching criteria</li>
+        <li><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-lock"></use></svg> RE deal analysis methodology and scoring matrices</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <hr class="rule">
+      <div class="stack pad-t">
+        <h2 class="reveal">Get the free stack.</h2>
+        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
+          <label class="visually-hidden" for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+          <button class="btn" type="submit">Send it <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
+        </form>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 SteelWorks Intelligence LLC | All Rights Reserved | Acworth, GA</span>
-      <span>Autonomous systems built on OpenClaw open source infrastructure (MIT License)</span>
+  </section>
+
+</main>
+
+<!-- steelworks:footer -->
+<footer class="site-footer">
+  <div class="shell">
+    <hr class="rule">
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="https://github.com/therealmacsteel" rel="noopener">
+        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
+        GitHub
+      </a>
     </div>
+    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
   </div>
 </footer>
+<!-- /steelworks:footer -->
 
-<script src="assets/main.js"></script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "SteelWorks Intelligence Autonomous Business OS",
-  "applicationCategory": "BusinessApplication",
-  "description": "SteelWorks Intelligence is an Autonomous Business Operating System — 26 specialized AI agents, 162+ skills, 171 scheduled operations, PC-local Ollama models, free browser bridges, and agent-routed reporting running at $0/month via OpenClaw infrastructure.",
-  "operatingSystem": "macOS, Linux",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD",
-    "description": "Free, self-hosted"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "SteelWorks Intelligence LLC",
-    "url": "https://therealmacsteel.github.io"
-  },
-  "featureList": [
-    "26 autonomous AI agents",
-    "162+ specialized skills",
-    "171 scheduled operations",
-    "PC-local Ollama routing for large-model work",
-    "Free browser bridge integrations for GPT-class web sessions",
-    "Agent-routed Telegram reporting and executive digests",
-    "Autonomous content creation pipeline",
-    "Lead generation and enrichment system",
-    "Real estate market intelligence (7 markets)",
-    "SEO automation (rank tracking, content generation, backlink scanning)",
-    "Self-healing and self-evolving architecture",
-    "Free-first AI routing architecture",
-    "$0/month operational cost"
-  ],
-  "url": "https://therealmacsteel.github.io/platform.html"
-}
-</script>
-<script src="assets/track.js" defer></script>
+<script src="/assets/capture.js" defer></script>
 </body>
 </html>
