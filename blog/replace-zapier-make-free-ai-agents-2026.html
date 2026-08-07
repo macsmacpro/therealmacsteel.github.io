@@ -67,6 +67,12 @@
       <p class="reveal">Zapier and Make.com are workflow tools. They connect APIs. If something happens in App A, trigger an action in App B. Simple, reliable, popular — and completely dumb.</p>
       <p class="reveal">These tools don&#x27;t understand context. They can&#x27;t read a lead&#x27;s LinkedIn profile and decide whether to send the aggressive follow-up or the soft touch. They can&#x27;t look at a news headline and determine if it&#x27;s worth alerting you. They move bytes around. That&#x27;s it.</p>
       <p class="reveal">And they charge you monthly for the privilege: Zapier starts at $29.99/month for 750 tasks (and tasks burn fast), scales to $69/month for 2,000 tasks. Make.com is cheaper but hits its own ceilings. Run real automation volume and you&#x27;re at $100+/month before you know it.</p>
+      <ul class="reveal mono">
+        <li>Simple routing: &quot;When X happens, send Y to Z&quot;: these are the easiest to replace with a cron script</li>
+        <li>Data enrichment: &quot;Lookup this person, add data to spreadsheet&quot;: AI agents do this better and cheaper</li>
+        <li>Content generation: &quot;Draft an email for new lead&quot;: AI agents handle this natively</li>
+        <li>Notifications: &quot;Alert me when X&quot;: replace with cron + Telegram</li>
+      </ul>
     </div>
   </section>
 
@@ -74,6 +80,16 @@
     <div class="shell stack">
       <h2 class="reveal">What AI Agents Do Differently</h2>
       <p class="reveal">An AI agent isn&#x27;t just routing data — it&#x27;s reasoning about it. Here&#x27;s the difference in practice:</p>
+      <p class="reveal">List every automation you have running. Categorize each one:</p>
+      <p class="reveal">Instead of Zapier&#x27;s visual trigger-action model, AI agents use a simpler three-part pattern:</p>
+      <ul class="reveal mono">
+        <li>Simple routing: &quot;When X happens, send Y to Z&quot;: these are the easiest to replace with a cron script</li>
+        <li>Data enrichment: &quot;Lookup this person, add data to spreadsheet&quot;: AI agents do this better and cheaper</li>
+        <li>Content generation: &quot;Draft an email for new lead&quot;: AI agents handle this natively</li>
+        <li>Notifications: &quot;Alert me when X&quot;: replace with cron + Telegram</li>
+        <li>Simple routing: &quot;When X happens, send Y to Z&quot;: these are the easiest to replace with a cron script</li>
+        <li>Data enrichment: &quot;Lookup this person, add data to spreadsheet&quot;: AI agents do this better and cheaper</li>
+      </ul>
     </div>
   </section>
 
@@ -88,6 +104,8 @@
         <li>Data enrichment: &quot;Lookup this person, add data to spreadsheet&quot;: AI agents do this better and cheaper</li>
         <li>Content generation: &quot;Draft an email for new lead&quot;: AI agents handle this natively</li>
         <li>Notifications: &quot;Alert me when X&quot;: replace with cron + Telegram</li>
+        <li>Simple routing: &quot;When X happens, send Y to Z&quot;: these are the easiest to replace with a cron script</li>
+        <li>Data enrichment: &quot;Lookup this person, add data to spreadsheet&quot;: AI agents do this better and cheaper</li>
       </ul>
     </div>
   </section>
@@ -113,6 +131,14 @@
       <p class="reveal">Instead of Zapier&#x27;s visual trigger-action model, AI agents use a simpler three-part pattern:</p>
       <p class="reveal">The cron scheduler fires the script on a schedule. The script does the data fetching and calls an AI model via bridge (free). The result goes to Telegram, saves to a file, or updates a database, wherever you need it.</p>
       <p class="reveal">If you have Zapier set up to notify you about RSS feeds, Reddit mentions, price changes, or keyword alerts: these are the easiest to replace. Here&#x27;s the pattern:</p>
+      <ul class="reveal mono">
+        <li>New lead enters → scrape their LinkedIn + company site via browser bridge</li>
+        <li>Pull public GitHub if they&#x27;re technical</li>
+        <li>Run Perplexity research for recent news, funding, role changes</li>
+        <li>DeepSeek synthesizes a qualification score and outreach angle</li>
+        <li>Full enriched profile saved to local database</li>
+        <li>Telegram alert with score + recommended action</li>
+      </ul>
     </div>
   </section>
 

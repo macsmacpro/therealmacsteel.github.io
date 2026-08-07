@@ -75,6 +75,13 @@
       <h2 class="reveal">What I Built Instead: OpenClaw</h2>
       <p class="reveal">OpenClaw is a self-hosted multi-agent AI platform I&#x27;ve been building since 2025. It runs autonomous AI agents on my hardware, with no paid cloud model subscription required. The agents cover my public-source prospecting workflow plus the broader business operations around it.</p>
       <p class="reveal">My prospecting pipeline focuses on the parts I can run and verify with free public sources:</p>
+      <p class="reveal">My prospecting pipeline focuses on the parts I can run and verify with free public sources:</p>
+      <ul class="reveal mono">
+        <li>Check GitHub commit emails (developer founders often push with personal emails)</li>
+        <li>SMTP pattern verification (construct first.last@domain.com variants, verify via MX lookup)</li>
+        <li>Hunter.io free tier (25 searches/month, reserved for high-priority leads)</li>
+        <li>Twitter bio parsing (many founders list contact info in bios)</li>
+      </ul>
     </div>
   </section>
 
@@ -82,6 +89,16 @@
     <div class="shell stack">
       <h2 class="reveal">The Lead Generation Stack (Clay-Style Public Workflow)</h2>
       <p class="reveal">My prospecting pipeline focuses on the parts I can run and verify with free public sources:</p>
+      <p class="reveal">The key innovation in OpenClaw is the bridge architecture . Instead of paying for API access to GPT-4, Gemini, or DeepSeek, OpenClaw uses browser automation (Chrome DevTools Protocol) to access these AI models through their free web interfaces.</p>
+      <p class="reveal">Here&#x27;s the flow: an autonomous AI agent needs to write a personalized outreach email. It routes the request through the bridge server (port 18792) → the bridge opens Grok via Chrome automation → types the prompt → extracts the response → returns it to the agent. The entire process costs $0 because we&#x27;re using the free tier of each AI service through their browser UI.</p>
+      <ul class="reveal mono">
+        <li>Check GitHub commit emails (developer founders often push with personal emails)</li>
+        <li>SMTP pattern verification (construct first.last@domain.com variants, verify via MX lookup)</li>
+        <li>Hunter.io free tier (25 searches/month, reserved for high-priority leads)</li>
+        <li>Twitter bio parsing (many founders list contact info in bios)</li>
+        <li>Check GitHub commit emails (developer founders often push with personal emails)</li>
+        <li>SMTP pattern verification (construct first.last@domain.com variants, verify via MX lookup)</li>
+      </ul>
     </div>
   </section>
 
@@ -96,6 +113,8 @@
         <li>SMTP pattern verification (construct first.last@domain.com variants, verify via MX lookup)</li>
         <li>Hunter.io free tier (25 searches/month, reserved for high-priority leads)</li>
         <li>Twitter bio parsing (many founders list contact info in bios)</li>
+        <li>Check GitHub commit emails (developer founders often push with personal emails)</li>
+        <li>SMTP pattern verification (construct first.last@domain.com variants, verify via MX lookup)</li>
       </ul>
     </div>
   </section>
