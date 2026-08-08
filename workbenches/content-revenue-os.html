@@ -1,113 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Content Revenue OS | SteelWorks Intelligence</title>
-<meta name="description" content="Get found in the AI search era without paid ads or paid software bloat.">
-<link rel="icon" href="/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/assets/components.css">
-<!--
-  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
-  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
-  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
-  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
-  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
-  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
-  Decisions of record: data/org/web-design-decisions.md
--->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Content Revenue OS | SteelWorks Intelligence</title>
+  <style>
+    :root { color-scheme: dark; --bg:#080b10; --panel:#111821; --line:#263446; --text:#eef5ff; --muted:#9fb0c3; --accent:#00d4b8; --gold:#ffcc66; --warn:#ff8a65; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; background:var(--bg); color:var(--text); }
+    header, main { max-width:1220px; margin:0 auto; padding:28px 20px; }
+    header { border-bottom:1px solid var(--line); }
+    h1 { margin:0 0 8px; font-size:32px; letter-spacing:0; }
+    h2 { margin:28px 0 12px; font-size:20px; }
+    p { color:var(--muted); line-height:1.55; }
+    a { color:var(--accent); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+    .card { border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:16px; min-height:104px; }
+    .metric { font-size:28px; font-weight:750; color:var(--accent); }
+    .muted { color:var(--muted); }
+    table { width:100%; border-collapse:collapse; margin-top:12px; font-size:14px; }
+    th, td { text-align:left; padding:10px; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--gold); font-weight:700; }
+    code { color:var(--accent); }
+  </style>
 </head>
 <body>
-
-<!-- steelworks:header -->
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="shell">
-    <a class="brand" href="/index.html">
-      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
-      SteelWorks
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/index.html">Home</a>
-      <a href="/products/index.html">Products</a>
-      <a href="/ai-search-visibility.html">AI Visibility</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-<!-- /steelworks:header -->
-
-<main id="main">
-
-  <section class="section">
-    <div class="shell">
-      <p class="eyebrow reveal">SteelWorks</p>
-      <h1 class="reveal">Content Revenue OS | SteelWorks Intelligence</h1>
-      <p class="lede reveal">Get found in the AI search era without paid ads or paid software bloat.</p>
-    </div>
-  </section>
-
-
-  <section class="section">
-    <div class="shell">
-      <figure class="reveal flush">
-        <img src="/assets/img/generated/workbenches-content-revenue-os-html.png" width="768" height="576" alt="Content Revenue OS | SteelWorks Intelligence">
-      </figure>
-    </div>
-  </section>
-
-
-  <section class="section">
-    <div class="shell stack">
-      <h2 class="reveal">Campaign</h2>
-      <p class="reveal">Get found in the AI search era without paid ads or paid software bloat.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="shell">
-      <hr class="rule">
-      <div class="stack pad-t">
-        <h2 class="reveal">Get the free stack.</h2>
-        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
-          <label class="visually-hidden" for="email">Email address</label>
-          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
-          <button class="btn" type="submit">Send it <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
-        </form>
-      </div>
-    </div>
-  </section>
-
+  <header>
+    <h1>Content Revenue OS</h1>
+    <p>One daily campaign packet: opportunity signal, platform-native posts, blog draft, podcast brief, website proof, sales brief, CRM handoff, and attribution.</p>
+    <p><a href="./index.html">Workbench index</a></p>
+  </header>
+  <main>
+<section class="grid"><div class='card'><div class='metric'>72</div><div class='muted'>Campaign Score</div></div><div class='card'><div class='metric'>5</div><div class='muted'>Platforms Prepared</div></div><div class='card'><div class='metric'>3</div><div class='muted'>Contract Warnings</div></div><div class='card'><div class='metric'>87.0</div><div class='muted'>Avg Asset Quality</div></div><div class='card'><div class='metric'>ok</div><div class='muted'>Queue Status</div></div><div class='card'><div class='metric'>agent_internal_only</div><div class='muted'>Telegram Noise</div></div><div class='card'><div class='metric'>0</div><div class='muted'>Paid Actions</div></div></section>
+<h2>Campaign</h2>
+<p><strong>brand</strong></p>
+<p>Get found in the AI search era without paid ads or paid software bloat.</p>
+<p><a href="https://therealmacsteel.github.io/?utm_source=openclaw&amp;utm_medium=organic&amp;utm_campaign=content-revenue-2026-08-08-brand">Campaign landing URL</a></p>
+<h2>Assets</h2>
+<table><thead><tr><th>Asset</th><th>Status</th><th>Path / ID</th></tr></thead><tbody><tr><td>social_queue</td><td>ok</td><td>344a4848-24aa-4121-bc5c-a0adeefb77c6</td></tr><tr><td>blog_draft</td><td>draft_ready</td><td>/Users/openclawbot/openclaw/data/content-revenue-os/blog-drafts/2026-08-08-brand.md</td></tr><tr><td>podcast_brief</td><td>brief_ready</td><td>/Users/openclawbot/openclaw/data/content-revenue-os/podcast-briefs/2026-08-08-brand.txt</td></tr><tr><td>sales_brief</td><td>ready</td><td>/Users/openclawbot/openclaw/data/content-revenue-os/sales-briefs/2026-08-08-brand.json</td></tr><tr><td>website_dashboard</td><td>ready</td><td>/Users/openclawbot/openclaw/website/workbenches/content-revenue-os.html</td></tr></tbody></table>
+<h2>Platform Contracts</h2>
+<table><thead><tr><th>Platform</th><th>OK</th><th>Fields</th><th>Warnings</th></tr></thead><tbody><tr><td>twitter</td><td>True</td><td>content, hashtags, platform, thread</td><td></td></tr><tr><td>instagram</td><td>True</td><td>alt_text, caption, hashtags, platform</td><td>missing_required_field:media_path</td></tr><tr><td>facebook</td><td>True</td><td>caption, link_url, platform, title</td><td></td></tr><tr><td>youtube</td><td>True</td><td>description, platform, tags, title</td><td>missing_required_field:video_path</td></tr><tr><td>tiktok</td><td>True</td><td>caption, hashtags, platform, title</td><td>missing_required_field:video_path</td></tr></tbody></table>
+<h2>Agent Actions</h2>
+<table><thead><tr><th>Priority</th><th>Owner</th><th>Action</th></tr></thead><tbody><tr><td>high</td><td>chief/ceo</td><td>Hold departments to one daily revenue campaign packet and only escalate exceptions to Telegram.</td></tr><tr><td>high</td><td>marketing</td><td>Use the social queue, blog draft, podcast brief, and workbench page as one coordinated campaign.</td></tr><tr><td>high</td><td>sales</td><td>Use the sales brief to route replies and discovery form interest into CRM.</td></tr><tr><td>high</td><td>seo</td><td>Turn the blog draft into an answer-ready public page when quality gate and attribution are clean.</td></tr><tr><td>medium</td><td>production</td><td>Use the podcast brief and platform payloads for short video/audio asset production.</td></tr><tr><td>high</td><td>social</td><td>Post only from the guarded queue entry 344a4848-24aa-4121-bc5c-a0adeefb77c6; do not use legacy direct posters.</td></tr><tr><td>high</td><td>revenue</td><td>Track visits, replies, leads, Gumroad clicks, and revenue before recommending scale.</td></tr><tr><td>medium</td><td>legal_compliance</td><td>Watch claims for guarantees, exaggerated comparisons, paid-api drift, and consent issues.</td></tr></tbody></table>
 </main>
-
-<!-- steelworks:footer -->
-<footer class="site-footer">
-  <div class="shell">
-    <hr class="rule">
-    <div class="footer-links">
-      <a href="/index.html">Home</a>
-      <a href="/products/index.html">Products</a>
-      <a href="/blog/index.html">Blog</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/ventures/index.html">Ventures</a>
-      <a href="/podcast/index.html">Podcast</a>
-      <a href="/newsletter/index.html">Newsletter</a>
-      <a href="/campaigns/index.html">Campaigns</a>
-      <a href="https://github.com/therealmacsteel" rel="noopener">
-        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
-        GitHub
-      </a>
-    </div>
-    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
-  </div>
-</footer>
-<!-- /steelworks:footer -->
-
-<script src="/assets/capture.js" defer></script>
 </body>
 </html>
