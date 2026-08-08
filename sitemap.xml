@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://therealmacsteel.github.io/about.html</loc>
@@ -183,6 +183,18 @@
   <url>
     <loc>https://therealmacsteel.github.io/campaigns/launch-developer-workflow-kit-for-zapier-for-technical-founder-or-operator.html</loc>
     <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://therealmacsteel.github.io/campaigns/page-without-buy-cta-about-html.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://therealmacsteel.github.io/campaigns/page-without-buy-cta-free-ai-business-stack-html.html</loc>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -769,6 +781,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://therealmacsteel.github.io/products/page-without-buy-cta-about-html.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://therealmacsteel.github.io/products/page-without-buy-cta-free-ai-business-stack-html.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://therealmacsteel.github.io/products/page-without-buy-cta-google94ece01db9988728-html.html</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
@@ -1116,4 +1140,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-<url><loc>https://therealmacsteel.github.io/products/page-without-buy-cta-free-ai-business-stack-html.html</loc><changefreq>weekly</changefreq><priority>0.8</priority><lastmod>2026-08-08</lastmod></url><url><loc>https://therealmacsteel.github.io/products/page-without-buy-cta-about-html.html</loc><changefreq>weekly</changefreq><priority>0.8</priority><lastmod>2026-08-08</lastmod></url></urlset>
+</urlset>
