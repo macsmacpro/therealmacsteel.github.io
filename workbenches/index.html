@@ -1,124 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Workbenches — SteelWorks Intelligence</title>
-<meta name="description" content="Internal tools built and used in the open.">
-<link rel="icon" href="/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/assets/components.css">
-<!--
-  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
-  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
-  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
-  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
-  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
-  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
-  design-knowledge: ux-guidelines.csv — scannable listing, newest first
-  Decisions of record: data/org/web-design-decisions.md
--->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Competitive Workbench Index | OpenClaw Workbenches</title>
+  <style>
+    :root { color-scheme: dark; --bg:#080b10; --panel:#111821; --line:#243041; --text:#eef5ff; --muted:#9fb0c3; --a:#00e0c7; --b:#ffcc66; --bad:#ff6b6b; --ok:#6eff9f; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; background:var(--bg); color:var(--text); }
+    header, main { max-width:1180px; margin:0 auto; padding:28px 20px; }
+    header { border-bottom:1px solid var(--line); }
+    a { color:var(--a); text-decoration:none; }
+    h1 { margin:0 0 8px; font-size:32px; letter-spacing:0; }
+    h2 { margin:28px 0 12px; font-size:20px; }
+    p { color:var(--muted); line-height:1.55; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+    .card { border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:16px; min-height:110px; }
+    .metric { font-size:28px; font-weight:750; color:var(--a); }
+    .muted { color:var(--muted); }
+    table { width:100%; border-collapse:collapse; margin-top:12px; font-size:14px; }
+    th, td { text-align:left; padding:10px; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--b); font-weight:700; }
+    code { color:var(--a); }
+    .status-ok { color:var(--ok); }
+    .status-bad { color:var(--bad); }
+  </style>
 </head>
 <body>
-
-<!-- steelworks:header -->
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="shell">
-    <a class="brand" href="/index.html">
-      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
-      SteelWorks
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/index.html">Home</a>
-      <a href="/products/index.html">Products</a>
-      <a href="/ai-search-visibility.html">AI Visibility</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-<!-- /steelworks:header -->
-
-<main id="main">
-
-  <section class="section">
-    <div class="shell">
-      <p class="eyebrow reveal">Workbenches</p>
-      <h1 class="reveal">Workbenches</h1>
-      <p class="lede reveal">Internal tools built and used in the open.</p>
-      <figure class="reveal flush">
-        <img src="/assets/img/generated/workbenches-index-html.png" width="512" height="384" alt="Workbenches — SteelWorks Intelligence">
-      </figure>
-
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="shell">
-      <h2 class="reveal">All 15 workbenches pages</h2>
-      <ul class="reveal mono stack-tight">
-        <li><a href="/workbenches/brand-templates/offer-landing-section.html">{hook}</a></li>
-        <li><a href="/workbenches/brand-templates/proof-thread-card.html">{hook}</a></li>
-        <li><a href="/workbenches/brand-templates/short-video-scene.html">{hook}</a></li>
-        <li><a href="/workbenches/task-console.html">Task Console | OpenClaw Workbenches</a></li>
-        <li><a href="/workbenches/seo-geo-dashboard.html">SEO GEO Command Center | OpenClaw Workbenches</a></li>
-        <li><a href="/workbenches/app-demo-page-without-buy-cta-local-seo-html.html">Page without buy CTA: local-seo.html</a></li>
-        <li><a href="/workbenches/market-intelligence.html">Market Intelligence OS | SteelWorks Market Intelligence</a></li>
-        <li><a href="/workbenches/lead-workbench.html">Lead Workbench | OpenClaw Workbenches</a></li>
-        <li><a href="/workbenches/app-demo-ai-search-website-os.html">Launch AI Search Website OS for SMBs</a></li>
-        <li><a href="/workbenches/app-demo-high-engagement-topic-without-product-the-ai-seo-agency.html">High-engagement topic without product: &amp;#x27;The AI SEO Agency&amp;#x27;</a></li>
-        <li><a href="/workbenches/content-revenue-os.html">Content Revenue OS | SteelWorks Intelligence</a></li>
-        <li><a href="/workbenches/competitor-platforms.html">Competitor Platform Audit | SteelWorks Intelligence</a></li>
-        <li><a href="/workbenches/competitor-agent-readiness.html">Competitor Agent Readiness</a></li>
-        <li><a href="/workbenches/brand-studio.html">Brand Studio | OpenClaw Workbenches</a></li>
-        <li><a href="/workbenches/app-factory.html">App Factory | OpenClaw Workbenches</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="shell">
-      <hr class="rule">
-      <div class="stack pad-t">
-        <h2 class="reveal">Get the free stack.</h2>
-        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
-          <label class="visually-hidden" for="email">Email address</label>
-          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
-          <button class="btn" type="submit">Send it <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- steelworks:footer -->
-<footer class="site-footer">
-  <div class="shell">
-    <hr class="rule">
-    <div class="footer-links">
-      <a href="/index.html">Home</a>
-      <a href="/products/index.html">Products</a>
-      <a href="/blog/index.html">Blog</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/ventures/index.html">Ventures</a>
-      <a href="/podcast/index.html">Podcast</a>
-      <a href="/newsletter/index.html">Newsletter</a>
-      <a href="/campaigns/index.html">Campaigns</a>
-      <a href="https://github.com/therealmacsteel" rel="noopener">
-        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
-        GitHub
-      </a>
-    </div>
-    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
-  </div>
-</footer>
-<!-- /steelworks:footer -->
-
-<script src="/assets/capture.js" defer></script>
+  <header>
+    <h1>Competitive Workbench Index</h1>
+    <p>Generated by OpenClaw's free-first competitive workbench OS. Static, local, agent-readable, and deployable without paid APIs.</p>
+    <p><a href="./index.html">Workbench index</a></p>
+  </header>
+  <main>
+<section class='grid'>
+        <article class="card">
+          <h2><a href="./lead-workbench.html">Lead Workbench</a></h2>
+          <p>Clay-style workflow</p>
+          <p>Free-source proof ledger: every lead is scored by visible evidence fields before outreach, avoiding paid data credits and unsupported enrichment claims.</p>
+        </article>
+        <article class="card">
+          <h2><a href="./task-console.html">Task Console</a></h2>
+          <p>Manus-style task workspace</p>
+          <p>Local replay console: tasks are tied to agent owner, artifact trace, status, and verification target without cloud VM spend.</p>
+        </article>
+        <article class="card">
+          <h2><a href="./brand-studio.html">Brand Studio</a></h2>
+          <p>Canva-style brand production</p>
+          <p>Brand-governed asset factory: templates are wired to voice, claim, and platform gates before assets enter posting queues.</p>
+        </article>
+        <article class="card">
+          <h2><a href="./app-factory.html">App Factory</a></h2>
+          <p>Lovable-style app factory</p>
+          <p>Opportunity-to-app pipeline: every generated app is tied to business opportunity, campaign assets, compliance gates, and free deploy targets.</p>
+        </article>
+        <article class="card">
+          <h2><a href="./seo-geo-dashboard.html">Seo Geo Dashboard</a></h2>
+          <p>Mega-style SEO/GEO command center</p>
+          <p>AI-search readiness loop: page actions are prioritized for answerability, schema, proof, freshness, and claim safety before organic distribution.</p>
+        </article></section><h2>System Edge</h2><p>One free-first OS connects leads, tasks, creative assets, app builds, SEO/GEO, compliance, and agent ownership instead of leaving each tool isolated.</p>
+  </main>
 </body>
 </html>

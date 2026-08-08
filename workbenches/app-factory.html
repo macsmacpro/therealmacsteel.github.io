@@ -1,105 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>App Factory | OpenClaw Workbenches</title>
-<meta name="description" content="">
-<link rel="icon" href="/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/assets/components.css">
-<!--
-  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
-  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
-  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
-  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
-  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
-  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
-  Decisions of record: data/org/web-design-decisions.md
--->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>App Factory | OpenClaw Workbenches</title>
+  <style>
+    :root { color-scheme: dark; --bg:#080b10; --panel:#111821; --line:#243041; --text:#eef5ff; --muted:#9fb0c3; --a:#00e0c7; --b:#ffcc66; --bad:#ff6b6b; --ok:#6eff9f; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; background:var(--bg); color:var(--text); }
+    header, main { max-width:1180px; margin:0 auto; padding:28px 20px; }
+    header { border-bottom:1px solid var(--line); }
+    a { color:var(--a); text-decoration:none; }
+    h1 { margin:0 0 8px; font-size:32px; letter-spacing:0; }
+    h2 { margin:28px 0 12px; font-size:20px; }
+    p { color:var(--muted); line-height:1.55; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+    .card { border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:16px; min-height:110px; }
+    .metric { font-size:28px; font-weight:750; color:var(--a); }
+    .muted { color:var(--muted); }
+    table { width:100%; border-collapse:collapse; margin-top:12px; font-size:14px; }
+    th, td { text-align:left; padding:10px; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--b); font-weight:700; }
+    code { color:var(--a); }
+    .status-ok { color:var(--ok); }
+    .status-bad { color:var(--bad); }
+  </style>
 </head>
 <body>
-
-<!-- steelworks:header -->
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="shell">
-    <a class="brand" href="/index.html">
-      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
-      SteelWorks
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/index.html">Home</a>
-      <a href="/products/index.html">Products</a>
-      <a href="/ai-search-visibility.html">AI Visibility</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-<!-- /steelworks:header -->
-
-<main id="main">
-
-  <section class="section">
-    <div class="shell">
-      <p class="eyebrow reveal">SteelWorks</p>
-      <h1 class="reveal">App Factory | OpenClaw Workbenches</h1>
-    </div>
-  </section>
-
-
-  <section class="section">
-    <div class="shell">
-      <figure class="reveal flush">
-        <img src="/assets/img/generated/workbenches-app-factory-html.png" width="768" height="576" alt="App Factory | OpenClaw Workbenches">
-      </figure>
-    </div>
-  </section>
-
-
-  <section class="section">
-    <div class="shell">
-      <hr class="rule">
-      <div class="stack pad-t">
-        <h2 class="reveal">Get the free stack.</h2>
-        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
-          <label class="visually-hidden" for="email">Email address</label>
-          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
-          <button class="btn" type="submit">Send it <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- steelworks:footer -->
-<footer class="site-footer">
-  <div class="shell">
-    <hr class="rule">
-    <div class="footer-links">
-      <a href="/index.html">Home</a>
-      <a href="/products/index.html">Products</a>
-      <a href="/blog/index.html">Blog</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/ventures/index.html">Ventures</a>
-      <a href="/podcast/index.html">Podcast</a>
-      <a href="/newsletter/index.html">Newsletter</a>
-      <a href="/campaigns/index.html">Campaigns</a>
-      <a href="https://github.com/therealmacsteel" rel="noopener">
-        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
-        GitHub
-      </a>
-    </div>
-    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
-  </div>
-</footer>
-<!-- /steelworks:footer -->
-
-<script src="/assets/capture.js" defer></script>
+  <header>
+    <h1>App Factory</h1>
+    <p>Generated by OpenClaw's free-first competitive workbench OS. Static, local, agent-readable, and deployable without paid APIs.</p>
+    <p><a href="./index.html">Workbench index</a></p>
+  </header>
+  <main>
+<section class='grid'><div class='card'><div class='metric'>4</div><div class='muted'>Free App Templates</div></div><div class='card'><div class='metric'>0</div><div class='muted'>Paid Runtime Dependencies</div></div></section><h2>Templates</h2><table><thead><tr><th>Template</th><th>Workflow</th><th>Stack</th><th>Verification</th></tr></thead><tbody><tr><td>campaign-landing-page</td><td>Lovable prompt-to-landing workflow</td><td>static_html, css, json_data, github_pages_or_cloudflare_pages</td><td>html_exists, cta_exists, comparison_claim_guard_passes</td></tr><tr><td>lead-capture-mini-crm</td><td>simple SaaS lead portal</td><td>static_html, cloudflare_worker_optional, local_json_or_sqlite</td><td>no_paid_dependency, external_action_guard, telegram_router</td></tr><tr><td>client-dashboard</td><td>agency reporting dashboard</td><td>static_html, json_reports</td><td>metrics_source_paths_present, no_fake_roi_claims</td></tr><tr><td>calculator-tool</td><td>interactive lead magnet builder</td><td>static_html, vanilla_js</td><td>mobile_safe, no_paid_api, cta_exists</td></tr></tbody></table>
+  </main>
 </body>
 </html>
