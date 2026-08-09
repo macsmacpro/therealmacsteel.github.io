@@ -1,4 +1,5 @@
 # The Free AI Business Stack
+
 ### Every tool running my 42-agent business, and what each one replaces
 
 This is the actual stack, not a listicle. It runs a content pipeline, a lead
@@ -31,7 +32,7 @@ way:
 - **A scheduler you can't query is a scheduler you can't trust.** Ours answers
   `select name, enabled, last_run_status from cron_jobs` — 300+ jobs, one query.
 - **Silent zombies beat crashes.** A job that logs "ok" and does nothing is
-  worse than one that dies loudly. Check the *artifact* (the file written, the
+  worse than one that dies loudly. Check the _artifact_ (the file written, the
   row inserted), never the exit banner.
 
 Replaces: Zapier/Make ($20-600/mo at real volume).
@@ -40,7 +41,7 @@ Replaces: Zapier/Make ($20-600/mo at real volume).
 
 Nothing publishes below 85/100, scored by a rubric that lives in code.
 Prompts drift; regex doesn't. Our gate caught an AI draft inventing a
-personal anecdote that *scored 88 on style* — a code-level fabrication lint
+personal anecdote that _scored 88 on style_ — a code-level fabrication lint
 blocked it. If you automate content, build the gate before the generator.
 Replaces: an editor on retainer, or public embarrassment.
 
@@ -70,7 +71,7 @@ Replaces: Midjourney + ElevenLabs (~$40/mo).
 ## 7. The kill switch — one flag every autonomous lane checks first
 
 Every lane that can act externally checks a single kill flag before it does
-anything, and *fail-closed*: if the flag can't be read, the lane halts. A
+anything, and _fail-closed_: if the flag can't be read, the lane halts. A
 publisher that can't confirm it's allowed to publish must not publish.
 Cost: ~10 lines. Replaces: the incident you'd otherwise have.
 
