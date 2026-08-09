@@ -82,11 +82,13 @@
   try {
     var HIT = "https://swi-leads.macsmacpro.workers.dev/api/hit";
     var payload = JSON.stringify({ path: location.pathname });
+    /* text/plain is CORS-safelisted; an application/json Blob makes
+       sendBeacon require a preflight it cannot perform, and the browser
+       silently drops the beacon — measured live 2026-08-09. */
     if (navigator.sendBeacon) {
-      navigator.sendBeacon(HIT, new Blob([payload], { type: "application/json" }));
+      navigator.sendBeacon(HIT, payload);
     } else {
-      fetch(HIT, { method: "POST", body: payload, keepalive: true,
-                   headers: { "Content-Type": "application/json" } });
+      fetch(HIT, { method: "POST", body: payload, keepalive: true });
     }
   } catch (e) { /* a lost count must never break a page */ }
 })();
