@@ -73,3 +73,20 @@
     Array.prototype.forEach.call(document.querySelectorAll("form.capture"), wire);
   });
 })();
+
+/* pageview beacon (2026-08-09): the site had zero traffic measurement.
+   Count only — path, no query string, no IP/UA/cookie stored. sendBeacon so
+   it never blocks navigation; fetch keepalive as the fallback. */
+(function () {
+  "use strict";
+  try {
+    var HIT = "https://swi-leads.macsmacpro.workers.dev/api/hit";
+    var payload = JSON.stringify({ path: location.pathname });
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(HIT, new Blob([payload], { type: "application/json" }));
+    } else {
+      fetch(HIT, { method: "POST", body: payload, keepalive: true,
+                   headers: { "Content-Type": "application/json" } });
+    }
+  } catch (e) { /* a lost count must never break a page */ }
+})();
