@@ -178,6 +178,10 @@ a:hover { color: var(--ink-100); }
 .card h3 { margin-top: 0; }
 .card .ti { color: var(--signal); }
 .metric { font-size: var(--step-2); color: var(--signal); display: block; }
+.muted { color: var(--ink-300); }
+table { width: 100%; border-collapse: collapse; font-size: var(--step--1); }
+th, td { text-align: left; padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--ink-500); vertical-align: top; }
+th { font-family: var(--font-display); font-weight: 700; }
 .receipt {
   font-family: var(--font-display); font-size: var(--step--1);
   border: 1px dashed var(--ink-500); padding: var(--gutter);
