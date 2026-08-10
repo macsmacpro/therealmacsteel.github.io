@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Competitor Platform Audit | SteelWorks Intelligence</title>
+  <style>
+    :root { color-scheme: dark; --bg:#080b10; --panel:#111821; --line:#263244; --text:#eef5ff; --muted:#9fb0c3; --a:#00e0c7; --b:#ffcc66; }
+    body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; background:var(--bg); color:var(--text); }
+    header, main { max-width:1180px; margin:0 auto; padding:28px 20px; }
+    header { border-bottom:1px solid var(--line); }
+    h1 { margin:0 0 8px; font-size:32px; }
+    p { color:var(--muted); line-height:1.55; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; }
+    .card { border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:14px; }
+    .metric { font-size:28px; color:var(--a); font-weight:800; }
+    table { width:100%; border-collapse:collapse; margin-top:14px; font-size:14px; }
+    th, td { text-align:left; padding:10px; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--b); }
+    a { color:var(--a); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Competitor Platform Audit</h1>
+    <p>Every competitor/addon claim gets an owner, evidence surface, scoped claim, blocked claim list, and repair item when proof is weak.</p>
+    <p><a href="./index.html">Workbench index</a></p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card"><div class="metric">29</div><p>Platforms tracked</p></div>
+      <div class="card"><div class="metric">29</div><p>Ready</p></div>
+      <div class="card"><div class="metric">0</div><p>Need repair</p></div>
+      <div class="card"><div class="metric">0</div><p>Repair items</p></div>
+    </section>
+    <h2>Repair Queue</h2>
+    <table><thead><tr><th>Priority</th><th>Owner</th><th>Platform</th><th>Issue</th><th>Next Action</th></tr></thead><tbody></tbody></table>
+    <h2>Platform Coverage</h2>
+    <table><thead><tr><th>Platform</th><th>Category</th><th>Owner</th><th>Status</th><th>Mentions</th><th>Evidence</th><th>Issues</th></tr></thead><tbody><tr><td>CrewAI / LangGraph / Dify / Flowise</td><td>agentic/frameworks</td><td>research</td><td>ready</td><td>324</td><td>present</td><td></td></tr><tr><td>AgenticSeek</td><td>agentic/general agents</td><td>research</td><td>ready</td><td>128</td><td>present</td><td></td></tr><tr><td>Ahrefs / Semrush / Surfer SEO</td><td>marketing/SEO</td><td>seo</td><td>ready</td><td>359</td><td>present</td><td></td></tr><tr><td>Apollo / Hunter / Clearbit</td><td>lead/prospecting</td><td>sales</td><td>ready</td><td>1141</td><td>present</td><td></td></tr><tr><td>Tavus / D-ID / Captions / VEED / Colossyan</td><td>creative/media</td><td>production</td><td>ready</td><td>1615</td><td>present</td><td></td></tr><tr><td>Buffer / Hootsuite / Sprout Social</td><td>social/publishing</td><td>marketing</td><td>ready</td><td>358</td><td>present</td><td></td></tr><tr><td>Canva</td><td>creative/media</td><td>creative</td><td>ready</td><td>231</td><td>present</td><td></td></tr><tr><td>ChatGPT / Claude / Perplexity</td><td>models/bridges</td><td>ops</td><td>ready</td><td>6972</td><td>present</td><td></td></tr><tr><td>Clay</td><td>lead/prospecting</td><td>sales</td><td>ready</td><td>1050</td><td>present</td><td></td></tr><tr><td>Coursiv / Kajabi / LearnWorlds / Thinkific / Teachable / Stan Store / Whop / Podia / Skool / Circle / Gumroad / Systeme.io</td><td>creator/course commerce</td><td>revenue</td><td>ready</td><td>14093</td><td>present</td><td></td></tr><tr><td>Activepieces / Windmill / Pipedream / Trigger.dev / Node-RED / Huginn</td><td>automation/ops</td><td>ops</td><td>ready</td><td>354</td><td>present</td><td></td></tr><tr><td>ElevenLabs / Cartesia / PlayHT / voice tools</td><td>creative/media</td><td>production</td><td>ready</td><td>388</td><td>present</td><td></td></tr><tr><td>Gemini / Grok / DeepSeek</td><td>models/bridges</td><td>ops</td><td>ready</td><td>3486</td><td>present</td><td></td></tr><tr><td>Mega / Gomega / Mavic / Magic Marketing Suite</td><td>marketing/SEO</td><td>marketing</td><td>ready</td><td>346</td><td>present</td><td></td></tr><tr><td>Gumloop</td><td>agentic/general agents</td><td>ops</td><td>ready</td><td>127</td><td>present</td><td></td></tr><tr><td>Jasper / Descript / CapCut</td><td>creative/media</td><td>content</td><td>ready</td><td>368</td><td>present</td><td></td></tr><tr><td>Lovable</td><td>app builder</td><td>engineering</td><td>ready</td><td>221</td><td>present</td><td></td></tr><tr><td>Manus AI</td><td>agentic/general agents</td><td>ops</td><td>ready</td><td>580</td><td>present</td><td></td></tr><tr><td>Attio / Smartlead / Instantly / Lemlist / Close / Pipedrive</td><td>lead/prospecting</td><td>sales</td><td>ready</td><td>351</td><td>present</td><td></td></tr><tr><td>Notion / Airtable</td><td>automation/ops</td><td>ops</td><td>ready</td><td>2324</td><td>present</td><td></td></tr><tr><td>Replit / Cursor / Bolt / v0 / Windsurf</td><td>app builder</td><td>engineering</td><td>ready</td><td>543</td><td>present</td><td></td></tr><tr><td>Runway / HeyGen / Synthesia / avatar-video tools</td><td>creative/media</td><td>production</td><td>ready</td><td>1852</td><td>present</td><td></td></tr><tr><td>Similarweb</td><td>marketing/SEO</td><td>analytics</td><td>ready</td><td>164</td><td>present</td><td></td></tr><tr><td>Suna</td><td>agentic/general agents</td><td>research</td><td>ready</td><td>166</td><td>present</td><td></td></tr><tr><td>TradingView / Alpaca / Composer / QuantConnect / Tickeron / Trade Ideas / Kavout</td><td>trading</td><td>trading</td><td>ready</td><td>2255</td><td>present</td><td></td></tr><tr><td>Wispr Flow / OpenWhispr / Superwhisper / Whisper / Deepgram / AssemblyAI / Gladia</td><td>voice/dictation</td><td>production</td><td>ready</td><td>415</td><td>present</td><td></td></tr><tr><td>Webflow / Framer</td><td>app builder</td><td>growth</td><td>ready</td><td>185</td><td>present</td><td></td></tr><tr><td>WordPress / Substack</td><td>social/publishing</td><td>content</td><td>ready</td><td>689</td><td>present</td><td></td></tr><tr><td>Zapier / Make / n8n</td><td>automation/ops</td><td>ops</td><td>ready</td><td>5011</td><td>present</td><td></td></tr></tbody></table>
+  </main>
+</body>
+</html>
