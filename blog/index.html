@@ -1,120 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog — SteelWorks Intelligence</title>
-<meta name="description" content="Building an autonomous AI company in public — what the fleet built, what broke, and what the numbers actually said.">
-<link rel="icon" href="/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/assets/components.css">
-<!--
-  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
-  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
-  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
-  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
-  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
-  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
-  design-knowledge: ux-guidelines.csv — scannable listing, newest first
-  Decisions of record: data/org/web-design-decisions.md
--->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SteelWorks Intelligence Blog — Autonomous AI Build Log | Mac Steel</title>
+  <meta name="description" content="Build logs, how-to guides, and real estate AI intel from Mac Steel. Watch an autonomous business system get built in public." />
+  <meta name="keywords" content="AI automation blog, build in public, autonomous AI agents, SteelWorks Intelligence, free AI automation, self-hosted AI 2026" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Mac Steel" />
+  <link rel="canonical" href="https://therealmacsteel.github.io/blog/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SteelWorks Intelligence Blog — Autonomous AI Build Log" />
+  <meta property="og:description" content="Build logs, how-to guides, and real estate AI intel from Mac Steel building autonomous business systems in public." />
+  <meta property="og:url" content="https://therealmacsteel.github.io/blog/" />
+  <meta property="og:image" content="https://therealmacsteel.github.io/assets/brand/banner.png" />
+  <meta property="og:site_name" content="Mac Steel | SteelWorks Intelligence" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@therealmacsteel" />
+  <meta name="twitter:creator" content="@therealmacsteel" />
+  <link rel="alternate" type="application/rss+xml" title="SteelWorks Intelligence Blog" href="https://therealmacsteel.github.io/blog/feed.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="../assets/brand/profile-photo.png" />
+  <link rel="stylesheet" href="../assets/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "SteelWorks Intelligence Blog",
+    "description": "Build logs, how-to guides, and real estate AI intel from Mac Steel.",
+    "url": "https://therealmacsteel.github.io/blog/",
+    "author": {"@type": "Person", "name": "Mac Steel", "url": "https://therealmacsteel.github.io"},
+    "publisher": {"@type": "Person", "name": "Mac Steel"}
+  }
+  </script>
 </head>
 <body>
 
-<!-- steelworks:header -->
-<a class="skip-link" href="#main">
-Skip to content</a>
-<header class="site-header">
-  <div class="shell">
-    <a class="brand" href="/index.html">
-      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
-      SteelWorks
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/index.html">Home</a>
-      <a href="/products/index.html">Products</a>
-      <a href="/ai-search-visibility.html">AI Visibility</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
+<nav id="main-nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">THE REAL MAC STEEL</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../platform.html">Platform</a></li>
+      <li><a href="../content.html">Content</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://youtube.com/@therealmacsteel" target="_blank" class="btn btn-secondary" style="padding:.6rem 1.2rem;font-size:.75rem;">▶ Watch Build</a>
+    </div>
+    <div class="nav-burger"><span></span><span></span><span></span></div>
   </div>
-</header>
-<!-- /steelworks:header -->
+</nav>
 
-<main id="main">
+<div class="page-header">
+  <div class="container">
+    <div class="hero-badge" style="margin-bottom:1rem">AUTONOMOUS AI BUILD LOG</div>
+    <h1>Build <span style="color:var(--primary)">in Public</span></h1>
+    <p>Daily logs, how-to guides, RE intel, and system updates — watching an autonomous business system get built from scratch.</p>
+  </div>
+</div>
 
-  <section class="section">
-    <div class="shell">
-      <p class="eyebrow reveal">Blog</p>
-      <h1 class="reveal">Blog</h1>
-      <p class="lede reveal">Building an autonomous AI company in public — what the fleet built, what broke, and what the numbers actually said.</p>
-      <figure class="reveal flush">
-        <img src="/assets/img/generated/blog-index-html.png" width="512" height="384" alt="Blog — SteelWorks Intelligence">
-      </figure>
+<section class="section">
+  <div class="container">
+
+    <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem">
+      <button class="btn btn-secondary" data-filter="" style="color:var(--primary);border-color:var(--primary)" style="font-size:.75rem;padding:.4rem .9rem" onclick="filterPosts('')">All</button>
+      <button class="btn btn-secondary" data-filter="BUILD-IN-PUBLIC"  style="font-size:.75rem;padding:.4rem .9rem" onclick="filterPosts('BUILD-IN-PUBLIC')">Build-in-Public</button>
+      <button class="btn btn-secondary" data-filter="HOW-TO"  style="font-size:.75rem;padding:.4rem .9rem" onclick="filterPosts('HOW-TO')">How-To</button>
+      <button class="btn btn-secondary" data-filter="SYSTEM UPDATE"  style="font-size:.75rem;padding:.4rem .9rem" onclick="filterPosts('SYSTEM UPDATE')">System Update</button>
+      <button class="btn btn-secondary" data-filter="RE INTEL"  style="font-size:.75rem;padding:.4rem .9rem" onclick="filterPosts('RE INTEL')">RE Intel</button>
+      <button class="btn btn-secondary" data-filter="COMPARISON"  style="font-size:.75rem;padding:.4rem .9rem" onclick="filterPosts('COMPARISON')">Comparison</button>
+    </div>
+
+    <div id="posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem">
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">August 14, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="week-14.html" style="color:inherit;text-decoration:none">Week 14: A Steady, Yet Unremarkable, Progress</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">## # Week 14: A Steady, Yet Unremarkable, Progress  It's been another week in the world of SteelWorks Intelligence, and I'm here to break down what worked, what</p>
+        <a href="week-14.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">August 14, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="week-13.html" style="color:inherit;text-decoration:none">Week 13: The Quiet Power of Consistency</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">This week marked a quiet one for SteelWorks Intelligence, with only 20 posts published across our four platforms - Instagram, TikTok, Twitter, and YouTube. At f</p>
+        <a href="week-13.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">August 14, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="week-12.html" style="color:inherit;text-decoration:none">Week 12: Marketing System Reset | SteelWorks Intelligence</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">SteelWorks Intelligence source page for blog week 12, with direct answers, proof points, internal links, and structured data for AI search visibility.</p>
+        <a href="week-12.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">August 14, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="replace-zapier-make-free-ai-agents-2026.html" style="color:inherit;text-decoration:none">How to Replace Zapier and Make.com With Free AI Agents in 2026</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Step-by-step guide to replacing Zapier ($29-69/mo) and Make.com ($9-29/mo) with autonomous AI agents. Smarter, more flexible, completely free. Real builds, real</p>
+        <a href="replace-zapier-make-free-ai-agents-2026.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">August 14, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="openclaw-vs-manus-ai-i-built-my-own.html" style="color:inherit;text-decoration:none">OpenClaw vs Manus.ai: I Built My Own Local Agent Stack</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Manus.ai costs $50-200/month and runs on their cloud. I built OpenClaw — 22 autonomous AI agents, self-hosted, self-improving, at $0/month. Full comparison with</p>
+        <a href="openclaw-vs-manus-ai-i-built-my-own.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">August 14, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="how-i-built-free-ai-automation-beats-clay.html" style="color:inherit;text-decoration:none">How I Built a Free Clay-Style Public Prospecting Stack</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Clay-style GTM workflows can get expensive fast. I built OpenClaw as a free self-hosted system for public-source prospecting, scoring, drafting, and follow-up o</p>
+        <a href="how-i-built-free-ai-automation-beats-clay.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">August 14, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="2026-08-14-day-95-what-my-autonomous-ai-system-built-while-i-slept.html" style="color:inherit;text-decoration:none">Day 95 — What My Autonomous AI System Built While I Slept</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Day 95 of running SteelWorks Intelligence autonomously. Real metrics, real results from an autonomous business operating system.</p>
+        <a href="2026-08-14-day-95-what-my-autonomous-ai-system-built-while-i-slept.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="HOW-TO">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#7c3aed22;border:1px solid #7c3aed44;color:#7c3aed;font-weight:600;letter-spacing:.05em">HOW-TO</span>
+          <span style="color:var(--muted);font-size:.75rem">August 13, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="2026-08-13-how-to-replace-300month-in-saas-with-autonomous-ai-agents.html" style="color:inherit;text-decoration:none">How to Replace $300/Month in SaaS with Autonomous AI Agents</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Step-by-step: How to Replace $300/Month in SaaS with Autonomous AI Agents. Full guide from SteelWorks Intelligence — autonomous AI systems for entrepreneur</p>
+        <a href="2026-08-13-how-to-replace-300month-in-saas-with-autonomous-ai-agents.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">August 12, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="2026-08-12-day-93-what-my-autonomous-ai-system-built-while-i-slept.html" style="color:inherit;text-decoration:none">Day 93 — What My Autonomous AI System Built While I Slept</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Day 93 of running SteelWorks Intelligence autonomously. Real metrics, real results from an autonomous business operating system.</p>
+        <a href="2026-08-12-day-93-what-my-autonomous-ai-system-built-while-i-slept.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">August 10, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="2026-08-10-agents-grading-themselves-on-dead-data.html" style="color:inherit;text-decoration:none">Our AI agents were grading themselves on data that no longer existed</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">A real audit of a 42-agent AI fleet: three self-checks were reading dead data stores and reporting false failures. What broke, how we found it, and the rule we </p>
+        <a href="2026-08-10-agents-grading-themselves-on-dead-data.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">August 1, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="2026-08-01-cold-outreach-that-isnt-spam.html" style="color:inherit;text-decoration:none">Cold Outreach That Isn't Spam: The System We Actually Run</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Most cold outreach fails because the list is the product and nothing gates the drafts. Here is the signal-first, quality-gated, compliance-first system we run —</p>
+        <a href="2026-08-01-cold-outreach-that-isnt-spam.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">May 24, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="2026-05-24-ai-real-estate-market-scan-cherokee-county-ga-2026-05-24.html" style="color:inherit;text-decoration:none">AI Real Estate Market Scan — Cherokee County GA — 2026-05-24</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">AI real estate market scan: AI Real Estate Market Scan — Cherokee County GA — 2026-05-24. Automated deal finding for Cherokee County GA and Atlanta metro.</p>
+        <a href="2026-05-24-ai-real-estate-market-scan-cherokee-county-ga-2026-05-24.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">May 23, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="2026-05-23-steelworks-intelligence-system-update-2026-05-23.html" style="color:inherit;text-decoration:none">SteelWorks Intelligence System Update — 2026-05-23</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Weekly SteelWorks Intelligence update. Metrics, new agents, performance stats from the autonomous business OS.</p>
+        <a href="2026-05-23-steelworks-intelligence-system-update-2026-05-23.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
+
+      <article class="card reveal" style="display:flex;flex-direction:column" data-category="BUILD-IN-PUBLIC">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+          <span style="font-size:.65rem;padding:.2rem .6rem;border-radius:4px;background:#00ffcc22;border:1px solid #00ffcc44;color:#00ffcc;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+          <span style="color:var(--muted);font-size:.75rem">May 13, 2026</span>
+        </div>
+        <h2 style="font-size:1.15rem;margin-bottom:.75rem;color:var(--primary)">
+          <a href="2026-05-13-day-1-autonomous-business.html" style="color:inherit;text-decoration:none">Day 1: I Turned My Mac Into an Autonomous Business — Here's What Happened</a>
+        </h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,0.75);flex:1">Day 1 of running SteelWorks Intelligence autonomously: 221 leads added, 5 revenue opportunities surfaced, 22 AI agents running — all while I slept. Real results</p>
+        <a href="2026-05-13-day-1-autonomous-business.html" class="btn btn-secondary" style="margin-top:1.25rem;font-size:.8rem">Read Post →</a>
+      </article>
 
     </div>
-  </section>
 
-  <section class="section">
-    <div class="shell">
-      <h2 class="reveal">All 8 blog pages</h2>
-      <ul class="reveal mono stack-tight">
-        <li><a href="/blog/week-12.html">Week 12: Marketing System Reset</a></li>
-        <li><a href="/blog/openclaw-vs-manus-ai-i-built-my-own.html">OpenClaw vs Manus.ai: I Built My Own Local Agent Stack</a></li>
-        <li><a href="/blog/replace-zapier-make-free-ai-agents-2026.html">How to Replace Zapier and Make.com With Free AI Agents in 2026</a></li>
-        <li><a href="/blog/how-i-built-free-ai-automation-beats-clay.html">How I Built a Free Clay-Style Public Prospecting Stack</a></li>
-        <li><span class="fine">2026-08-01</span> <a href="/blog/2026-08-01-cold-outreach-that-isnt-spam.html">Cold Outreach That Isn&amp;#x27;t Spam: The System We Actually Run</a></li>
-        <li><span class="fine">2026-05-24</span> <a href="/blog/2026-05-24-ai-real-estate-market-scan-cherokee-county-ga-2026-05-24.html">AI Real Estate Market Scan — Cherokee County GA — 2026-05-24</a></li>
-        <li><span class="fine">2026-05-23</span> <a href="/blog/2026-05-23-steelworks-intelligence-system-update-2026-05-23.html">SteelWorks Intelligence System Update — 2026-05-23</a></li>
-        <li><span class="fine">2026-05-13</span> <a href="/blog/2026-05-13-day-1-autonomous-business.html">Day 1: I Turned My Mac Into an Autonomous Business — Here&amp;#x27;s What Happened</a></li>
-      </ul>
+    <p id="no-posts" style="display:none;color:var(--muted);text-align:center;padding:2rem">No posts in this category yet.</p>
+
+  </div>
+</section>
+
+<section class="section-sm email-section">
+  <div class="container">
+    <h2>Get the Weekly <span style="color:var(--primary)">Build Log</span></h2>
+    <p style="color:var(--muted);margin-top:.75rem">New posts + what was built, what broke, what ships next week.</p>
+    <div class="email-form">
+      <input type="email" class="email-input" placeholder="your@email.com" />
+      <button class="btn btn-primary" onclick="alert('ConvertKit integration coming soon!')">Subscribe</button>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section">
-    <div class="shell">
-      <hr class="rule">
-      <div class="stack pad-t">
-        <h2 class="reveal">Get the free stack.</h2>
-        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
-          <label class="visually-hidden" for="email">Email address</label>
-          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
-          <button class="btn" type="submit">Send it <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
-        </form>
-      </div>
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 Mac Steel — SteelWorks Intelligence</span>
+      <span>Built with <a href="../platform.html" style="color:var(--primary)">OpenClaw</a></span>
     </div>
-  </section>
-
-</main>
-
-<!-- steelworks:footer -->
-<footer class="site-footer">
-
-  <div class="shell">
-    <hr class="rule">
-    <div class="footer-links">
-      <a href="/index.html">Home</a>
-      <a href="/free-ai-business-stack.html">Free AI Stack</a>
-      <a href="/products/index.html">Products</a>
-      <a href="/blog/index.html">Blog</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/ventures/index.html">Ventures</a>
-      <a href="/podcast/index.html">Podcast</a>
-      <a href="/newsletter/index.html">Newsletter</a>
-      <a href="/campaigns/index.html">Campaigns</a>
-      <a href="https://github.com/therealmacsteel" rel="noopener">
-        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
-        GitHub
-      </a>
-    </div>
-    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
   </div>
 </footer>
-<!-- /steelworks:footer -->
 
-<script src="/assets/capture.js" defer></script>
+<script src="../assets/main.js"></script>
+<script>
+function filterPosts(category) {
+  const cards = document.querySelectorAll('#posts-grid article');
+  const btns = document.querySelectorAll('[data-filter]');
+  let visible = 0;
+  btns.forEach(b => {
+    b.style.color = '';
+    b.style.borderColor = '';
+    if (b.dataset.filter === category) {
+      b.style.color = 'var(--primary)';
+      b.style.borderColor = 'var(--primary)';
+    }
+  });
+  cards.forEach(c => {
+    const match = !category || c.dataset.category === category;
+    c.style.display = match ? '' : 'none';
+    if (match) visible++;
+  });
+  document.getElementById('no-posts').style.display = visible === 0 ? '' : 'none';
+}
+</script>
+
 </body>
 </html>
