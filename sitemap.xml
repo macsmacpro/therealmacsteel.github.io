@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://therealmacsteel.github.io/about.html</loc>
@@ -79,6 +79,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://therealmacsteel.github.io/blog/2026-08-17-day-98-what-my-autonomous-ai-system-built-while-i-slept.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://therealmacsteel.github.io/blog/2026-08-18-how-to-replace-300month-in-saas-with-autonomous-ai-agents.html</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://therealmacsteel.github.io/blog/how-i-built-free-ai-automation-beats-clay.html</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -117,6 +129,12 @@
   <url>
     <loc>https://therealmacsteel.github.io/blog/week-14.html</loc>
     <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://therealmacsteel.github.io/blog/week-15.html</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -522,4 +540,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  </urlset>
+  <url>
+    <loc>https://therealmacsteel.github.io/workbenches/content-revenue-os.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://therealmacsteel.github.io/workbenches/market-intelligence.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
