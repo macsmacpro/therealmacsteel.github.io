@@ -91,6 +91,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://therealmacsteel.github.io/blog/2026-08-19-day-100-what-my-autonomous-ai-system-built-while-i-slept.html</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://therealmacsteel.github.io/blog/how-i-built-free-ai-automation-beats-clay.html</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -536,18 +542,6 @@
   </url>
   <url>
     <loc>https://therealmacsteel.github.io/thank-you.html</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://therealmacsteel.github.io/workbenches/content-revenue-os.html</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://therealmacsteel.github.io/workbenches/market-intelligence.html</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
