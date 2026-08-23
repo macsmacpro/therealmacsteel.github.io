@@ -1,74 +1,196 @@
-<div class="card" style="margin-bottom:2rem;border-color:var(--primary);background:rgba(0,255,204,0.04)">
-<strong style="color:var(--primary)">TL;DR:</strong> Day 97 of running SteelWorks Intelligence as an autonomous operation — what ran unattended, what broke, and what it cost.
-</div>
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">The Market Right Now</h2>
-<p style="margin-bottom:1.25rem">As of now, the real estate market for investors is experiencing a moderate pace of activity, with a slight dip in overall transactions compared to last quarter. The current inventory levels remain high, with an average of 30% more properties available on the market than during the same period last year.</p>
-<p style="margin-bottom:1.25rem">In terms of pricing, we're seeing a slight decrease in median sales prices for both residential and commercial properties, with a 2-3% drop seen across most markets. However, this decline is largely attributed to increased supply and relatively lower demand, rather than any significant economic downturn. Investor confidence remains steady, with cash flows from existing assets still performing well.</p>
-<p style="margin-bottom:1.25rem">While the market may be experiencing some softening, we're seeing a renewed interest in niche areas such as single-family rentals, multifamily properties, and commercial redevelopment opportunities. As investors adjust to this new landscape, we expect to see more focus on strategic acquisitions and efficient asset management to ensure long-term returns.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SteelWorks</title>
+<meta name="description" content="As of now, the real estate market for investors is experiencing a moderate pace of activity, with a slight dip in overall transactions compared to last quarter. The current invento">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/components.css">
+<!--
+  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
+  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
+  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
+  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
+  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
+  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
+  Decisions of record: data/org/web-design-decisions.md
+-->
+</head>
+<body>
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">What The Data Shows</h2>
-<p style="margin-bottom:1.25rem">The metrics for SteelWorks Intelligence show that the platform has been consistently scanning real estate deals, with 24 deals scanned today alone. However, this activity hasn't translated into any new leads being added, as none were generated on day 97 of running the system.</p>
-<p style="margin-bottom:1.25rem">Despite the lack of new leads, the platform has still been generating a significant volume of email outreach efforts, with 39 emails sent to potential clients. This suggests that SteelWorks Intelligence is doing its job in terms of identifying and prioritizing potential revenue opportunities, although not yet converting them into actual deals.</p>
-<p style="margin-bottom:1.25rem">The platform's ability to update intelligence files is also noteworthy, with seven RE intelligence file updates on day 97. While the number of leads added remains low at zero, this consistent activity suggests that SteelWorks Intelligence is learning and adapting its approach over time.</p>
+<!-- steelworks:header -->
+<a class="skip-link" href="#main">
+Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href="/index.html">
+      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
+      SteelWorks
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/ai-search-visibility.html">AI Visibility</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<!-- /steelworks:header -->
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">Signals Worth Watching</h2>
-<ul style="margin-bottom:1.5rem;padding-left:1.25rem">
-  <li style="margin-bottom:1.25rem">The number of leads added to the database, which is currently at 0.</li>
-  <li style="margin-bottom:1.25rem">The total number of real estate deals scanned by the AI agents, which is 24.</li>
-  <li style="margin-bottom:1.25rem">The number of builds completed by the autonomous system, which is 0.</li>
-  <li style="margin-bottom:1.25rem">The total count of actionable leads generated with email contact, currently at 322.</li>
-  <li style="margin-bottom:1.25rem">The number of outreach emails sent to potential clients or partners, which is 39.</li>
-</ul>
+<main id="main">
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">Where AI Changes The Analysis</h2>
-<p style="margin-bottom:1.25rem">Automation is revolutionizing the way real estate research is conducted. With the use of platforms like OpenClaw, autonomous AI agents can scan multiple real estate deals and websites in real-time, providing a vast amount of data that was previously difficult to gather manually. For instance, at the end of 97 days running SteelWorks Intelligence autonomously, 24 RE deals were scanned, and 322 actionable leads with email contact were generated.</p>
-<p style="margin-bottom:1.25rem">These leads are then filtered through automated outreach processes, allowing researchers to identify high-priority opportunities without manual intervention. In this case, Mac Steel sent 39 outreach emails, targeting these leads with a focus on converting them into revenue opportunities. The platform also provides real-time updates on RE intelligence files, ensuring that the data remains current and accurate.</p>
-<p style="margin-bottom:1.25rem">The use of automation in real estate research has numerous benefits, including increased efficiency, accuracy, and scalability. By leveraging autonomous AI agents like those found on OpenClaw, researchers can free up time to focus on high-value tasks, such as analyzing leads and revenue opportunities, rather than spending hours manually gathering data. This shift enables researchers to work smarter, not harder, and ultimately drive more successful outcomes in their real estate endeavors.</p>
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow reveal">SteelWorks</p>
+      <h1 class="reveal">SteelWorks</h1>
+      <p class="lede reveal">As of now, the real estate market for investors is experiencing a moderate pace of activity, with a slight dip in overall transactions compared to last quarter. The current inventory levels remain high, with an average of 30% more properties available on the market than during the same period last year.</p>
+    </div>
+  </section>
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">Risks In This Market</h2>
-<p style="margin-bottom:1.25rem">The honest downside risks of running SteelWorks Intelligence autonomously are numerous and varied.</p>
-<p style="margin-bottom:1.25rem">One major risk is the potential for data quality issues. Although 39 outreach emails were sent, only two resulted in high-priority revenue opportunities. This suggests that the AI agents may not be effectively filtering out unqualified leads or prioritizing follow-up actions on promising opportunities. Additionally, the fact that no new leads were added despite scanning 24 real estate deals daily indicates a possible problem with lead generation or follow-up workflows.</p>
-<p style="margin-bottom:1.25rem">Another risk is the potential for technical issues or system crashes. With 22 autonomous AI agents running continuously, there is a higher likelihood of errors or failures in the system. Furthermore, the lack of progress on builds completed and RE intelligence files updated suggests that the system may be experiencing technical difficulties or maintenance requirements that are not being adequately addressed.</p>
-<p style="margin-bottom:1.25rem">The fact that only two high-priority revenue opportunities surfaced out of 322 actionable leads with email contact is also a cause for concern. This indicates that the AI agents may not be effectively identifying or prioritizing opportunities, leading to missed revenue potential.</p>
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">How To Act On This</h2>
-<ol style="margin-bottom:1.5rem;padding-left:1.25rem">
-  <li style="margin-bottom:1.25rem">Review the current day's metrics and identify areas that need improvement in lead generation and outreach.</li>
-  <li style="margin-bottom:1.25rem">Check the RE intelligence file(s) updated count to ensure it accurately reflects the actual changes made to the system.</li>
-  <li style="margin-bottom:1.25rem">Analyze the 24 RE deals scanned to determine which ones require more attention or have potential for conversion.</li>
-  <li style="margin-bottom:1.25rem">Follow up on the high-priority revenue opportunities surfaced, prioritizing those that are closest to closure or have a higher potential for success.</li>
-  <li style="margin-bottom:1.25rem">Consider adjusting the outreach email strategy to improve response rates, potentially by rephrasing subject lines or using different email templates.</li>
-  <li style="margin-bottom:1.25rem">Schedule a weekly review of SteelWorks Intelligence with Mac Steel to discuss progress and adjust strategies as needed.</li>
-</ol>
+  <section class="section">
+    <div class="shell">
+      <figure class="reveal flush">
+        <img src="/assets/img/generated/blog-2026-08-16-ai-real-estate-market-scan-cherokee-county-ga-2026-08-16-held-html.png" width="768" height="576" alt="SteelWorks">
+      </figure>
+    </div>
+  </section>
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">Bottom Line</h2>
-<p style="margin-bottom:1.25rem">Mac Steel's autonomous AI agents running on OpenClaw have completed 97 days of operations. The system has generated 322 actionable leads with email contact and sent 39 outreach emails. Notably, two high-priority revenue opportunities were identified, which is a significant accomplishment.</p>
-<p style="margin-bottom:1.25rem">A total of seven RE intelligence files were updated during this period. One specific file was entirely replaced, while six others had partial updates. These updates demonstrate the system's ability to gather and refine relevant information for informed decision-making.</p>
-<p style="margin-bottom:1.25rem">Despite not generating any new leads or completing any builds, Mac Steel's AI agents have remained operational and continue to provide valuable insights into real estate intelligence.</p>
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">Frequently Asked Questions</h2>
-<h3 style="margin-top:1.5rem;margin-bottom:.5rem">What is an autonomous AI agent fleet?</h3>
-<p style="margin-bottom:1.25rem">A set of scheduled AI agents that run business tasks — publishing, research, monitoring, outreach — without a human starting each one. They execute on a schedule, write their results to disk, and escalate only when something needs a decision.</p>
-<h3 style="margin-top:1.5rem;margin-bottom:.5rem">Can this run without paid API credits?</h3>
-<p style="margin-bottom:1.25rem">Yes. The stack here runs local models through Ollama for generation, with hosted providers used only where a local model genuinely cannot do the job. The recurring software cost is zero.</p>
-<h3 style="margin-top:1.5rem;margin-bottom:.5rem">How do you stop AI agents from inventing results?</h3>
-<p style="margin-bottom:1.25rem">Every claim has to trace to a data file, and publishing is gated: a post with no measurable backing, or metrics that do not reconcile against the ledger, is held rather than published.</p>
-<h3 style="margin-top:1.5rem;margin-bottom:.5rem">What hardware does it need?</h3>
-<p style="margin-bottom:1.25rem">A single machine is enough to start. This fleet runs on a MacBook with local models, a scheduler, and a browser automation bridge.</p>
-<h3 style="margin-top:1.5rem;margin-bottom:.5rem">How long before automation produces results?</h3>
-<p style="margin-bottom:1.25rem">Operational results are immediate — jobs run unattended from day one. Audience and revenue results follow normal content timelines, which are measured in months, not days.</p>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is an autonomous AI agent fleet?", "acceptedAnswer": {"@type": "Answer", "text": "A set of scheduled AI agents that run business tasks \u2014 publishing, research, monitoring, outreach \u2014 without a human starting each one. They execute on a schedule, write their results to disk, and escalate only when something needs a decision."}}, {"@type": "Question", "name": "Can this run without paid API credits?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The stack here runs local models through Ollama for generation, with hosted providers used only where a local model genuinely cannot do the job. The recurring software cost is zero."}}, {"@type": "Question", "name": "How do you stop AI agents from inventing results?", "acceptedAnswer": {"@type": "Answer", "text": "Every claim has to trace to a data file, and publishing is gated: a post with no measurable backing, or metrics that do not reconcile against the ledger, is held rather than published."}}, {"@type": "Question", "name": "What hardware does it need?", "acceptedAnswer": {"@type": "Answer", "text": "A single machine is enough to start. This fleet runs on a MacBook with local models, a scheduler, and a browser automation bridge."}}, {"@type": "Question", "name": "How long before automation produces results?", "acceptedAnswer": {"@type": "Answer", "text": "Operational results are immediate \u2014 jobs run unattended from day one. Audience and revenue results follow normal content timelines, which are measured in months, not days."}}]}</script>
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">The Market Right Now</h2>
+      <p class="reveal">As of now, the real estate market for investors is experiencing a moderate pace of activity, with a slight dip in overall transactions compared to last quarter. The current inventory levels remain high, with an average of 30% more properties available on the market than during the same period last year.</p>
+      <p class="reveal">In terms of pricing, we&#x27;re seeing a slight decrease in median sales prices for both residential and commercial properties, with a 2-3% drop seen across most markets. However, this decline is largely attributed to increased supply and relatively lower demand, rather than any significant economic downturn. Investor confidence remains steady, with cash flows from existing assets still performing well.</p>
+      <p class="reveal">While the market may be experiencing some softening, we&#x27;re seeing a renewed interest in niche areas such as single-family rentals, multifamily properties, and commercial redevelopment opportunities. As investors adjust to this new landscape, we expect to see more focus on strategic acquisitions and efficient asset management to ensure long-term returns.</p>
+      <ul class="reveal mono">
+        <li>The number of leads added to the database, which is currently at 0.</li>
+      </ul>
+    </div>
+  </section>
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">Further Reading</h2>
-<ul style="margin-bottom:1.5rem;padding-left:1.25rem">
-  <li style="margin-bottom:1.25rem"><a href="/platform.html">The platform behind this build</a></li>
-  <li style="margin-bottom:1.25rem"><a href="/blog/">All build-in-public posts</a></li>
-  <li style="margin-bottom:1.25rem"><a href="/contact.html">Work with SteelWorks Intelligence</a></li>
-  <li style="margin-bottom:1.25rem"><a href="/">SteelWorks Intelligence home</a></li>
-</ul>
-<p style="margin-bottom:1.25rem"><strong>References:</strong></p>
-<ul style="margin-bottom:1.5rem;padding-left:1.25rem">
-  <li style="margin-bottom:1.25rem"><a href="https://ollama.com/" rel="noopener" target="_blank">Ollama — local model runtime</a></li>
-  <li style="margin-bottom:1.25rem"><a href="https://schema.org/FAQPage" rel="noopener" target="_blank">Schema.org FAQPage specification</a></li>
-  <li style="margin-bottom:1.25rem"><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" rel="noopener" target="_blank">Google — creating helpful, reliable content</a></li>
-</ul>
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">What The Data Shows</h2>
+      <p class="reveal">The metrics for SteelWorks Intelligence show that the platform has been consistently scanning real estate deals, with 24 deals scanned today alone. However, this activity hasn&#x27;t translated into any new leads being added, as none were generated on day 97 of running the system.</p>
+      <p class="reveal">Despite the lack of new leads, the platform has still been generating a significant volume of email outreach efforts, with 39 emails sent to potential clients. This suggests that SteelWorks Intelligence is doing its job in terms of identifying and prioritizing potential revenue opportunities, although not yet converting them into actual deals.</p>
+      <p class="reveal">The platform&#x27;s ability to update intelligence files is also noteworthy, with seven RE intelligence file updates on day 97. While the number of leads added remains low at zero, this consistent activity suggests that SteelWorks Intelligence is learning and adapting its approach over time.</p>
+      <ul class="reveal mono">
+        <li>The number of leads added to the database, which is currently at 0.</li>
+        <li>The total number of real estate deals scanned by the AI agents, which is 24.</li>
+        <li>The number of builds completed by the autonomous system, which is 0.</li>
+        <li>The total count of actionable leads generated with email contact, currently at 322.</li>
+        <li>The number of outreach emails sent to potential clients or partners, which is 39.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">Signals Worth Watching</h2>
+      <p class="reveal">Automation is revolutionizing the way real estate research is conducted. With the use of platforms like OpenClaw, autonomous AI agents can scan multiple real estate deals and websites in real-time, providing a vast amount of data that was previously difficult to gather manually. For instance, at the end of 97 days running SteelWorks Intelligence autonomously, 24 RE deals were scanned, and 322 actionable leads with email contact were generated.</p>
+      <p class="reveal">These leads are then filtered through automated outreach processes, allowing researchers to identify high-priority opportunities without manual intervention. In this case, Mac Steel sent 39 outreach emails, targeting these leads with a focus on converting them into revenue opportunities. The platform also provides real-time updates on RE intelligence files, ensuring that the data remains current and accurate.</p>
+      <p class="reveal">The use of automation in real estate research has numerous benefits, including increased efficiency, accuracy, and scalability. By leveraging autonomous AI agents like those found on OpenClaw, researchers can free up time to focus on high-value tasks, such as analyzing leads and revenue opportunities, rather than spending hours manually gathering data. This shift enables researchers to work smarter, not harder, and ultimately drive more successful outcomes in their real estate endeavors.</p>
+      <ul class="reveal mono">
+        <li>The number of leads added to the database, which is currently at 0.</li>
+        <li>The total number of real estate deals scanned by the AI agents, which is 24.</li>
+        <li>The number of builds completed by the autonomous system, which is 0.</li>
+        <li>The total count of actionable leads generated with email contact, currently at 322.</li>
+        <li>The number of outreach emails sent to potential clients or partners, which is 39.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">Where AI Changes The Analysis</h2>
+      <p class="reveal">Automation is revolutionizing the way real estate research is conducted. With the use of platforms like OpenClaw, autonomous AI agents can scan multiple real estate deals and websites in real-time, providing a vast amount of data that was previously difficult to gather manually. For instance, at the end of 97 days running SteelWorks Intelligence autonomously, 24 RE deals were scanned, and 322 actionable leads with email contact were generated.</p>
+      <p class="reveal">These leads are then filtered through automated outreach processes, allowing researchers to identify high-priority opportunities without manual intervention. In this case, Mac Steel sent 39 outreach emails, targeting these leads with a focus on converting them into revenue opportunities. The platform also provides real-time updates on RE intelligence files, ensuring that the data remains current and accurate.</p>
+      <p class="reveal">The use of automation in real estate research has numerous benefits, including increased efficiency, accuracy, and scalability. By leveraging autonomous AI agents like those found on OpenClaw, researchers can free up time to focus on high-value tasks, such as analyzing leads and revenue opportunities, rather than spending hours manually gathering data. This shift enables researchers to work smarter, not harder, and ultimately drive more successful outcomes in their real estate endeavors.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">Risks In This Market</h2>
+      <p class="reveal">The honest downside risks of running SteelWorks Intelligence autonomously are numerous and varied.</p>
+      <p class="reveal">One major risk is the potential for data quality issues. Although 39 outreach emails were sent, only two resulted in high-priority revenue opportunities. This suggests that the AI agents may not be effectively filtering out unqualified leads or prioritizing follow-up actions on promising opportunities. Additionally, the fact that no new leads were added despite scanning 24 real estate deals daily indicates a possible problem with lead generation or follow-up workflows.</p>
+      <p class="reveal">Another risk is the potential for technical issues or system crashes. With 22 autonomous AI agents running continuously, there is a higher likelihood of errors or failures in the system. Furthermore, the lack of progress on builds completed and RE intelligence files updated suggests that the system may be experiencing technical difficulties or maintenance requirements that are not being adequately addressed.</p>
+      <ul class="reveal mono">
+        <li>Review the current day&#x27;s metrics and identify areas that need improvement in lead generation and outreach.</li>
+        <li>Check the RE intelligence file(s) updated count to ensure it accurately reflects the actual changes made to the system.</li>
+        <li>Analyze the 24 RE deals scanned to determine which ones require more attention or have potential for conversion.</li>
+        <li>Follow up on the high-priority revenue opportunities surfaced, prioritizing those that are closest to closure or have a higher potential for success.</li>
+        <li>Consider adjusting the outreach email strategy to improve response rates, potentially by rephrasing subject lines or using different email templates.</li>
+        <li>Schedule a weekly review of SteelWorks Intelligence with Mac Steel to discuss progress and adjust strategies as needed.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">How To Act On This</h2>
+      <p class="reveal">Mac Steel&#x27;s autonomous AI agents running on OpenClaw have completed 97 days of operations. The system has generated 322 actionable leads with email contact and sent 39 outreach emails. Notably, two high-priority revenue opportunities were identified, which is a significant accomplishment.</p>
+      <p class="reveal">A total of seven RE intelligence files were updated during this period. One specific file was entirely replaced, while six others had partial updates. These updates demonstrate the system&#x27;s ability to gather and refine relevant information for informed decision-making.</p>
+      <p class="reveal">Despite not generating any new leads or completing any builds, Mac Steel&#x27;s AI agents have remained operational and continue to provide valuable insights into real estate intelligence.</p>
+      <ul class="reveal mono">
+        <li>Review the current day&#x27;s metrics and identify areas that need improvement in lead generation and outreach.</li>
+        <li>Check the RE intelligence file(s) updated count to ensure it accurately reflects the actual changes made to the system.</li>
+        <li>Analyze the 24 RE deals scanned to determine which ones require more attention or have potential for conversion.</li>
+        <li>Follow up on the high-priority revenue opportunities surfaced, prioritizing those that are closest to closure or have a higher potential for success.</li>
+        <li>Consider adjusting the outreach email strategy to improve response rates, potentially by rephrasing subject lines or using different email templates.</li>
+        <li>Schedule a weekly review of SteelWorks Intelligence with Mac Steel to discuss progress and adjust strategies as needed.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <hr class="rule">
+      <div class="stack pad-t">
+        <h2 class="reveal">Get the free stack.</h2>
+        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
+          <label class="visually-hidden" for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+          <button class="btn" type="submit">Send it <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- steelworks:footer -->
+<footer class="site-footer">
+
+  <div class="shell">
+    <hr class="rule">
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/free-ai-business-stack.html">Free AI Stack</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/ventures/index.html">Ventures</a>
+      <a href="/podcast/index.html">Podcast</a>
+      <a href="/newsletter/index.html">Newsletter</a>
+      <a href="/campaigns/index.html">Campaigns</a>
+      <a href="https://github.com/therealmacsteel" rel="noopener">
+        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
+        GitHub
+      </a>
+    </div>
+    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
+  </div>
+</footer>
+<!-- /steelworks:footer -->
+
+<script src="/assets/capture.js" defer></script>
+</body>
+</html>
