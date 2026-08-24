@@ -5,56 +5,63 @@
     <link>https://therealmacsteel.github.io/blog/</link>
     <description>Build logs, how-to guides, and AI intel from Mac Steel.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Aug 2026 14:22:43 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 23:07:41 +0000</lastBuildDate>
     <atom:link href="https://therealmacsteel.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Week 15: System Uptime is Key to Success</title>
       <link>https://therealmacsteel.github.io/blog/week-15.html</link>
       <description>## # Week 15: System Uptime is Key to Success  We made it to Day 99 of our system uptime, and I'm thrilled to report that our infrastructure has remained rock-s</description>
-      <pubDate>Sun, 23 Aug 2026 10:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Aug 2026 10:00:00 +0000</pubDate>
       <guid>https://therealmacsteel.github.io/blog/week-15.html</guid>
     </item>
     <item>
       <title>Week 14: A Look at Our System Uptime of 98 Days Straight</title>
       <link>https://therealmacsteel.github.io/blog/week-14.html</link>
       <description>We're hitting the 100-day mark on our system uptime now, and I'm thrilled to say that we've maintained a rock-solid foundation for our online presence. With 98 </description>
-      <pubDate>Sun, 23 Aug 2026 10:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Aug 2026 10:00:00 +0000</pubDate>
       <guid>https://therealmacsteel.github.io/blog/week-14.html</guid>
     </item>
     <item>
       <title>Week 13: The Quiet Power of Consistency</title>
       <link>https://therealmacsteel.github.io/blog/week-13.html</link>
       <description>This week marked a quiet one for SteelWorks Intelligence, with only 20 posts published across our four platforms - Instagram, TikTok, Twitter, and YouTube. At f</description>
-      <pubDate>Sun, 23 Aug 2026 10:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Aug 2026 10:00:00 +0000</pubDate>
       <guid>https://therealmacsteel.github.io/blog/week-13.html</guid>
     </item>
     <item>
       <title>Week 12: Marketing System Reset | SteelWorks Intelligence</title>
       <link>https://therealmacsteel.github.io/blog/week-12.html</link>
       <description>SteelWorks Intelligence source page for blog week 12, with direct answers, proof points, internal links, and structured data for AI search visibility.</description>
-      <pubDate>Sun, 23 Aug 2026 10:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Aug 2026 10:00:00 +0000</pubDate>
       <guid>https://therealmacsteel.github.io/blog/week-12.html</guid>
     </item>
     <item>
       <title>How to Replace Zapier and Make.com With Free AI Agents in 2026</title>
       <link>https://therealmacsteel.github.io/blog/replace-zapier-make-free-ai-agents-2026.html</link>
       <description>Step-by-step guide to replacing Zapier ($29-69/mo) and Make.com ($9-29/mo) with autonomous AI agents. Smarter, more flexible, completely free. Real builds, real</description>
-      <pubDate>Sun, 23 Aug 2026 10:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Aug 2026 10:00:00 +0000</pubDate>
       <guid>https://therealmacsteel.github.io/blog/replace-zapier-make-free-ai-agents-2026.html</guid>
     </item>
     <item>
       <title>OpenClaw vs Manus.ai: I Built My Own Local Agent Stack</title>
       <link>https://therealmacsteel.github.io/blog/openclaw-vs-manus-ai-i-built-my-own.html</link>
       <description>Manus.ai costs $50-200/month and runs on their cloud. I built OpenClaw — 22 autonomous AI agents, self-hosted, self-improving, at $0/month. Full comparison with</description>
-      <pubDate>Sun, 23 Aug 2026 10:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Aug 2026 10:00:00 +0000</pubDate>
       <guid>https://therealmacsteel.github.io/blog/openclaw-vs-manus-ai-i-built-my-own.html</guid>
     </item>
     <item>
       <title>How I Built a Free Clay-Style Public Prospecting Stack</title>
       <link>https://therealmacsteel.github.io/blog/how-i-built-free-ai-automation-beats-clay.html</link>
       <description>Clay-style GTM workflows can get expensive fast. I built OpenClaw as a free self-hosted system for public-source prospecting, scoring, drafting, and follow-up o</description>
-      <pubDate>Sun, 23 Aug 2026 10:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Aug 2026 10:00:00 +0000</pubDate>
       <guid>https://therealmacsteel.github.io/blog/how-i-built-free-ai-automation-beats-clay.html</guid>
+    </item>
+    <item>
+      <title>Day 105 — What My Autonomous AI System Built While I Slept</title>
+      <link>https://therealmacsteel.github.io/blog/2026-08-24-day-105-what-my-autonomous-ai-system-built-while-i-slept.html</link>
+      <description>Day 105 of running SteelWorks Intelligence autonomously. Real metrics, real results from an autonomous business operating system.</description>
+      <pubDate>Mon, 24 Aug 2026 10:00:00 +0000</pubDate>
+      <guid>https://therealmacsteel.github.io/blog/2026-08-24-day-105-what-my-autonomous-ai-system-built-while-i-slept.html</guid>
     </item>
     <item>
       <title>AI Real Estate Market Scan — Cherokee County GA — 2026-08-23</title>
@@ -139,13 +146,6 @@
       <description>A real audit of a 42-agent AI fleet: three self-checks were reading dead data stores and reporting false failures. What broke, how we found it, and the rule we </description>
       <pubDate>Mon, 10 Aug 2026 10:00:00 +0000</pubDate>
       <guid>https://therealmacsteel.github.io/blog/2026-08-10-agents-grading-themselves-on-dead-data.html</guid>
-    </item>
-    <item>
-      <title>Cold Outreach That Isn't Spam: The System We Actually Run</title>
-      <link>https://therealmacsteel.github.io/blog/2026-08-01-cold-outreach-that-isnt-spam.html</link>
-      <description>Most cold outreach fails because the list is the product and nothing gates the drafts. Here is the signal-first, quality-gated, compliance-first system we run —</description>
-      <pubDate>Sat, 01 Aug 2026 10:00:00 +0000</pubDate>
-      <guid>https://therealmacsteel.github.io/blog/2026-08-01-cold-outreach-that-isnt-spam.html</guid>
     </item>
   </channel>
 </rss>
