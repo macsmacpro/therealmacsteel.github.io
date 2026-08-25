@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://therealmacsteel.github.io/about.html</loc>
@@ -111,6 +111,18 @@
   <url>
     <loc>https://therealmacsteel.github.io/blog/2026-08-22-steelworks-intelligence-system-update-2026-08-22.held.html</loc>
     <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://therealmacsteel.github.io/blog/2026-08-23-ai-real-estate-market-scan-cherokee-county-ga-2026-08-23.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://therealmacsteel.github.io/blog/2026-08-24-day-105-what-my-autonomous-ai-system-built-while-i-slept.html</loc>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -313,6 +325,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://therealmacsteel.github.io/newsletter/week-015.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://therealmacsteel.github.io/platform.html</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -356,7 +374,7 @@
   </url>
   <url>
     <loc>https://therealmacsteel.github.io/products/ai-content-repurpose-youtube-prompts.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -380,7 +398,7 @@
   </url>
   <url>
     <loc>https://therealmacsteel.github.io/products/ai-powered-chatbot-conversations-pack-25-prompts-for-craftin.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -576,4 +594,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  </urlset>
+  <url>
+    <loc>https://therealmacsteel.github.io/workbenches/market-intelligence.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
