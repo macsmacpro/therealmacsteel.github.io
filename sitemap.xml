@@ -139,6 +139,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://therealmacsteel.github.io/blog/2026-08-27-how-to-replace-300month-in-saas-with-autonomous-ai-agents.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://therealmacsteel.github.io/blog/how-i-built-free-ai-automation-beats-clay.html</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -386,7 +392,7 @@
   </url>
   <url>
     <loc>https://therealmacsteel.github.io/products/ai-content-repurpose-youtube-prompts.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -410,7 +416,7 @@
   </url>
   <url>
     <loc>https://therealmacsteel.github.io/products/ai-powered-chatbot-conversations-pack-25-prompts-for-craftin.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -602,6 +608,18 @@
   </url>
   <url>
     <loc>https://therealmacsteel.github.io/thank-you.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://therealmacsteel.github.io/workbenches/content-revenue-os.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://therealmacsteel.github.io/workbenches/market-intelligence.html</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
