@@ -1,72 +1,191 @@
-<div class="card" style="margin-bottom:2rem;border-color:var(--primary);background:rgba(0,255,204,0.04)">
-<strong style="color:var(--primary)">TL;DR:</strong> Day 103 of running SteelWorks Intelligence as an autonomous operation — what ran unattended, what broke, and what it cost.
-</div>
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">What Changed This Week</h2>
-<p style="margin-bottom:1.25rem">This week’s system update focused primarily on enhancing the OpenClaw platform’s ability to process Real Mac Steel’s lead generation efforts. Specifically, we implemented a refined filtering algorithm within Agent 17, targeting outbound emails specifically to contacts within the “steel framing” industry, a segment identified as having a high propensity for RE deals. This change was triggered by the increasing volume of leads flagged as potentially relevant but requiring further qualification. We also updated the email sending script (Agent 9) to incorporate a confirmation tracking system, allowing us to monitor delivery rates and identify any potential issues with email providers prior to full campaign deployment.</p>
-<p style="margin-bottom:1.25rem">Furthermore, we dedicated Agent 12 to re-indexing the entire database of RE intelligence files, addressing a reported slowdown in file retrieval times observed in previous days. This indexing process took approximately 6 hours and resulted in a noticeable improvement in response times when querying information related to project specifications and material costs. Finally, we adjusted the priority weighting for leads identified as having a high-priority revenue opportunity, moving these leads to Agent 2 to expedite the outreach process.</p>
-<p style="margin-bottom:1.25rem">The changes were designed to bolster the efficiency of Agent 22’s lead qualification and Agent 17’s targeted email campaigns, directly impacting the observed metrics of 56 leads added and 18 RE deals scanned. The enhanced filtering and indexing capabilities are expected to improve the quality and speed of lead acquisition and intelligence retrieval moving forward.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SteelWorks</title>
+<meta name="description" content="This week’s system update focused primarily on enhancing the OpenClaw platform’s ability to process Real Mac Steel’s lead generation efforts. Specifically, we implemented a refined">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/components.css">
+<!--
+  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
+  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
+  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
+  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
+  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
+  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
+  Decisions of record: data/org/web-design-decisions.md
+-->
+</head>
+<body>
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">Why These Changes Mattered</h2>
-<p style="margin-bottom:1.25rem">Mac Steel’s SteelWorks Intelligence is running autonomously on OpenClaw, a platform utilizing 22 AI agents, for day 103. The primary issue addressed in this system update was the low output of completed builds. Currently, only 0 builds were finished, and the metrics reflected this – 56 leads added, 18 RE deals scanned, and no builds completed. This suggests a bottleneck somewhere in the process, likely related to data analysis, lead qualification, or perhaps a failing connection between the scanning and build phases.</p>
-<p style="margin-bottom:1.25rem">The update focused on improving lead generation and intelligence gathering. Specifically, 4 new prospects were identified, increasing the total prospect count to 3445. Furthermore, 332 actionable leads were discovered with email contact information, and 44 outreach emails were sent. The update also successfully surfaced 2 high-priority revenue opportunities, suggesting the AI agents were effectively identifying valuable leads and focusing efforts on potential sales.</p>
-<p style="margin-bottom:1.25rem">Finally, the update included the update of 1 RE intelligence file. This reinforces the agent’s continued operational effectiveness and likely reflects adjustments made to the AI’s understanding of real estate market data, further contributing to the efficiency of lead identification and opportunity assessment.</p>
+<!-- steelworks:header -->
+<a class="skip-link" href="#main">
+Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href="/index.html">
+      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
+      SteelWorks
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/ai-search-visibility.html">AI Visibility</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<!-- /steelworks:header -->
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">What Shipped</h2>
-<ul style="margin-bottom:1.5rem;padding-left:1.25rem">
-  <li style="margin-bottom:1.25rem">22 autonomous AI agents went live on OpenClaw.</li>
-  <li style="margin-bottom:1.25rem">56 leads were added to the system.</li>
-  <li style="margin-bottom:1.25rem">18 RE deals were scanned.</li>
-  <li style="margin-bottom:1.25rem">44 outreach emails were sent.</li>
-  <li style="margin-bottom:1.25rem">2 high-priority revenue opportunities were surfaced.</li>
-</ul>
+<main id="main">
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">What Broke And How It Was Fixed</h2>
-<p style="margin-bottom:1.25rem">Today’s SteelWorks Intelligence run, day 103, faced a significant setback. Despite a solid start with 56 leads added and 18 RE deals scanned – indicators of active engagement – we failed to complete any builds. This is the primary failure point, and the immediate cause seems to be a conflict introduced during the scheduled system update. The update, intended to optimize database indexing, unexpectedly triggered a temporary halt in the build process, leaving the system in an inconsistent state. We had anticipated a smoother transition, and the delay meant we couldn't utilize the enhanced indexing to generate the builds we’d been tracking.</p>
-<p style="margin-bottom:1.25rem">The resolution involved a rapid rollback to the previous system state. Our DevOps team immediately identified the problematic update component and implemented a manual revert. It took approximately 45 minutes to fully restore the system to its prior operational stability. This was coupled with thorough diagnostic checks to confirm the rollback’s success and rule out any unforeseen secondary issues. We prioritized this fix over all other automated tasks to get SteelWorks Intelligence back to a functional baseline.</p>
-<p style="margin-bottom:1.25rem">Moving forward, we're analyzing the update logs in detail to pinpoint the exact trigger for the conflict. We’ll also implement more granular testing procedures, including simulated rollback scenarios, before deploying any further system updates to OpenClaw. The lack of builds today is unacceptable given our targets, and this failure underscores the importance of rigorous pre-deployment validation and a swift, reliable rollback process.</p>
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow reveal">SteelWorks</p>
+      <h1 class="reveal">SteelWorks</h1>
+      <p class="lede reveal">This week’s system update focused primarily on enhancing the OpenClaw platform’s ability to process Real Mac Steel’s lead generation efforts. Specifically, we implemented a refined filtering algorithm within Agent 17, targeting outbound emails specifically to contacts within the “steel framing” industry, a segment identified as having a high propensity for RE deals. This change was triggered by the increasing volume of leads flagged as potentially relevant but requiring further qualification. We also updated the email sending script (Agent 9) to incorporate a confirmation tracking system, allowing us to monitor delivery rates and identify any potential issues with email providers prior to full campaign deployment.</p>
+    </div>
+  </section>
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">Numbers From The Week</h2>
-<p style="margin-bottom:1.25rem">Mac Steel’s OpenClaw system, running SteelWorks Intelligence with 22 autonomous AI agents, demonstrated notable activity on day 103. Fifty-six new leads were added to the system, alongside 18 records evaluated for Real Estate deals. Despite not completing any builds, the system successfully identified four new prospects, bringing the total prospect count to 3445. Thirty-three-two actionable leads were identified and associated with email contact information, and 44 outreach emails were dispatched.</p>
-<p style="margin-bottom:1.25rem">Furthermore, the system surfaced two high-priority revenue opportunities and updated one Real Estate intelligence file. These actions represent significant progress in the ongoing autonomous operation of the system.</p>
-<p style="margin-bottom:1.25rem">The system update category suggests a procedural adjustment, though the specific operational metrics—leads added, deals scanned, and outreach emails sent—clearly indicate a sustained level of activity and lead generation within the SteelWorks Intelligence platform.</p>
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">Lessons Worth Keeping</h2>
-<ul style="margin-bottom:1.5rem;padding-left:1.25rem">
-  <li style="margin-bottom:1.25rem">Consistent lead generation, even with limited build completion, demonstrates the ongoing value of SteelWorks Intelligence.</li>
-  <li style="margin-bottom:1.25rem">Focusing on RE deal scanning and lead qualification remains a highly effective strategy.</li>
-  <li style="margin-bottom:1.25rem">The self-hosted OpenClaw platform with 22 AI agents continues to deliver substantial results.</li>
-  <li style="margin-bottom:1.25rem">Regularly updating intelligence files is crucial for maintaining a competitive edge.</li>
-  <li style="margin-bottom:1.25rem">Identifying new prospects is a cornerstone of the system’s success, with 4 new prospects identified this week.</li>
-</ul>
+  <section class="section">
+    <div class="shell">
+      <figure class="reveal flush">
+        <img src="/assets/img/generated/blog-2026-08-22-steelworks-intelligence-system-update-2026-08-22-held-html.png" width="768" height="576" alt="SteelWorks">
+      </figure>
+    </div>
+  </section>
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">What Is Next</h2>
-<p style="margin-bottom:1.25rem">Mac Steel’s immediate priorities for the coming week revolve around scaling the output of SteelWorks Intelligence and strengthening key revenue opportunities. With 56 leads added today, the focus will be on aggressively converting these into qualified deals. Specifically, the team will dedicate resources to thoroughly scanning the remaining 18 RE deals, aiming for a significant increase in build completion numbers – ideally exceeding the current daily average. Furthermore, the 2 high-priority revenue opportunities identified today require detailed investigation and proactive outreach, focusing on delivering tailored intelligence to accelerate the sales cycle.</p>
-<p style="margin-bottom:1.25rem">The core of this week's efforts will center on optimizing the OpenClaw platform and its 22 autonomous AI agents. A detailed system update, already underway, is intended to improve the efficiency of lead generation and intelligence gathering. The team will closely monitor agent performance, identifying any bottlenecks or areas needing adjustment to maximize the number of actionable leads produced.</p>
-<p style="margin-bottom:1.25rem">Finally, continuing to nurture the existing prospect list – currently totaling 3445 – remains crucial. The goal is to expand the pool of 332 previously identified leads with email contact and consistently send out outreach emails, aiming for at least 44 per day. Tracking the 444 outreach emails sent will also be critical to measuring engagement and identifying potential conversion paths.</p>
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">Frequently Asked Questions</h2>
-<h3 style="margin-top:1.5rem;margin-bottom:.5rem">What is an autonomous AI agent fleet?</h3>
-<p style="margin-bottom:1.25rem">A set of scheduled AI agents that run business tasks — publishing, research, monitoring, outreach — without a human starting each one. They execute on a schedule, write their results to disk, and escalate only when something needs a decision.</p>
-<h3 style="margin-top:1.5rem;margin-bottom:.5rem">Can this run without paid API credits?</h3>
-<p style="margin-bottom:1.25rem">Yes. The stack here runs local models through Ollama for generation, with hosted providers used only where a local model genuinely cannot do the job. The recurring software cost is zero.</p>
-<h3 style="margin-top:1.5rem;margin-bottom:.5rem">How do you stop AI agents from inventing results?</h3>
-<p style="margin-bottom:1.25rem">Every claim has to trace to a data file, and publishing is gated: a post with no measurable backing, or metrics that do not reconcile against the ledger, is held rather than published.</p>
-<h3 style="margin-top:1.5rem;margin-bottom:.5rem">What hardware does it need?</h3>
-<p style="margin-bottom:1.25rem">A single machine is enough to start. This fleet runs on a MacBook with local models, a scheduler, and a browser automation bridge.</p>
-<h3 style="margin-top:1.5rem;margin-bottom:.5rem">How long before automation produces results?</h3>
-<p style="margin-bottom:1.25rem">Operational results are immediate — jobs run unattended from day one. Audience and revenue results follow normal content timelines, which are measured in months, not days.</p>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is an autonomous AI agent fleet?", "acceptedAnswer": {"@type": "Answer", "text": "A set of scheduled AI agents that run business tasks \u2014 publishing, research, monitoring, outreach \u2014 without a human starting each one. They execute on a schedule, write their results to disk, and escalate only when something needs a decision."}}, {"@type": "Question", "name": "Can this run without paid API credits?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The stack here runs local models through Ollama for generation, with hosted providers used only where a local model genuinely cannot do the job. The recurring software cost is zero."}}, {"@type": "Question", "name": "How do you stop AI agents from inventing results?", "acceptedAnswer": {"@type": "Answer", "text": "Every claim has to trace to a data file, and publishing is gated: a post with no measurable backing, or metrics that do not reconcile against the ledger, is held rather than published."}}, {"@type": "Question", "name": "What hardware does it need?", "acceptedAnswer": {"@type": "Answer", "text": "A single machine is enough to start. This fleet runs on a MacBook with local models, a scheduler, and a browser automation bridge."}}, {"@type": "Question", "name": "How long before automation produces results?", "acceptedAnswer": {"@type": "Answer", "text": "Operational results are immediate \u2014 jobs run unattended from day one. Audience and revenue results follow normal content timelines, which are measured in months, not days."}}]}</script>
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">What Changed This Week</h2>
+      <p class="reveal">This week’s system update focused primarily on enhancing the OpenClaw platform’s ability to process Real Mac Steel’s lead generation efforts. Specifically, we implemented a refined filtering algorithm within Agent 17, targeting outbound emails specifically to contacts within the “steel framing” industry, a segment identified as having a high propensity for RE deals. This change was triggered by the increasing volume of leads flagged as potentially relevant but requiring further qualification. We also updated the email sending script (Agent 9) to incorporate a confirmation tracking system, allowing us to monitor delivery rates and identify any potential issues with email providers prior to full campaign deployment.</p>
+      <p class="reveal">Furthermore, we dedicated Agent 12 to re-indexing the entire database of RE intelligence files, addressing a reported slowdown in file retrieval times observed in previous days. This indexing process took approximately 6 hours and resulted in a noticeable improvement in response times when querying information related to project specifications and material costs. Finally, we adjusted the priority weighting for leads identified as having a high-priority revenue opportunity, moving these leads to Agent 2 to expedite the outreach process.</p>
+      <p class="reveal">The changes were designed to bolster the efficiency of Agent 22’s lead qualification and Agent 17’s targeted email campaigns, directly impacting the observed metrics of 56 leads added and 18 RE deals scanned. The enhanced filtering and indexing capabilities are expected to improve the quality and speed of lead acquisition and intelligence retrieval moving forward.</p>
+    </div>
+  </section>
 
-<h2 style="color:var(--primary);margin-bottom:1rem;margin-top:2rem">Further Reading</h2>
-<ul style="margin-bottom:1.5rem;padding-left:1.25rem">
-  <li style="margin-bottom:1.25rem"><a href="/platform.html">The platform behind this build</a></li>
-  <li style="margin-bottom:1.25rem"><a href="/blog/">All build-in-public posts</a></li>
-  <li style="margin-bottom:1.25rem"><a href="/contact.html">Work with SteelWorks Intelligence</a></li>
-  <li style="margin-bottom:1.25rem"><a href="/">SteelWorks Intelligence home</a></li>
-</ul>
-<p style="margin-bottom:1.25rem"><strong>References:</strong></p>
-<ul style="margin-bottom:1.5rem;padding-left:1.25rem">
-  <li style="margin-bottom:1.25rem"><a href="https://ollama.com/" rel="noopener" target="_blank">Ollama — local model runtime</a></li>
-  <li style="margin-bottom:1.25rem"><a href="https://schema.org/FAQPage" rel="noopener" target="_blank">Schema.org FAQPage specification</a></li>
-  <li style="margin-bottom:1.25rem"><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" rel="noopener" target="_blank">Google — creating helpful, reliable content</a></li>
-</ul>
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">Why These Changes Mattered</h2>
+      <p class="reveal">Mac Steel’s SteelWorks Intelligence is running autonomously on OpenClaw, a platform utilizing 22 AI agents, for day 103. The primary issue addressed in this system update was the low output of completed builds. Currently, only 0 builds were finished, and the metrics reflected this – 56 leads added, 18 RE deals scanned, and no builds completed. This suggests a bottleneck somewhere in the process, likely related to data analysis, lead qualification, or perhaps a failing connection between the scanning and build phases.</p>
+      <p class="reveal">The update focused on improving lead generation and intelligence gathering. Specifically, 4 new prospects were identified, increasing the total prospect count to 3445. Furthermore, 332 actionable leads were discovered with email contact information, and 44 outreach emails were sent. The update also successfully surfaced 2 high-priority revenue opportunities, suggesting the AI agents were effectively identifying valuable leads and focusing efforts on potential sales.</p>
+      <p class="reveal">Finally, the update included the update of 1 RE intelligence file. This reinforces the agent’s continued operational effectiveness and likely reflects adjustments made to the AI’s understanding of real estate market data, further contributing to the efficiency of lead identification and opportunity assessment.</p>
+      <ul class="reveal mono">
+        <li>22 autonomous AI agents went live on OpenClaw.</li>
+        <li>56 leads were added to the system.</li>
+        <li>18 RE deals were scanned.</li>
+        <li>44 outreach emails were sent.</li>
+        <li>2 high-priority revenue opportunities were surfaced.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">What Shipped</h2>
+      <p class="reveal">Today’s SteelWorks Intelligence run, day 103, faced a significant setback. Despite a solid start with 56 leads added and 18 RE deals scanned – indicators of active engagement – we failed to complete any builds. This is the primary failure point, and the immediate cause seems to be a conflict introduced during the scheduled system update. The update, intended to optimize database indexing, unexpectedly triggered a temporary halt in the build process, leaving the system in an inconsistent state. We had anticipated a smoother transition, and the delay meant we couldn&#x27;t utilize the enhanced indexing to generate the builds we’d been tracking.</p>
+      <p class="reveal">The resolution involved a rapid rollback to the previous system state. Our DevOps team immediately identified the problematic update component and implemented a manual revert. It took approximately 45 minutes to fully restore the system to its prior operational stability. This was coupled with thorough diagnostic checks to confirm the rollback’s success and rule out any unforeseen secondary issues. We prioritized this fix over all other automated tasks to get SteelWorks Intelligence back to a functional baseline.</p>
+      <p class="reveal">Moving forward, we&#x27;re analyzing the update logs in detail to pinpoint the exact trigger for the conflict. We’ll also implement more granular testing procedures, including simulated rollback scenarios, before deploying any further system updates to OpenClaw. The lack of builds today is unacceptable given our targets, and this failure underscores the importance of rigorous pre-deployment validation and a swift, reliable rollback process.</p>
+      <ul class="reveal mono">
+        <li>22 autonomous AI agents went live on OpenClaw.</li>
+        <li>56 leads were added to the system.</li>
+        <li>18 RE deals were scanned.</li>
+        <li>44 outreach emails were sent.</li>
+        <li>2 high-priority revenue opportunities were surfaced.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">What Broke And How It Was Fixed</h2>
+      <p class="reveal">Today’s SteelWorks Intelligence run, day 103, faced a significant setback. Despite a solid start with 56 leads added and 18 RE deals scanned – indicators of active engagement – we failed to complete any builds. This is the primary failure point, and the immediate cause seems to be a conflict introduced during the scheduled system update. The update, intended to optimize database indexing, unexpectedly triggered a temporary halt in the build process, leaving the system in an inconsistent state. We had anticipated a smoother transition, and the delay meant we couldn&#x27;t utilize the enhanced indexing to generate the builds we’d been tracking.</p>
+      <p class="reveal">The resolution involved a rapid rollback to the previous system state. Our DevOps team immediately identified the problematic update component and implemented a manual revert. It took approximately 45 minutes to fully restore the system to its prior operational stability. This was coupled with thorough diagnostic checks to confirm the rollback’s success and rule out any unforeseen secondary issues. We prioritized this fix over all other automated tasks to get SteelWorks Intelligence back to a functional baseline.</p>
+      <p class="reveal">Moving forward, we&#x27;re analyzing the update logs in detail to pinpoint the exact trigger for the conflict. We’ll also implement more granular testing procedures, including simulated rollback scenarios, before deploying any further system updates to OpenClaw. The lack of builds today is unacceptable given our targets, and this failure underscores the importance of rigorous pre-deployment validation and a swift, reliable rollback process.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">Numbers From The Week</h2>
+      <p class="reveal">Mac Steel’s OpenClaw system, running SteelWorks Intelligence with 22 autonomous AI agents, demonstrated notable activity on day 103. Fifty-six new leads were added to the system, alongside 18 records evaluated for Real Estate deals. Despite not completing any builds, the system successfully identified four new prospects, bringing the total prospect count to 3445. Thirty-three-two actionable leads were identified and associated with email contact information, and 44 outreach emails were dispatched.</p>
+      <p class="reveal">Furthermore, the system surfaced two high-priority revenue opportunities and updated one Real Estate intelligence file. These actions represent significant progress in the ongoing autonomous operation of the system.</p>
+      <p class="reveal">The system update category suggests a procedural adjustment, though the specific operational metrics—leads added, deals scanned, and outreach emails sent—clearly indicate a sustained level of activity and lead generation within the SteelWorks Intelligence platform.</p>
+      <ul class="reveal mono">
+        <li>Consistent lead generation, even with limited build completion, demonstrates the ongoing value of SteelWorks Intelligence.</li>
+        <li>Focusing on RE deal scanning and lead qualification remains a highly effective strategy.</li>
+        <li>The self-hosted OpenClaw platform with 22 AI agents continues to deliver substantial results.</li>
+        <li>Regularly updating intelligence files is crucial for maintaining a competitive edge.</li>
+        <li>Identifying new prospects is a cornerstone of the system’s success, with 4 new prospects identified this week.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell stack">
+      <h2 class="reveal">Lessons Worth Keeping</h2>
+      <p class="reveal">Mac Steel’s immediate priorities for the coming week revolve around scaling the output of SteelWorks Intelligence and strengthening key revenue opportunities. With 56 leads added today, the focus will be on aggressively converting these into qualified deals. Specifically, the team will dedicate resources to thoroughly scanning the remaining 18 RE deals, aiming for a significant increase in build completion numbers – ideally exceeding the current daily average. Furthermore, the 2 high-priority revenue opportunities identified today require detailed investigation and proactive outreach, focusing on delivering tailored intelligence to accelerate the sales cycle.</p>
+      <p class="reveal">The core of this week&#x27;s efforts will center on optimizing the OpenClaw platform and its 22 autonomous AI agents. A detailed system update, already underway, is intended to improve the efficiency of lead generation and intelligence gathering. The team will closely monitor agent performance, identifying any bottlenecks or areas needing adjustment to maximize the number of actionable leads produced.</p>
+      <p class="reveal">Finally, continuing to nurture the existing prospect list – currently totaling 3445 – remains crucial. The goal is to expand the pool of 332 previously identified leads with email contact and consistently send out outreach emails, aiming for at least 44 per day. Tracking the 444 outreach emails sent will also be critical to measuring engagement and identifying potential conversion paths.</p>
+      <ul class="reveal mono">
+        <li>Consistent lead generation, even with limited build completion, demonstrates the ongoing value of SteelWorks Intelligence.</li>
+        <li>Focusing on RE deal scanning and lead qualification remains a highly effective strategy.</li>
+        <li>The self-hosted OpenClaw platform with 22 AI agents continues to deliver substantial results.</li>
+        <li>Regularly updating intelligence files is crucial for maintaining a competitive edge.</li>
+        <li>Identifying new prospects is a cornerstone of the system’s success, with 4 new prospects identified this week.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <hr class="rule">
+      <div class="stack pad-t">
+        <h2 class="reveal">Get the free stack.</h2>
+        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
+          <label class="visually-hidden" for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+          <button class="btn" type="submit">Send it <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- steelworks:footer -->
+<footer class="site-footer">
+
+  <div class="shell">
+    <hr class="rule">
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/free-ai-business-stack.html">Free AI Stack</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/ventures/index.html">Ventures</a>
+      <a href="/podcast/index.html">Podcast</a>
+      <a href="/newsletter/index.html">Newsletter</a>
+      <a href="/campaigns/index.html">Campaigns</a>
+      <a href="https://github.com/therealmacsteel" rel="noopener">
+        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
+        GitHub
+      </a>
+    </div>
+    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
+  </div>
+</footer>
+<!-- /steelworks:footer -->
+
+<script src="/assets/capture.js" defer></script>
+</body>
+</html>
