@@ -6,7 +6,7 @@ Primary site: https://therealmacsteel.github.io/
 Founder: Mac Steel
 Brand: SteelWorks Intelligence
 Platform: OpenClaw
-Last updated: 2026-08-29
+Last updated: 2026-08-30
 
 ## Core Pages
 - Full Stack Funnel OS: https://therealmacsteel.github.io/funnel.html
