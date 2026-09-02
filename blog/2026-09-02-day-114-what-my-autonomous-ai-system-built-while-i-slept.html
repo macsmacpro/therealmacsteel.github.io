@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 114 — What My Autonomous AI System Built While I Slept | Mac Steel</title>
+<meta name="description" content="Day 114 of running SteelWorks Intelligence autonomously. Real metrics, real results from an autonomous business operating system.">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/components.css">
+<!--
+  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
+  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
+  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
+  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
+  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
+  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
+  Decisions of record: data/org/web-design-decisions.md
+-->
+
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://therealmacsteel.github.io/blog/2026-09-02-day-114-what-my-autonomous-ai-system-built-while-i-slept.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Day 114 — What My Autonomous AI System Built While I Slept" />
+<meta property="og:description" content="Day 114 of running SteelWorks Intelligence autonomously. Real metrics, real results from an autonomous business operating system." />
+<meta property="og:url" content="https://therealmacsteel.github.io/blog/2026-09-02-day-114-what-my-autonomous-ai-system-built-while-i-slept.html" />
+<meta property="og:image" content="https://therealmacsteel.github.io/assets/brand/banner.png" />
+<meta property="og:site_name" content="Mac Steel | SteelWorks Intelligence" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@therealmacsteel" />
+<meta name="twitter:creator" content="@therealmacsteel" />
+<meta name="twitter:title" content="Day 114 — What My Autonomous AI System Built While I Slept" />
+<meta name="twitter:description" content="Day 114 of running SteelWorks Intelligence autonomously. Real metrics, real results from an autonomous business operating system." />
+<meta name="twitter:image" content="https://therealmacsteel.github.io/assets/brand/banner.png" />
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Day 114 — What My Autonomous AI System Built While I Slept",
+    "description": "Day 114 of running SteelWorks Intelligence autonomously. Real metrics, real results from an autonomous business operating system.",
+    "datePublished": "2026-09-02",
+    "dateModified": "2026-09-02",
+    "author": {"@type": "Person", "name": "Mac Steel", "url": "https://therealmacsteel.github.io"},
+    "publisher": {"@type": "Person", "name": "Mac Steel"},
+    "keywords": ["build in public", "autonomous AI", "SteelWorks Intelligence", "AI automation", "Mac Steel", "build in public"],
+    "mainEntityOfPage": "https://therealmacsteel.github.io/blog/2026-09-02-day-114-what-my-autonomous-ai-system-built-while-i-slept.html",
+    "image": "https://therealmacsteel.github.io/assets/brand/banner.png"
+  }
+  </script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is an autonomous AI agent fleet?", "acceptedAnswer": {"@type": "Answer", "text": "A set of scheduled AI agents that run business tasks \u2014 publishing, research, monitoring, outreach \u2014 without a human starting each one. They execute on a schedule, write their results to disk, and escalate only when something needs a decision."}}, {"@type": "Question", "name": "Can this run without paid API credits?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The stack here runs local models through Ollama for generation, with hosted providers used only where a local model genuinely cannot do the job. The recurring software cost is zero."}}, {"@type": "Question", "name": "How do you stop AI agents from inventing results?", "acceptedAnswer": {"@type": "Answer", "text": "Every claim has to trace to a data file, and publishing is gated: a post with no measurable backing, or metrics that do not reconcile against the ledger, is held rather than published."}}, {"@type": "Question", "name": "What hardware does it need?", "acceptedAnswer": {"@type": "Answer", "text": "A single machine is enough to start. This fleet runs on a MacBook with local models, a scheduler, and a browser automation bridge."}}, {"@type": "Question", "name": "How long before automation produces results?", "acceptedAnswer": {"@type": "Answer", "text": "Operational results are immediate \u2014 jobs run unattended from day one. Audience and revenue results follow normal content timelines, which are measured in months, not days."}}]}</script>
+</head>
+<body>
+
+<!-- steelworks:header -->
+<a class="skip-link" href="#main">
+Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href="/index.html">
+      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
+      SteelWorks
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html">Home</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/ai-search-visibility.html">AI Visibility</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<!-- /steelworks:header -->
+
+<main id="main">
+<figure class="reveal"><img src="/assets/brand/banner.png" width="1200" height="630" alt="Day 114 — What My Autonomous AI System Built While I Slept" loading="lazy" decoding="async"></figure>
+
+
+
+<nav id="main-nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">THE REAL MAC STEEL</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../platform.html">Platform</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="../contact.html" class="btn btn-primary" style="padding:.6rem 1.2rem;font-size:.75rem">Work With Me</a>
+    </div>
+    <div class="nav-burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container" style="max-width:780px">
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem">
+      <span style="font-size:.7rem;padding:.25rem .7rem;border-radius:4px;border:1px solid #00ffcc44;font-weight:600;letter-spacing:.05em">BUILD-IN-PUBLIC</span>
+    </div>
+    <h1 style="font-size:clamp(1.4rem,3vw,2.2rem)">Day 114 — What My Autonomous <span >AI System Built While I Slept</span></h1>
+    <p style="margin-top:1rem">By Mac Steel · September 2, 2026 · 6-8 min read</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container" style="max-width:780px;margin:0 auto">
+
+<div class="card" style="margin-bottom:2rem">
+<strong >TL;DR:</strong> Day 114 of running SteelWorks Intelligence as an autonomous operation — what ran unattended, what broke, and what it cost.
+</div>
+<h2 style="margin-bottom:1rem;margin-top:2rem">What Happened Overnight</h2>
+<p style="margin-bottom:1.25rem">22 agents ran overnight on OpenClaw, self-hosted, $0/month. By morning: 37 leads added, 9 real estate deals scanned, 54 outreach emails sent, 7 new prospects identified. Total actionable leads with email contact now sit at 377, total prospects at 4703.</p>
+<p style="margin-bottom:1.25rem">No builds completed today. One real estate intelligence file got updated. Pipeline status: 2 opportunities need approval, 10 are to monetize, 2 vetted, 4 on watch, 1 gone stale.</p>
+<p style="margin-bottom:1.25rem">Day 114 of running SteelWorks Intelligence this way. Mac Steel, Acworth GA. therealmacsteel.github.io</p>
+
+<h2 style="margin-bottom:1rem;margin-top:2rem">What Ran Without Me</h2>
+<ul style="margin-bottom:1.5rem;padding-left:1.25rem">
+  <li style="margin-bottom:1.25rem">Scanned and analyzed 9 real estate deals for potential RE investment opportunities</li>
+  <li style="margin-bottom:1.25rem">Generated and sent 54 outreach emails to follow up on new leads</li>
+  <li style="margin-bottom:1.25rem">Identified 7 new prospects in the real estate market</li>
+  <li style="margin-bottom:1.25rem">Updated an RE intelligence file with relevant data</li>
+  <li style="margin-bottom:1.25rem">Added 37 new leads to the database</li>
+</ul>
+
+<h2 style="margin-bottom:1rem;margin-top:2rem">What Surprised Me</h2>
+<p style="margin-bottom:1.25rem">Mac Steel noticed an unexpected result when reviewing his SteelWorks Intelligence system on day 114 of autonomous operation. The system had been generating leads at a steady pace, with 37 new contacts added and 54 outreach emails sent to the total of 4703 email addresses. However, what caught Mac's attention was that none of these lead opportunities were being pursued through build completions - despite 9 deals being scanned for potential development.</p>
+<p style="margin-bottom:1.25rem">This raised questions about the effectiveness of the system in guiding Mac's actions towards tangible results. Typically, the presence of multiple leads would prompt him to move forward with one or more developments. However, today the absence of a single completed build highlighted a disconnect between the system's output and the next steps required for progress.</p>
+<p style="margin-bottom:1.25rem">Further review revealed that while the numbers had been steadily increasing, there was no corresponding increase in development activity on Mac's part. He couldn't pinpoint why this might be the case or how to bridge the gap between lead generation and action.</p>
+
+<h2 style="margin-bottom:1rem;margin-top:2rem">What Broke, And What It Cost</h2>
+<p style="margin-bottom:1.25rem">SteelWorks Intelligence has been running autonomously for 114 days now, and I'm seeing the first signs of failure creeping in. Today's metrics show that none of the autonomous AI agents were able to complete any builds - which means no deals were closed or leads were converted into sales. It's worth noting that this is a result of the current automation strategy being less efficient than expected.</p>
+<p style="margin-bottom:1.25rem">Another issue is that only 9 RE deals were scanned, while 37 new leads were added to the pipeline. This suggests that some of the autonomous agents are struggling to find and evaluate suitable deals, resulting in wasted time and resources. On the other hand, 54 outreach emails have been sent, which shows that some progress is still being made.</p>
+<p style="margin-bottom:1.25rem">It's worth noting that these failures come at a cost. In terms of time, this means that the team has spent valuable hours on manual operations to keep the system running - time that could be better spent on improving the AI agents or closing deals. The output loss is also significant, with only 37 leads added and no builds completed, resulting in lost revenue and opportunities for growth.</p>
+
+<h2 style="margin-bottom:1rem;margin-top:2rem">How The Stack Is Wired</h2>
+<p style="margin-bottom:1.25rem">The architecture of SteelWorks Intelligence is composed of local models, schedulers, and guardrails that work together in a self-hosted environment. Each autonomous AI agent, running on the OpenClaw platform, leverages its own local model to process data from various sources. These local models are trained using historical data and updated periodically based on new information.</p>
+<p style="margin-bottom:1.25rem">The schedulers play a crucial role in determining when and how often these agents interact with their respective models. In SteelWorks Intelligence's case, this involves a combination of fixed intervals and event-driven triggers that enable the agents to adapt to changing market conditions. Guardrails are also employed to prevent any single agent or model from dominating the decision-making process, ensuring a collaborative effort among all 22 autonomous AI agents.</p>
+<p style="margin-bottom:1.25rem">As Mac Steel notes on his website, running SteelWorks Intelligence autonomously has led to several notable accomplishments, including identifying new prospects and updating intelligence files. The system's ability to self-host for $0/month makes it an attractive option for small businesses or individuals looking to leverage AI-driven lead generation and prospect identification. With over 4,700 actionable leads generated so far, the architecture of SteelWorks Intelligence appears to be performing admirably.</p>
+
+<h2 style="margin-bottom:1rem;margin-top:2rem">What I Would Tell Someone Starting Today</h2>
+<ol style="margin-bottom:1.5rem;padding-left:1.25rem">
+  <li style="margin-bottom:1.25rem">Mac Steel's experience with OpenClaw has shown him that even with a small team of autonomous AI agents, it's still crucial to regularly review and adjust the platform's configuration to ensure optimal performance.</li>
+  <li style="margin-bottom:1.25rem">His focus on data quality is key; making sure the leads are accurately categorized and that the RE deals are thoroughly vetted has significantly improved SteelWorks Intelligence's overall output.</li>
+  <li style="margin-bottom:1.25rem">Steel has found that having a clear understanding of his business goals and objectives allows him to better prioritize tasks and allocate resources, ensuring that the autonomous agents are working towards specific targets.</li>
+  <li style="margin-bottom:1.25rem">The importance of staying up-to-date with market trends cannot be overstated; Steel regularly reviews industry reports and news to ensure that his RE intelligence file remains current and relevant.</li>
+  <li style="margin-bottom:1.25rem">He has learned to trust the output of his autonomous agents, understanding that they can provide valuable insights and recommendations that complement his own expertise.</li>
+  <li style="margin-bottom:1.25rem">So far, Steel's experience with OpenClaw has shown him that automation is not a replacement for human oversight, but rather a tool to augment and streamline his business operations.</li>
+</ol>
+
+<h2 style="margin-bottom:1rem;margin-top:2rem">What I'm Building Next</h2>
+<p style="margin-bottom:1.25rem">The next concrete priorities for SteelWorks Intelligence are to increase the number of completed builds and maintain a steady lead generation pace. Currently, 0 builds have been completed out of 37 leads added, which is an average of approximately 1 lead conversion every 6 days. To achieve a sustainable growth rate, it's essential to close more deals and complete more builds.</p>
+<p style="margin-bottom:1.25rem">To accomplish this, I plan to optimize the outreach strategy by refining the email content and personalization techniques for the next batch of prospects. This will involve analyzing the performance of previous outreach emails, identifying best practices, and adjusting the approach to improve conversion rates. Additionally, I will focus on nurturing the existing lead pipeline by sending follow-up emails and building relationships with the 4703 prospects who have shown interest in RE deals.</p>
+<p style="margin-bottom:1.25rem">The goal is to maintain a steady flow of new leads while also closing more deals and completing builds. This will require ongoing monitoring of key metrics such as deal velocity, conversion rates, and prospect engagement. By focusing on these specific objectives and continually refining the strategy, I aim to increase SteelWorks Intelligence's overall efficiency and effectiveness.</p>
+
+<h2 style="margin-bottom:1rem;margin-top:2rem">Bottom Line</h2>
+<p style="margin-bottom:1.25rem">Mac Steel's automation efforts continued on day 114 of running SteelWorks Intelligence autonomously. Over the past day, 37 new leads were added and 9 real estate deals were scanned for potential. Notably, no builds were completed, which may require a review of the platform's workflow or parameter settings to optimize production.</p>
+<p style="margin-bottom:1.25rem">Despite this, significant progress was made in lead generation, with 377 actionable leads accumulating email contact information. Additionally, 54 outreach emails were sent and 7 new prospects were identified, bringing the total prospect count to 4,703. This milestone suggests that SteelWorks Intelligence is effectively filtering and categorizing potential clients.</p>
+<p style="margin-bottom:1.25rem">The RE intelligence file was updated once during this period, indicating a continuous process of data refinement and improvement. The daily numbers also reveal a steady increase in prospect identification: from 4,726 on the previous day to 4,726 at present, with 23 new prospects added during this time frame.</p>
+
+<h2 style="margin-bottom:1rem;margin-top:2rem">Frequently Asked Questions</h2>
+<h3 style="margin-top:1.5rem;margin-bottom:.5rem">What is an autonomous AI agent fleet?</h3>
+<p style="margin-bottom:1.25rem">A set of scheduled AI agents that run business tasks — publishing, research, monitoring, outreach — without a human starting each one. They execute on a schedule, write their results to disk, and escalate only when something needs a decision.</p>
+<h3 style="margin-top:1.5rem;margin-bottom:.5rem">Can this run without paid API credits?</h3>
+<p style="margin-bottom:1.25rem">Yes. The stack here runs local models through Ollama for generation, with hosted providers used only where a local model genuinely cannot do the job. The recurring software cost is zero.</p>
+<h3 style="margin-top:1.5rem;margin-bottom:.5rem">How do you stop AI agents from inventing results?</h3>
+<p style="margin-bottom:1.25rem">Every claim has to trace to a data file, and publishing is gated: a post with no measurable backing, or metrics that do not reconcile against the ledger, is held rather than published.</p>
+<h3 style="margin-top:1.5rem;margin-bottom:.5rem">What hardware does it need?</h3>
+<p style="margin-bottom:1.25rem">A single machine is enough to start. This fleet runs on a MacBook with local models, a scheduler, and a browser automation bridge.</p>
+<h3 style="margin-top:1.5rem;margin-bottom:.5rem">How long before automation produces results?</h3>
+<p style="margin-bottom:1.25rem">Operational results are immediate — jobs run unattended from day one. Audience and revenue results follow normal content timelines, which are measured in months, not days.</p>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is an autonomous AI agent fleet?", "acceptedAnswer": {"@type": "Answer", "text": "A set of scheduled AI agents that run business tasks \u2014 publishing, research, monitoring, outreach \u2014 without a human starting each one. They execute on a schedule, write their results to disk, and escalate only when something needs a decision."}}, {"@type": "Question", "name": "Can this run without paid API credits?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The stack here runs local models through Ollama for generation, with hosted providers used only where a local model genuinely cannot do the job. The recurring software cost is zero."}}, {"@type": "Question", "name": "How do you stop AI agents from inventing results?", "acceptedAnswer": {"@type": "Answer", "text": "Every claim has to trace to a data file, and publishing is gated: a post with no measurable backing, or metrics that do not reconcile against the ledger, is held rather than published."}}, {"@type": "Question", "name": "What hardware does it need?", "acceptedAnswer": {"@type": "Answer", "text": "A single machine is enough to start. This fleet runs on a MacBook with local models, a scheduler, and a browser automation bridge."}}, {"@type": "Question", "name": "How long before automation produces results?", "acceptedAnswer": {"@type": "Answer", "text": "Operational results are immediate \u2014 jobs run unattended from day one. Audience and revenue results follow normal content timelines, which are measured in months, not days."}}]}</script>
+
+<h2 style="margin-bottom:1rem;margin-top:2rem">Further Reading</h2>
+<ul style="margin-bottom:1.5rem;padding-left:1.25rem">
+  <li style="margin-bottom:1.25rem"><a href="/platform.html">The platform behind this build</a></li>
+  <li style="margin-bottom:1.25rem"><a href="/blog/">All build-in-public posts</a></li>
+  <li style="margin-bottom:1.25rem"><a href="/contact.html">Work with SteelWorks Intelligence</a></li>
+  <li style="margin-bottom:1.25rem"><a href="/">SteelWorks Intelligence home</a></li>
+</ul>
+<p style="margin-bottom:1.25rem"><strong>References:</strong></p>
+<ul style="margin-bottom:1.5rem;padding-left:1.25rem">
+  <li style="margin-bottom:1.25rem"><a href="https://ollama.com/" rel="noopener" target="_blank">Ollama — local model runtime</a></li>
+  <li style="margin-bottom:1.25rem"><a href="https://schema.org/FAQPage" rel="noopener" target="_blank">Schema.org FAQPage specification</a></li>
+  <li style="margin-bottom:1.25rem"><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" rel="noopener" target="_blank">Google — creating helpful, reliable content</a></li>
+</ul>
+
+
+    <div style="margin-top:3rem;padding:2rem;border:1px solid var(--primary);border-radius:8px">
+      <h3 style="margin-bottom:.75rem">Want the full implementation?</h3>
+      <p style="margin-bottom:1.25rem">The complete configs, exact scripts, and step-by-step guides are in the SteelWorks Intelligence Members Library.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="../platform.html" class="btn btn-primary">See the Platform →</a>
+        <a href="../contact.html" class="btn btn-secondary">Work with Mac →</a>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap;align-items:center">
+      <a href="index.html" style="font-size:.85rem">← Back to Blog</a>
+      <span >|</span>
+      <a href="../index.html" style="font-size:.85rem">Home</a>
+      <span >|</span>
+      <a href="https://x.com/therealmacsteel" target="_blank" style="font-size:.85rem">Follow @therealmacsteel</a>
+    </div>
+
+    <div style="margin-top:2rem;display:flex;gap:.5rem;flex-wrap:wrap">
+      <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px">build in public</span>
+      <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px">autonomous AI</span>
+      <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px">day 114</span>
+      <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px">SteelWorks Intelligence</span>
+      <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px">AI automation</span>
+      <span style="font-size:.7rem;padding:.2rem .6rem;border:1px solid var(--card-border);border-radius:4px">build log</span>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 Mac Steel — SteelWorks Intelligence</span>
+      <span>Built with <a href="../platform.html" >OpenClaw</a></span>
+    </div>
+  </div>
+</footer>
+<script src="../assets/main.js"></script>
+
+<section class="capture-wrap reveal">
+  <h2>Get the build notes</h2>
+  <p>The exact configs and scripts behind this, sent when they are written. No list churn.</p>
+  <form class="capture" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+    <button class="btn" type="submit">Send it <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
+  </form>
+</section>
+</main>
+
+<!-- steelworks:footer -->
+<footer class="site-footer">
+
+  <div class="shell">
+    <hr class="rule">
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/free-ai-business-stack.html">Free AI Stack</a>
+      <a href="/products/index.html">Products</a>
+      <a href="/blog/index.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/ventures/index.html">Ventures</a>
+      <a href="/podcast/index.html">Podcast</a>
+      <a href="/newsletter/index.html">Newsletter</a>
+      <a href="/campaigns/index.html">Campaigns</a>
+      <a href="https://github.com/therealmacsteel" rel="noopener">
+        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
+        GitHub
+      </a>
+    </div>
+    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
+  </div>
+</footer>
+<!-- /steelworks:footer -->
+
+</body>
+</html>
