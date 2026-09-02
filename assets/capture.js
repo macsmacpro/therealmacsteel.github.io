@@ -42,6 +42,10 @@
       // worker's existing schema) and as `website`; absent on plain email forms.
       var site = form.querySelector('input[name="website"]');
       var srcEl = form.querySelector('input[name="source"]');
+      // services form (2026-09-02): name, the offer they picked, a message.
+      var nameEl = form.querySelector('input[name="name"]');
+      var offerEl = form.querySelector('select[name="offer"], input[name="offer"]');
+      var msgEl = form.querySelector('textarea[name="message"]');
       var btn = form.querySelector("button");
       if (btn) { btn.disabled = true; }
       note(form, "Sending…", true);
@@ -50,10 +54,12 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: "",
+          name: nameEl && nameEl.value ? nameEl.value : "",
           email: email.value,
           company: site && site.value ? site.value : "",
           website: site && site.value ? site.value : "",
+          offer: offerEl && offerEl.value ? offerEl.value : "",
+          message: msgEl && msgEl.value ? msgEl.value : "",
           source: "web:" + location.pathname + (srcEl && srcEl.value ? "#" + srcEl.value : "")
         })
       })

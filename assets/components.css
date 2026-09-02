@@ -207,6 +207,15 @@ th { font-family: var(--font-display); font-weight: 700; }
   border: 1px solid var(--ink-500);
 }
 .capture input::placeholder { color: var(--ink-300); }
+/* services inquiry form (2026-09-02): same field treatment for select/textarea */
+.capture select, .capture textarea {
+  flex: 1 1 16rem; min-height: 44px; padding: 0.75rem 1rem;
+  font-family: var(--font-body); font-size: var(--step-0);
+  background: var(--ink-900); color: var(--ink-100);
+  border: 1px solid var(--ink-500);
+}
+.capture textarea { flex-basis: 100%; min-height: 6rem; resize: vertical; }
+.capture .capture-msg { flex-basis: 100%; }
 
 /* --- motion: CSS scroll-driven, zero JS -----------------------------------
    motion-presets.csv#5 scroll reveal (400–600ms) and #7 stagger list.
