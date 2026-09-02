@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Search Visibility — SteelWorks Intelligence</title>
-<meta name="description" content="Get found by the models people actually ask. A 72-hour AI Search Readiness Audit with a re-check that proves the fix held.">
+<title>AI Search Readiness Audit — $97, 72 hours, re-check included — SteelWorks Intelligence</title>
+<meta name="description" content="What ChatGPT, Claude and Perplexity can read about your business, scored. The exact fixes written for your site, and a re-check that shows the score move. $97, 72 hours, no retainer.">
 <link rel="icon" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +19,8 @@
   design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
   design-knowledge: style-systems.csv#21 Conversion-Optimized — single dominant offer above the fold
   Decisions of record: data/org/web-design-decisions.md
+  2026-09-02 rewrite: product page for the buyer — what they get, what it costs,
+  what a real report looks like. data/knowledge/"Doctrine  Service-first pivot 2026-09-02.md"
 -->
 </head>
 <body>
@@ -47,52 +49,144 @@ Skip to content</a>
 
   <section class="section">
     <div class="shell">
-      <p class="eyebrow reveal">AI search visibility</p>
-      <h1 class="reveal">Get found by the<br>models people ask.</h1>
-      <p class="lede reveal">Search increasingly happens inside assistants. If they cannot
-        read your site, cite it, or tell it apart from a template, you are invisible
-        wherever the question is actually being asked.</p>
+      <p class="eyebrow reveal">AI Search Readiness Audit</p>
+      <h1 class="reveal">Find out what the assistants<br>can read about you. Then fix it.</h1>
+      <p class="lede reveal">A scored audit of your real website the way ChatGPT, Claude and
+        Perplexity read it, the exact fixes written for your site, and a re-check after
+        you apply them. <strong>$97. 72 hours. Nothing to sign.</strong></p>
       <p class="cluster reveal">
-        <a class="btn" href="https://macsmacpro.gumroad.com/l/wylnau">
-          AI Search Readiness Audit &mdash; $97 <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-building-store"></use></svg></a>
+        <a class="btn" href="https://macsmacpro.gumroad.com/l/wylnau?utm_source=site_audit_hero">
+          Get your audit &mdash; $97 <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-building-store"></use></svg></a>
+        <a class="btn btn-ghost" href="#sample">
+          What the report looks like <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-file-text"></use></svg></a>
       </p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="sample">
     <div class="shell grid grid-2">
       <div class="reveal">
-        <h2>What the audit checks</h2>
-        <p>The same checks this fleet runs on its own site, applied to yours &mdash; and a
-          re-check afterwards that proves the fix actually held rather than assuming it.</p>
+        <p class="eyebrow">A real report, this week</p>
+        <h2>Real estate brokerage, Marietta &mdash; 62/100</h2>
+        <p>Audited 2026&#8209;09&#8209;01. The site ranks, the phones ring, and the assistants
+          could not read it at all: its firewall was turning away every AI crawler,
+          which no ranking report would ever show.</p>
         <div class="receipt">
           <dl>
-            <dt>machine-readable structure</dt><dd>checked</dd>
-            <dt>citable claims and sources</dt><dd>checked</dd>
-            <dt>crawl + render parity</dt><dd>checked</dd>
-            <dt>re-check after the fix</dt><dd>included</dd>
-            <dt>turnaround</dt><dd>72 hours</dd>
+            <dt>Technical readiness</dt><dd>73/100</dd>
+            <dt>What engines already know</dt><dd>83/100</dd>
+            <dt>Cited for customer questions</dt><dd>20/100</dd>
+            <dt>Fix 1 &middot; firewall turning away AI crawlers</dt><dd>one rule</dd>
+            <dt>Fix 2 &middot; no llms.txt</dt><dd>file written</dd>
+            <dt>Fix 3 &middot; no LocalBusiness schema</dt><dd>block written</dd>
+            <dt>Fix 4 &middot; weak homepage description</dt><dd>rewritten</dd>
           </dl>
         </div>
+        <p class="fine">Every fix ships as the actual file or code block for that site,
+          not as advice. Business name withheld until the owner says yes.</p>
       </div>
       <figure class="reveal flush">
         <img src="/assets/img/dial-gauge.jpg" width="800" height="600"
              alt="A calibrated gauge — the audit reports measurements, not opinions.">
-        <figcaption class="fine">Measured, then re-measured.</figcaption>
+        <figcaption class="fine">Measured, then re-measured after the fix.</figcaption>
       </figure>
     </div>
   </section>
 
   <section class="section">
     <div class="shell">
-      <hr class="rule">
-      <div class="stack pad-t">
-        <p class="eyebrow reveal">Not ready to buy</p>
-        <h2 class="reveal">Start with the free stack.</h2>
-        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
+      <p class="eyebrow reveal">What is checked</p>
+      <h2 class="reveal">Four legs. Each one says when it could not be assessed.</h2>
+      <div class="stack">
+        <article class="reveal grid grid-2">
+          <div>
+            <h3><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-bolt"></use></svg> 1. Technical readiness</h3>
+            <p>Can the AI crawlers get in (robots rules for GPTBot, ClaudeBot, PerplexityBot,
+              Google&#8209;Extended, and the firewall in front of them)? Is there an llms.txt
+              summary, a sitemap, structured data that says what and where you are, a
+              clear title, description and headline, a page that loads light?</p>
+          </div>
+          <div class="receipt"><dl>
+            <dt>method</dt><dd>deterministic crawl</dd>
+            <dt>weight</dt><dd>50%</dd>
+          </dl></div>
+        </article>
+        <hr class="rule">
+        <article class="reveal grid grid-2">
+          <div>
+            <h3><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-users"></use></svg> 2. What the engines already know</h3>
+            <p>We ask assistants about your business by name and classify the answer:
+              recognised, partial, or unknown. If they have you confused with someone else,
+              that shows up here.</p>
+          </div>
+          <div class="receipt"><dl>
+            <dt>method</dt><dd>3 probes</dd>
+            <dt>weight</dt><dd>25%</dd>
+          </dl></div>
+        </article>
+        <hr class="rule">
+        <article class="reveal grid grid-2">
+          <div>
+            <h3><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-chart-line"></use></svg> 3. Who gets cited instead of you</h3>
+            <p>Five questions your customers actually ask, put to the assistants. We record
+              who they name. We never invent a competitor citation to make a point.</p>
+          </div>
+          <div class="receipt"><dl>
+            <dt>method</dt><dd>5 live queries</dd>
+            <dt>weight</dt><dd>25%</dd>
+          </dl></div>
+        </article>
+        <hr class="rule">
+        <article class="reveal grid grid-2">
+          <div>
+            <h3><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-check"></use></svg> 4. The fixes, ranked and written</h3>
+            <p>Starter llms.txt with your business in it. Exact robots.txt lines. A JSON&#8209;LD
+              block with your real name, address and services. The firewall change, if you
+              need one. Ordered by impact, each one under an hour to apply.</p>
+          </div>
+          <div class="receipt"><dl>
+            <dt>method</dt><dd>from leg 1 findings</dd>
+            <dt>re-check</dt><dd>included</dd>
+          </dl></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="buy">
+    <div class="shell grid grid-2">
+      <div class="reveal">
+        <p class="eyebrow">Price</p>
+        <h2>$97, once.</h2>
+        <div class="receipt">
+          <dl>
+            <dt>scored audit of your live site</dt><dd>included</dd>
+            <dt>fixes written for your site</dt><dd>included</dd>
+            <dt>re-check after you apply them</dt><dd>included</dd>
+            <dt>turnaround</dt><dd>72 hours</dd>
+            <dt>site unreachable at audit time</dt><dd>re-run free</dd>
+          </dl>
+        </div>
+        <p class="cluster">
+          <a class="btn" href="https://macsmacpro.gumroad.com/l/wylnau?utm_source=site_audit_buy">
+            Get your audit &mdash; $97 <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-building-store"></use></svg></a>
+        </p>
+        <p class="fine">Checkout on Gumroad. Enter the website you want audited at checkout; the
+          audit starts within the hour and the report lands in your inbox.</p>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Or start free</p>
+        <h3>Three findings, no charge.</h3>
+        <p>Leave your website and email. You get the top three technical findings within
+          two business days &mdash; the same check, minus the engine probes, the written
+          fixes and the re-check.</p>
+        <form class="capture" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
+          <label class="visually-hidden" for="website">Your website</label>
+          <input id="website" name="website" type="text" required placeholder="yourbusiness.com" autocomplete="url">
           <label class="visually-hidden" for="email">Email address</label>
-          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
-          <button class="btn" type="submit">Send it <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
+          <input id="email" name="email" type="email" required placeholder="you@yourbusiness.com" autocomplete="email">
+          <input type="hidden" name="source" value="site_free_preview">
+          <button class="btn" type="submit">Send my three findings <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg></button>
         </form>
       </div>
     </div>

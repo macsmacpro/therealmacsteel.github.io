@@ -37,6 +37,11 @@
       e.preventDefault();
       var email = form.querySelector('input[type="email"]');
       if (!email || !email.value) { return; }
+      // 2026-09-02: the free-preview capture asks for the visitor's website so
+      // the audit runner has a domain to check. Carried in `company` (the
+      // worker's existing schema) and as `website`; absent on plain email forms.
+      var site = form.querySelector('input[name="website"]');
+      var srcEl = form.querySelector('input[name="source"]');
       var btn = form.querySelector("button");
       if (btn) { btn.disabled = true; }
       note(form, "Sending…", true);
@@ -47,8 +52,9 @@
         body: JSON.stringify({
           name: "",
           email: email.value,
-          company: "",
-          source: "web:" + location.pathname
+          company: site && site.value ? site.value : "",
+          website: site && site.value ? site.value : "",
+          source: "web:" + location.pathname + (srcEl && srcEl.value ? "#" + srcEl.value : "")
         })
       })
         .then(function (r) { return r.json().catch(function () { return { ok: false, error: "HTTP " + r.status }; }); })

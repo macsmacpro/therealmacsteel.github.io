@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SteelWorks Intelligence — Receipts, not promises</title>
-<meta name="description" content="An autonomous AI company that publishes its evidence. Every number on the receipt is pulled live from the system that did the work, including the $0.">
+<title>SteelWorks Intelligence — Be the answer when someone asks an AI for a business like yours</title>
+<meta name="description" content="AI assistants now answer 'who should I call?' directly. We audit what ChatGPT, Claude and Perplexity can read about your Atlanta-area business, hand you the exact fixes, and re-check that they held. $97, 72 hours.">
 <link rel="icon" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,10 @@
   design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
   design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
   Decisions of record: data/org/web-design-decisions.md
+  2026-09-02 rewrite: the page now speaks to the BUYER (a local service business
+  owner) about THEIR problem, with proof from real audits run this week. The
+  previous page described the company that built it. data/knowledge/
+  "Doctrine  Service-first pivot 2026-09-02.md"
 -->
 </head>
 <body>
@@ -46,80 +50,76 @@ Skip to content</a>
 
   <section class="section">
     <div class="shell">
-      <p class="eyebrow reveal">SteelWorks / Intelligence</p>
-      <h1 class="reveal">Receipts,<br>not promises.</h1>
-      <p class="lede reveal">An autonomous AI company that publishes its evidence. Every
-        number on the receipt is pulled live from the system that did the work &mdash;
-        including the&nbsp;$0.</p>
+      <p class="eyebrow reveal">SteelWorks Intelligence &middot; Acworth, Georgia</p>
+      <h1 class="reveal">When someone asks ChatGPT for a dentist near Marietta &mdash;<br>are you the answer?</h1>
+      <p class="lede reveal">People now ask AI assistants "who should I call?" and get one
+        name back. We check what ChatGPT, Claude and Perplexity can actually read about
+        your business, hand you the exact fixes, and re-check that they held.
+        <strong>$97. 72 hours. No retainer.</strong></p>
       <div class="cluster reveal">
-        <a class="btn" href="https://macsmacpro.gumroad.com/l/jupbfp?utm_source=site_hero">
-          Start free &mdash; 7 prompts from the live stack
+        <a class="btn" href="https://macsmacpro.gumroad.com/l/wylnau?utm_source=site_hero">
+          Get your audit &mdash; $97
           <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-arrow-right"></use></svg>
         </a>
-        <a class="btn btn-ghost" href="https://macsmacpro.gumroad.com/l/uqywh?utm_source=site_hero">
-          The $0 Outreach Machine &mdash; $29
-          <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-building-store"></use></svg>
+        <a class="btn btn-ghost" href="#proof">
+          See a real audit first
+          <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-file-text"></use></svg>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="proof">
     <div class="shell grid grid-2">
       <div class="reveal">
-        <p class="eyebrow">Live operating receipt</p>
-        <h2>Real output from the machine.</h2>
-        <p>These figures are read from the running fleet, not typed into a slide. The
-          uncomfortable ones stay on the receipt too.</p>
-        <!-- data-stat spans are rewritten in place by scripts/site_stats_build.py
-             on every website_sync. Hard-coding these numbers would make the page
-             claim live figures while drifting — the exact dishonesty it argues
-             against. My first draft dropped these hooks and mislabelled two rows;
-             the numbers below are now read from the fleet, not typed. -->
-        <div class="receipt">
+        <p class="eyebrow">Real audits, this week</p>
+        <h2>Four Atlanta-area businesses. Same checks you would get.</h2>
+        <p>These are real sites we audited on 2026&#8209;09&#8209;01. Names withheld until
+          the owners say yes; the scores and the findings are exactly what the report
+          said.</p>
+        <!-- data-proof rows are rewritten by scripts/site_proof_build.py from
+             data/org/pivot/audit-proof.jsonl on every website_sync. -->
+        <div class="receipt" data-proof="table">
           <dl>
-            <dt>agent workspaces</dt><dd><span data-stat="agents">42</span></dd>
-            <dt>scheduled jobs, one daemon</dt><dd><span data-stat="crons">351</span></dd>
-            <dt>skills in fleet</dt><dd><span data-stat="skills">209</span></dd>
-            <dt>intelligence bridges</dt><dd><span data-stat="bridges">7</span></dd>
-            <dt>posts shipped (gate &ge;85)</dt><dd><span data-stat="posts">358</span></dd>
-            <dt>revenue (honest)</dt><dd>$0</dd>
-            <dt>fabricated numbers</dt><dd>0</dd>
+            <dt><strong>Real estate brokerage, Marietta</strong><small>firewall turning away AI crawlers &middot; no llms.txt &middot; no LocalBusiness schema</small></dt><dd class="score">62<span class="fine">/100</span></dd>
+            <dt><strong>Veterinary clinic, Atlanta</strong><small>no llms.txt &middot; weak homepage description &middot; weak title tag</small></dt><dd class="score">54<span class="fine">/100</span></dd>
+            <dt><strong>Nail salon, Roswell</strong><small>no llms.txt &middot; no LocalBusiness schema &middot; no clear headline</small></dt><dd class="score">33<span class="fine">/100</span></dd>
+            <dt><strong>Law firm, Atlanta</strong><small>no llms.txt &middot; no LocalBusiness schema &middot; weak description</small></dt><dd class="score">27<span class="fine">/100</span></dd>
           </dl>
         </div>
+        <p class="fine">One of the four was turning away AI crawlers at the firewall
+          without knowing it. That business is invisible to every assistant,
+          whatever its Google ranking.</p>
       </div>
       <figure class="reveal flush">
-        <img src="/assets/live-receipt-crop.png" width="800" height="600"
-             alt="An archived printed operating receipt from 2026-07-24, showing job counts and a zero-revenue line.">
-        <figcaption class="fine">
-          Archived print, 2026&#8209;07&#8209;24. The live figures are the ones on the left.
-        </figcaption>
+        <img src="/assets/img/machined-steel.jpg" width="800" height="600"
+             alt="Machined steel under measurement — the audit reports what it measured, not what it assumed.">
+        <figcaption class="fine">Measured, not guessed. Every score line maps to a listed check.</figcaption>
       </figure>
     </div>
   </section>
 
   <section class="section">
     <div class="shell">
-      <p class="eyebrow reveal">One MacBook. Three disciplines.</p>
-      <h2 class="reveal">What the fleet actually runs.</h2>
-      <!-- Deliberately NOT three identical cards: anti-patterns.md flags
-           identical-card-grid, and an icon+heading+paragraph triptych is the
-           AI-default feature section. Each discipline is presented in the shape
-           its own evidence takes. -->
+      <p class="eyebrow reveal">How it works</p>
+      <h2 class="reveal">Three steps. You keep your website.</h2>
       <div class="stack">
 
         <article class="reveal grid grid-2">
           <div>
-            <h3><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
-              Build</h3>
-            <p>Agents write, gate and ship their own code. A fix carries a commit and a
-              verification step, or it does not count as fixed &mdash; the loop reverts
-              its own work when the check it was meant to clear still fails.</p>
+            <h3><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-file-text"></use></svg>
+              1. We audit your real site</h3>
+            <p>The same way an assistant reads it: can its crawlers get in, is there a
+              machine-readable summary, does structured data say what and where you are,
+              what do the engines already believe about you, and who gets cited instead
+              of you for the five questions your customers ask.</p>
           </div>
           <div class="receipt">
             <dl>
-              <dt>detect &rarr; fix &rarr; verify &rarr; commit</dt><dd>closed</dd>
-              <dt>fixes reverted for failing re-check</dt><dd>enforced</dd>
+              <dt>technical readiness</dt><dd>scored</dd>
+              <dt>what engines know about you</dt><dd>probed</dd>
+              <dt>who gets cited instead</dt><dd>5 queries</dd>
+              <dt>anything we could not check</dt><dd>says so</dd>
             </dl>
           </div>
         </article>
@@ -127,53 +127,70 @@ Skip to content</a>
         <hr class="rule">
 
         <article class="reveal">
-          <h3><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-chart-line"></use></svg>
-            Distribute</h3>
-          <p>Content and outreach run behind a quality gate. Nothing publishes below the
-            bar, and a held piece states the reason it was held rather than disappearing.</p>
-          <p class="cluster"><span class="metric">85</span>
-            <span class="mono">minimum score to ship &mdash; enforced in code, not in a prompt</span></p>
+          <h3><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-check"></use></svg>
+            2. You get the fixes, written for your site</h3>
+          <p>Not "improve your SEO." The actual llms.txt file with your business in it.
+            The exact robots lines. The JSON&#8209;LD block with your real name, address
+            and services. The one firewall rule to change. Ranked by impact.</p>
+          <p class="cluster"><span class="metric">&lt;1h</span>
+            <span class="mono">for you or your web person to apply every fix on the list</span></p>
         </article>
 
         <hr class="rule">
 
         <article class="reveal">
           <h3><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-shield-check"></use></svg>
-            Prove</h3>
-          <p>Guard rails are asserted on every run, not claimed once in a README:</p>
-          <ul class="mono">
-            <li>kill switch reaches the execution path &mdash; proven live, not assumed</li>
-            <li>trading is paper-only and structurally cannot place a real order</li>
-            <li>gates fail <em>closed</em>: a check that cannot run holds the work</li>
-          </ul>
+            3. We re-check and show the score move</h3>
+          <p>A second audit after the fixes are in, so you see the number change instead
+            of taking our word for it. If we could not fetch your site in the first
+            place, no score is invented &mdash; we re-run at no charge once it is reachable.</p>
         </article>
 
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="pricing">
     <div class="shell grid grid-2">
-      <figure class="reveal flush">
-        <img src="/assets/machine-room.png" width="800" height="600"
-             alt="The machine room: a single MacBook running the autonomous fleet that operates this company.">
-      </figure>
       <div class="reveal">
-        <p class="eyebrow">Two ways in</p>
-        <h2>Buy the system, or take the free stack.</h2>
-        <p>The Outreach Machine is the cold-outreach system this company runs on itself:
-          the gates, the templates and the honesty rails &mdash; the same ones that hold
-          its own sends to a hard daily cap.</p>
+        <p class="eyebrow">Pricing</p>
+        <h2>One price. One report. One re-check.</h2>
+        <div class="receipt">
+          <dl>
+            <dt>AI Search Readiness Audit</dt><dd><span class="metric">$97</span></dd>
+            <dt>scorecard + findings + ranked fixes</dt><dd>included</dd>
+            <dt>copy-paste files written for your site</dt><dd>included</dd>
+            <dt>re-check after you apply them</dt><dd>included</dd>
+            <dt>turnaround</dt><dd>72 hours</dd>
+            <dt>retainer, upsell, contract</dt><dd>none</dd>
+          </dl>
+        </div>
         <div class="cluster">
-          <a class="btn" href="https://macsmacpro.gumroad.com/l/uqywh?utm_source=site_twoways">
-            The $0 Outreach Machine &mdash; $29
+          <a class="btn" href="https://macsmacpro.gumroad.com/l/wylnau?utm_source=site_pricing">
+            Get your audit &mdash; $97
             <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-building-store"></use></svg>
           </a>
-          <a class="btn btn-ghost" href="/products/index.html">
-            Browse products
+          <a class="btn btn-ghost" href="/intake/ai-search-website.html">
+            Want it done for you? Ask about the site package
             <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-chevron-right"></use></svg>
           </a>
         </div>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Straight answers</p>
+        <h3>Do I need a new website?</h3>
+        <p>No. Every fix in the report goes on the site you already have.</p>
+        <h3>My site ranks fine on Google. Why does this matter?</h3>
+        <p>Assistants do not read Google's ranking. They read your pages directly, and a
+          site can rank well while blocking the crawlers assistants use. That was the
+          top finding on the first site we audited this week.</p>
+        <h3>What exactly do I receive?</h3>
+        <p>A report with a scorecard, every check we ran and what it found, the ranked
+          fixes with the files written out, and a methodology section that says what was
+          automated and what could not be assessed. Nothing is invented to fill a gap.</p>
+        <h3>Who does the work?</h3>
+        <p>SteelWorks Intelligence, Acworth GA. The audit engine is ours, and it says
+          plainly what it could not check rather than guessing.</p>
       </div>
     </div>
   </section>
@@ -182,15 +199,19 @@ Skip to content</a>
     <div class="shell">
       <hr class="rule">
       <div class="stack pad-t">
-        <p class="eyebrow reveal">Free stack</p>
-        <h2 class="reveal">The tools this fleet is built on.</h2>
-        <p class="reveal">Every tool in the stack is free or self-hosted. No paid API sits
-          anywhere in the path &mdash; that is a constraint, not a marketing line.</p>
+        <p class="eyebrow reveal">Not ready to buy</p>
+        <h2 class="reveal">Get the three-finding preview for your site. Free.</h2>
+        <p class="reveal">Leave your email and your website. We run the technical check and
+          send you the top three findings &mdash; the same ones the four businesses above
+          received &mdash; within two business days.</p>
         <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
+          <label class="visually-hidden" for="website">Your website</label>
+          <input id="website" name="website" type="text" required placeholder="yourbusiness.com" autocomplete="url">
           <label class="visually-hidden" for="email">Email address</label>
-          <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+          <input id="email" name="email" type="email" required placeholder="you@yourbusiness.com" autocomplete="email">
+          <input type="hidden" name="source" value="site_free_preview">
           <button class="btn" type="submit">
-            Send me the stack
+            Send my three findings
             <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg>
           </button>
         </form>
