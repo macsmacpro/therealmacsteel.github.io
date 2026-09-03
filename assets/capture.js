@@ -50,18 +50,30 @@
       if (btn) { btn.disabled = true; }
       note(form, "Sending…", true);
 
+      // 2026-09-03 client onboarding: a form whose hidden source starts with
+      // "onboarding:" is a post-purchase intake — every named field goes up
+      // (the worker keeps them under `extra`), and the source is sent raw so
+      // venture_leads_pull can route it to the client record.
+      var isOnboarding = !!(srcEl && /^onboarding:/.test(srcEl.value || ""));
+      var payloadObj = {
+        name: nameEl && nameEl.value ? nameEl.value : "",
+        email: email.value,
+        company: site && site.value ? site.value : "",
+        website: site && site.value ? site.value : "",
+        offer: offerEl && offerEl.value ? offerEl.value : "",
+        message: msgEl && msgEl.value ? msgEl.value : "",
+        source: isOnboarding ? srcEl.value
+          : "web:" + location.pathname + (srcEl && srcEl.value ? "#" + srcEl.value : "")
+      };
+      if (isOnboarding) {
+        Array.prototype.forEach.call(form.querySelectorAll("[name]"), function (el) {
+          if (el.name && !(el.name in payloadObj) && el.value) { payloadObj[el.name] = el.value; }
+        });
+      }
       fetch(ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: nameEl && nameEl.value ? nameEl.value : "",
-          email: email.value,
-          company: site && site.value ? site.value : "",
-          website: site && site.value ? site.value : "",
-          offer: offerEl && offerEl.value ? offerEl.value : "",
-          message: msgEl && msgEl.value ? msgEl.value : "",
-          source: "web:" + location.pathname + (srcEl && srcEl.value ? "#" + srcEl.value : "")
-        })
+        body: JSON.stringify(payloadObj)
       })
         .then(function (r) { return r.json().catch(function () { return { ok: false, error: "HTTP " + r.status }; }); })
         .then(function (d) {
