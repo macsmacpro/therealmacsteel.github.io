@@ -1,254 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SteelWorks Intelligence — Be the answer when someone asks an AI for a business like yours</title>
-<meta name="description" content="AI assistants now answer 'who should I call?' directly. We audit what ChatGPT, Claude and Perplexity can read about your Atlanta-area business, hand you the exact fixes, and re-check that they held. $97, 72 hours.">
-<link rel="icon" href="/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="/assets/components.css">
-<!--
-  design-knowledge: style-systems.csv#4 Brutalism + #1 Minimalism & Swiss Style
-  design-knowledge: font-pairings.csv#9 Developer Mono (JetBrains Mono + IBM Plex Sans)
-  design-knowledge: palettes.csv#81 neutral direction, chromatics re-derived in oklch
-  design-knowledge: motion-presets.csv#5 scroll reveal 400-600ms, #1 hover 150-200ms
-  design-knowledge: ux-guidelines.csv focus visibility, 44px targets, reduced motion
-  design-knowledge: huashu design-styles.md:31 oklch convergence (2 chromatics, 150 deg apart)
-  Decisions of record: data/org/web-design-decisions.md
-  2026-09-02 rewrite: the page now speaks to the BUYER (a local service business
-  owner) about THEIR problem, with proof from real audits run this week. The
-  previous page described the company that built it. data/knowledge/
-  "Doctrine  Service-first pivot 2026-09-02.md"
--->
-</head>
-<body>
+<!doctype html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>SteelWorks Intelligence — Build in public. Automate everything.</title>
+<meta name=description content="55 autonomous AI agents. $0/month. Every output gated before it ships.">
+<link rel=preconnect href="https://fonts.googleapis.com"><link rel=preconnect href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel=stylesheet>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#04060c;--txt:#dfeeff;--dim:#6b86a8;--cyan:#25e8b6;--blue:#4db8ff;--line:rgba(100,150,220,.14)}
+body{background:var(--bg);color:var(--txt);font:16px/1.65 Inter,-apple-system,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased}
+.mono{font-family:'Space Mono',monospace}
+.hero{position:relative;min-height:82vh;display:flex;align-items:center;overflow:hidden;
+ border-bottom:1px solid var(--line)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.hero:after{content:"";position:absolute;inset:0;background:
+ radial-gradient(circle at 25% 20%,rgba(30,110,255,.18),transparent 50%),
+ linear-gradient(180deg,rgba(4,6,12,.55),rgba(4,6,12,.82) 65%,var(--bg))}
+.hwrap{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:60px 28px;width:100%}
+.badge{display:inline-flex;align-items:center;gap:8px;font:600 11px/1 'Space Mono',monospace;letter-spacing:2.5px;
+ color:var(--cyan);border:1px solid rgba(37,232,182,.32);border-radius:100px;padding:8px 15px;text-transform:uppercase}
+.badge .d{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:pl 1.8s infinite}
+@keyframes pl{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:Fraunces,serif;font-weight:900;font-size:clamp(44px,7.5vw,86px);line-height:1.02;
+ letter-spacing:-1.5px;margin:26px 0 0;max-width:14ch;
+ background:linear-gradient(92deg,#ffffff,#a9d4ff 45%,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.tag{font-family:Fraunces,serif;font-style:italic;font-size:clamp(20px,2.6vw,27px);color:#9fc0e6;margin:22px 0 10px;font-weight:500}
+.pos{color:var(--dim);max-width:56ch;font-size:16.5px}
+.hcta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;background:linear-gradient(92deg,#1f74ff,#25c6b0);color:#fff;font-weight:700;
+ padding:14px 26px;border-radius:13px;text-decoration:none;letter-spacing:.3px;transition:.16s;box-shadow:0 8px 30px rgba(31,116,255,.3)}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn2{color:var(--txt);text-decoration:none;font-weight:600;border:1px solid var(--line);padding:14px 22px;border-radius:13px}
+.btn2:hover{border-color:var(--cyan)}
+.hp{font:600 12px/1 'Space Mono',monospace}
+.hp.on{color:var(--cyan)}.hp.off{color:#ff7a93}.hp.mut{color:var(--dim)}
+.sec{max-width:1080px;margin:0 auto;padding:74px 28px}
+.eyebrow{font:700 11px/1 'Space Mono',monospace;letter-spacing:3px;color:var(--blue);text-transform:uppercase;margin-bottom:22px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stat{background:linear-gradient(180deg,rgba(18,28,48,.6),rgba(12,18,32,.4));border:1px solid var(--line);
+ border-radius:18px;padding:26px 22px;position:relative;overflow:hidden}
+.stat:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--blue),var(--cyan))}
+.stat b{font-family:'Space Mono',monospace;font-size:clamp(30px,3.4vw,44px);display:block;color:#eaf5ff;line-height:1}
+.stat span{font-size:11.5px;letter-spacing:1.5px;color:var(--dim);text-transform:uppercase;margin-top:8px;display:block}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+h2{font-family:Fraunces,serif;font-weight:600;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.5px;margin-bottom:8px;color:#eef6ff}
+.lead{color:var(--dim);margin-bottom:26px;max-width:46ch}
+ul{list-style:none}
+li{padding:14px 0 14px 30px;position:relative;color:#c4dcf4;border-bottom:1px solid var(--line);font-size:15px}
+.fc{position:absolute;left:0;top:19px;width:9px;height:9px;border-radius:2px;transform:rotate(45deg);
+ background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 0 9px rgba(37,232,182,.5)}
+.post{display:flex;align-items:center;gap:14px;background:rgba(16,26,44,.42);border:1px solid var(--line);
+ border-radius:14px;padding:15px 18px;margin-bottom:11px;text-decoration:none;transition:.16s}
+.post:hover{border-color:rgba(37,232,182,.42);background:rgba(20,32,54,.6)}
+.pp{font:700 10px/1 'Space Mono',monospace;color:var(--cyan);text-transform:uppercase;letter-spacing:1px;flex:0 0 auto}
+.pt{color:#c4dcf4;font-size:14px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pl{color:var(--dim);font-size:12px;flex:0 0 auto}
+.offers{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+.offer{display:block;background:linear-gradient(180deg,rgba(18,28,48,.6),rgba(12,18,32,.35));border:1px solid var(--line);
+ border-radius:20px;padding:30px;text-decoration:none;transition:.18s}
+.offer:hover{border-color:rgba(37,232,182,.4);transform:translateY(-2px);box-shadow:0 18px 50px rgba(0,40,90,.3)}
+.ok{font:700 10.5px/1 'Space Mono',monospace;letter-spacing:2px;color:var(--blue);text-transform:uppercase}
+.offer h3{font-family:Fraunces,serif;font-weight:600;font-size:27px;color:#eef6ff;margin:12px 0 10px}
+.offer p{color:var(--dim);font-size:14.5px;margin-bottom:18px}
+.obtn{color:var(--cyan);font-weight:700;font-size:14px}
+.aiask{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.aibtn{display:inline-block;background:rgba(16,26,44,.55);border:1px solid rgba(37,232,182,.28);border-radius:12px;
+ padding:12px 20px;color:var(--txt);text-decoration:none;font-size:14px;font-weight:600;transition:.15s}
+.aibtn:hover{border-color:rgba(37,232,182,.7);background:rgba(37,232,182,.08)}
+.divider{border:0;border-top:1px solid var(--line);max-width:1080px;margin:0 auto}
+footer{max-width:1080px;margin:0 auto;padding:44px 28px 70px;color:var(--dim);font-size:13.5px;display:flex;
+ flex-wrap:wrap;gap:14px;align-items:center}
+footer a{color:var(--blue);text-decoration:none}footer .sp{margin-left:auto}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.split,.offers{grid-template-columns:1fr;gap:34px}}
+</style></head><body>
 
-<!-- steelworks:header -->
-<a class="skip-link" href="#main">
-Skip to content</a>
-<header class="site-header">
-  <div class="shell">
-    <a class="brand" href="/index.html">
-      <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-terminal-2"></use></svg>
-      SteelWorks
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/index.html">Home</a>
-      <a href="/products/index.html">Products</a>
-      <a href="/ai-search-visibility.html">AI Visibility</a>
-      <a href="/services.html">Services</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
+<section class=hero>
+ <img src="assets/hero.jpg" alt="" onerror="this.style.display='none'">
+ <div class=hwrap>
+  <span class=badge><span class=d></span>Live · self-updating · September 7, 2026</span>
+  <h1>55 autonomous AI agents.</h1>
+  <p class=tag>Build in public. Automate everything.</p>
+  <p class=pos>Serial entrepreneur who built an autonomous AI business from scratch</p>
+  <div class=hcta>
+   <a class=btn href="contact.html">Book a build</a>
+   <a class=btn2 href="platform.html">See the platform</a>
+   <span class="hp off">● alerts open</span>
   </div>
-</header>
-<!-- /steelworks:header -->
+ </div>
+</section>
 
-<main id="main">
+<section class=sec>
+ <div class=stats><div class=stat><b>55</b><span>AI agents</span></div><div class=stat><b>77</b><span>skills</span></div><div class=stat><b>$0</b><span>per month</span></div><div class=stat><b>11,741</b><span>brain nodes</span></div></div>
+ <div class=stats style="margin-top:14px"><div class=stat><b>144</b><span>brain notes</span></div><div class=stat><b>24,073</b><span>graph edges</span></div><div class=stat><b>5/5</b><span>ventures live</span></div><div class=stat><b>93</b><span>outreach sends</span></div></div>
+</section>
 
-  <section class="section">
-    <div class="shell">
-      <p class="eyebrow reveal">SteelWorks Intelligence &middot; Acworth, Georgia</p>
-      <h1 class="reveal">When someone asks ChatGPT for a dentist near Marietta &mdash;<br>are you the answer?</h1>
-      <p class="lede reveal">People now ask AI assistants "who should I call?" and get one
-        name back. We check what ChatGPT, Claude and Perplexity can actually read about
-        your business, hand you the exact fixes, and re-check that they held.
-        <strong>$97. 72 hours. No retainer.</strong></p>
-      <div class="cluster reveal">
-        <a class="btn" href="https://macsmacpro.gumroad.com/l/wylnau?utm_source=site_hero">
-          Get your audit &mdash; $97
-          <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-arrow-right"></use></svg>
-        </a>
-        <a class="btn btn-ghost" href="#proof">
-          See a real audit first
-          <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-file-text"></use></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="proof">
-    <div class="shell grid grid-2">
-      <div class="reveal">
-        <p class="eyebrow">Real audits, this week</p>
-        <h2>Four Atlanta-area businesses. Same checks you would get.</h2>
-        <p>These are real sites we audited on 2026&#8209;09&#8209;01. Names withheld until
-          the owners say yes; the scores and the findings are exactly what the report
-          said.</p>
-        <!-- data-proof rows are rewritten by scripts/site_proof_build.py from
-             data/org/pivot/audit-proof.jsonl on every website_sync. -->
-        <div class="receipt" data-proof="table">
-          <dl>
-            <dt><strong>Real estate brokerage, Marietta</strong><small>firewall turning away AI crawlers &middot; no llms.txt &middot; no LocalBusiness schema</small></dt><dd class="score">62<span class="fine">/100</span></dd>
-            <dt><strong>Veterinary clinic, Atlanta</strong><small>no llms.txt &middot; weak homepage description &middot; weak title tag</small></dt><dd class="score">54<span class="fine">/100</span></dd>
-            <dt><strong>Nail salon, Roswell</strong><small>no llms.txt &middot; no LocalBusiness schema &middot; no clear headline</small></dt><dd class="score">33<span class="fine">/100</span></dd>
-            <dt><strong>Law firm, Atlanta</strong><small>no llms.txt &middot; no LocalBusiness schema &middot; weak description</small></dt><dd class="score">27<span class="fine">/100</span></dd>
-          </dl>
-        </div>
-        <p class="fine">One of the four was turning away AI crawlers at the firewall
-          without knowing it. That business is invisible to every assistant,
-          whatever its Google ranking.</p>
-      </div>
-      <figure class="reveal flush">
-        <img src="/assets/img/machined-steel.jpg" width="800" height="600"
-             alt="Machined steel under measurement — the audit reports what it measured, not what it assumed.">
-        <figcaption class="fine">Measured, not guessed. Every score line maps to a listed check.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="shell">
-      <p class="eyebrow reveal">How it works</p>
-      <h2 class="reveal">Three steps. You keep your website.</h2>
-      <div class="stack">
-
-        <article class="reveal grid grid-2">
-          <div>
-            <h3><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-file-text"></use></svg>
-              1. We audit your real site</h3>
-            <p>The same way an assistant reads it: can its crawlers get in, is there a
-              machine-readable summary, does structured data say what and where you are,
-              what do the engines already believe about you, and who gets cited instead
-              of you for the five questions your customers ask.</p>
-          </div>
-          <div class="receipt">
-            <dl>
-              <dt>technical readiness</dt><dd>scored</dd>
-              <dt>what engines know about you</dt><dd>probed</dd>
-              <dt>who gets cited instead</dt><dd>5 queries</dd>
-              <dt>anything we could not check</dt><dd>says so</dd>
-            </dl>
-          </div>
-        </article>
-
-        <hr class="rule">
-
-        <article class="reveal">
-          <h3><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-check"></use></svg>
-            2. You get the fixes, written for your site</h3>
-          <p>Not "improve your SEO." The actual llms.txt file with your business in it.
-            The exact robots lines. The JSON&#8209;LD block with your real name, address
-            and services. The one firewall rule to change. Ranked by impact.</p>
-          <p class="cluster"><span class="metric">&lt;1h</span>
-            <span class="mono">for you or your web person to apply every fix on the list</span></p>
-        </article>
-
-        <hr class="rule">
-
-        <article class="reveal">
-          <h3><svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-shield-check"></use></svg>
-            3. We re-check and show the score move</h3>
-          <p>A second audit after the fixes are in, so you see the number change instead
-            of taking our word for it. If we could not fetch your site in the first
-            place, no score is invented &mdash; we re-run at no charge once it is reachable.</p>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="pricing">
-    <div class="shell grid grid-2">
-      <div class="reveal">
-        <p class="eyebrow">Pricing</p>
-        <h2>One price. One report. One re-check.</h2>
-        <div class="receipt">
-          <dl>
-            <dt>AI Search Readiness Audit</dt><dd><span class="metric">$97</span></dd>
-            <dt>scorecard + findings + ranked fixes</dt><dd>included</dd>
-            <dt>copy-paste files written for your site</dt><dd>included</dd>
-            <dt>re-check after you apply them</dt><dd>included</dd>
-            <dt>turnaround</dt><dd>72 hours</dd>
-            <dt>retainer, upsell, contract</dt><dd>none</dd>
-          </dl>
-        </div>
-        <div class="cluster">
-          <a class="btn" href="https://macsmacpro.gumroad.com/l/wylnau?utm_source=site_pricing">
-            Get your audit &mdash; $97
-            <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-building-store"></use></svg>
-          </a>
-          <a class="btn btn-ghost" href="/intake/ai-search-website.html">
-            Want it done for you? Ask about the site package
-            <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-chevron-right"></use></svg>
-          </a>
-        </div>
-      </div>
-      <div class="reveal">
-        <p class="eyebrow">Straight answers</p>
-        <h3>Do I need a new website?</h3>
-        <p>No. Every fix in the report goes on the site you already have.</p>
-        <h3>My site ranks fine on Google. Why does this matter?</h3>
-        <p>Assistants do not read Google's ranking. They read your pages directly, and a
-          site can rank well while blocking the crawlers assistants use. That was the
-          top finding on the first site we audited this week.</p>
-        <h3>What exactly do I receive?</h3>
-        <p>A report with a scorecard, every check we ran and what it found, the ranked
-          fixes with the files written out, and a methodology section that says what was
-          automated and what could not be assessed. Nothing is invented to fill a gap.</p>
-        <h3>Who does the work?</h3>
-        <p>SteelWorks Intelligence, Acworth GA. The audit engine is ours, and it says
-          plainly what it could not check rather than guessing.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="capture">
-    <div class="shell">
-      <hr class="rule">
-      <div class="stack pad-t">
-        <p class="eyebrow reveal">Not ready to buy</p>
-        <h2 class="reveal">Get the three-finding preview for your site. Free.</h2>
-        <p class="reveal">Leave your email and your website. We run the technical check and
-          send you the top three findings &mdash; the same ones the four businesses above
-          received &mdash; within two business days.</p>
-        <form class="capture reveal" action="https://swi-leads.macsmacpro.workers.dev/api/lead" method="post">
-          <label class="visually-hidden" for="website">Your website</label>
-          <input id="website" name="website" type="text" required placeholder="yourbusiness.com" autocomplete="url">
-          <label class="visually-hidden" for="email">Email address</label>
-          <input id="email" name="email" type="email" required placeholder="you@yourbusiness.com" autocomplete="email">
-          <input type="hidden" name="source" value="site_free_preview">
-          <button class="btn" type="submit">
-            Send my three findings
-            <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-mail"></use></svg>
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- steelworks:footer -->
-<footer class="site-footer">
-
-  <div class="shell">
-    <hr class="rule">
-    <div class="footer-links">
-      <a href="/index.html">Home</a>
-      <a href="/services.html">Services</a>
-      <a href="/free-ai-business-stack.html">Free AI Stack</a>
-      <a href="/products/index.html">Products</a>
-      <a href="/blog/index.html">Blog</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/ventures/index.html">Ventures</a>
-      <a href="/podcast/index.html">Podcast</a>
-      <a href="/newsletter/index.html">Newsletter</a>
-      <a href="/campaigns/index.html">Campaigns</a>
-      <a href="https://github.com/therealmacsteel" rel="noopener">
-        <svg class="ti" aria-hidden="true"><use href="/assets/vendor/tabler/icons.svg#ti-brand-github"></use></svg>
-        GitHub
-      </a>
-    </div>
-    <p class="mono">SteelWorks Intelligence LLC — Acworth, GA. Built and operated by an autonomous agent fleet.</p>
+<hr class=divider>
+<section class=sec>
+ <div class=split>
+  <div>
+   <div class=eyebrow>Proof, not promises</div>
+   <h2>Everything here is verified live.</h2>
+   <p class=lead>These facts regenerate from the running system on every publish. No mockups, no vanity numbers.</p>
   </div>
+  <ul><li><span class="fc"></span>45 agents defined (specialized business roles + core orchestration), each a distinct function</li><li><span class="fc"></span>$0/month — runs on free local models (Ollama) on an M1 MacBook, with a personal RTX gaming PC as burst inference</li><li><span class="fc"></span>every output passes a brand+quality+compliance gate before it ships — junk is held, not posted</li><li><span class="fc"></span>learns autonomously from YouTube nightly: transcribes channels, extracts ranked opportunities into shared agent memory</li><li><span class="fc"></span>surfaced opportunities auto-route to agents and execute through the gates — the loop runs itself</li><li><span class="fc"></span>openclaw platform, networked over Tailscale; brand @therealmacsteel / SteelWorks Intelligence</li></ul>
+ </div>
+</section>
+
+<hr class=divider>
+<section class=sec>
+ <div class=eyebrow>Shipping in public</div>
+ <h2>Latest from @therealmacsteel</h2>
+ <p class=lead>Real posts, real permalinks — click through to the live tweet.</p>
+ <a class="post" href="https://x.com/therealmacsteel/status/2095941751252869408" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">1 post(s) published to social platforms.
+
+My autonomous AI fleet runs this end-to-end — no human in the loop.
+
+What would you hand</span><span class="pl">view ↗</span></a><a class="post" href="https://x.com/therealmacsteel/status/2095849485582651558" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">Spent today wiring a per-agent trust spine so my 45 agents can act safely at $0/month. The build moment: 8 autonomous actions toda</span><span class="pl">view ↗</span></a><a class="post" href="https://x.com/therealmacsteel/status/2095577565255606688" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">1 post(s) published to social platforms.
+
+My autonomous AI fleet runs this end-to-end — no human in the loop.
+
+What would you hand</span><span class="pl">view ↗</span></a><a class="post" href="https://x.com/therealmacsteel/status/2095217726633521246" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">2 post(s) published to social platforms.
+
+My autonomous AI fleet runs this end-to-end — no human in the loop.
+
+What would you hand</span><span class="pl">view ↗</span></a><a class="post" href="https://x.com/therealmacsteel/status/2095121778829881746" target="_blank" rel="noopener"><span class="pp">twitter</span><span class="pt">Found a revenue gap hiding in plain sight: Create Gumroad product for &#x27;Pinterest&#x27;. A creator, consultant, or small business owner </span><span class="pl">view ↗</span></a>
+</section>
+
+<hr class=divider>
+<section class=sec>
+ <div class=eyebrow>Work with the system</div>
+ <h2>Two ways to get the edge.</h2>
+ <div class=offers><a class="offer" href="contact.html"><div class="ok">Done-for-you</div><h3>Agentic OS Setup</h3><p>I build your autonomous agent OS — skills, second-brain memory, a live command dashboard — so your business runs while you sleep. Free-first stack, no paid APIs.</p><span class="obtn">Book a build →</span></a><a class="offer" href="https://github.com/therealmacsteel"><div class="ok">Freemium tool</div><h3>proofkit</h3><p>The adversarial layer that assumes your agent is lying until a real artifact proves it ran. Catches fake-success, dry-run theater, and stub code before it ships.</p><span class="obtn">Get proofkit →</span></a></div>
+</section>
+
+<hr class=divider>
+<section class=sec>
+ <div class=eyebrow>AI-first discovery</div>
+ <h2>Ask AI about SteelWorks Intelligence.</h2>
+ <p class=lead>AI is how people vet you now. Ask your assistant — it reads our llms.txt and answers live.</p>
+ <div class=aiask><a class=aibtn href="https://chatgpt.com/?q=Who%20is%20SteelWorks%20Intelligence%20%28%40therealmacsteel%29%20and%20what%20does%20their%20autonomous%20AI%20agent%20fleet%20do%3F%20Summarize%20from%20their%20site%20therealmacsteel.github.io%20and%20its%20llms.txt." target="_blank" rel="noopener">ChatGPT</a><a class=aibtn href="https://claude.ai/new?q=Who%20is%20SteelWorks%20Intelligence%20%28%40therealmacsteel%29%20and%20what%20does%20their%20autonomous%20AI%20agent%20fleet%20do%3F%20Summarize%20from%20their%20site%20therealmacsteel.github.io%20and%20its%20llms.txt." target="_blank" rel="noopener">Claude</a><a class=aibtn href="https://www.perplexity.ai/search?q=Who%20is%20SteelWorks%20Intelligence%20%28%40therealmacsteel%29%20and%20what%20does%20their%20autonomous%20AI%20agent%20fleet%20do%3F%20Summarize%20from%20their%20site%20therealmacsteel.github.io%20and%20its%20llms.txt." target="_blank" rel="noopener">Perplexity</a><a class=aibtn href="https://www.google.com/search?udm=50&amp;q=Who%20is%20SteelWorks%20Intelligence%20%28%40therealmacsteel%29%20and%20what%20does%20their%20autonomous%20AI%20agent%20fleet%20do%3F%20Summarize%20from%20their%20site%20therealmacsteel.github.io%20and%20its%20llms.txt." target="_blank" rel="noopener">Google AI</a></div>
+</section>
+
+<hr class=divider>
+<footer>
+ <span>SteelWorks Intelligence · @therealmacsteel</span>
+ <span>·</span><a href="platform.html">Platform</a>
+ <a href="content.html">Content</a><a href="contact.html">Contact</a>
+ <span class=sp>Regenerated from live system data · September 7, 2026</span>
 </footer>
-<!-- /steelworks:footer -->
-
-<script src="/assets/capture.js" defer></script>
-</body>
-</html>
+</body></html>
